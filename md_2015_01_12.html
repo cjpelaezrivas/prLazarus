@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Cómo evitar las NullPointerException (NPE) en Java [Parte 2]</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Carlos J. Peláez Rivas" />
+<meta name="description" content="prLázarus blog de programación" />
+<meta name="keywords" content="blog, programación, programacion, programming, coding, code, desarrollo, development, carlos, jesús, jesus, peláez, pelaez, rivas, málaga, malaga, uma, españa, spain" />
+
+<link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/lightbox.min.css"/>
+
+<link rel="stylesheet" type="text/css" href="css/base.css"/>
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
+<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
+<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+<link rel="stylesheet" type="text/css" href="css/toc.css"/>
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
+
+<script src="js/scroll.js"></script>
+<script src="js/tags.js"></script>
+<script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
+<script>
+	lightbox.option({
+	  'albumLabel': "Imagen %1 de %2",
+	  'fadeDuration': 250,
+	  'resizeDuration': 250,
+	  'wrapAround': true
+	})
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74491738-2');
+</script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<div id="navbar">
+	<div id="zoneA">
+		<div class="content">
+			<div id="logo">
+				<a href="index.html"><img src="images/logo.png"/></a>
+			</div>
+
+			<div id="subtitle">
+				Blog de desarrollo de proyectos Software, tutoriales, consejos y varios.
+			</div>
+		</div>
+	</div>
+	<div id="zoneB">
+		<div class="content">
+			<div id="menu">
+				<a class="menuItem" href="index.html"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
+				<a class="menuItem" href="https://cjpelaezrivas.github.io/Microblog/"><i class="fa fa-comments"></i><span class="text"> Microblog</span></a>
+				<a class="menuItem" href="http://www.cjpelaezrivas.tk"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Cómo evitar las NullPointerException (NPE) en Java [Parte 2]</h1>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#consejos-y-mejores-practicas-para-evitar-las-nullpointerexception">Consejos y mejores prácticas para evitar las NullPointerException</a></li>
+<li><a href="#para-finalizar">Para finalizar…</a></li>
+</ul>
+</div>
+
+<script type="text/javascript">
+generateEntryInfo('lunes, 12 de enero de 2015', 'Consejos', 'Java', 'Lecciones', 'NullPointerException');
+</script>
+<p>Muy buenas a todos, Hoy vamos a continuar con la segunda parte de la lección de la excepción NullPointerException. Si tenéis interés en ver la primera parte de la lección y conocer algunos detalles más de esta excepción en particular y qué escenarios la causan, podéis leerla <a href="md_2014_10_01.html">aquí</a>.</p>
+<p>La parte que nos toca hoy va más encaminada a cómo evitar este tipo de excepciones que a controlarlas. <strong>¡Vamos a ello!</strong> <br> Recordando, las NullPointerException (NPE) son la mejor manera de resolver las referencias a objetos nulos, y además, son la clave para tener programas robustos y que se ejecutan de forma suave. Vamos a ver una serie de técnicas preventivas para evitar estas excepciones en gran medida. Lo que podemos resumir como: <strong><em>“Más vale prevenir, que curar…”</em></strong>.</p>
+<p>Si seguimos estas técnicas, además minimizaremos el uso de las típicas comprobaciones !=null, lo que nos ahorrará mucho código. Probablemente, un programador experto conozca todas o algunas de estas técnicas, pero siempre vienen bien recordarlas o puede que sean útiles para programadores no tan duchos en la materia.</p>
+<div id="consejos-y-mejores-practicas-para-evitar-las-nullpointerexception" class="section level3">
+<h3>Consejos y mejores prácticas para evitar las NullPointerException</h3>
+<p>Enumeraremos una serie de reglas muy sencillas de seguir, pero que tendrán un impacto significante en nuestro código, añadiendo calidad y robustez.</p>
+<p><strong>Consejo 1</strong> <br> <strong>Invoca a los métodos equals() e equalsIgnoreCase() sobre objetos conocidos, en lugar de sobre objetos desconocidos.</strong> <br> La mejor idea es llamar siempre a equals() sobre objetos que tenemos total certeza que no son nulos. Por ejemplo sobre un String conocido, como veréis a continuación en el ejemplo.</p>
+<p>De acuerdo, el método equals() es simétrico, es indiferente usar a.equals(b), que usar b.equals(a), pero elegir el orden apropiado puede ayudarnos en muchos momentos, y será de de las mejores prácticas que deberíamos empezar a aplicar. Siempre que no lo hagamos ya.</p>
+<pre class="java"><code>Object objetoDesconocido = null;
+
+// Uso incorrecto - No sabemos si se lanzarán NullPointerException o no
+if(objetoDesconocido.equals(&quot;objetoConocido&quot;)) { //Aquí puede lanzarse una NPE si &#39;objetoDesconocido&#39; es nulo
+    System.out.println(&quot;...&quot;);
+}
+
+// Uso correcto - Sabemos con total certeza que no aparecerán las NullPointerException
+if(&quot;objetoConocido&quot;.equals(objetoDesconocido)) { //Aquí evitamos las NPE aunque &#39;objetoDesconocido&#39; sea nulo
+    System.out.println(&quot;...&quot;);
+}</code></pre>
+<p>Este puede llegar a ser el consejo más sencillo y práctico que vais a encontrar hoy aquí, y si se usa, los resultados son tremendamente buenos, dado que el método equals() puede llegar a convertirse en algo muy usado en cualquier tipo de proyecto.</p>
+<p><strong>Consejo 2</strong> <br> <strong>Usar <code>String.valueOf()</code> en lugar de toString() dónde ambos nos den el mismo resultado.</strong> <br> Dado que el método <code>toString()</code> sobre objetos nulos nos lanza una NPE, si podemos obtener el mismo valor usando el método <code>valueOf()</code> entonces vamos a preferirlo de calle. Esto es debido a que si invocamos al método <code>valueOf()</code> sobre un objeto nulo, este nos devolverá “null”, de modo que es especialmente útil en clases “envueltas” (Wrapper clases), tales como <code>Integer</code>, <code>Float</code>, <code>Double</code> o <code>BigDecimal</code>.</p>
+<pre class="java"><code>BigDecimal bd = null;
+
+// Uso incorrecto - No sabemos si se lanzarán NullPointerException o no
+System.out.println(bd.toString()); //Aquí puede lanzarse una NPE si &#39;bd&#39; es nulo
+
+// Uso correcto - Sabemos con total certeza que no aparecerán las NullPointerException
+System.out.println(String.valueOf(bd)); //Aquí evitamos las NPE aunque &#39;bd&#39; sea nulo</code></pre>
+<p>Podemos usar este consejo si no estamos seguro de que los objetos usados sean nulos o no.</p>
+<p><strong>Consejo 3</strong> <br> <strong>Usar librerías y métodos ‘Null Safe’.</strong> <br> Puede que parezca una tontería, pero el uso de determinadas librerías en nuestro proyecto puede afectar en muchos puntos al desarrollo del mismo. Hay muchísimas librerías libres (Open source) por ahí esperando a ser usadas por ti, las cuales son capaces de realizar la ardua tarea de comprobar las referencias nulas, y ahorrarle el trabajo a tu persona. Una de las más famosas, y también puede que la más usada, es StringUtils de Apache Commons. Contiene una gran cantidad de métodos ‘Null Safe’ que cuando los descubrís pensáis: ¿Pero cómo no he visto yo esto antes…? Ahora en serio. Podemos usar distintos métodos muy útiles, tales como: <code>StringUtils.isBlank()</code>, <code>StringUtils.isNumeric()</code>, <code>StringUtils.isWhiteSpace()</code> y un largo etcétera, sin preocuparnos lo más mínimo de las NullPointerExceptions. He aquí algunos ejemplos esclarecedores:</p>
+<pre class="java"><code>System.out.println(StringUtils.isEmpty(null));
+System.out.println(StringUtils.isBlank(null));
+System.out.println(StringUtils.isNumeric(null));
+System.out.println(StringUtils.isAllUpperCase(null));
+
+/* Obteniendo como salida:
+true
+true
+false
+false */</code></pre>
+<p>Obviamente no debemos ser creyentes ciegos. Nuestra obligación es leer la documentación de las clases y métodos ‘Null Safe’ que usemos en nuestro código, de modo que no lleguemos a ninguna conclusión equivocada sobre los mismo. También podéis fiaros ciegamente de mí, es otra opción.</p>
+<p>Por si os quedáis con ganas de más métodos ‘Null Safe’, aquí os doy otro muy útil. Se trata de <code>ObjetUtils.equals()</code> de Apache Commons. Viene muy al caso. Antes hemos hablado del método <code>equals()</code> y los casos en los que podía lanzar una NPE. Bueno, con este método todos esos problemas de orden y excepciones desaparecen. Cualquiera de los dos objetos puede ser nulo y simplemente obtendremos el booleano que corresponda a las entradas dadas.</p>
+<p>Claro que no todo es idílico. Este método hace algunas comprobaciones más que <code>equals()</code>, lo que se traduce en más tiempo de ejecución, y puede llegar a afectar al rendimiento si estamos realizando una tarea que se basa en la velocidad de ejecución. Vale, Java tampoco es que sea el lenguaje más rápido del mundo, ni que vaya a consumir segundos realizando las comprobaciones pero tampoco es cuestión de matar moscas a cañonazos. Si sabemos que ciertos objetos nunca serán nulos, por ejemplo, ¿para qué hacer comprobaciones de más?</p>
+<p>Este método, al menos en mi opinión, es algo a tener en cuenta para ciertas situaciones, y para nada es la mejor opción siempre. Por lo que a mí respecta no sustituye al método <code>equals()</code> de Object. Aquí algunos ejemplos para ver su salida para ciertas entradas:</p>
+<pre class="java"><code>System.out.println(ObjectUtils.equals(null, null));  // true
+System.out.println(ObjectUtils.equals(null, &quot;&quot;)); // false
+System.out.println(ObjectUtils.equals(&quot;&quot;, null) ); // false
+System.out.println(ObjectUtils.equals(&quot;&quot;, &quot;&quot;)); //true
+System.out.println(ObjectUtils.equals(Boolean.TRUE, null)); //false
+System.out.println(ObjectUtils.equals(Boolean.TRUE, &quot;true&quot;)); //false
+System.out.println(ObjectUtils.equals(Boolean.TRUE, Boolean.TRUE)); //true
+System.out.println(ObjectUtils.equals(Boolean.TRUE, Boolean.FALSE)); // false</code></pre>
+<p><strong>Consejo 4</strong> <br> <strong>Evitar devolver NULL como salida de los métodos.</strong> <br> En lugar de devolver null, es mejor idea devolver una colección o array vacío. Devolviendo colecciones o arrays vacíos estamos seguros seguros de que llamadas como size(), length() no fallaran nunca con una NPE. De modo que evitamos esas comprobaciones inútiles antes de tratar una colección.</p>
+<p><code>Collections.class</code> dispone de constantes para listas, conjuntos y maps que pueden ser usados de la siguiente manera:</p>
+<pre class="java"><code>public List getEmptyList(){
+    List result = Collections.EMPTY_LIST;
+    return result;
+}
+
+public Set getEmptySet(){
+    Set result = Collections.EMPTY_SET;
+    return result;
+}
+
+public Map getEmptyMap(){
+    Map result = Collections.EMPTY_MAP;
+    return result;
+}</code></pre>
+<p><strong>Consejo 5</strong> <br> <strong>Uso de las anotaciones <span class="citation">@NotNull</span> and <span class="citation">@Nullable</span>.</strong> <br> Mientras se desarrolla código se pueden añadir notas sobre la nulabilidad de cierto método dejando claro si este es ‘Null Safe’ o no lo es. Esto es posible gracias a las etiquetas <code>@NotNull</code> y <code>@Nullable</code>. Los compiladores, IDE o herramientas modernas pueden leer estas anotaciones y asistir a los usuarios sobre falta de comprobaciones en objetos potencialmente nulos, o sobre comprobaciones innecesarias que se han realizado.</p>
+<p>Además, aunque no estemos trabajando con una herramienta capaz de llevar a cabo estas acciones, estas anotaciones funcionan como documentación, lo que significa que el programador echando un vistazo rápido a la documentación de cierto método puede decidir rápidamente si es necesaria una comprobación para que no sea nulo o no.</p>
+<p>A pesar de todo, esto es una práctica algo nueva. No todos los programadores de Java la realizan a día de hoy y puede llevar algún tiempo en ser adoptada por completo. Igualmente, no es una mala práctica, y si estás aprendiendo en estos momentos (lo cual nunca se debería dejar de hacer) lo más recomendable es aplicar esta técnica.</p>
+<p><strong>Consejo 6</strong> <br> <strong>Evitar ‘autoboxing’ y ‘unboxing’ innecesarios en el código.</strong> <br> Y preguntareis, ¿qué es ‘autoboxing’ y ‘unboxing’? <br> Bueno, es normal que no lo sepais. Aunque lo usamos casi a diario en Java, pero de manera automática. Estas acciones son llevadas a cabo por el entorno de Java, de modo que no somos conscientes de ellas. Esto es un ejemplo de ‘autoboxing’:</p>
+<pre class="java"><code>Integer integer = 3;</code></pre>
+<p>Nosotros escribimos lo anterior, pero luego Java lo traducirá por algo así:</p>
+<pre class="java"><code>int numero = 3;
+Integer integer = new Integer(numero);</code></pre>
+<p>Y esto es un ejemplo de ‘unboxing’:</p>
+<pre class="java"><code>int in = new Integer(3);</code></pre>
+<p>Lo que Java también traducirá por algo como:</p>
+<pre class="java"><code>Integer integer = new Integer(3);
+int in = integer.intValue();</code></pre>
+<p>Bueno, ahora que tenemos algo más claro lo que significan estos conceptos podemos proseguir con este consejo. La cosa es que a pesar de otras desventajas como la de crear objetos temporales, el ‘autoboxing’ y el ‘unboxing’ también son propensos a lanzar una NPE, en caso de que el objeto de la clase contenedora sea nulo.</p>
+<pre class="java"><code>Persona lazarus = new Persona(&quot;Lázarus&quot;);
+int telefono = lazarus.getTelefono();</code></pre>
+<p>Explico el ejemplo anterior: Tenemos el objeto Persona. Persona tiene diferentes atributos, tales como nombre, dirección y teléfono. Nombre y dirección son de tipo <code>String</code>, y teléfono es de tipo <code>Integer</code>. Usaremos un constructor que tiene como entrada el nombre, y no inicializaremos el resto de variables. Ahora pedimos el teléfono de ‘lazarus’, pero el valor de teléfono es nulo, luego al hacer el ‘unboxing’ obtendremos una NullPointerException. Que tonto, ¿verdad? También existía la posibilidad de pedir el teléfono en una variable Integer, aquí no habríamos tenido problemas, y habríamos obtenido referencia a null en la variable destino.</p>
+<p><strong>Consejo 7</strong> <br> <strong>Seguir restricciones y definir valores por defecto razanobles.</strong> <br> Una de las mejores formas de evitar las NullPointerException en Java es tan simple como definir restricciones y seguirlas. La mayoria de las NPE suceden por crear objetos con información incompleta o porque todas las dependencias necesarias no han sido dadas. Si no permitimos crear objetos incompletos y de forma ‘bonita’ denegamos cualquier petición de creación, podemos prevenir muchas NPE por el camino.</p>
+<p>De forma similar, si permitimos crear dichos objetos, deberíamos trabajar con valores por defecto razonables. Vamos a usar un ejemplo: El objeto Empleado no puede ser creado sin id ni nombre, pero el número de teléfono es opcional. Ahora bien, en lugar de devolver nulo cuando pedimos el número de teléfono de un Empleado que no lo tiene, devolvemos, por ejemplo, el valor cero.</p>
+<p>Sin embargo, este tipo de decisiones debe ser tomada con mucho cuidado, dado que a veces comprobar si un valor es nulo o no puede ser más sencillo que comprobar si lo devuelto es un valor válido o no. Por cierto, una cosa más: definir qué puede ser nulo, y qué no ofrece al programador la posibilidad de tomar decisiones informadas en sus acciones en el momento que lo necesite, sin embargo, estas son importantes decisiones de diseño y han de ser tomadas y seguidas consecuentemente.</p>
+<p><strong>Consejo 8</strong> <br> <strong>Uso de restricciones en las bases de datos.</strong> <br> Si usamos bases de datos para guardar los objetos de nuestra aplicación, tales como Clientes, Pedidos, o cualquier otro objeto, deberíamos usar restricciones de nulabilidad en la misma base de datos.</p>
+<p>Dado que las bases de datos pueden obtener datos de muy diversas fuentes, comprobar la nulabilidad justo antes de insertarlos garantizará la integridad de los datos. Además, las restricciones de la base de datos contribuirán a reducir las comprobaciones de nulabilidad en el código Java, teniendo la certeza de qué objetos pueden llegar a ser nulo y cuales no.</p>
+<p><strong>Consejo 9</strong> <br> <strong>Usar un objeto patrón Nulo.</strong> <br> Este es otro modo de evitar las NullPointerException en Java. Si un método devuelve un objeto, por ejemplo, un Iterador sobre cierta colección, pero en la llamada el objeto no dispone de un Iterador, devolvería null. En lugar de eso este método podría devolver el objeto de tipo Null.</p>
+<p>¿Qué significa esto?, preguntareis. Un objeto de tipo Null es un objeto especial que tiene un significado diferente dependiendo del contexto donde se aplique. Por ejemplo, en este caso se puede tratar de un iterador vacío, y usando <code>hasNext()</code> sobre él devolverá siempre falso. Evitando de esa forma la NPE. De forma similar los métodos que devuelven colecciones, en lugar de null, podrían devolver colecciones vacías.</p>
+</div>
+<div id="para-finalizar" class="section level3">
+<h3>Para finalizar…</h3>
+<p>Bueno, esto es todo. Aquí damos por concluida la lección de ‘Cómo evitar las NullPointerException en Java’. Espero que algunos de estos consejos os sean útiles, y que apreciéis su importancia, dado que con muy poco esfuerzo inicial podemos llegar a ahorrar horas buscando errores en nuestro código. Además, no quiero irme sin hacer referencia al Blog Javarevisited cuya entrada, la cual podéis encontrar <a href="http://javarevisited.blogspot.com.es/2013/05/ava-tips-and-best-practices-to-avoid-nullpointerexception-program-application.html">aquí</a>, sirvió de base para esta lección sobre excepciones.</p>
+<p>Espero que os sea de utilidad y hasta la próxima. A ser originales. <br> Lázarus Surazal.</p>
+<p><em>Sé que esta entrada al Blog me quedó un poco más larga de lo normal, pero tampoco quería partir en dos esta parte de la lección. De este modo nos quedan dos partes, cada una con un contenido bien diferenciado de la otra. Además, si queréis contribuir con alguna idea más, la podéis escribir en los comentarios y la añadiré a la lista.</em></p>
+</div>
+
+<hr>
+<div class="navigateContainer">
+	<a id ="navigationRight" class="navigateButton right navigateButtonInvisible" href="#">
+		Siguiente
+		<i class="fa fa-arrow-right"></i>
+	</a>
+	<a id="navigationLeft" class="navigateButton left navigateButtonInvisible" href="#">
+		<i class="fa fa-arrow-left"></i>
+		Anterior
+	</a>
+	<a class="navigateButton center" href="index.html">
+		<i class="fa fa-undo"></i>
+		Volver a la página principal
+	</a>
+</div>
+
+
+<script>
+var pages = [
+	'md_2012_09_29.html', 'md_2012_09_29_B.html', 'md_2012_10_07.html',  'md_2012_10_07_B.html',  'md_2012_10_14.html',
+	'md_2013_03_15.html', 'md_2013_06_13.html',
+	'md_2014_05_02.html', 'md_2014_06_10.html', 'md_2014_08_07.html', 'md_2014_10_01.html',
+	'md_2015_01_12.html', 'md_2015_08_10.html', 'md_2015_08_17.html', 'md_2015_08_24.html',
+	'md_2016_09_22.html',
+	'md_2018_03_21.html'
+];
+
+var split = new URL(window.location.href).pathname.split('/');
+var page = split[split.length - 1]
+
+var index = pages.indexOf(page);
+
+if(index > -1) {
+	if(index > 0) {
+		var button = $("#navigationLeft");
+		button.removeClass("navigateButtonInvisible");
+		button.attr("href", pages[index - 1]);
+	}
+
+	if(index < pages.length - 1) {
+		var button = $("#navigationRight");
+		button.removeClass("navigateButtonInvisible");
+		button.attr("href", pages[index + 1]);
+	}
+}
+</script>
+<style>
+	.info_block {
+		float: left;
+		display: inline-block;
+	}
+
+
+	.info_block .title {
+		padding: 5px 10px;
+		border: solid 1px #000000;
+		border-bottom: none;
+	}
+
+	.info_block .content {
+		padding: 10px;
+		border: solid 1px #000000;
+	}
+
+	.info_block .content .part {
+		display: table-cell;
+	}
+
+	.info_block .links a {
+		font-size: 45px;
+		line-height: 45px;
+		color: #003379;
+		text-decoration: none;
+	}
+
+	.info_block .links a:hover {
+		color: #aaaaaa;
+		text-decoration: none;
+	}
+
+	@media screen and (max-width: 700px) {
+		.info_block {
+			display: block !important;
+			padding: 10px 0 10px 0 !important;
+			width: 100% !important;
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		.info_block .content .part {
+			display: block !important;
+			width: 100% !important;
+		}
+
+		.info_block .content .photo {
+			padding: 0 0 10px 0 !important;
+			text-align: center;
+		}
+	}
+</style>
+<div style="float:left; margin: 20px 0;">
+	<div class="info_block" style="width:65%; padding: 0 10px 0 0">
+		<div class="title">
+			<b>Perfil</b>
+		</div>
+		<div class="content">
+			<div class="part photo" style="width:90px; padding-right:10px;">
+				<img src="images/photo.png"/>
+			</div>
+			<div class="part" style="vertical-align:top;">
+				<b>Carlos J. Peláez Rivas (Lázarus Surazal)</b> <br>
+				Graduado en Ingeniería Informática por la Universidad de Málaga. Actualmente estudiando un Máster en Ingeniería Informática impartido por la misma universidad.<br>
+				Apasionado de los videojuegos, la música y alguna que otra tecnología, siempre buscando cosas nuevas que aprender y hacer. <br>
+				<a href="http://www.cjpelaezrivas.tk">Más sobre mi...</a>
+			</div>
+		</div>
+	</div>
+	<div class="info_block" style="width:35%; padding: 0 0 10px 0;">
+		<div class="title">
+			<b>Contacto</b>
+		</div>
+		<div class="content links">
+			<a href="mailto:cjpelaezrivas@gmail.com"><i class="fa fa-envelope-square"></i></a>
+			<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
+			<a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
+		</div>
+	</div>
+</div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://prlazarus.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<div class="message" style="padding: 10px 0 25px 0">
+	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
+</div>
+<div class="footer">
+	<div class="content">
+		<div id="logo">
+			<a href="http://www.prlazarus.tk"><img src="images/logo_prlazarus.png"/></a>
+		</div>
+		<div id="text">
+			Todo el contenido de este blog pertenece a <a href="http://www.prlazarus.tk">prLázarus</a><br>
+			<i class="fa fa-plug"></i> <i>Con la tecnología de <a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a> y <a href="https://pages.github.com/">GitHub Pages</a></i><br>
+			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
+		</div>
+	</div>
+</div>
+
+<script src="js/toc.js"></script>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

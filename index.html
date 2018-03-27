@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>prLázarus</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Carlos J. Peláez Rivas" />
+<meta name="description" content="prLázarus blog de programación" />
+<meta name="keywords" content="blog, programación, programacion, programming, coding, code, desarrollo, development, carlos, jesús, jesus, peláez, pelaez, rivas, málaga, malaga, uma, españa, spain" />
+
+<link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/lightbox.min.css"/>
+
+<link rel="stylesheet" type="text/css" href="css/base.css"/>
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
+<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
+<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+<link rel="stylesheet" type="text/css" href="css/toc.css"/>
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
+
+<script src="js/scroll.js"></script>
+<script src="js/tags.js"></script>
+<script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
+<script>
+	lightbox.option({
+	  'albumLabel': "Imagen %1 de %2",
+	  'fadeDuration': 250,
+	  'resizeDuration': 250,
+	  'wrapAround': true
+	})
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74491738-2');
+</script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<div id="navbar">
+	<div id="zoneA">
+		<div class="content">
+			<div id="logo">
+				<a href="index.html"><img src="images/logo.png"/></a>
+			</div>
+
+			<div id="subtitle">
+				Blog de desarrollo de proyectos Software, tutoriales, consejos y varios.
+			</div>
+		</div>
+	</div>
+	<div id="zoneB">
+		<div class="content">
+			<div id="menu">
+				<a class="menuItem" href="index.html"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
+				<a class="menuItem" href="https://cjpelaezrivas.github.io/Microblog/"><i class="fa fa-comments"></i><span class="text"> Microblog</span></a>
+				<a class="menuItem" href="http://www.cjpelaezrivas.tk"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">prLázarus</h1>
+
+</div>
+
+
+<script type="text/javascript">
+var title = document.querySelector('.title');
+title.style.display = "none";
+</script>
+<div id="indice-de-contenidos" class="section level2">
+<h2>Índice de contenidos</h2>
+
+<style>
+	.search_title {
+		width: 100%;
+		padding: 15px 15px;
+		font-size: 20px;
+	}
+</style>
+
+<input type="text" name="search_title" class="search_title" placeholder="Buscar por título..." maxlength="50">
+
+<script>
+	window.onload = function () {
+		var input = document.getElementsByName("search_title")[0];
+		if(input) {
+			input.addEventListener('input', function (event) {
+				removeFilter();
+				filterByParameters();
+				filterByTitle(input.value);
+			});
+		}
+	}
+</script>
+
+<div id="section" class="section level3">
+<h3>2018</h3>
+
+<div class="entries">
+	<a id="entry17" href="md_2018_03_21.html" class="entry">
+		<div class="title">Nuevo blog, nuevo alojamiento, nuevo comienzo</div>
+		<div class="date">miércoles, 21 de marzo de 2018</div>
+		<div class="tags"></div>
+	</a>
+</div>
+
+<script type="text/javascript">
+$('#entry17 .tags').html(generateLabels(['Desarrollo', 'Diario', 'Informacion']));
+</script>
+</div>
+<div id="section-1" class="section level3">
+<h3>2016</h3>
+
+<div class="entries">
+	<a id="entry16" href="md_2016_09_22.html" class="entry">
+		<div class="title">Imprimir por consola nombre y valor de variables [Eclipse] [Java]</div>
+		<div class="date">jueves, 22 de septiembre de 2016</div>
+		<div class="tags"></div>
+	</a>
+</div>
+
+<script type="text/javascript">
+$('#entry16 .tags').html(generateLabels(['Consejos', 'Eclipse', 'Eficiencia', 'Java', 'Tutoriales', 'Utilidades']));
+</script>
+</div>
+<div id="section-2" class="section level3">
+<h3>2015</h3>
+
+<div class="entries">
+	<a id="entry15" href="md_2015_08_24.html" class="entry">
+		<div class="title">Hilo (Thread) con eventos [Java]</div>
+		<div class="date">lunes, 24 de agosto de 2015</div>
+		<div class="tags"></div>
+	</a>
+	<a id="entry14" href="md_2015_08_17.html" class="entry">
+		<div class="title">10 consejos para escribir comentarios en Java</div>
+		<div class="date">lunes, 17 de agosto de 2015</div>
+		<div class="tags"></div>
+	</a>
+	<a id="entry13" href="md_2015_08_10.html" class="entry">
+		<div class="title">8 principios de diseño orientado a objetos que todo programador de Java debería conocer</div>
+		<div class="date">lunes, 10 de agosto de 2015</div>
+		<div class="tags"></div>
+	</a>
+	<a id="entry12" href="md_2015_01_12.html" class="entry">
+		<div class="title">Cómo evitar las NullPointerException (NPE) en Java [Parte 2]</div>
+		<div class="date">lunes, 12 de enero de 2015</div>
+		<div class="tags"></div>
+	</a>
+</div>
+
+<script type="text/javascript">
+$('#entry15 .tags').html(generateLabels(['Java', 'Tutoriales', 'Utilidades']));
+$('#entry14 .tags').html(generateLabels(['Consejos', 'Diseño', 'Java']));
+$('#entry13 .tags').html(generateLabels(['Consejos', 'Diseño', 'Java', 'Lecciones', 'Patrones', 'SOLID']));
+$('#entry12 .tags').html(generateLabels(['Consejos', 'Java', 'Lecciones', 'NullPointerException']));
+</script>
+</div>
+<div id="section-3" class="section level3">
+<h3>2014</h3>
+
+<div class="entries">
+	<a id="entry11" href="md_2014_10_01.html" class="entry">
+		<div class="title">Cómo evitar las NullPointerException (NPE) en Java [Parte 1]</div>
+		<div class="date">miércoles, 1 de octubre de 2014</div>
+		<div class="tags"></div>
+	</a>
+	<a id="entry10" href="md_2014_08_07.html" class="entry">
+		<div class="title">Plantilla Java para lectura y escritura de ficheros de texto</div>
+		<div class="date">jueves, 7 de agosto de 2014</div>
+		<div class="tags"></div>
+	</a>
+	<a id="entry9" href="md_2014_06_10.html" class="entry">
+		<div class="title">Copiar directorio y contenido [Java] [Windows]</div>
+		<div class="date">martes, 10 de junio de 2014</div>
+		<div class="tags"></div>
+	</a>
+	<a id="entry8" href="md_2014_05_02.html" class="entry">
+		<div class="title">Borrar archivos de un directorio [Java] [Windows]</div>
+		<div class="date">viernes, 2 de mayo de 2014</div>
+		<div class="tags"></div>
+	</a>
+</div>
+
+<script type="text/javascript">
+$('#entry11 .tags').html(generateLabels(['Consejos', 'Java', 'Lecciones', 'NullPointerException']));
+$('#entry10 .tags').html(generateLabels(['Eficiencia' , 'Java' , 'Tutoriales' , 'Utilidades']));
+$('#entry9 .tags').html(generateLabels(['Java', 'Tutoriales', 'Utilidades']));
+$('#entry8 .tags').html(generateLabels(['Java', 'Tutoriales', 'Utilidades']));
+</script>
+</div>
+<div id="section-4" class="section level3">
+<h3>2013</h3>
+
+<div class="entries">
+	<a id="entry7" href="md_2013_06_13.html" class="entry">
+		<div class="title">Java3D - Decisión de no llevar a cabo la serie de tutoriales</div>
+		<div class="date">jueves, 13 de junio de 2013</div>
+		<div class="tags"></div>
+	</a>
+	<a id="entry6" href="md_2013_03_15.html" class="entry">
+		<div class="title">Java3D - Introducción a la Programación de Videojuegos</div>
+		<div class="date">viernes, 15 de marzo de 2013</div>
+		<div class="tags"></div>
+	</a>
+</div>
+
+<script type="text/javascript">
+$('#entry7 .tags').html(generateLabels(['FdP', 'Java', 'Java3D', 'Videojuegos']));
+$('#entry6 .tags').html(generateLabels(['Consejos', 'Java', 'Java3D', 'NetBeans', 'Videojuegos', 'Tutoriales']));
+</script>
+</div>
+<div id="section-5" class="section level3">
+<h3>2012</h3>
+
+<div class="entries">
+	<a id="entry5" href="md_2012_10_14.html" class="entry">
+		<div class="title">FdP - prCalculadoraIntérprete</div>
+		<div class="date">domingo, 14 de octubre de 2012</div>
+		<div class="tags"></div>
+	</a>
+	<a id="entry4" href="md_2012_10_07_B.html" class="entry">
+		<div class="title">Método intérprete</div>
+		<div class="date">domingo, 7 de octubre de 2012</div>
+		<div class="tags"></div>
+	</a>
+	<a id="entry3" href="md_2012_10_07.html" class="entry">
+		<div class="title">Pequeños cambios...</div>
+		<div class="date">domingo, 7 de octubre de 2012</div>
+		<div class="tags"></div>
+	</a>
+	<a id="entry2" href="md_2012_09_29_B.html" class="entry">
+		<div class="title">Primeros pasos</div>
+		<div class="date">sábado, 29 de septiembre de 2012</div>
+		<div class="tags"></div>
+	</a>
+	<a id="entry1" href="md_2012_09_29.html" class="entry">
+		<div class="title">IdP - prCalculadoraIntérprete</div>
+		<div class="date">sábado, 29 de septiembre de 2012</div>
+		<div class="tags"></div>
+	</a>
+</div>
+
+<script type="text/javascript">
+$('#entry5 .tags').html(generateLabels(['Consejos', 'Diario', 'FdP', 'Java']));
+$('#entry4 .tags').html(generateLabels(['Java', 'Diario']));
+$('#entry3 .tags').html(generateLabels(['Java', 'Diario']));
+$('#entry2 .tags').html(generateLabels(['Consejos', 'Diario', 'Java']));
+$('#entry1 .tags').html(generateLabels(['Consejos', 'Diario', 'IdP', 'Java']));
+</script>
+</div>
+</div>
+
+<style>
+	.info_block {
+		float: left;
+		display: inline-block;
+	}
+
+
+	.info_block .title {
+		padding: 5px 10px;
+		border: solid 1px #000000;
+		border-bottom: none;
+	}
+
+	.info_block .content {
+		padding: 10px;
+		border: solid 1px #000000;
+	}
+
+	.info_block .content .part {
+		display: table-cell;
+	}
+
+	.info_block .links a {
+		font-size: 45px;
+		line-height: 45px;
+		color: #003379;
+		text-decoration: none;
+	}
+
+	.info_block .links a:hover {
+		color: #aaaaaa;
+		text-decoration: none;
+	}
+
+	@media screen and (max-width: 700px) {
+		.info_block {
+			display: block !important;
+			padding: 10px 0 10px 0 !important;
+			width: 100% !important;
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		.info_block .content .part {
+			display: block !important;
+			width: 100% !important;
+		}
+
+		.info_block .content .photo {
+			padding: 0 0 10px 0 !important;
+			text-align: center;
+		}
+	}
+</style>
+<div style="float:left; margin: 20px 0;">
+	<div class="info_block" style="width:65%; padding: 0 10px 0 0">
+		<div class="title">
+			<b>Perfil</b>
+		</div>
+		<div class="content">
+			<div class="part photo" style="width:90px; padding-right:10px;">
+				<img src="images/photo.png"/>
+			</div>
+			<div class="part" style="vertical-align:top;">
+				<b>Carlos J. Peláez Rivas (Lázarus Surazal)</b> <br>
+				Graduado en Ingeniería Informática por la Universidad de Málaga. Actualmente estudiando un Máster en Ingeniería Informática impartido por la misma universidad.<br>
+				Apasionado de los videojuegos, la música y alguna que otra tecnología, siempre buscando cosas nuevas que aprender y hacer. <br>
+				<a href="http://www.cjpelaezrivas.tk">Más sobre mi...</a>
+			</div>
+		</div>
+	</div>
+	<div class="info_block" style="width:35%; padding: 0 0 10px 0;">
+		<div class="title">
+			<b>Contacto</b>
+		</div>
+		<div class="content links">
+			<a href="mailto:cjpelaezrivas@gmail.com"><i class="fa fa-envelope-square"></i></a>
+			<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
+			<a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
+		</div>
+	</div>
+</div>
+<div class="message" style="padding: 10px 0 25px 0">
+	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
+</div>
+<div class="footer">
+	<div class="content">
+		<div id="logo">
+			<a href="http://www.prlazarus.tk"><img src="images/logo_prlazarus.png"/></a>
+		</div>
+		<div id="text">
+			Todo el contenido de este blog pertenece a <a href="http://www.prlazarus.tk">prLázarus</a><br>
+			<i class="fa fa-plug"></i> <i>Con la tecnología de <a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a> y <a href="https://pages.github.com/">GitHub Pages</a></i><br>
+			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
+		</div>
+	</div>
+</div>
+
+<script src="js/toc.js"></script>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

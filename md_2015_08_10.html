@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Principios de diseño orientado a objetos que todo programador de Java debería conocer</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Carlos J. Peláez Rivas" />
+<meta name="description" content="prLázarus blog de programación" />
+<meta name="keywords" content="blog, programación, programacion, programming, coding, code, desarrollo, development, carlos, jesús, jesus, peláez, pelaez, rivas, málaga, malaga, uma, españa, spain" />
+
+<link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/lightbox.min.css"/>
+
+<link rel="stylesheet" type="text/css" href="css/base.css"/>
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
+<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
+<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+<link rel="stylesheet" type="text/css" href="css/toc.css"/>
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
+
+<script src="js/scroll.js"></script>
+<script src="js/tags.js"></script>
+<script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
+<script>
+	lightbox.option({
+	  'albumLabel': "Imagen %1 de %2",
+	  'fadeDuration': 250,
+	  'resizeDuration': 250,
+	  'wrapAround': true
+	})
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74491738-2');
+</script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<div id="navbar">
+	<div id="zoneA">
+		<div class="content">
+			<div id="logo">
+				<a href="index.html"><img src="images/logo.png"/></a>
+			</div>
+
+			<div id="subtitle">
+				Blog de desarrollo de proyectos Software, tutoriales, consejos y varios.
+			</div>
+		</div>
+	</div>
+	<div id="zoneB">
+		<div class="content">
+			<div id="menu">
+				<a class="menuItem" href="index.html"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
+				<a class="menuItem" href="https://cjpelaezrivas.github.io/Microblog/"><i class="fa fa-comments"></i><span class="text"> Microblog</span></a>
+				<a class="menuItem" href="http://www.cjpelaezrivas.tk"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Principios de diseño orientado a objetos que todo programador de Java debería conocer</h1>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#dry-dont-repeat-yourself-o-no-te-repitas">DRY (Don’t Repeat Yourself o No te repitas)</a></li>
+<li><a href="#encapsular-lo-que-puede-cambiar">Encapsular lo que puede cambiar</a></li>
+<li><a href="#el-principio-de-diseno-cerrado-abierto">El principio de diseño Cerrado-Abierto</a></li>
+<li><a href="#srp-single-responsibility-principle-o-principio-de-responsabilidad-unica">SRP (Single Responsibility Principle o Principio de responsabilidad única)</a></li>
+<li><a href="#isp-interface-sgregation-principle-o-principio-de-segregacion-de-interfaces">ISP (Interface Sgregation Principle o Principio de segregación de interfaces)</a></li>
+<li><a href="#programa-usando-interfaces-y-no-implementaciones">Programa usando interfaces y no implementaciones</a></li>
+<li><a href="#principio-de-delegacion">Principio de delegación</a></li>
+</ul>
+</div>
+
+<script type="text/javascript">
+generateEntryInfo('lunes, 10 de agosto de 2015', 'Consejos', 'Diseño', 'Java', 'Lecciones', 'Patrones', 'SOLID');
+</script>
+<p>Buenas a todos, <br> En esta ocasión vamos a tratar sobre el análisis y el diseño orientados a objetos. Es fácil encontrar a muchos programadores que usan patrones de diseño como <em>Singleton</em>, <em>Decorator</em>, u <em>Observer</em>; pero no se han parado a analizarlos como tal.</p>
+<p>Antes de entrar en materia con los patrones de diseño es importante entender conceptos básicos como son la abstracción, la encapsulación, el polimorfismo y la herencia, pero al mismo tiempo, es importante conocer los principios de diseño básicos para desarrollar de forma limpia y modular. La verdad, no hay nada peor que un código que sólo entienda su propio creador.</p>
+<p>Hay por ahí algunos programadores que nunca han oído hablar sobre conceptos como OOPS <em>(Object Oriented Programming System)</em>, o de los principios de diseño <a href="https://es.wikipedia.org/wiki/SOLID">SOLID</a>. Aunque también puede ser que no conozcan los beneficios que ofrecen estos principios o cómo usarlos a la hora de programar. O quizás sí que usan algunas técnicas pero no saben que tienen nombre. De todo puede pasar.</p>
+<p>Podemos encontrar muy buenos ejemplos si echamos un vistazo a las librerias de Apache o Sun, donde nos enseñan como deben ser usados los principios de diseño en los programas Java, y en la programación en general.</p>
+<p>La mejor manera de aprender cualquier principio o patrón es usando un ejemplo del mundo real para poder entenderlo de forma correcta y poder ver las consecuencias de no seguir esos principios. Podemos dejar claro ya que esto será una introducción. Probablemente se necesitaría un artículo para cada uno de estos puntos, pero vamos a dar un <em>paseo en bici</em> y así vemos un poco por encima los principios de diseño.</p>
+<div id="dry-dont-repeat-yourself-o-no-te-repitas" class="section level3">
+<h3>DRY (Don’t Repeat Yourself o No te repitas)</h3>
+<p>Este será nuestro primer principio de diseño orientado a objetos, lo que podemos traducir como que no escribas código duplicado. Si os encontrais con que tenéis el mismo bloque de código en dos zonas distintas, deberíais considerar separalo en un método a parte. O quizás estais usando un valor fijo varias veces, lo mejor es usar una constante privada, o pública y estática, pero en ambos casos final.</p>
+<p>Obviamente, el mayor beneficio de esto es el mantenimiento que ofrece. Aunque tampoco se debe abusar de esto. La duplicación no es por el código en sí, si no por la funcionalidad que ofrece. Vamos a ponernos en situación: estamos validando dos ids muy distintos usando un código muy parecido. La idea inicial es juntarlos en un mismo método y reutilizar. Pero no debe ser así. Vamos a pensar un poco…</p>
+<p>Son dos validaciones distintas, y por tanto, el código ofrece dos funcionalidades distintas. ¿Qué pasaria si en un año el formato de uno de los ids cambia? Si nos hemos decantado por usado la misma función para validar ambos, al actualizar la función, uno de ellos dejará de funcionar. Esto se podría haber evitado.</p>
+<p>El principio DRY se refiere a trozos de código que parece iguales y además hacen cosas iguales. Debe tenerse esto muy en cuenta.</p>
+</div>
+<div id="encapsular-lo-que-puede-cambiar" class="section level3">
+<h3>Encapsular lo que puede cambiar</h3>
+<p>Lo único cierto que nos vamos a encontrar en el Software es que cambia. De modo que debemos encapsular lo que vemos, o sospechamos, que puede cambiar. Esto ofrece muchas ventajas, como por ejemplo pruebas y mantenimiento más sencillos. A la hora de programar en Java, lo mejor es hacer las variables y los métodos privados por defecto, y de ese modo aumentar el acceso paso a paso. Muchos patrones de diseño, como por ejemplo: <em>Factory</em> usa la encapsulación de este modo, dando flexibilidad de introducir nuevo código después sin impactar en el código existente.</p>
+</div>
+<div id="el-principio-de-diseno-cerrado-abierto" class="section level3">
+<h3>El principio de diseño Cerrado-Abierto</h3>
+<p>Las clases, y los métodos o funciones, deberían estar abiertos para poder añadir nuevas funcionalidades, pero cerrados a las modificaciones. Esto nos permite no tener que modificar código que funciona y que ha sido probado. En una situación ideal, si debes añadir funcionalidad a una clase, tras terminar, únicamente deberías probar lo nuevo, y lo antiguo debería seguir funcionando de la misma forma que lo hacía antes. Esto se debe a que no deberías haber modificado nada de lo que había.</p>
+</div>
+<div id="srp-single-responsibility-principle-o-principio-de-responsabilidad-unica" class="section level3">
+<h3>SRP (Single Responsibility Principle o Principio de responsabilidad única)</h3>
+<p>A la hora de modificar una clase, no debería existir más de una razón para llevarlo a cabo, o lo que es lo mismo, una clase únicamente debería dedicarse a una tarea bien concreta.</p>
+<p>Si usas una clase para llevar a cabo más de una funcionalidad en Java, estarás introduciendo relaciones y/o uniones entre ambas. Lo peor de todo es que si aparece la necesidad de modificar una funcionalidad, lo más probable es que se rompa la otra. Esto requerirá reparar el problema, y luego una nueva tanda de pruebas para comprobar que todo está correcto. Podemos decir que se trata del doble de trabajo.</p>
+</div>
+<div id="isp-interface-sgregation-principle-o-principio-de-segregacion-de-interfaces" class="section level3">
+<h3>ISP (Interface Sgregation Principle o Principio de segregación de interfaces)</h3>
+<p>Este principio nos indica que una clase no debería implementar una interfaz si no la va usar. Esto ocurre sobre todo cuando una interfaz contiene más de una funcionalidad, y el cliente sólo necesita una de ellas.</p>
+<p>El diseño de las interfaces puede ser complicado, dado que si creas una, ya no puedes modificarla sin romper todas las implementaciones realizadas. Pero uno de los beneficios de este principio de diseño es que, ya que Java obliga a implementar todos los métodos de la interfaz antes de usar una clase que la implemente, una sola funcionalidad significa menos métodos a implementar.</p>
+</div>
+<div id="programa-usando-interfaces-y-no-implementaciones" class="section level3">
+<h3>Programa usando interfaces y no implementaciones</h3>
+<p>Debes intentar siempre programa usando interfaces, esto te ayudará a obtener un código más flexible que podrá trabajar con cualquier nueva implementación de dichas interfaces.</p>
+<p>De modo que sería razonable usar variables cuyo tipo sea una interfaz, y devolver en los métodos y usar en sus argumentos interfaces.</p>
+</div>
+<div id="principio-de-delegacion" class="section level3">
+<h3>Principio de delegación</h3>
+<p>Intenta no hacer todo el trabajo por tu cuenta, delega cada tarea a la clase correspondiente. El ejemplo clásico usado del principio de delegación es la creación de los métodos <code>equals()</code> y <code>hashCode()</code>. A la hora de comparar dos objetos por igualdad siempre le preguntamos a la clase en sí que haga la comparación, en lugar de lo haga la clase padre (siempre que sea posible y correcto).</p>
+<p>Todos estos principios de diseño pueden ayuda a conseguir un código mejor y más flexible, consiguiente una alta cohesión y baja relación entre las clases. La teoría es el primer paso, pero lo más importante es desarrollar estas habilidades para saberlas usar llegado el momento.</p>
+<p>Debemos tener en cuenta que estos principios son realmente útiles para grandes proyectos y empresas que necesitan un mantenimiento muy largo. Nada es perfecto, de modo que tampoco intentes siempre resolver los problemas usando principio y patrones de diseño, simplemente son una buena práctica.</p>
+<p>Espero comentarios.</p>
+<p>Saludos, <br> Lázarus Surazal.</p>
+</div>
+
+<hr>
+<div class="navigateContainer">
+	<a id ="navigationRight" class="navigateButton right navigateButtonInvisible" href="#">
+		Siguiente
+		<i class="fa fa-arrow-right"></i>
+	</a>
+	<a id="navigationLeft" class="navigateButton left navigateButtonInvisible" href="#">
+		<i class="fa fa-arrow-left"></i>
+		Anterior
+	</a>
+	<a class="navigateButton center" href="index.html">
+		<i class="fa fa-undo"></i>
+		Volver a la página principal
+	</a>
+</div>
+
+
+<script>
+var pages = [
+	'md_2012_09_29.html', 'md_2012_09_29_B.html', 'md_2012_10_07.html',  'md_2012_10_07_B.html',  'md_2012_10_14.html',
+	'md_2013_03_15.html', 'md_2013_06_13.html',
+	'md_2014_05_02.html', 'md_2014_06_10.html', 'md_2014_08_07.html', 'md_2014_10_01.html',
+	'md_2015_01_12.html', 'md_2015_08_10.html', 'md_2015_08_17.html', 'md_2015_08_24.html',
+	'md_2016_09_22.html',
+	'md_2018_03_21.html'
+];
+
+var split = new URL(window.location.href).pathname.split('/');
+var page = split[split.length - 1]
+
+var index = pages.indexOf(page);
+
+if(index > -1) {
+	if(index > 0) {
+		var button = $("#navigationLeft");
+		button.removeClass("navigateButtonInvisible");
+		button.attr("href", pages[index - 1]);
+	}
+
+	if(index < pages.length - 1) {
+		var button = $("#navigationRight");
+		button.removeClass("navigateButtonInvisible");
+		button.attr("href", pages[index + 1]);
+	}
+}
+</script>
+<style>
+	.info_block {
+		float: left;
+		display: inline-block;
+	}
+
+
+	.info_block .title {
+		padding: 5px 10px;
+		border: solid 1px #000000;
+		border-bottom: none;
+	}
+
+	.info_block .content {
+		padding: 10px;
+		border: solid 1px #000000;
+	}
+
+	.info_block .content .part {
+		display: table-cell;
+	}
+
+	.info_block .links a {
+		font-size: 45px;
+		line-height: 45px;
+		color: #003379;
+		text-decoration: none;
+	}
+
+	.info_block .links a:hover {
+		color: #aaaaaa;
+		text-decoration: none;
+	}
+
+	@media screen and (max-width: 700px) {
+		.info_block {
+			display: block !important;
+			padding: 10px 0 10px 0 !important;
+			width: 100% !important;
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		.info_block .content .part {
+			display: block !important;
+			width: 100% !important;
+		}
+
+		.info_block .content .photo {
+			padding: 0 0 10px 0 !important;
+			text-align: center;
+		}
+	}
+</style>
+<div style="float:left; margin: 20px 0;">
+	<div class="info_block" style="width:65%; padding: 0 10px 0 0">
+		<div class="title">
+			<b>Perfil</b>
+		</div>
+		<div class="content">
+			<div class="part photo" style="width:90px; padding-right:10px;">
+				<img src="images/photo.png"/>
+			</div>
+			<div class="part" style="vertical-align:top;">
+				<b>Carlos J. Peláez Rivas (Lázarus Surazal)</b> <br>
+				Graduado en Ingeniería Informática por la Universidad de Málaga. Actualmente estudiando un Máster en Ingeniería Informática impartido por la misma universidad.<br>
+				Apasionado de los videojuegos, la música y alguna que otra tecnología, siempre buscando cosas nuevas que aprender y hacer. <br>
+				<a href="http://www.cjpelaezrivas.tk">Más sobre mi...</a>
+			</div>
+		</div>
+	</div>
+	<div class="info_block" style="width:35%; padding: 0 0 10px 0;">
+		<div class="title">
+			<b>Contacto</b>
+		</div>
+		<div class="content links">
+			<a href="mailto:cjpelaezrivas@gmail.com"><i class="fa fa-envelope-square"></i></a>
+			<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
+			<a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
+		</div>
+	</div>
+</div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://prlazarus.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<div class="message" style="padding: 10px 0 25px 0">
+	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
+</div>
+<div class="footer">
+	<div class="content">
+		<div id="logo">
+			<a href="http://www.prlazarus.tk"><img src="images/logo_prlazarus.png"/></a>
+		</div>
+		<div id="text">
+			Todo el contenido de este blog pertenece a <a href="http://www.prlazarus.tk">prLázarus</a><br>
+			<i class="fa fa-plug"></i> <i>Con la tecnología de <a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a> y <a href="https://pages.github.com/">GitHub Pages</a></i><br>
+			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
+		</div>
+	</div>
+</div>
+
+<script src="js/toc.js"></script>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

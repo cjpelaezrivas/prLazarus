@@ -1,0 +1,54 @@
+#TOC .title{
+	color: #000000;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#TOC ul {
+	padding: 5px 0 15px 0;
+
+	list-style: none;
+}
+
+#TOC ul li {
+	display:block;
+
+	border-top: none;
+	border-bottom: solid 1px #dcdcc8;
+	border-right: solid 1px #dcdcc8;
+	border-left: solid 1px #dcdcc8;
+}
+
+#TOC ul li:hover {
+	background-color: #EFEFEF;
+}
+
+#TOC ul li:first-child {
+	border-top: solid 1px #dcdcc8;
+
+	border-radius: 5px 5px 0 0;
+}
+
+#TOC ul li:last-child {
+	border-bottom: solid 1px #dcdcc8;
+
+	border-radius: 0 0 5px 5px;
+}
+
+#TOC ul li:only-child {
+    border-radius: 5px 5px 5px 5px;
+}
+
+#TOC ul li ul {
+  display: none;
+}
+
+#TOC ul li a, #TOC ul li a:hover, #TOC ul li a:active, #TOC ul li a:visited {
+	display:block;
+
+	padding: 5px 10px;
+	color: #000000;
+	text-decoration: none;
+
+	cursor: pointer;
+}

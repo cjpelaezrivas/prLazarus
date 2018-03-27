@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Hilo (Thread) con eventos [Java]</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Carlos J. Peláez Rivas" />
+<meta name="description" content="prLázarus blog de programación" />
+<meta name="keywords" content="blog, programación, programacion, programming, coding, code, desarrollo, development, carlos, jesús, jesus, peláez, pelaez, rivas, málaga, malaga, uma, españa, spain" />
+
+<link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/lightbox.min.css"/>
+
+<link rel="stylesheet" type="text/css" href="css/base.css"/>
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
+<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
+<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+<link rel="stylesheet" type="text/css" href="css/toc.css"/>
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
+
+<script src="js/scroll.js"></script>
+<script src="js/tags.js"></script>
+<script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
+<script>
+	lightbox.option({
+	  'albumLabel': "Imagen %1 de %2",
+	  'fadeDuration': 250,
+	  'resizeDuration': 250,
+	  'wrapAround': true
+	})
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74491738-2');
+</script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<div id="navbar">
+	<div id="zoneA">
+		<div class="content">
+			<div id="logo">
+				<a href="index.html"><img src="images/logo.png"/></a>
+			</div>
+
+			<div id="subtitle">
+				Blog de desarrollo de proyectos Software, tutoriales, consejos y varios.
+			</div>
+		</div>
+	</div>
+	<div id="zoneB">
+		<div class="content">
+			<div id="menu">
+				<a class="menuItem" href="index.html"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
+				<a class="menuItem" href="https://cjpelaezrivas.github.io/Microblog/"><i class="fa fa-comments"></i><span class="text"> Microblog</span></a>
+				<a class="menuItem" href="http://www.cjpelaezrivas.tk"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Hilo (Thread) con eventos [Java]</h1>
+
+</div>
+
+
+<script type="text/javascript">
+generateEntryInfo('lunes, 24 de agosto de 2015', 'Java', 'Tutoriales', 'Utilidades');
+</script>
+<p>Muy buenas a todos/as, <br> hoy tengo entre manos una clase que puede que a alguno de vosotros os sea útil. Vamos a ponernos en situación para ver en que casos podría llegar a ser útil.</p>
+<p>A la hora de trabajar con interfaces de usuario no es difícil imaginar el caso de necesitar realizar un trabajo en segundo plano, algo que se compute cuando el usuario realizar cierta acción, y queremos que se pueda seguir trabajando durante ese proceso. El principal problema que podemos encontrarnos aquí es: ¿cómo podemos saber que dicho trabajo ha finalizado?</p>
+<p>Podríamos realizar una especie de espera activa, comprobando a cada rato si el trabajo está completo, también podríamos bloquear el hilo principal a la espera de la finalización del trabajo, pero así no se cumpliría la condición de que el usuario pueda continuar usando la interfaz durante todo el proceso.</p>
+<p>Aquí os ofrezco una solución, la cual creo que ha quedado bastante elegante, combinando hilos de ejecución, abstracción, interfaces y eventos asíncronos. Os pongo a continuación el código para que podáis verlo y luego comento algunas cosillas sobre el mismo:</p>
+<pre class="java"><code>import java.util.ArrayList;
+import java.util.List;
+
+public abstract class HiloEventos extends Thread {
+
+    private List&lt;IEventoIniciado&gt; oyentesIniciado = new ArrayList&lt;&gt;();
+    private List&lt;IEventoFinalizado&gt; oyentesFinalizado = new ArrayList&lt;&gt;();
+
+    public HiloEventos() {
+        this(false);
+    }
+
+    public HiloEventos(final boolean isDaemon) {
+        this.setDaemon(isDaemon);
+    }
+
+    public void run () {
+        for (IEventoIniciado o : oyentesIniciado) {
+            o.iniciado();
+        }
+
+        operacionesRun();
+
+        for (IEventoFinalizado o : oyentesFinalizado) {
+            o.finalizado();
+        }
+    }
+
+    public abstract void operacionesRun();
+
+    public void addEscuchadorIniciado(IEventoIniciado iEventoIniciado) {
+        oyentesIniciado.add(iEventoIniciado);
+    }
+
+    public void removeEscuchadorIniciado(IEventoIniciado escuchador) {
+        oyentesIniciado.remove(escuchador);
+    }
+
+    public void addEscuchadorFinalizado(IEventoFinalizado escuchador) {
+        oyentesFinalizado.add(escuchador);
+    }
+
+    public void removeEscuchadorFinalizado(IEventoFinalizado escuchador) {
+        oyentesFinalizado.remove(escuchador);
+    }
+
+    //
+
+    public interface IEventoIniciado {
+        void iniciado();
+    }
+
+    public interface IEventoFinalizado {
+        void finalizado();
+    }
+}</code></pre>
+<p>Como podéis ver, se trata de una clase abstracta. Eso quiere decir que no se puede instanciar tal cual, para poder lograrlo se ha de implementar en este caso el método que falta. Dicho método en este caso se llama <code>operacionesRun()</code> y dentro de él se encontrarán todas las operaciones que deseemos que realice el hilo en segundo plano.</p>
+<p>La clase tampoco tiene nada extraordinario, en el método <code>run()</code> se llama a la función que acabamos de implementar y luego finaliza.</p>
+<p>Para saber cuando termina, y también cuando comienza, tenemos a nuestra disposición unos oyentes, que se disparan al comenzar y finalizar la ejecución del hilo hijo. Usamos las interfaces del final de la clase para poder crear los eventos personalizados donde queramos, y lo mejor de todo es que se nos permite usar cuantos necesitemos.</p>
+<p>En cuanto a los constructores, es bastante interesante la propiedad <code>daemon</code>. Un <em>daemon</em> o <em>demonio</em> es un hilo que proporciona servicios al resto de hilos en ejecución, llamados hilos de usuario. Por este motivo, los hilos demonios debe permanecer en ejecución mientras haya al menos vivo un hilo de usuario. Es cuando todos los hilos de usuario terminan cuando los hilos demonios pueden cerrarse, y por lo tanto terminar el programa. Aprovechando que su función es prestar servicios, podemos decir que si la ejecución del hilo padre terminar por cualquier circunstancia antes de que termine la ejecución de sus hilos hijos, todos los hilos hijos que sean demonios se cerrarán automáticamente.</p>
+<p>A continuación os pongo un ejemplo de cómo usar la clase anterior:</p>
+<pre class="java"><code>import hiloeventos.HiloEventos.IEventoFinalizado;
+import hiloeventos.HiloEventos.IEventoIniciado;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println(&quot;EL HILO PADRE COMIENZA&quot;);
+
+        HiloEventos hilo1 = new HiloEventos(false) {
+
+            @Override
+            public void operacionesRun() {
+                System.out.println(&quot;ENTRAMOS EN EL RUN DEL HILO HIJO&quot;);
+
+                //Operación compleja del hilo hijo
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println(&quot;SALIMOS DEL RUN DEL HILO HIJO&quot;);
+            }
+        };
+
+        hilo1.addEscuchadorIniciado(new IEventoIniciado() {
+            @Override
+            public void iniciado() {
+                System.out.println(&quot;EL HILO HIJO COMIENZA&quot;);
+            }
+        });
+
+        hilo1.addEscuchadorFinalizado(new IEventoFinalizado() {
+            @Override
+            public void finalizado() {
+                System.out.println(&quot;EL HILO HIJO TERMINA&quot;);
+            }
+        });
+
+        hilo1.start();
+
+        //Operación compleja del hilo padre
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(&quot;EL HILO PADRE TERMINA&quot;);
+    }
+}
+</code></pre>
+<p>Como puede verse, a la hora de instanciar la clase, se nos obliga a implementar el método que falta, e incluimos en él una espera simulando un computo largo. Luego creamos los oyentes para que nos avisen cuando el hilo hijo comienza y finaliza su ejecución. Obviamente podemos realizar cualquier tipo de acción en los oyentes, de la misma forma que si no necesitamos alguno de ellos, no tenemos porqué crearlos.</p>
+<p>Recordad lanzar el hilo hijo usando el método <code>start()</code>. Si no llamamos a este método, el hilo no se lanzará.</p>
+<p>Tras todo eso, simulamos otro cómputo para el hilo padre. Nos aseguramos que es más corto que el de su hijo para poder hacer algunas pruebas. Las salidas de este programa en concreto son la siguientes:</p>
+<pre><code>EL HILO PADRE COMIENZA
+EL HILO HIJO COMIENZA
+ENTRAMOS EN EL RUN DEL HILO HIJO
+EL HILO PADRE TERMINA
+SALIMOS DEL RUN DEL HILO HIJO
+EL HILO HIJO TERMINA</code></pre>
+<p>Si por algún motivo queréis que el hilo hijo sea demonio, tan solo tenéis que cambiar el parámetro del constructor, y obtendréis una salida similar a esta:</p>
+<pre><code>EL HILO PADRE COMIENZA
+EL HILO HIJO COMIENZA
+ENTRAMOS EN EL RUN DEL HILO HIJO
+EL HILO PADRE TERMINA</code></pre>
+<p>Puede verse como al terminar la ejecución del hilo padre, el hijo ya no imprime más por consola porque se ha cortado su ejecución.</p>
+<p>Tan solo tenéis que pensar un momento para que se os ocurran cientos de casos en los que se podría usar una clase como esta. Al ser abstracta cada implementación es distinta, y permite realizar infinitas tareas con tan solo una clase en nuestro proyecto. Imaginad por ejemplo: una instalación en segundo plano, o el cálculo de estadísticas de uso de la aplicación.</p>
+<p>Espero que os sea útil y que comentéis.</p>
+<p>Saludos, <br> Lázarus Surazal.</p>
+
+<hr>
+<div class="navigateContainer">
+	<a id ="navigationRight" class="navigateButton right navigateButtonInvisible" href="#">
+		Siguiente
+		<i class="fa fa-arrow-right"></i>
+	</a>
+	<a id="navigationLeft" class="navigateButton left navigateButtonInvisible" href="#">
+		<i class="fa fa-arrow-left"></i>
+		Anterior
+	</a>
+	<a class="navigateButton center" href="index.html">
+		<i class="fa fa-undo"></i>
+		Volver a la página principal
+	</a>
+</div>
+
+
+<script>
+var pages = [
+	'md_2012_09_29.html', 'md_2012_09_29_B.html', 'md_2012_10_07.html',  'md_2012_10_07_B.html',  'md_2012_10_14.html',
+	'md_2013_03_15.html', 'md_2013_06_13.html',
+	'md_2014_05_02.html', 'md_2014_06_10.html', 'md_2014_08_07.html', 'md_2014_10_01.html',
+	'md_2015_01_12.html', 'md_2015_08_10.html', 'md_2015_08_17.html', 'md_2015_08_24.html',
+	'md_2016_09_22.html',
+	'md_2018_03_21.html'
+];
+
+var split = new URL(window.location.href).pathname.split('/');
+var page = split[split.length - 1]
+
+var index = pages.indexOf(page);
+
+if(index > -1) {
+	if(index > 0) {
+		var button = $("#navigationLeft");
+		button.removeClass("navigateButtonInvisible");
+		button.attr("href", pages[index - 1]);
+	}
+
+	if(index < pages.length - 1) {
+		var button = $("#navigationRight");
+		button.removeClass("navigateButtonInvisible");
+		button.attr("href", pages[index + 1]);
+	}
+}
+</script>
+<style>
+	.info_block {
+		float: left;
+		display: inline-block;
+	}
+
+
+	.info_block .title {
+		padding: 5px 10px;
+		border: solid 1px #000000;
+		border-bottom: none;
+	}
+
+	.info_block .content {
+		padding: 10px;
+		border: solid 1px #000000;
+	}
+
+	.info_block .content .part {
+		display: table-cell;
+	}
+
+	.info_block .links a {
+		font-size: 45px;
+		line-height: 45px;
+		color: #003379;
+		text-decoration: none;
+	}
+
+	.info_block .links a:hover {
+		color: #aaaaaa;
+		text-decoration: none;
+	}
+
+	@media screen and (max-width: 700px) {
+		.info_block {
+			display: block !important;
+			padding: 10px 0 10px 0 !important;
+			width: 100% !important;
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		.info_block .content .part {
+			display: block !important;
+			width: 100% !important;
+		}
+
+		.info_block .content .photo {
+			padding: 0 0 10px 0 !important;
+			text-align: center;
+		}
+	}
+</style>
+<div style="float:left; margin: 20px 0;">
+	<div class="info_block" style="width:65%; padding: 0 10px 0 0">
+		<div class="title">
+			<b>Perfil</b>
+		</div>
+		<div class="content">
+			<div class="part photo" style="width:90px; padding-right:10px;">
+				<img src="images/photo.png"/>
+			</div>
+			<div class="part" style="vertical-align:top;">
+				<b>Carlos J. Peláez Rivas (Lázarus Surazal)</b> <br>
+				Graduado en Ingeniería Informática por la Universidad de Málaga. Actualmente estudiando un Máster en Ingeniería Informática impartido por la misma universidad.<br>
+				Apasionado de los videojuegos, la música y alguna que otra tecnología, siempre buscando cosas nuevas que aprender y hacer. <br>
+				<a href="http://www.cjpelaezrivas.tk">Más sobre mi...</a>
+			</div>
+		</div>
+	</div>
+	<div class="info_block" style="width:35%; padding: 0 0 10px 0;">
+		<div class="title">
+			<b>Contacto</b>
+		</div>
+		<div class="content links">
+			<a href="mailto:cjpelaezrivas@gmail.com"><i class="fa fa-envelope-square"></i></a>
+			<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
+			<a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
+		</div>
+	</div>
+</div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://prlazarus.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<div class="message" style="padding: 10px 0 25px 0">
+	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
+</div>
+<div class="footer">
+	<div class="content">
+		<div id="logo">
+			<a href="http://www.prlazarus.tk"><img src="images/logo_prlazarus.png"/></a>
+		</div>
+		<div id="text">
+			Todo el contenido de este blog pertenece a <a href="http://www.prlazarus.tk">prLázarus</a><br>
+			<i class="fa fa-plug"></i> <i>Con la tecnología de <a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a> y <a href="https://pages.github.com/">GitHub Pages</a></i><br>
+			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
+		</div>
+	</div>
+</div>
+
+<script src="js/toc.js"></script>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
