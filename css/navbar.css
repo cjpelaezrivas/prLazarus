@@ -52,7 +52,8 @@
 }
 
 #navbar #menu .menuItem:hover {
-	color: #ffffff;
+	color: #efefef;
+	font-weight: normal;
 	background-color: #151515;
 	text-decoration: none;
 }

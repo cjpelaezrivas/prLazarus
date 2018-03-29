@@ -12,6 +12,10 @@
 	font-size: 10px;
 }
 
+.message a {
+	text-decoration: none;
+}
+
 .footer .content {
 	max-width: 940px;
 	margin-left: auto;

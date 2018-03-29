@@ -84,3 +84,12 @@ h1.title {
 	padding-top: 95px !important;
 	margin-top: -80px !important;
 }
+
+a, a:visited {
+	color: #003379;
+	text-decoration: underline;
+}
+
+a:hover, a:active {
+	color: #CC0000;
+}
