@@ -378,6 +378,7 @@ $('#entry1 .tags').html(generateLabels(['Consejos', 'Diario', 'IdP', 'Java']));
 	.info_block {
 		float: left;
 		display: inline-block;
+		padding: 0 10px 0 0;
 	}
 
 
@@ -392,12 +393,22 @@ $('#entry1 .tags').html(generateLabels(['Consejos', 'Diario', 'IdP', 'Java']));
 		border: solid 1px #000000;
 	}
 
+
 	.info_block .content .part {
 		display: table-cell;
 	}
 
 	.info_block .content .part a {
 		text-decoration: none;
+	}
+
+	.info_block .content .photo {
+		width: 90px;
+		padding-right: 10px;
+	}
+
+	.info_block .content .description {
+		vertical-align: top;
 	}
 
 	.info_block .links a {
@@ -427,21 +438,21 @@ $('#entry1 .tags').html(generateLabels(['Consejos', 'Diario', 'IdP', 'Java']));
 		}
 
 		.info_block .content .photo {
-			padding: 0 0 10px 0 !important;
+			padding: 0 0 10px 0;
 			text-align: center;
 		}
 	}
 </style>
 <div style="float:left; margin: 20px 0;">
-	<div class="info_block" style="width:65%; padding: 0 10px 0 0">
+	<div class="info_block" style="width:65%;">
 		<div class="title">
 			<b>Perfil</b>
 		</div>
 		<div class="content">
-			<div class="part photo" style="width:90px; padding-right:10px;">
-				<img src="images/logo_b.png"/>
+			<div class="part photo">
+				<img src="images/logo_b.png" width="90px" />
 			</div>
-			<div class="part" style="vertical-align:top;">
+			<div class="part description">
 				<b>Carlos J. Peláez Rivas (Lázarus Surazal)</b> <br>
 				Graduado en Ingeniería Informática por la Universidad de Málaga. Actualmente estudiando un Máster en Ingeniería Informática impartido por la misma universidad.<br>
 				Apasionado de los videojuegos, la música y alguna que otra tecnología, siempre buscando cosas nuevas que aprender y hacer. <br>
@@ -449,7 +460,7 @@ $('#entry1 .tags').html(generateLabels(['Consejos', 'Diario', 'IdP', 'Java']));
 			</div>
 		</div>
 	</div>
-	<div class="info_block" style="width:35%; padding: 0 0 10px 0;">
+	<div class="info_block" style="width:35%;">
 		<div class="title">
 			<b>Contacto</b>
 		</div>

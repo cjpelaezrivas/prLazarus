@@ -26,17 +26,17 @@
 #TOC ul li:first-child {
 	border-top: solid 1px #dcdcc8;
 
-	border-radius: 5px 5px 0 0;
+	border-radius: 4px 4px 0 0;
 }
 
 #TOC ul li:last-child {
 	border-bottom: solid 1px #dcdcc8;
 
-	border-radius: 0 0 5px 5px;
+	border-radius: 0 0 4px 4px;
 }
 
 #TOC ul li:only-child {
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 4px 4px 4px 4px;
 }
 
 #TOC ul li ul {

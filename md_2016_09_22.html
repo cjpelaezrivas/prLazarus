@@ -189,7 +189,7 @@ $(document).ready(function () {
 <script type="text/javascript">
 generateEntryInfo('jueves, 22 de septiembre de 2016', 'Consejos', 'Eclipse', 'Eficiencia', 'Java', 'Tutoriales', 'Utilidades');
 </script>
-<p>Hola a todos, Hacía bastante tiempo que no escribía ni publicaba nada, y aunque tengo varias entradas a medias y varios proyectos de los que me gustaría hablar, la verdad es que no dispongo de mucho tiempo libre.</p>
+<p>Hola a todos,<br> Hacía bastante tiempo que no escribía ni publicaba nada, y aunque tengo varias entradas a medias y varios proyectos de los que me gustaría hablar, la verdad es que no dispongo de mucho tiempo libre.</p>
 <p>Hoy tengo para vosotros algo que me resulta muy útil y creo que facilita bastante el trabajo a la hora de imprimir por consola el valor de cierta variable de nuestro código. Es cierto que existe el modo de ejecución debug, el cual nos permite ver en cada momento y paso a paso el valor de todas las variables de nuestro código, pero al final siempre nos vemos obligados a imprimir algún valor por consola, y aquí estoy para dar una solución rápida a este tedioso problema.</p>
 <p>Mi solución se basa en el uso de las plantillas de código que ofrece Eclipse. La verdad es que esta idea me vino de un corto periodo de uso que le di a IntelliJ IDEA, IDE en el que me resultaba muy sencilla la tarea de mostrar una variable y su valor por consola. Echaba de menos esta funcionalidad en Eclipse, el cual ahora mismo es el IDE que más uso, tanto en casa como en el trabajo, de modo que me decidí a buscar una solución.</p>
 <p>Como he dicho, la idea es usar las plantillas de código de Eclipse para lograrlo. Vamos a ponernos a ello:</p>
@@ -239,7 +239,7 @@ Fig. 3. Ventana para seleccionar campos.
 		Anterior
 	</a>
 	<a class="navigateButton center" href="index.html">
-		<i class="fa fa-undo"></i>
+		<i class="fa fa-home"></i>
 		Volver a la página principal
 	</a>
 </div>
@@ -278,6 +278,7 @@ if(index > -1) {
 	.info_block {
 		float: left;
 		display: inline-block;
+		padding: 0 10px 0 0;
 	}
 
 
@@ -292,12 +293,22 @@ if(index > -1) {
 		border: solid 1px #000000;
 	}
 
+
 	.info_block .content .part {
 		display: table-cell;
 	}
 
 	.info_block .content .part a {
 		text-decoration: none;
+	}
+
+	.info_block .content .photo {
+		width: 90px;
+		padding-right: 10px;
+	}
+
+	.info_block .content .description {
+		vertical-align: top;
 	}
 
 	.info_block .links a {
@@ -327,21 +338,21 @@ if(index > -1) {
 		}
 
 		.info_block .content .photo {
-			padding: 0 0 10px 0 !important;
+			padding: 0 0 10px 0;
 			text-align: center;
 		}
 	}
 </style>
 <div style="float:left; margin: 20px 0;">
-	<div class="info_block" style="width:65%; padding: 0 10px 0 0">
+	<div class="info_block" style="width:65%;">
 		<div class="title">
 			<b>Perfil</b>
 		</div>
 		<div class="content">
-			<div class="part photo" style="width:90px; padding-right:10px;">
-				<img src="images/logo_b.png"/>
+			<div class="part photo">
+				<img src="images/logo_b.png" width="90px" />
 			</div>
-			<div class="part" style="vertical-align:top;">
+			<div class="part description">
 				<b>Carlos J. Peláez Rivas (Lázarus Surazal)</b> <br>
 				Graduado en Ingeniería Informática por la Universidad de Málaga. Actualmente estudiando un Máster en Ingeniería Informática impartido por la misma universidad.<br>
 				Apasionado de los videojuegos, la música y alguna que otra tecnología, siempre buscando cosas nuevas que aprender y hacer. <br>
@@ -349,7 +360,7 @@ if(index > -1) {
 			</div>
 		</div>
 	</div>
-	<div class="info_block" style="width:35%; padding: 0 0 10px 0;">
+	<div class="info_block" style="width:35%;">
 		<div class="title">
 			<b>Contacto</b>
 		</div>
