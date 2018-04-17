@@ -198,11 +198,12 @@ generateEntryInfo('miércoles, 21 de marzo de 2018', 'Desarrollo', 'Diario', 'In
 <p>Es gracioso revisar las entradas antiguas y ver las notables diferencias en la forma de escribir en ese momento con el actual. A mi parecer hay un cambio de estilo bastante notable, además de que el contenido del blog también ha ido variando con el tiempo. Espero estar más activo de ahora en adelante.</p>
 <p>Tengo que indicar algún punto negativo de este cambio. El blog te lo haces tú. Y si no funciona algo, pues tú lo arreglas. También hay que tener en cuenta que la actualización del blog ya no es tan trivial como antes. La gracia de Blogger era que publicabas la entrada directamente. Ahora tengo que lidiar con un repositorio y actualizar la rama pertinente. En cualquier caso, tampoco me molesta mucho, ya que no subo contenido nuevo diariamente.</p>
 <p>Claramente he perdido algunas características de las que disponía antes, como pueden ser los contadores de visitas o algunos módulos propios de Blogger. La verdad, tampoco me pierdo nada. Y la búsqueda y gestión de etiquetas la he desarrollado a mi gusto usando JavaScript. Así que…</p>
-<p>Una de las cosas más importantes para un blog podría ser la gestión de los comentarios en cada entrada. Esto lo he solucionado usando <a href="https://disqus.com/">Disqus</a>. Esta herramienta no me entusiasma demasiado, y ahora mismo estoy en búsqueda activa de alternativas. Sin resultados positivos por el momento.</p>
+<p>Una de las cosas más importantes para un blog podría ser la gestión de los comentarios en cada entrada. <del>Esto lo he solucionado usando <a href="https://disqus.com/">Disqus</a>. Esta herramienta no me entusiasma demasiado, y ahora mismo estoy en búsqueda activa de alternativas. Sin resultados positivos por el momento.</del></p>
 <p>En cuanto a la migración de los comentarios, es triste, pero me la he saltado. Los comentarios que tenía en el blog anterior se podrían contar con los dedos de una mano. A ver si en esta ocasión hay algo más de suerte. Crear una comunidad activa es bastante complicado.</p>
 <p>Por ir finalizando ya, tengo que decir que estoy contento con el resultado. El rendimiento del blog parece bueno, es ligero y compatible completamente con dispositivos móviles (cosa que no tenía con Blogger). Como ya dije, la creación de entradas es súper sencilla y solo tiene como “pega” que tengo que actualizar un repositorio cada vez que quiera subir una actualización. Como novedad tengo que es completamente personalizable y lo controlo todo, cosa que no podía hacer antes con la plantilla de Blogger debido a su increíble complejidad.</p>
 <p>Eso es todo por ahora. Espero que os gusten todos los cambios realizados y si tenéis alguna pregunta la hagáis en los comentarios. Será un placer responderlas.</p>
 <p>Saludos, <br> Lázarus Surazal.</p>
+<p><strong>Editado el 17/04/2017</strong> <br> Después de actualizar el blog he seguido buscando alguna alternativa a <a href="https://disqus.com/">Disqus</a>, y por lo que se ve he encontrado algo bastante interesante que tiene que ver de nuevo con <a href="https://github.com/">GitHub</a>. Se trata de usar los <em>Issues</em> como gestor de comentarios. Ya he actualizado el blog con estas novedades, y tenéis más detalles en el primer comentario de esta entrada.</p>
 
 <hr>
 <div class="navigateContainer">
@@ -347,26 +348,14 @@ if(index > -1) {
 		</div>
 	</div>
 </div>
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://prlazarus.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<div style="float:left; width:100%;">
+	<script src="https://utteranc.es/client.js"
+	        repo="cjpelaezrivas/prLazarus"
+	        issue-term="title"
+	        async>
+	</script>
+	<noscript>Please enable JavaScript to view the comments.</noscript>
+</div>
 <div class="message" style="padding: 10px 0 25px 0">
 	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
 </div>
