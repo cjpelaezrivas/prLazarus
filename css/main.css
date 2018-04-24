@@ -152,27 +152,23 @@ figure figcaption {
 	border-radius: 4px;
 }
 
-.buttonBlue, .buttonBlue:visited, .buttonBlue:focus {
-	background-color:#428bca;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	border-radius:5px;
-	border:1px solid #003379;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	padding:6px 24px;
-	font-size: 18px;
-	text-decoration:none;
+/* Cookie Consent */
+
+.cc-window {
+    border-top: solid 1px #323232;
 }
 
-.buttonBlue:hover {
-	background-color:#3cb0fd;
-	color:#ffffff;
-	text-decoration:none;
+.cc-message {
+	padding: 0 10px !important;
+	font-size: 15px !important;
+    line-height: 20px !important;
 }
 
-.buttonBlue:active {
-	position:relative;
-	top:1px;
+.cc-compliance a {
+	text-decoration: none;
+}
+
+.cc-compliance a:hover {
+	text-decoration: none;
+	background-color: #323232 !important;
 }
