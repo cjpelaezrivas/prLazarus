@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Contraseñas para nuestro día a día</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Carlos J. Peláez Rivas" />
+<meta name="description" content="prLázarus blog de programación" />
+<meta name="keywords" content="blog, programación, programacion, programming, coding, code, desarrollo, development, carlos, jesús, jesus, peláez, pelaez, rivas, málaga, malaga, uma, españa, spain" />
+
+<link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/lightbox.min.css"/>
+
+<link rel="stylesheet" type="text/css" href="css/base.css"/>
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
+<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
+<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+<link rel="stylesheet" type="text/css" href="css/toc.css"/>
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
+
+<script src="js/scroll.js"></script>
+<script src="js/tags.js"></script>
+<script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
+<script>
+	lightbox.option({
+	  'albumLabel': "Imagen %1 de %2",
+	  'fadeDuration': 250,
+	  'resizeDuration': 250,
+	  'wrapAround': true
+	})
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74491738-2');
+</script>
+
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#d4d4d4",
+      "text": "#151515"
+    },
+    "button": {
+      "background": "#003379",
+      "text": "#ffffff"
+    }
+  },
+  "content": {
+    "message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
+    "dismiss": "Aceptar",
+    "link": "Más información",
+    "href": "https://cjpelaezrivas.github.io/prLazarus/md_cookies_policy.html"
+  }
+})});
+</script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<div id="navbar">
+	<div id="zoneA">
+		<div class="content">
+			<div id="logo">
+				<a href="index.html"><img src="images/logo.png"/></a>
+			</div>
+
+			<div id="subtitle">
+				Blog de desarrollo de proyectos Software, tutoriales, consejos y varios.
+			</div>
+		</div>
+	</div>
+	<div id="zoneB">
+		<div class="content">
+			<div id="menu">
+				<a class="menuItem" href="index.html"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
+				<a class="menuItem" href="https://cjpelaezrivas.github.io/Microblog/"><i class="fa fa-comments"></i><span class="text"> Microblog</span></a>
+				<a class="menuItem" href="http://www.cjpelaezrivas.tk"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Contraseñas para nuestro día a día</h1>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#introduccion">Introducción</a></li>
+<li><a href="#uso-de-gestores-de-contrasenas">Uso de gestores de contraseñas</a></li>
+<li><a href="#metodos-para-usar-contrasenas-seguras-y-unicas">Métodos para usar contraseñas seguras y únicas</a></li>
+<li><a href="#conclusiones">Conclusiones</a></li>
+</ul>
+</div>
+
+<script type="text/javascript">
+generateEntryInfo('viernes, 4 de mayo de 2018', 'Consejos', 'Seguridad', 'Varios');
+</script>
+<p>Hola a todos, <br> En esta entrada vamos a tratar el uso de las contraseñas en Internet. Un tema que debe se cogido con pinzas debido a su gran delicadeza. Nuestra seguridad como usuarios está en manos de estas cadenas de caracteres que sirven de llave para las puertas de nuestra vida virtual (<em>Me ha quedado bastante filosófico</em>).</p>
+<div id="introduccion" class="section level3">
+<h3>Introducción</h3>
+<p>Todos nosotros, sin excepción, tenemos decenas de cuentas en distintos servicios web como correo electrónico, redes sociales, revistas y periódicos, foros, tiendas online, y un larguísimo etcétera. Y la pregunta que formulo aquí es: ¿le damos la suficiente importancia a la seguridad de estas cuentas? Es más, ¿hemos pensado alguna vez en los riesgos que podría suponernos el acceso de terceros a dichos servicios usando nuestro nombre?</p>
+<p>Existen muchas personas y empresas tratando de encontrar formas alternativas que ofrezcan el nivel de seguridad de una contraseña escrita, que pueda transmitirse si se desea y que no pueda ser robada o copiada sin permiso. Esto, claramente, no es nada sencillo. De modo que nos toca continuar usando cadenas de caracteres para mantener segura nuestra información en Internet.</p>
+<p>Yo mismo he sido victima de robos de contraseña en algún momento. Un día cualquiera recibí una notificación en mi teléfono móvil indicando que mi cuenta de Gmail había sido bloqueada. Al parecer alguien desde China, aunque perfectamente ese alguien podría estar en Etiopía, Chile o en mi misma calle, había intentado entrar a mi cuenta usando mis credenciales. Naturalmente Google presto y veloz, bloqueó dicho acceso y me notificó que hiciera algo. En concreto, cambiar la contraseña por otra más <em>segura</em> y <em>única</em>, y desbloquear la cuenta usando el teléfono móvil.</p>
+<p>Y ahí mismo, en la frase anterior, es donde creo que está la respuesta a los problemas con las contraseñas: <strong>Una contraseña debe ser segura, sí, pero también única</strong>.</p>
+<p>Pero claro, esto no es nada sencillo. ¿Cuántos servicios distintos usamos? ¿Diez? ¿Veinte? ¿Cincuenta? ¿De verdad vamos a tener una clave de acceso distinta para cada uno de ellos? Pero, ¿Y si esto no sonase tan subrealista? ¿Y si realmente fuese posible? ¿De verdad podemos recordar tantas claves distintas y que no nos explote la cabeza?</p>
+<p>Alguno ya quizás estará pensando en un gestor de claves. Claro, un cuaderno donde apuntar todas nuestras claves de forma segura para consultarlas cuando las necesitemos. ¡Una magnífica idea! (<em>más o menos</em>).</p>
+</div>
+<div id="uso-de-gestores-de-contrasenas" class="section level3">
+<h3>Uso de gestores de contraseñas</h3>
+<p><a href="https://keepass.info/">KeePass</a> es uno de los muchos gestores de contraseñas que existen. Mantiene todas tus claves cifradas y seguras bien usando una contraseña (sí, contraseñas que protegen contraseñas (una metacontraseña, más bien)) o bien usando un fichero que actua como clave para descifrar. Obviamente este fichero debería estar en un dispositivo externo y este estar guardado en un sitio seguro, si no, es como si no tuviéramos nada.</p>
+<p>Usando esta herramienta podríamos tener contraseñas únicas para cada servicio sin preocuparnos de recordar todas y cada una de ellas. Bien. Es más, esta herramienta tiene un generador de contraseñas aleatorias, de modo que no tendríamos ni que inventárnoslas nosotros.</p>
+<p>Pero, ¿podemos ir un paso más allá? ¿Podemos eliminar al gestor de contraseñas de la ecuación y trabajar con contraseñas únicas y aleatorias (o aparentemente aleatorias) sin usar herramientas extras?</p>
+</div>
+<div id="metodos-para-usar-contrasenas-seguras-y-unicas" class="section level3">
+<h3>Métodos para usar contraseñas seguras y únicas</h3>
+<p>Mirando un poco por la web he encontrado algunos métodos que me han resultado interesantes para generar y recordar (que no memorizar) contraseñas para los distintos sitios. Unos son más profundos que otros, pero ahí está la gracia, en poder el elegir el que queramos.</p>
+<p><strong>Método de la fórmula en 5 pasos</strong></p>
+<p>El <a href="https://hipertextual.com/archivo/2014/06/crear-contrasena-segura/">artículo original puede encontrarse aquí</a>. Básicamente es seguir una receta para crear una contraseña que dependerá del sitio web para donde vaya a ser usada. Los pasos son los siguientes:</p>
+<ol style="list-style-type: decimal">
+<li>Elegir si quieres consonantes o vocales</li>
+<li>Elegir una canción para coger la primera letra de cada palabra de alguna de sus partes</li>
+<li>Elegir un número</li>
+<li>Elegir un símbolo</li>
+<li>Elegir un orden para todos los campos</li>
+</ol>
+<p>En el supuesto de crear una contraseña para Twitter, usando consonantes, con la canción de <em>Metallica</em> titulada <em>Nothing Else Matters</em>, con él número 365911, con el símbolo <code>$</code>, y usando como orden <code>sitio web</code>, <code>número</code>, <code>canción</code> y <code>símbolo</code>, obtendríamos la contraseña:</p>
+<p><code>Twttr 365911 Scnmhf $</code> <i class="fa fa-long-arrow-right"></i> <code>Twttr365911Scnmhf$</code></p>
+<p>No está nada mal. En el caso de no recordar la contraseña siempre podríamos volver a componerla. Por cierto, he usado la primera frase de la canción: “<em>So close, no matter how far</em>” para componer la contraseña, además de usar un par de letras en mayúsculas para dar un poco más de complejidad al asunto.</p>
+<p><strong>Método <em>diceware</em></strong></p>
+<p>El <a href="https://hipertextual.com/2016/02/diceware-contrasena-aleatoria">artículo original puede encontrarse aquí</a>. Este artículo ya podemos ver que tiene algo más de <em>chicha</em>. Es más, usan la palabra <a href="http://dle.rae.es/?id=FpmDaOB"><em>entropía</em></a> varias veces. Fascinante.</p>
+<p>El método se basa en que la contraseña sea una frase formada por palabras. A más palabras, más seguridad. Cada palabra es elegida usando el número obtenido de lanzar un dado de seis caras 5 veces. Por tanto, se debe repetir el proceso para cada palabra. La lista de palabras asignada a cada número puede encontrarse en <a href="http://world.std.com/~reinhold/diceware_espanol/DW-Espanol-1.txt">esta lista pública</a>. Tan simple y efectivo.</p>
+<p>En el caso de obtener los números: <code>54142</code>, <code>44515</code>, <code>34233</code>, <code>42136</code>, <code>35533</code> y <code>62416</code>; la contraseña obtenida sería:</p>
+<p><code>f41 Luisa n27 irnos galope sordo</code> <i class="fa fa-long-arrow-right"></i> <code>f41Luisan27irnosgalopesordo</code></p>
+<p>Este resultado también es prometedor. No sigue ninguna regla y puede resultar fácil de recordar. Además, da como resultado una contraseña bastante larga.</p>
+<p><strong>Método <em>‘He olvidado mi contraseña’</em></strong></p>
+<p>Pensando en algunos técnicas para quitarme las contraseñas de encima se me ocurrió este método. ¿Y si no usara ningún gestor de contraseñas? ¿Y si no usara ninguna regla para generarlas? ¿Y si no tuviera que preocuparme por recordarlas porque ni siquiera las conozco?</p>
+<p>El método consiste en desconocer todas tus contraseñas, menos una. La idea es generar una contraseña aleatoria y compleja, usando cualquier letra, número y símbolo disponible en el teclado y de una longitud interesante cada vez que nos registremos en un sitio. Utilizarla para iniciar sesión y desechar dicha contraseña.</p>
+<p>Para poder iniciar sesión de nuevo necesitaremos recordar la clave usada, pero eso es imposible. Por ese motivo debemos conocer al menos una contraseña: <strong>la de nuestro correo electrónico</strong>. Cada vez que iniciemos sesión en un sitio debemos pulsa en <em>Olvidé mi contraseña</em>, obteniendo un enlace en nuestro correo con la posibilidad de restablecer la clave del sitio web. En este momento volvemos a generar otra contraseña aleatoria, la cambiamos e iniciamos sesión.</p>
+<p>Es cierto que este método es un poco pesado y no sirve de mucho al usar máquinas que no son de nuestra propiedad. Básicamente porque nos pasaríamos el día restableciendo contraseñas. En cambio, en casa el navegador suele recordar las sesiones abiertas, por lo que una vez con la sesión iniciada no volverá a pedir la clave.</p>
+<p>Este método es posiblemente muy similar al método usando un gestor de claves, pero sin la necesidad de almacenarlas. Como complemento, la contraseña <em>maestra</em>, la llave para restablecer las demás cuentas, podría ser generada y usada utilizando alguno de los dos métodos anteriores.</p>
+</div>
+<div id="conclusiones" class="section level3">
+<h3>Conclusiones</h3>
+<p>Para finalizar esta entrada me gustaría hacer de nuevo hincapié en comenzar a usar o continuar usando contraseñas seguras, y dejar de usar el nombre de nuestro perro o nuestra fecha de cumpleaños para proteger nuestra vida virtual. Nuestros datos tienen más valor del que pensamos, y esto es algo que la gente no suele entender.</p>
+<p>Estos métodos son algunas ideas que he encontrado o que se me han ocurrido. Naturalmente hay muchos más y es posible modificarlos o mezclarlos para sentirnos todo lo seguros que deseemos. Por ejemplo, usar el primer o segundo método para nuestro correo electrónico y servicios de mayor importancia (cada uno con su propia clave, por supuesto), y tener contraseñas aleatorias usando el tercer método para sitios menos importantes.</p>
+<p>Eso es todo. Espero que os haya gustado este pequeño artículo y que compartáis otras posibles ideas en los comentarios.</p>
+<p>Saludos, <br> Lázarus Surazal.</p>
+<p><div class="block note"> <em><strong>Nota:</strong> No sé si será del agrado de todos la forma de escribir esta entrada. Sé que hay muchas preguntas (retóricas) y comentarios propios entre los párrafos. Todo está escrito con conocimiento de causa. La idea es mostrar la incertidumbre que existe hoy en día con la seguridad informática y hacer pensar a los posibles lectores de todos los riesgos que existen en Internet.</em> </div></p>
+</div>
+
+<hr>
+<div class="navigateContainer">
+	<a id ="navigationRight" class="navigateButton right navigateButtonInvisible" href="#">
+		Siguiente
+		<i class="fa fa-arrow-right"></i>
+	</a>
+	<a id="navigationLeft" class="navigateButton left navigateButtonInvisible" href="#">
+		<i class="fa fa-arrow-left"></i>
+		Anterior
+	</a>
+	<a class="navigateButton center" href="index.html">
+		<i class="fa fa-home"></i>
+		Volver a la página principal
+	</a>
+</div>
+
+<script src="js/navigation.js"/>
+<style>
+	.info_block {
+		float: left;
+		display: inline-block;
+		padding: 0 10px 0 0;
+	}
+
+
+	.info_block .title {
+		padding: 5px 10px;
+		border: solid 1px #000000;
+		border-bottom: none;
+	}
+
+	.info_block .content {
+		padding: 10px;
+		border: solid 1px #000000;
+	}
+
+
+	.info_block .content .part {
+		display: table-cell;
+	}
+
+	.info_block .content .part a {
+		text-decoration: none;
+	}
+
+	.info_block .content .photo {
+		width: 90px;
+		padding-right: 10px;
+	}
+
+	.info_block .content .description {
+		vertical-align: top;
+	}
+
+	.info_block .links a {
+		font-size: 45px;
+		line-height: 45px;
+		color: #003379;
+		text-decoration: none;
+	}
+
+	.info_block .links a:hover {
+		color: #323232;
+		text-decoration: none;
+	}
+
+	@media screen and (max-width: 700px) {
+		.info_block {
+			display: block !important;
+			padding: 10px 0 10px 0 !important;
+			width: 100% !important;
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		.info_block .content .part {
+			display: block !important;
+			width: 100% !important;
+		}
+
+		.info_block .content .photo {
+			padding: 0 0 10px 0;
+			text-align: center;
+		}
+	}
+</style>
+<div style="float:left; margin: 20px 0;">
+	<div class="info_block" style="width:65%;">
+		<div class="title">
+			<b>Perfil</b>
+		</div>
+		<div class="content">
+			<div class="part photo">
+				<img src="images/logo_b.png" width="90px" />
+			</div>
+			<div class="part description">
+				<b>Carlos J. Peláez Rivas (Lázarus Surazal)</b> <br>
+				Graduado en Ingeniería Informática por la Universidad de Málaga. Actualmente estudiando un Máster en Ingeniería Informática impartido por la misma universidad.<br>
+				Apasionado de los videojuegos, la música y alguna que otra tecnología, siempre buscando cosas nuevas que aprender y hacer. <br>
+				<a href="http://www.cjpelaezrivas.tk">Más sobre mi...</a>
+			</div>
+		</div>
+	</div>
+	<div class="info_block" style="width:35%;">
+		<div class="title">
+			<b>Contacto</b>
+		</div>
+		<div class="content links">
+			<a href="mailto:cjpelaezrivas@gmail.com"><i class="fa fa-envelope-square"></i></a>
+			<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
+			<a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
+		</div>
+	</div>
+</div>
+<div id="comments" style="float:left; width:100%;">
+	<script src="https://utteranc.es/client.js"
+	        repo="cjpelaezrivas/prLazarus"
+	        issue-term="title"
+	        async>
+	</script>
+	<noscript>Please enable JavaScript to view the comments.</noscript>
+</div>
+<div class="message" style="padding: 10px 0 25px 0">
+	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
+</div>
+<div class="footer">
+	<div class="content">
+		<div id="logo">
+			<a href="http://www.prlazarus.tk"><img src="images/logo_c.png"/></a>
+		</div>
+		<div id="text">
+			Todo el contenido de este blog pertenece a <a href="http://www.prlazarus.tk">prLázarus</a><br>
+			<i class="fa fa-plug"></i> <i>Con la tecnología de <a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a> y <a href="https://pages.github.com/">GitHub Pages</a></i><br>
+			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
+		</div>
+	</div>
+</div>
+
+<script src="js/toc.js"></script>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

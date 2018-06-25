@@ -246,6 +246,11 @@ title.style.display = "none";
 <h3>2018</h3>
 
 <div class="entries">
+	<a id="entry18" href="md_2018_05_04.html" class="entry">
+		<div class="title">Contraseñas para nuestro día a día</div>
+		<div class="date">viernes, 4 de mayo de 2018</div>
+		<div class="tags"></div>
+	</a>
 	<a id="entry17" href="md_2018_03_21.html" class="entry">
 		<div class="title">Nuevo blog, nuevo alojamiento, nuevo comienzo</div>
 		<div class="date">miércoles, 21 de marzo de 2018</div>
@@ -254,6 +259,7 @@ title.style.display = "none";
 </div>
 
 <script type="text/javascript">
+$('#entry18 .tags').html(generateLabels(['Consejos', 'Seguridad', 'Varios']));
 $('#entry17 .tags').html(generateLabels(['Desarrollo', 'Diario', 'Informacion']));
 </script>
 </div>
@@ -437,36 +443,7 @@ filterByParameters();
 	</a>
 </div>
 
-
-<script>
-var pages = [
-	'md_2012_09_29.html', 'md_2012_09_29_B.html', 'md_2012_10_07.html',  'md_2012_10_07_B.html',  'md_2012_10_14.html',
-	'md_2013_03_15.html', 'md_2013_06_13.html',
-	'md_2014_05_02.html', 'md_2014_06_10.html', 'md_2014_08_07.html', 'md_2014_10_01.html',
-	'md_2015_01_12.html', 'md_2015_08_10.html', 'md_2015_08_17.html', 'md_2015_08_24.html',
-	'md_2016_09_22.html',
-	'md_2018_03_21.html'
-];
-
-var split = new URL(window.location.href).pathname.split('/');
-var page = split[split.length - 1]
-
-var index = pages.indexOf(page);
-
-if(index > -1) {
-	if(index > 0) {
-		var button = $("#navigationLeft");
-		button.removeClass("navigateButtonInvisible");
-		button.attr("href", pages[index - 1]);
-	}
-
-	if(index < pages.length - 1) {
-		var button = $("#navigationRight");
-		button.removeClass("navigateButtonInvisible");
-		button.attr("href", pages[index + 1]);
-	}
-}
-</script>
+<script src="js/navigation.js"/>
 <style>
 	.info_block {
 		float: left;
