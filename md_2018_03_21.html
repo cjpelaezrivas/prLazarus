@@ -37,9 +37,6 @@
 
 <link rel="stylesheet" type="text/css" href="css/base.css"/>
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
-<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 <link rel="stylesheet" type="text/css" href="css/toc.css"/>
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 
@@ -53,16 +50,6 @@
 	  'resizeDuration': 250,
 	  'wrapAround': true
 	})
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-74491738-2');
 </script>
 
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
@@ -87,6 +74,16 @@ window.cookieconsent.initialise({
     "href": "https://cjpelaezrivas.github.io/prLazarus/md_cookies_policy.html"
   }
 })});
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74491738-2');
 </script>
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -178,6 +175,8 @@ $(document).ready(function () {
 
 
 
+<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+
 <div id="navbar">
 	<div id="zoneA">
 		<div class="content">
@@ -194,7 +193,6 @@ $(document).ready(function () {
 		<div class="content">
 			<div id="menu">
 				<a class="menuItem" href="index.html"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
-				<a class="menuItem" href="https://cjpelaezrivas.github.io/Microblog/"><i class="fa fa-comments"></i><span class="text"> Microblog</span></a>
 				<a class="menuItem" href="http://www.cjpelaezrivas.tk"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
 			</div>
 		</div>
@@ -229,6 +227,8 @@ generateEntryInfo('miércoles, 21 de marzo de 2018', 'Desarrollo', 'Diario', 'In
 <p>Saludos, <br> Lázarus Surazal.</p>
 <p><strong>Editado el 17/04/2017</strong> <br> Después de actualizar el blog he seguido buscando alguna alternativa a <a href="https://disqus.com/">Disqus</a>, y por lo que se ve he encontrado algo bastante interesante que tiene que ver de nuevo con <a href="https://github.com/">GitHub</a>. Se trata de usar los <em>Issues</em> como gestor de comentarios. Ya he actualizado el blog con estas novedades, y tenéis más detalles en el primer comentario de esta entrada.</p>
 
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
+
 <hr>
 <div class="navigateContainer">
 	<a id ="navigationRight" class="navigateButton right navigateButtonInvisible" href="#">
@@ -246,75 +246,8 @@ generateEntryInfo('miércoles, 21 de marzo de 2018', 'Desarrollo', 'Diario', 'In
 </div>
 
 <script src="js/navigation.js"> </script>
-<style>
-	.info_block {
-		float: left;
-		display: inline-block;
-		padding: 0 10px 0 0;
-	}
+<link rel="stylesheet" type="text/css" href="css/info.css"/>
 
-
-	.info_block .title {
-		padding: 5px 10px;
-		border: solid 1px #000000;
-		border-bottom: none;
-	}
-
-	.info_block .content {
-		padding: 10px;
-		border: solid 1px #000000;
-	}
-
-
-	.info_block .content .part {
-		display: table-cell;
-	}
-
-	.info_block .content .part a {
-		text-decoration: none;
-	}
-
-	.info_block .content .photo {
-		width: 90px;
-		padding-right: 10px;
-	}
-
-	.info_block .content .description {
-		vertical-align: top;
-	}
-
-	.info_block .links a {
-		font-size: 45px;
-		line-height: 45px;
-		color: #003379;
-		text-decoration: none;
-	}
-
-	.info_block .links a:hover {
-		color: #323232;
-		text-decoration: none;
-	}
-
-	@media screen and (max-width: 700px) {
-		.info_block {
-			display: block !important;
-			padding: 10px 0 10px 0 !important;
-			width: 100% !important;
-		}
-	}
-
-	@media screen and (max-width: 500px) {
-		.info_block .content .part {
-			display: block !important;
-			width: 100% !important;
-		}
-
-		.info_block .content .photo {
-			padding: 0 0 10px 0;
-			text-align: center;
-		}
-	}
-</style>
 <div style="float:left; margin: 20px 0;">
 	<div class="info_block" style="width:65%;">
 		<div class="title">
@@ -352,6 +285,8 @@ generateEntryInfo('miércoles, 21 de marzo de 2018', 'Desarrollo', 'Diario', 'In
 	</script>
 	<noscript>Please enable JavaScript to view the comments.</noscript>
 </div>
+<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+
 <div class="message" style="padding: 10px 0 25px 0">
 	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
 </div>
@@ -369,6 +304,14 @@ generateEntryInfo('miércoles, 21 de marzo de 2018', 'Desarrollo', 'Diario', 'In
 </div>
 
 <script src="js/toc.js"></script>
+<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+
+<div class="progressBarContainer">
+	<div class="progressBar">
+	</div>
+</div>
+
+<script src="js/progressBar.js"></script>
 
 
 
