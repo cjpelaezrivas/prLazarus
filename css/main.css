@@ -111,6 +111,21 @@ figure figcaption {
 	border-radius: 4px;
 }
 
+.icon {
+	padding-left: 45px;
+	position: relative;
+}
+
+.icon:before {
+	font-family: FontAwesome;
+	position: absolute;
+	top: 0;
+	left: 8px;
+	font-size: 30px;
+	width: 1em;
+	text-align: center;
+}
+
 .note {
 	color: #333333;
 	background-color: #f5f5f5;
