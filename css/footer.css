@@ -46,13 +46,15 @@
 
 @media screen and (max-width: 500px) {
 	.footer #logo {
-		text-align: center;
 		float: none;
 		width: 100%;
+		text-align: center;
 	}
 
 	.footer #text {
 		padding-top: 5px;
+		width: 100%;
+		text-align: center;
 	}
 }
 
