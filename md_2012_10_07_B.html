@@ -209,7 +209,7 @@ $(document).ready(function () {
 
 
 <script type="text/javascript">
-generateEntryInfo('domingo, 7 de octubre de 2012', 'Diario', 'Java');
+generateEntryInfo('domingo, 7 de octubre de 2012', 'Diario de desarrollo', 'Java');
 </script>
 <p>Vamos a comenzar a tratar la verdadera función de nuestro i. Para ello hemos creado un método llamada “interprete”, en el que introducimos una línea limpia de código y que devuelve un String con el resultado. Primero vamos a sacar cada uno de los operandos de la línea usando un <code>Tokenizer</code> con los elementos “+-*/()”. En caso de que no podamos convertir el token en un entero lanzaremos la excepción y dejaremos de ejecutar acciones para esta línea, pues se trata de un error ortográfico. Una vez acabado, vamos a continuar guardando las operaciones a realizar con los operandos anteriores. Para ello convertimos la línea de entrada en un array de caracteres y de ese modo podremos operar con total comodidad.</p>
 <p>Este algoritmos será un poco más complicado, tendremos dos listas, que crecerán a la par. En una de ellas guardaremos las operaciones y en otra guardaremos la prioridad con la que deben ser solucionadas. Examinaremos elemento a elemento el array, y cuando encontremos los símbolos: ‘+’, ‘-’, ‘*’ ó ‘/’ guardaremos en una entrada de la lista el símbolo y la prioridad que tenga en ese momento ese símbolo. Si encontramos el símbolo ‘(’ aumentamos la prioridad y si por el contrario encontramos ‘)’ disminuiremos la prioridad. De este modo podemos conservar la prioridad de cada operación a la hora de los usos de paréntesis.</p>
@@ -252,7 +252,7 @@ generateEntryInfo('domingo, 7 de octubre de 2012', 'Diario', 'Java');
 			</div>
 			<div class="part description">
 				<b>Carlos J. Peláez Rivas (Lázarus Surazal)</b> <br>
-				Graduado y Máster en Ingeniería Informática por la Universidad de Málaga.<br>
+				Graduado y Máster en Ingeniería Informática por la Universidad de Málaga. Actualmente trabajando como desarrollador de aplicaciones en Java usando Vaadin.<br>
 				Apasionado de los videojuegos, la música y alguna que otra tecnología, siempre buscando cosas nuevas que aprender y hacer. <br>
 				<a href="http://cjpelaezrivas.tk">Más sobre mi...</a>
 			</div>
