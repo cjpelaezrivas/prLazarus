@@ -26,13 +26,13 @@
 	text-align: right;
 }
 
-.footer #logo {
+.footer #logo_footer {
 	display: inline-block;
 	float: left;
 }
 
 
-.footer #logo img {
+.footer #logo_footer img {
 	height: 75px;
 	margin-top: 10px;
 }
@@ -45,7 +45,7 @@
 }
 
 @media screen and (max-width: 500px) {
-	.footer #logo {
+	.footer #logo_footer {
 		float: none;
 		width: 100%;
 		text-align: center;
