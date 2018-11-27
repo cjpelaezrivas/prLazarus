@@ -4,25 +4,23 @@
 
 <head>
 
-<meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="pandoc" />
 
+		
+	
+	
+	<title>Principios de diseño orientado a objetos que todo programador de Java debería conocer</title>
 
-
-
-<title>Principios de diseño orientado a objetos que todo programador de Java debería conocer</title>
-
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<meta charset="utf-8" />
+			<meta charset="utf-8" />
 <meta http-equiv="content-type" content="text/html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="author" content="Carlos J. Peláez Rivas" />
@@ -41,7 +39,6 @@
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 
 <script src="js/scroll.js"></script>
-<script src="js/tags.js"></script>
 <script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
 <script>
 	lightbox.option({
@@ -85,97 +82,78 @@ window.cookieconsent.initialise({
 
   gtag('config', 'UA-74491738-2');
 </script>
-
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
-
-
+	
+	
+	
+	
+			<style type="text/css">
+			h1 {
+				font-size: 34px;
+			}
+			h1.title {
+				font-size: 38px;
+			}
+			h2 {
+				font-size: 30px;
+			}
+			h3 {
+				font-size: 24px;
+			}
+			h4 {
+				font-size: 18px;
+			}
+			h5 {
+				font-size: 16px;
+			}
+			h6 {
+				font-size: 12px;
+			}
+			.table th:not([align]) {
+				text-align: left;
+			}
+					</style>
+	
+	
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
+			<style type = "text/css">
+			.main-container {
+				max-width: 940px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			code {
+				color: inherit;
+				background-color: rgba(0, 0, 0, 0.04);
+			}
+			img {
+				max-width:100%;
+				height: auto;
+			}
+			.tabbed-pane {
+				padding-top: 12px;
+			}
+			button.code-folding-btn:focus {
+				outline: none;
+			}
+		</style>
 
+		
+		<div class="container-fluid main-container">
 
+		<!-- tabsets -->
+		<script>
+			$(document).ready(function () {
+				window.buildTabsets("TOC");
+			});
+		</script>
 
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+		<!-- code folding -->
+		
+			
+			<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 
 <div id="navbar">
 	<div id="zoneA">
@@ -198,17 +176,30 @@ $(document).ready(function () {
 		</div>
 	</div>
 </div>
+	
+			<div class="fluid-row" id="header">
 
-<div class="fluid-row" id="header">
-
-
-
-<h1 class="title toc-ignore">Principios de diseño orientado a objetos que todo programador de Java debería conocer</h1>
-
-</div>
-
-<div id="TOC">
-<ul>
+				
+						<h1 class="title toc-ignore">Principios de diseño orientado a objetos que todo programador de Java debería conocer</h1>
+				<!--
+				-->
+					<h4 class="date"><em>lunes, 10 de agosto de 2015</em></h4>
+				<!--
+				-->
+					<b>Etiquetas</b>
+			<div id="tag_section">
+									<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+									<a class="tag" href="md_search.html?tag=Diseño">Diseño</a>
+									<a class="tag" href="md_search.html?tag=Java">Java</a>
+							</div>
+				<!--
+				-->
+	
+			</div>
+	
+						<div id="TOC">
+									<span class="title">Tabla de contenido</span>
+								<ul>
 <li><a href="#dry-dont-repeat-yourself-o-no-te-repitas">DRY (Don’t Repeat Yourself o No te repitas)</a></li>
 <li><a href="#encapsular-lo-que-puede-cambiar">Encapsular lo que puede cambiar</a></li>
 <li><a href="#el-principio-de-diseno-cerrado-abierto">El principio de diseño Cerrado-Abierto</a></li>
@@ -217,12 +208,9 @@ $(document).ready(function () {
 <li><a href="#programa-usando-interfaces-y-no-implementaciones">Programa usando interfaces y no implementaciones</a></li>
 <li><a href="#principio-de-delegacion">Principio de delegación</a></li>
 </ul>
-</div>
-
-<script type="text/javascript">
-generateEntryInfo('lunes, 10 de agosto de 2015', 'Consejos', 'Diseño', 'Java', 'Lecciones');
-</script>
-<p>Buenas a todos, <br> En esta ocasión vamos a tratar sobre el análisis y el diseño orientados a objetos. Es fácil encontrar a muchos programadores que usan patrones de diseño como <em>Singleton</em>, <em>Decorator</em>, u <em>Observer</em>; pero no se han parado a analizarlos como tal.</p>
+			</div>
+			
+	<p>Buenas a todos, <br> En esta ocasión vamos a tratar sobre el análisis y el diseño orientados a objetos. Es fácil encontrar a muchos programadores que usan patrones de diseño como <em>Singleton</em>, <em>Decorator</em>, u <em>Observer</em>; pero no se han parado a analizarlos como tal.</p>
 <p>Antes de entrar en materia con los patrones de diseño es importante entender conceptos básicos como son la abstracción, la encapsulación, el polimorfismo y la herencia, pero al mismo tiempo, es importante conocer los principios de diseño básicos para desarrollar de forma limpia y modular. La verdad, no hay nada peor que un código que sólo entienda su propio creador.</p>
 <p>Hay por ahí algunos programadores que nunca han oído hablar sobre conceptos como OOPS <em>(Object Oriented Programming System)</em>, o de los principios de diseño <a href="https://es.wikipedia.org/wiki/SOLID">SOLID</a>. Aunque también puede ser que no conozcan los beneficios que ofrecen estos principios o cómo usarlos a la hora de programar. O quizás sí que usan algunas técnicas pero no saben que tienen nombre. De todo puede pasar.</p>
 <p>Podemos encontrar muy buenos ejemplos si echamos un vistazo a las librerias de Apache o Sun, donde nos enseñan como deben ser usados los principios de diseño en los programas Java, y en la programación en general.</p>
@@ -264,28 +252,10 @@ generateEntryInfo('lunes, 10 de agosto de 2015', 'Consejos', 'Diseño', 'Java', 
 <p>Debemos tener en cuenta que estos principios son realmente útiles para grandes proyectos y empresas que necesitan un mantenimiento muy largo. Nada es perfecto, de modo que tampoco intentes siempre resolver los problemas usando principio y patrones de diseño, simplemente son una buena práctica.</p>
 <p>Espero comentarios.</p>
 <p>Saludos, <br> Lázarus Surazal.</p>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/><hr><div class="navigationContainer"><a class="navigateButton right" href="md_2015_08_17.html">Siguiente <i class="fa fa-arrow-right"></i></a><a class="navigateButton left" href="md_2015_01_12.html"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a></div>
 </div>
 
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
-
-<hr>
-<div class="navigateContainer">
-	<a id ="navigationRight" class="navigateButton right navigateButtonInvisible" href="#">
-		Siguiente
-		<i class="fa fa-arrow-right"></i>
-	</a>
-	<a id="navigationLeft" class="navigateButton left navigateButtonInvisible" href="#">
-		<i class="fa fa-arrow-left"></i>
-		Anterior
-	</a>
-	<a class="navigateButton center" href="./">
-		<i class="fa fa-home"></i>
-		Volver a la página principal
-	</a>
-</div>
-
-<script src="js/navigation.js"> </script>
-<link rel="stylesheet" type="text/css" href="css/info.css"/>
+			<link rel="stylesheet" type="text/css" href="css/info.css"/>
 <link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
 
 <div style="float:left; margin: 20px 0;">
@@ -325,16 +295,20 @@ generateEntryInfo('lunes, 10 de agosto de 2015', 'Consejos', 'Diseño', 'Java', 
 		</div>
 	</div>
 </div>
-<div id="comments" style="float:left; width:100%;">
+			<div id="comments" style="float:left; width:100%;">
 	<script src="https://utteranc.es/client.js"
 		repo="cjpelaezrivas/prLazarus"
 		issue-term="title"
 		crossorigin	="anonymous"
 		async>
 	</script>
-	<noscript>Please enable JavaScript to view the comments.</noscript>
+	<noscript>
+		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+			Por favor, activa JavaScript para ver los comentarios.
+		</div>
+	</noscript>
 </div>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+			<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div class="message" style="padding: 10px 0 25px 0">
 	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
@@ -351,9 +325,7 @@ generateEntryInfo('lunes, 10 de agosto de 2015', 'Consejos', 'Diseño', 'Java', 
 		</div>
 	</div>
 </div>
-
-<script src="js/toc.js"></script>
-<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+			<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
 
 <div class="progressBarContainer">
 	<div class="progressBar">
@@ -361,24 +333,21 @@ generateEntryInfo('lunes, 10 de agosto de 2015', 'Consejos', 'Diseño', 'Java', 
 </div>
 
 <script src="js/progressBar.js"></script>
+	
+			
+		</div>
 
+		<script>
+			// add bootstrap table styles to pandoc tables
+			function bootstrapStylePandocTables() {
+				$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+			}
 
+			$(document).ready(function () {
+				bootstrapStylePandocTables();
+			});
 
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-
-</body>
+					</script>
+	
+	</body>
 </html>

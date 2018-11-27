@@ -4,25 +4,23 @@
 
 <head>
 
-<meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="pandoc" />
 
+		
+	
+	
+	<title>FdP - prCalculadoraIntérprete</title>
 
-
-
-<title>FdP - prCalculadoraIntérprete</title>
-
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<meta charset="utf-8" />
+			<meta charset="utf-8" />
 <meta http-equiv="content-type" content="text/html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="author" content="Carlos J. Peláez Rivas" />
@@ -41,7 +39,6 @@
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 
 <script src="js/scroll.js"></script>
-<script src="js/tags.js"></script>
 <script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
 <script>
 	lightbox.option({
@@ -85,97 +82,78 @@ window.cookieconsent.initialise({
 
   gtag('config', 'UA-74491738-2');
 </script>
-
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
-
-
+	
+	
+	
+	
+			<style type="text/css">
+			h1 {
+				font-size: 34px;
+			}
+			h1.title {
+				font-size: 38px;
+			}
+			h2 {
+				font-size: 30px;
+			}
+			h3 {
+				font-size: 24px;
+			}
+			h4 {
+				font-size: 18px;
+			}
+			h5 {
+				font-size: 16px;
+			}
+			h6 {
+				font-size: 12px;
+			}
+			.table th:not([align]) {
+				text-align: left;
+			}
+					</style>
+	
+	
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
+			<style type = "text/css">
+			.main-container {
+				max-width: 940px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			code {
+				color: inherit;
+				background-color: rgba(0, 0, 0, 0.04);
+			}
+			img {
+				max-width:100%;
+				height: auto;
+			}
+			.tabbed-pane {
+				padding-top: 12px;
+			}
+			button.code-folding-btn:focus {
+				outline: none;
+			}
+		</style>
 
+		
+		<div class="container-fluid main-container">
 
+		<!-- tabsets -->
+		<script>
+			$(document).ready(function () {
+				window.buildTabsets("TOC");
+			});
+		</script>
 
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+		<!-- code folding -->
+		
+			
+			<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 
 <div id="navbar">
 	<div id="zoneA">
@@ -198,20 +176,30 @@ $(document).ready(function () {
 		</div>
 	</div>
 </div>
+	
+			<div class="fluid-row" id="header">
 
-<div class="fluid-row" id="header">
-
-
-
-<h1 class="title toc-ignore">FdP - prCalculadoraIntérprete</h1>
-
-</div>
-
-
-<script type="text/javascript">
-generateEntryInfo('domingo, 14 de octubre de 2012', 'Consejos', 'Diario de desarrollo', 'FdP', 'Java');
-</script>
-<p>Hola a todos. En esta ocasión vamos (creo) a acabar con este proyecto. He estado pensando y creo que lo tengo todo más o menos en mi cabecita. Empecemos…</p>
+				
+						<h1 class="title toc-ignore">FdP - prCalculadoraIntérprete</h1>
+				<!--
+				-->
+					<h4 class="date"><em>domingo, 14 de octubre de 2012</em></h4>
+				<!--
+				-->
+					<b>Etiquetas</b>
+			<div id="tag_section">
+									<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+									<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+									<a class="tag" href="md_search.html?tag=FdP">FdP</a>
+									<a class="tag" href="md_search.html?tag=Java">Java</a>
+							</div>
+				<!--
+				-->
+	
+			</div>
+	
+				
+	<p>Hola a todos. En esta ocasión vamos (creo) a acabar con este proyecto. He estado pensando y creo que lo tengo todo más o menos en mi cabecita. Empecemos…</p>
 <p>Para comenzar decir que le método “interprete” que habíamos creado habrá que cambiarlo bastante (al menos la primera parte). Comenzaremos con el primer algoritmo que sacaba los operandos (el más importante creo…). En el caso anterior teníamos un “Tokenizer” con el String “+-*/()”, pues bien, lo cambiaremos a un “Tokenizer” más casero que en teoría separará con el String “+*/()”, sí exacto, no separaremos las restas.Lo llamamos casero porque lo haremos nosotros desde cero. Convertiremos la cadena de entrada a un array de caracteres y recorreremos cada uno de los elementos. En caso de que sea un símbolo de operación o un paréntesis lo añadiremos a un “String builder” principal, y en el caso de que sea números o menos, lo añadiremos a un “String builder” secundario para operar con ellos. En este caso obtendremos cadenas de números, símbolos menos y basura (si la hubiese). Estos Strings lo intentaremos convertir a enteros. En el caso de que se pueda simplemente lo añadimos a la lista de operandos y colocamos en el “String builder” principal en lugar del número una “X”. En otro caso, no podremos convertir el String a entero, en el manejador de la excepción deberemos hacer varias cosas. Primero, debemos asegurarnos de que la entrada está compuesta solo de números y menos, en otro caso es un error sintáctico y acabamos con esta línea aquí. En el caso de que esté bien escrito nos podemos encontrar con varios casos. O un número solo con más de un menos delante, o una serie de restas, que puede comenzar con menos o no. Este último caso se tratará en un método privados a parte. En primera instancia vamos a crear el algoritmo que recorra la cadena y realice todas las operaciones básicas incluyendo la llamada al método que llamaremos: “separador”. Comenzamos…</p>
 <p>Una vez vez acabado el algoritmo, a la segunda mitad de este (el que detectaba las operaciones y las prioridades) sólo hay que cambiarle la entrada que recibe. En lugar de la línea inicial, debemos meterle el contenido de “primario”. A partir de aquí continuará igual todo.</p>
 <p>Además, para que funcione hemos tenido que poner algunos “parches”, como por ejemplo para que detecte los signos menos antes de los paréntesis. En cualquier otro caso, este algoritmo funciona a las mil maravillas, aunque a la hora de signos menos sin números antes de los paréntesis no hemos detectado problemas con los ejemplos que hemos probado, podrían existir algún caso para que el que no dé una solución correcta. Pasamos a comentar el código con todo los detalles posibles. Vamos a ello!</p>
@@ -221,27 +209,9 @@ generateEntryInfo('domingo, 14 de octubre de 2012', 'Consejos', 'Diario de desar
 <p><strong>Edito: He pasado ya la corrección automática de nuestro campus virtual de la facultad y he de deciros que estoy muy contento con el resultado. El programa ha tenido un 100 sobre 100.</strong></p>
 <p>Saludos, <br> Lázarus Surazal.</p>
 <p><strong>Descarga:</strong> <br> <em>[Enlace eliminado]</em></p>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/><hr><div class="navigationContainer"><a class="navigateButton right" href="md_2013_03_15.html">Siguiente <i class="fa fa-arrow-right"></i></a><a class="navigateButton left" href="md_2012_10_07_B.html"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a></div>
 
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
-
-<hr>
-<div class="navigateContainer">
-	<a id ="navigationRight" class="navigateButton right navigateButtonInvisible" href="#">
-		Siguiente
-		<i class="fa fa-arrow-right"></i>
-	</a>
-	<a id="navigationLeft" class="navigateButton left navigateButtonInvisible" href="#">
-		<i class="fa fa-arrow-left"></i>
-		Anterior
-	</a>
-	<a class="navigateButton center" href="./">
-		<i class="fa fa-home"></i>
-		Volver a la página principal
-	</a>
-</div>
-
-<script src="js/navigation.js"> </script>
-<link rel="stylesheet" type="text/css" href="css/info.css"/>
+			<link rel="stylesheet" type="text/css" href="css/info.css"/>
 <link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
 
 <div style="float:left; margin: 20px 0;">
@@ -281,16 +251,20 @@ generateEntryInfo('domingo, 14 de octubre de 2012', 'Consejos', 'Diario de desar
 		</div>
 	</div>
 </div>
-<div id="comments" style="float:left; width:100%;">
+			<div id="comments" style="float:left; width:100%;">
 	<script src="https://utteranc.es/client.js"
 		repo="cjpelaezrivas/prLazarus"
 		issue-term="title"
 		crossorigin	="anonymous"
 		async>
 	</script>
-	<noscript>Please enable JavaScript to view the comments.</noscript>
+	<noscript>
+		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+			Por favor, activa JavaScript para ver los comentarios.
+		</div>
+	</noscript>
 </div>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+			<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div class="message" style="padding: 10px 0 25px 0">
 	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
@@ -307,9 +281,7 @@ generateEntryInfo('domingo, 14 de octubre de 2012', 'Consejos', 'Diario de desar
 		</div>
 	</div>
 </div>
-
-<script src="js/toc.js"></script>
-<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+			<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
 
 <div class="progressBarContainer">
 	<div class="progressBar">
@@ -317,24 +289,21 @@ generateEntryInfo('domingo, 14 de octubre de 2012', 'Consejos', 'Diario de desar
 </div>
 
 <script src="js/progressBar.js"></script>
+	
+			
+		</div>
 
+		<script>
+			// add bootstrap table styles to pandoc tables
+			function bootstrapStylePandocTables() {
+				$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+			}
 
+			$(document).ready(function () {
+				bootstrapStylePandocTables();
+			});
 
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-
-</body>
+					</script>
+	
+	</body>
 </html>

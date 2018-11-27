@@ -4,25 +4,23 @@
 
 <head>
 
-<meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="pandoc" />
 
+		
+	
+	
+	<title>IdP - prCalculadoraIntérprete</title>
 
-
-
-<title>IdP - prCalculadoraIntérprete</title>
-
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<meta charset="utf-8" />
+			<meta charset="utf-8" />
 <meta http-equiv="content-type" content="text/html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="author" content="Carlos J. Peláez Rivas" />
@@ -41,7 +39,6 @@
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 
 <script src="js/scroll.js"></script>
-<script src="js/tags.js"></script>
 <script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
 <script>
 	lightbox.option({
@@ -85,97 +82,78 @@ window.cookieconsent.initialise({
 
   gtag('config', 'UA-74491738-2');
 </script>
-
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
-
-
+	
+	
+	
+	
+			<style type="text/css">
+			h1 {
+				font-size: 34px;
+			}
+			h1.title {
+				font-size: 38px;
+			}
+			h2 {
+				font-size: 30px;
+			}
+			h3 {
+				font-size: 24px;
+			}
+			h4 {
+				font-size: 18px;
+			}
+			h5 {
+				font-size: 16px;
+			}
+			h6 {
+				font-size: 12px;
+			}
+			.table th:not([align]) {
+				text-align: left;
+			}
+					</style>
+	
+	
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
+			<style type = "text/css">
+			.main-container {
+				max-width: 940px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			code {
+				color: inherit;
+				background-color: rgba(0, 0, 0, 0.04);
+			}
+			img {
+				max-width:100%;
+				height: auto;
+			}
+			.tabbed-pane {
+				padding-top: 12px;
+			}
+			button.code-folding-btn:focus {
+				outline: none;
+			}
+		</style>
 
+		
+		<div class="container-fluid main-container">
 
+		<!-- tabsets -->
+		<script>
+			$(document).ready(function () {
+				window.buildTabsets("TOC");
+			});
+		</script>
 
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+		<!-- code folding -->
+		
+			
+			<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 
 <div id="navbar">
 	<div id="zoneA">
@@ -198,20 +176,30 @@ $(document).ready(function () {
 		</div>
 	</div>
 </div>
+	
+			<div class="fluid-row" id="header">
 
-<div class="fluid-row" id="header">
-
-
-
-<h1 class="title toc-ignore">IdP - prCalculadoraIntérprete</h1>
-
-</div>
-
-
-<script type="text/javascript">
-generateEntryInfo('sábado, 29 de septiembre de 2012','Consejos', 'Diario de desarrollo', 'IdP', 'Java');
-</script>
-<p>Bueno, comenzaremos este diario de desarrollo con un proyecto de la universidad, pues el interés de usar este diario es tener una documentación más o menos razonable y lo más detallada posible sobre todos los proyectos que vaya realizando. Para comenzar decir que usaremos el IDE Eclipse y el lenguaje que usaremos estará en las etiquetas de cada proyecto. En este caso usaremos Java y nuestro primer trabajo tiene este apartado:</p>
+				
+						<h1 class="title toc-ignore">IdP - prCalculadoraIntérprete</h1>
+				<!--
+				-->
+					<h4 class="date"><em>sábado, 29 de septiembre de 2012</em></h4>
+				<!--
+				-->
+					<b>Etiquetas</b>
+			<div id="tag_section">
+									<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+									<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+									<a class="tag" href="md_search.html?tag=IdP">IdP</a>
+									<a class="tag" href="md_search.html?tag=Java">Java</a>
+							</div>
+				<!--
+				-->
+	
+			</div>
+	
+				
+	<p>Bueno, comenzaremos este diario de desarrollo con un proyecto de la universidad, pues el interés de usar este diario es tener una documentación más o menos razonable y lo más detallada posible sobre todos los proyectos que vaya realizando. Para comenzar decir que usaremos el IDE Eclipse y el lenguaje que usaremos estará en las etiquetas de cada proyecto. En este caso usaremos Java y nuestro primer trabajo tiene este apartado:</p>
 <p><strong><em>Este ejercicio propone la realización EXCLUSIVAMENTE mediante programación en JAVA, de un pequeño interprete de expresiones entre números enteros.</em></strong></p>
 <p>Se trata de un intérprete. No es el primero que realizo así que creo que tengo más o menos ideas de cómo afrontarlo. De todos modos aún no he pensado en ello con profundidad. Esto se trata de un análisis de los requisitos que deberá tener nuestro proyecto para ponernos en situación. Recordad que ese es el trabajo de un INGENIERO en Informática, no es el de programa (que también), si no que debe pensar, razonar y argumentar cada paso que da e intentar que su trabajo sea lo más optimo posible. De modo que una vez que tenemos los primeros datos debemos saber que ha de hacer nuestro intérprete (a partir de ahora lo llamaremos i).</p>
 <p>Aprovechando unas pruebas que nos dan en clase, para ver las preguntas que debemos responder usando el i final y será los requisitos que deberá superar nuestro i una vez acabado.</p>
@@ -224,27 +212,9 @@ generateEntryInfo('sábado, 29 de septiembre de 2012','Consejos', 'Diario de des
 <p>Ni que decir tiene que cada una de las pruebas es acumulativa, es decir, la 5 debe cumplir las cuatro pruebas anteriores a ella, por ejemplo.</p>
 <p>Pues estas son las pruebas que debe pasar nuestro i, y por tanto serán los requisitos de nuestro sistema.</p>
 <p>Saludos, <br> Lázarus Surazal.</p>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/><hr><div class="navigationContainer"><a class="navigateButton right" href="md_2012_09_29_B.html">Siguiente <i class="fa fa-arrow-right"></i></a><a class="navigateButton left navigateButtonInvisible" href="#"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a></div>
 
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
-
-<hr>
-<div class="navigateContainer">
-	<a id ="navigationRight" class="navigateButton right navigateButtonInvisible" href="#">
-		Siguiente
-		<i class="fa fa-arrow-right"></i>
-	</a>
-	<a id="navigationLeft" class="navigateButton left navigateButtonInvisible" href="#">
-		<i class="fa fa-arrow-left"></i>
-		Anterior
-	</a>
-	<a class="navigateButton center" href="./">
-		<i class="fa fa-home"></i>
-		Volver a la página principal
-	</a>
-</div>
-
-<script src="js/navigation.js"> </script>
-<link rel="stylesheet" type="text/css" href="css/info.css"/>
+			<link rel="stylesheet" type="text/css" href="css/info.css"/>
 <link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
 
 <div style="float:left; margin: 20px 0;">
@@ -284,16 +254,20 @@ generateEntryInfo('sábado, 29 de septiembre de 2012','Consejos', 'Diario de des
 		</div>
 	</div>
 </div>
-<div id="comments" style="float:left; width:100%;">
+			<div id="comments" style="float:left; width:100%;">
 	<script src="https://utteranc.es/client.js"
 		repo="cjpelaezrivas/prLazarus"
 		issue-term="title"
 		crossorigin	="anonymous"
 		async>
 	</script>
-	<noscript>Please enable JavaScript to view the comments.</noscript>
+	<noscript>
+		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+			Por favor, activa JavaScript para ver los comentarios.
+		</div>
+	</noscript>
 </div>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+			<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div class="message" style="padding: 10px 0 25px 0">
 	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
@@ -310,9 +284,7 @@ generateEntryInfo('sábado, 29 de septiembre de 2012','Consejos', 'Diario de des
 		</div>
 	</div>
 </div>
-
-<script src="js/toc.js"></script>
-<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+			<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
 
 <div class="progressBarContainer">
 	<div class="progressBar">
@@ -320,24 +292,21 @@ generateEntryInfo('sábado, 29 de septiembre de 2012','Consejos', 'Diario de des
 </div>
 
 <script src="js/progressBar.js"></script>
+	
+			
+		</div>
 
+		<script>
+			// add bootstrap table styles to pandoc tables
+			function bootstrapStylePandocTables() {
+				$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+			}
 
+			$(document).ready(function () {
+				bootstrapStylePandocTables();
+			});
 
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-
-</body>
+					</script>
+	
+	</body>
 </html>

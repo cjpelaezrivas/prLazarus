@@ -4,25 +4,23 @@
 
 <head>
 
-<meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="pandoc" />
 
+		
+	
+	
+	<title>10 consejos para escribir comentarios en Java</title>
 
-
-
-<title>10 consejos para escribir comentarios en Java</title>
-
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<meta charset="utf-8" />
+			<meta charset="utf-8" />
 <meta http-equiv="content-type" content="text/html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="author" content="Carlos J. Peláez Rivas" />
@@ -41,7 +39,6 @@
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 
 <script src="js/scroll.js"></script>
-<script src="js/tags.js"></script>
 <script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
 <script>
 	lightbox.option({
@@ -85,97 +82,78 @@ window.cookieconsent.initialise({
 
   gtag('config', 'UA-74491738-2');
 </script>
-
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
-
-
+	
+	
+	
+	
+			<style type="text/css">
+			h1 {
+				font-size: 34px;
+			}
+			h1.title {
+				font-size: 38px;
+			}
+			h2 {
+				font-size: 30px;
+			}
+			h3 {
+				font-size: 24px;
+			}
+			h4 {
+				font-size: 18px;
+			}
+			h5 {
+				font-size: 16px;
+			}
+			h6 {
+				font-size: 12px;
+			}
+			.table th:not([align]) {
+				text-align: left;
+			}
+					</style>
+	
+	
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
+			<style type = "text/css">
+			.main-container {
+				max-width: 940px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			code {
+				color: inherit;
+				background-color: rgba(0, 0, 0, 0.04);
+			}
+			img {
+				max-width:100%;
+				height: auto;
+			}
+			.tabbed-pane {
+				padding-top: 12px;
+			}
+			button.code-folding-btn:focus {
+				outline: none;
+			}
+		</style>
 
+		
+		<div class="container-fluid main-container">
 
+		<!-- tabsets -->
+		<script>
+			$(document).ready(function () {
+				window.buildTabsets("TOC");
+			});
+		</script>
 
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+		<!-- code folding -->
+		
+			
+			<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 
 <div id="navbar">
 	<div id="zoneA">
@@ -198,20 +176,29 @@ $(document).ready(function () {
 		</div>
 	</div>
 </div>
+	
+			<div class="fluid-row" id="header">
 
-<div class="fluid-row" id="header">
-
-
-
-<h1 class="title toc-ignore">10 consejos para escribir comentarios en Java</h1>
-
-</div>
-
-
-<script type="text/javascript">
-generateEntryInfo('lunes, 17 de agosto de 2015', 'Consejos', 'Diseño', 'Java', 'Lecciones');
-</script>
-<p>Muy buenas, <br> Los comentarios son una parte muy importante a la hora de escribir código, no solo en Java, la verdad es que no importa el lenguaje que estés usando. De la mismo forma, es uno de los recursos que se abusa más. Tanto escribir pocos comentarios como muchos es malo, y ha sido remarcado por algunas celebridades como el autor del libro <em>Clean code (Código limpio)</em>, Robert C. Martin. En este libro, el cual tengo pendiente de terminar en estos momentos, hay un capítulo completo dedicado a cómo escribir comentarios, y detalla los pros y contras de estos.</p>
+				
+						<h1 class="title toc-ignore">10 consejos para escribir comentarios en Java</h1>
+				<!--
+				-->
+					<h4 class="date"><em>lunes, 17 de agosto de 2015</em></h4>
+				<!--
+				-->
+					<b>Etiquetas</b>
+			<div id="tag_section">
+									<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+									<a class="tag" href="md_search.html?tag=Diseño">Diseño</a>
+									<a class="tag" href="md_search.html?tag=Java">Java</a>
+							</div>
+				<!--
+				-->
+	
+			</div>
+	
+				
+	<p>Muy buenas, <br> Los comentarios son una parte muy importante a la hora de escribir código, no solo en Java, la verdad es que no importa el lenguaje que estés usando. De la mismo forma, es uno de los recursos que se abusa más. Tanto escribir pocos comentarios como muchos es malo, y ha sido remarcado por algunas celebridades como el autor del libro <em>Clean code (Código limpio)</em>, Robert C. Martin. En este libro, el cual tengo pendiente de terminar en estos momentos, hay un capítulo completo dedicado a cómo escribir comentarios, y detalla los pros y contras de estos.</p>
 <p>Pero antes de seguir con estos consejos y reglas, vamos a ver cual es el proposito de los comentarios en el código, ¿por qué necesitamos los comentarios? ¿acaso escribir el código no es suficiente? Algunos programadores incluso llegan a decir que a ellos se les paga por escribir código y no comentarios.</p>
 <p>En cualquier caso, todos podemos estar de acuerdo en que la mayor parte del tiempo empleado en el desarrollo de un Software se dedica al mantenimiento, y únicamente una pequeña parte se dedica al desarrollo en si. Es en la parte en la que más tiempo se pasa, en el mantenimiento, donde serán necesarios los comentarios.</p>
 <p>La mayoría de los programadores no está durante todo el tiempo de vida de un producto Software trabajando en él, y a veces hay gente nueva, la cual debe trabajar con código ya escrito. Esas personas que leen el código y no se interesan por la razón porla cual cierta línea de código está ahí, son a las que les pueden ser útil los comentarios para entender rápido el código.</p>
@@ -230,27 +217,9 @@ generateEntryInfo('lunes, 17 de agosto de 2015', 'Consejos', 'Diseño', 'Java', 
 </ol>
 <p>Eso es todo por ahora sobre consejos a la hora de crear comentarios que intento usar siempre. Intentar compartir estos conocimientos, y usar las prácticas que mejor os parezcan para escribir buenos comentarios. Creo que esta es una de las areas en las que los programadores nóveles puedes mejorar más (y los más experimentados también).</p>
 <p>Saludos, <br> Lázarus Surazal.</p>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/><hr><div class="navigationContainer"><a class="navigateButton right" href="md_2015_08_24.html">Siguiente <i class="fa fa-arrow-right"></i></a><a class="navigateButton left" href="md_2015_08_10.html"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a></div>
 
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
-
-<hr>
-<div class="navigateContainer">
-	<a id ="navigationRight" class="navigateButton right navigateButtonInvisible" href="#">
-		Siguiente
-		<i class="fa fa-arrow-right"></i>
-	</a>
-	<a id="navigationLeft" class="navigateButton left navigateButtonInvisible" href="#">
-		<i class="fa fa-arrow-left"></i>
-		Anterior
-	</a>
-	<a class="navigateButton center" href="./">
-		<i class="fa fa-home"></i>
-		Volver a la página principal
-	</a>
-</div>
-
-<script src="js/navigation.js"> </script>
-<link rel="stylesheet" type="text/css" href="css/info.css"/>
+			<link rel="stylesheet" type="text/css" href="css/info.css"/>
 <link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
 
 <div style="float:left; margin: 20px 0;">
@@ -290,16 +259,20 @@ generateEntryInfo('lunes, 17 de agosto de 2015', 'Consejos', 'Diseño', 'Java', 
 		</div>
 	</div>
 </div>
-<div id="comments" style="float:left; width:100%;">
+			<div id="comments" style="float:left; width:100%;">
 	<script src="https://utteranc.es/client.js"
 		repo="cjpelaezrivas/prLazarus"
 		issue-term="title"
 		crossorigin	="anonymous"
 		async>
 	</script>
-	<noscript>Please enable JavaScript to view the comments.</noscript>
+	<noscript>
+		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+			Por favor, activa JavaScript para ver los comentarios.
+		</div>
+	</noscript>
 </div>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+			<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div class="message" style="padding: 10px 0 25px 0">
 	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
@@ -316,9 +289,7 @@ generateEntryInfo('lunes, 17 de agosto de 2015', 'Consejos', 'Diseño', 'Java', 
 		</div>
 	</div>
 </div>
-
-<script src="js/toc.js"></script>
-<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+			<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
 
 <div class="progressBarContainer">
 	<div class="progressBar">
@@ -326,24 +297,21 @@ generateEntryInfo('lunes, 17 de agosto de 2015', 'Consejos', 'Diseño', 'Java', 
 </div>
 
 <script src="js/progressBar.js"></script>
+	
+			
+		</div>
 
+		<script>
+			// add bootstrap table styles to pandoc tables
+			function bootstrapStylePandocTables() {
+				$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+			}
 
+			$(document).ready(function () {
+				bootstrapStylePandocTables();
+			});
 
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-
-</body>
+					</script>
+	
+	</body>
 </html>

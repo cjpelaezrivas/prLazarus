@@ -4,25 +4,23 @@
 
 <head>
 
-<meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="pandoc" />
 
+		
+	
+	
+	<title>Borrar archivos de un directorio [Java] [Windows]</title>
 
-
-
-<title>Borrar archivos de un directorio [Java] [Windows]</title>
-
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<meta charset="utf-8" />
+			<meta charset="utf-8" />
 <meta http-equiv="content-type" content="text/html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="author" content="Carlos J. Peláez Rivas" />
@@ -41,7 +39,6 @@
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 
 <script src="js/scroll.js"></script>
-<script src="js/tags.js"></script>
 <script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
 <script>
 	lightbox.option({
@@ -85,97 +82,122 @@ window.cookieconsent.initialise({
 
   gtag('config', 'UA-74491738-2');
 </script>
+	
+	
+			<style type="text/css">code{white-space: pre;}</style>
+		<style type="text/css">
+			div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+					</style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
-
-
+					<style type="text/css">
+				pre:not([class]) {
+					background-color: white;
+				}
+			</style>
+			
+	
+			<style type="text/css">
+			h1 {
+				font-size: 34px;
+			}
+			h1.title {
+				font-size: 38px;
+			}
+			h2 {
+				font-size: 30px;
+			}
+			h3 {
+				font-size: 24px;
+			}
+			h4 {
+				font-size: 18px;
+			}
+			h5 {
+				font-size: 16px;
+			}
+			h6 {
+				font-size: 12px;
+			}
+			.table th:not([align]) {
+				text-align: left;
+			}
+					</style>
+	
+	
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
+			<style type = "text/css">
+			.main-container {
+				max-width: 940px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			code {
+				color: inherit;
+				background-color: rgba(0, 0, 0, 0.04);
+			}
+			img {
+				max-width:100%;
+				height: auto;
+			}
+			.tabbed-pane {
+				padding-top: 12px;
+			}
+			button.code-folding-btn:focus {
+				outline: none;
+			}
+		</style>
 
+		
+		<div class="container-fluid main-container">
 
+		<!-- tabsets -->
+		<script>
+			$(document).ready(function () {
+				window.buildTabsets("TOC");
+			});
+		</script>
 
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+		<!-- code folding -->
+		
+			
+			<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 
 <div id="navbar">
 	<div id="zoneA">
@@ -198,87 +220,78 @@ $(document).ready(function () {
 		</div>
 	</div>
 </div>
+	
+			<div class="fluid-row" id="header">
 
-<div class="fluid-row" id="header">
-
-
-
-<h1 class="title toc-ignore">Borrar archivos de un directorio [Java] [Windows]</h1>
-
-</div>
-
-
-<script type="text/javascript">
-generateEntryInfo('viernes, 2 de mayo de 2014', 'Java', 'Tutoriales', 'Utilidades');
-</script>
-<p>Buenas,<br> hoy vamos a ver como borrar todos los archivos dentro de un directorio o únicamente los archivos con una extensión dada.</p>
+				
+						<h1 class="title toc-ignore">Borrar archivos de un directorio [Java] [Windows]</h1>
+				<!--
+				-->
+					<h4 class="date"><em>viernes, 2 de mayo de 2014</em></h4>
+				<!--
+				-->
+					<b>Etiquetas</b>
+			<div id="tag_section">
+									<a class="tag" href="md_search.html?tag=Java">Java</a>
+									<a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
+									<a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
+							</div>
+				<!--
+				-->
+	
+			</div>
+	
+				
+	<p>Buenas,<br> hoy vamos a ver como borrar todos los archivos dentro de un directorio o únicamente los archivos con una extensión dada.</p>
 <p>Esto es muy sencillo. Únicamente copiamos el siguiente código en una clase en nuestro proyecto y lo llamamos con el directorio, la antigüedad y la extensión de archivos a eliminar.</p>
-<pre class="java"><code>private void borrarContenidoDirectorio(String direccion, int numDias, String extension) {
-    File directorio = new File(direccion);
-    if (directorio.exists() &amp;&amp; directorio.isDirectory()) {
-        File f;
-        long t;
-        for (String archivo : directorio.list()) {
-            f = new File(direccion + File.separator + archivo);
-            t = (System.currentTimeMillis() - f.lastModified());
-            // long cantidadDia = (t / 86400000);
-            // 86400000 ms es equivalente a un día (24 horas)
-            if ((extension == null &amp;&amp; t &gt; (86400000 * numDias))
-                    || (archivo.contains(&quot;.&quot; + extension) &amp;&amp; t &gt; (86400000 * numDias))) {
-                f.delete();
-                f.deleteOnExit();
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">private</span> <span class="dt">void</span> <span class="fu">borrarContenidoDirectorio</span>(<span class="bu">String</span> direccion, <span class="dt">int</span> numDias, <span class="bu">String</span> extension) {
+    <span class="bu">File</span> directorio = <span class="kw">new</span> <span class="bu">File</span>(direccion);
+    <span class="kw">if</span> (directorio.<span class="fu">exists</span>() &amp;&amp; directorio.<span class="fu">isDirectory</span>()) {
+        <span class="bu">File</span> f;
+        <span class="dt">long</span> t;
+        <span class="kw">for</span> (<span class="bu">String</span> archivo : directorio.<span class="fu">list</span>()) {
+            f = <span class="kw">new</span> <span class="bu">File</span>(direccion + <span class="bu">File</span>.<span class="fu">separator</span> + archivo);
+            t = (<span class="bu">System</span>.<span class="fu">currentTimeMillis</span>() - f.<span class="fu">lastModified</span>());
+            <span class="co">// long cantidadDia = (t / 86400000);</span>
+            <span class="co">// 86400000 ms es equivalente a un día (24 horas)</span>
+            <span class="kw">if</span> ((extension == <span class="kw">null</span> &amp;&amp; t &gt; (<span class="dv">86400000</span> * numDias))
+                    || (archivo.<span class="fu">contains</span>(<span class="st">&quot;.&quot;</span> + extension) &amp;&amp; t &gt; (<span class="dv">86400000</span> * numDias))) {
+                f.<span class="fu">delete</span>();
+                f.<span class="fu">deleteOnExit</span>();
             }
         }
     }
-}</code></pre>
+}</code></pre></div>
 <p>El código no necesita mucha explicación. Es simple, y creo que efectivo para cualquier aplicación. En el caso de que se quiera borrar todos los archivos dentro de un directorio usar el útimo argumento como “null”.</p>
 <p>Y si queréis borrar de forma recursiva a través de distintos directorios emparentados, la implementación sería muy sencilla a partir de esta. A continuación un método para borrar todo el contenido de un directorio, sea el que sea, y a él mismo al final del proceso.</p>
-<pre class="java"><code>private void borrarDirectorio(String direccion) {
-    File directorio = new File(direccion);
-    if (directorio.exists() &amp;&amp; directorio.isDirectory()) {
-        File f;
-        for (String archivo : directorio.list()) {
-            f = new File(direccion + File.separator + archivo);
-            if (f.isDirectory()) {
-                borrarDirectorio(f.getAbsolutePath());
-                f.delete();
-                f.deleteOnExit();
-            } else { //Es un archivo
-                f.delete();
-                f.deleteOnExit();
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">private</span> <span class="dt">void</span> <span class="fu">borrarDirectorio</span>(<span class="bu">String</span> direccion) {
+    <span class="bu">File</span> directorio = <span class="kw">new</span> <span class="bu">File</span>(direccion);
+    <span class="kw">if</span> (directorio.<span class="fu">exists</span>() &amp;&amp; directorio.<span class="fu">isDirectory</span>()) {
+        <span class="bu">File</span> f;
+        <span class="kw">for</span> (<span class="bu">String</span> archivo : directorio.<span class="fu">list</span>()) {
+            f = <span class="kw">new</span> <span class="bu">File</span>(direccion + <span class="bu">File</span>.<span class="fu">separator</span> + archivo);
+            <span class="kw">if</span> (f.<span class="fu">isDirectory</span>()) {
+                <span class="fu">borrarDirectorio</span>(f.<span class="fu">getAbsolutePath</span>());
+                f.<span class="fu">delete</span>();
+                f.<span class="fu">deleteOnExit</span>();
+            } <span class="kw">else</span> { <span class="co">//Es un archivo</span>
+                f.<span class="fu">delete</span>();
+                f.<span class="fu">deleteOnExit</span>();
             }
         }
 
-        //Borrar las 2 siguientes líneas para no eliminar el directorio raíz
-        directorio.delete();
-        directorio.deleteOnExit();
+        <span class="co">//Borrar las 2 siguientes líneas para no eliminar el directorio raíz</span>
+        directorio.<span class="fu">delete</span>();
+        directorio.<span class="fu">deleteOnExit</span>();
     }
-}</code></pre>
+}</code></pre></div>
 <p>No deberíais tener problemas al copiar el código y pegarlo en vuestro IDE para que todo salga tal y como aparece en el blog. Yo lo he probado hasta ahora con Eclipse y funciona bien.</p>
 <p>Me gustaría decir que aunque en el título se indica que el algoritmo es para Windows es por el único motivo de que ha sido en el único sistema operativo que lo he probado. Dada la naturaleza de Java, su ejecución no debería tener ningún inconveniente en cualquier otra plataforma.</p>
 <p>Espero que sea útil a alguien. Hasta la próxima.</p>
 <p>Saludos,<br> Lázarus Surazal.</p>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/><hr><div class="navigationContainer"><a class="navigateButton right" href="md_2014_06_10.html">Siguiente <i class="fa fa-arrow-right"></i></a><a class="navigateButton left" href="md_2013_06_13.html"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a></div>
 
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
-
-<hr>
-<div class="navigateContainer">
-	<a id ="navigationRight" class="navigateButton right navigateButtonInvisible" href="#">
-		Siguiente
-		<i class="fa fa-arrow-right"></i>
-	</a>
-	<a id="navigationLeft" class="navigateButton left navigateButtonInvisible" href="#">
-		<i class="fa fa-arrow-left"></i>
-		Anterior
-	</a>
-	<a class="navigateButton center" href="./">
-		<i class="fa fa-home"></i>
-		Volver a la página principal
-	</a>
-</div>
-
-<script src="js/navigation.js"> </script>
-<link rel="stylesheet" type="text/css" href="css/info.css"/>
+			<link rel="stylesheet" type="text/css" href="css/info.css"/>
 <link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
 
 <div style="float:left; margin: 20px 0;">
@@ -318,16 +331,20 @@ generateEntryInfo('viernes, 2 de mayo de 2014', 'Java', 'Tutoriales', 'Utilidade
 		</div>
 	</div>
 </div>
-<div id="comments" style="float:left; width:100%;">
+			<div id="comments" style="float:left; width:100%;">
 	<script src="https://utteranc.es/client.js"
 		repo="cjpelaezrivas/prLazarus"
 		issue-term="title"
 		crossorigin	="anonymous"
 		async>
 	</script>
-	<noscript>Please enable JavaScript to view the comments.</noscript>
+	<noscript>
+		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+			Por favor, activa JavaScript para ver los comentarios.
+		</div>
+	</noscript>
 </div>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+			<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div class="message" style="padding: 10px 0 25px 0">
 	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
@@ -344,9 +361,7 @@ generateEntryInfo('viernes, 2 de mayo de 2014', 'Java', 'Tutoriales', 'Utilidade
 		</div>
 	</div>
 </div>
-
-<script src="js/toc.js"></script>
-<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+			<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
 
 <div class="progressBarContainer">
 	<div class="progressBar">
@@ -354,24 +369,21 @@ generateEntryInfo('viernes, 2 de mayo de 2014', 'Java', 'Tutoriales', 'Utilidade
 </div>
 
 <script src="js/progressBar.js"></script>
+	
+			
+		</div>
 
+		<script>
+			// add bootstrap table styles to pandoc tables
+			function bootstrapStylePandocTables() {
+				$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+			}
 
+			$(document).ready(function () {
+				bootstrapStylePandocTables();
+			});
 
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-
-</body>
+					</script>
+	
+	</body>
 </html>

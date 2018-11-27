@@ -12,20 +12,13 @@
 	width: 1.3em;
 }
 
-.header {
-	padding-bottom: 15px;
-}
-
-.header_date {
-	color: #151515;
-	font-size: 14px;
-}
+/**/
 
 .entries {
 	display: flow-root;
 }
 
-.entry, .entry:visited {
+.entry {
 	float: left;
 	display: block;
 
@@ -41,19 +34,28 @@
 	text-decoration: none;
 }
 
-.entry:hover, entry:active {
-	color: #151515;
+.entry:hover {
 	background-color: #efefef;
+}
+
+.entry .title, .entry .title:visited {
+	font-size: 18px;
+	color: #151515;
+	font-weight: bold;
 	text-decoration: none;
 }
 
-.entry .title {
-	font-weight: bold;
+.entry .title:hover, .entry title:active {
+	color: #cc0000;
+	text-decoration: underline;
 }
 
 .entry .date {
-	font-size: 13px;
+	font-size: 14px;
 	font-style: italic;
+}
+
+.entry .description {
 }
 
 .tag {
@@ -78,6 +80,27 @@
 	background-color: #323232;
 	border: 1px solid #121212;
 }
+
+/**/
+
+#header h1.title {
+	margin-bottom: 0 !important;
+
+	font-size: 30px !important;
+	font-weight: bold !important;
+	font-style: italic !important;
+}
+
+#header h4.date {
+	font-size: 15px !important;
+	margin-top: 0 !important;
+}
+
+#header #tag_section {
+	padding-bottom: 10px;
+}
+
+/**/
 
 .alignRight {
 	float: right;

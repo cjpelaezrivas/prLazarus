@@ -94,14 +94,6 @@ h1.title, .section h1,  .section h2, .section h3,
 	text-align: left !important;
 }
 
-h1.title {
-	margin-bottom: 0 !important;
-
-	font-size: 30px !important;
-	font-weight: bold !important;
-	font-style: italic !important;
-}
-
 .section h2 {
 	padding-top: 95px !important;
 	margin-top: -80px !important;
@@ -113,11 +105,12 @@ a, a:visited {
 }
 
 a:hover, a:active {
-	color: #CC0000;
+	color: #cc0000;
 }
 
 
 blockquote {
 	font-size: 15.5px;
-	border-left: 5px solid #CCCCCC;
+	border-left: 5px solid #003379;
+	background-color: #f0f0f0;
 }

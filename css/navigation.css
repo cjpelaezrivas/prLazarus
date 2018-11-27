@@ -1,18 +1,18 @@
-.navigateContainer {
+.navigationContainer {
 	padding: 5px 0 15px 0;
 	width: 100%;
 }
 
-.navigateContainer .left {
+.navigationContainer .left {
 	float: left;
 	width: 125px;
 }
 
-.navigateContainer .center {
+.navigationContainer .center {
 	margin: 0 auto;
 }
 
-.navigateContainer .right {
+.navigationContainer .right {
 	float: right;
 	width: 125px;
 }
@@ -46,7 +46,7 @@
 
 
 @media screen and (max-width: 600px) {
-	.navigateContainer {
+	.navigationContainer {
 		float: left;
 		padding-bottom: : 15px
 	}

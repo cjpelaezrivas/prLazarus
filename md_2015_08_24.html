@@ -4,25 +4,23 @@
 
 <head>
 
-<meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="pandoc" />
 
+		
+	
+	
+	<title>Hilo (Thread) con eventos [Java]</title>
 
-
-
-<title>Hilo (Thread) con eventos [Java]</title>
-
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<meta charset="utf-8" />
+			<meta charset="utf-8" />
 <meta http-equiv="content-type" content="text/html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="author" content="Carlos J. Peláez Rivas" />
@@ -41,7 +39,6 @@
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 
 <script src="js/scroll.js"></script>
-<script src="js/tags.js"></script>
 <script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
 <script>
 	lightbox.option({
@@ -85,97 +82,122 @@ window.cookieconsent.initialise({
 
   gtag('config', 'UA-74491738-2');
 </script>
+	
+	
+			<style type="text/css">code{white-space: pre;}</style>
+		<style type="text/css">
+			div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+					</style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
-
-
+					<style type="text/css">
+				pre:not([class]) {
+					background-color: white;
+				}
+			</style>
+			
+	
+			<style type="text/css">
+			h1 {
+				font-size: 34px;
+			}
+			h1.title {
+				font-size: 38px;
+			}
+			h2 {
+				font-size: 30px;
+			}
+			h3 {
+				font-size: 24px;
+			}
+			h4 {
+				font-size: 18px;
+			}
+			h5 {
+				font-size: 16px;
+			}
+			h6 {
+				font-size: 12px;
+			}
+			.table th:not([align]) {
+				text-align: left;
+			}
+					</style>
+	
+	
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
+			<style type = "text/css">
+			.main-container {
+				max-width: 940px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			code {
+				color: inherit;
+				background-color: rgba(0, 0, 0, 0.04);
+			}
+			img {
+				max-width:100%;
+				height: auto;
+			}
+			.tabbed-pane {
+				padding-top: 12px;
+			}
+			button.code-folding-btn:focus {
+				outline: none;
+			}
+		</style>
 
+		
+		<div class="container-fluid main-container">
 
+		<!-- tabsets -->
+		<script>
+			$(document).ready(function () {
+				window.buildTabsets("TOC");
+			});
+		</script>
 
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+		<!-- code folding -->
+		
+			
+			<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 
 <div id="navbar">
 	<div id="zoneA">
@@ -198,137 +220,145 @@ $(document).ready(function () {
 		</div>
 	</div>
 </div>
+	
+			<div class="fluid-row" id="header">
 
-<div class="fluid-row" id="header">
-
-
-
-<h1 class="title toc-ignore">Hilo (Thread) con eventos [Java]</h1>
-
-</div>
-
-
-<script type="text/javascript">
-generateEntryInfo('lunes, 24 de agosto de 2015', 'Java', 'Tutoriales', 'Utilidades');
-</script>
-<p>Muy buenas a todos/as, <br> hoy tengo entre manos una clase que puede que a alguno de vosotros os sea útil. Vamos a ponernos en situación para ver en que casos podría llegar a ser útil.</p>
+				
+						<h1 class="title toc-ignore">Hilo (Thread) con eventos [Java]</h1>
+				<!--
+				-->
+					<h4 class="date"><em>lunes, 24 de agosto de 2015</em></h4>
+				<!--
+				-->
+					<b>Etiquetas</b>
+			<div id="tag_section">
+									<a class="tag" href="md_search.html?tag=Java">Java</a>
+									<a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
+									<a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
+							</div>
+				<!--
+				-->
+	
+			</div>
+	
+				
+	<p>Muy buenas a todos/as, <br> hoy tengo entre manos una clase que puede que a alguno de vosotros os sea útil. Vamos a ponernos en situación para ver en que casos podría llegar a ser útil.</p>
 <p>A la hora de trabajar con interfaces de usuario no es difícil imaginar el caso de necesitar realizar un trabajo en segundo plano, algo que se compute cuando el usuario realizar cierta acción, y queremos que se pueda seguir trabajando durante ese proceso. El principal problema que podemos encontrarnos aquí es: ¿cómo podemos saber que dicho trabajo ha finalizado?</p>
 <p>Podríamos realizar una especie de espera activa, comprobando a cada rato si el trabajo está completo, también podríamos bloquear el hilo principal a la espera de la finalización del trabajo, pero así no se cumpliría la condición de que el usuario pueda continuar usando la interfaz durante todo el proceso.</p>
 <p>Aquí os ofrezco una solución, la cual creo que ha quedado bastante elegante, combinando hilos de ejecución, abstracción, interfaces y eventos asíncronos. Os pongo a continuación el código para que podáis verlo y luego comento algunas cosillas sobre el mismo:</p>
-<pre class="java"><code>import java.util.ArrayList;
-import java.util.List;
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">import</span><span class="im"> java.util.ArrayList;</span>
+<span class="kw">import</span><span class="im"> java.util.List;</span>
 
-public abstract class HiloEventos extends Thread {
+<span class="kw">public</span> <span class="kw">abstract</span> <span class="kw">class</span> HiloEventos <span class="kw">extends</span> <span class="bu">Thread</span> {
 
-    private List&lt;IEventoIniciado&gt; oyentesIniciado = new ArrayList&lt;&gt;();
-    private List&lt;IEventoFinalizado&gt; oyentesFinalizado = new ArrayList&lt;&gt;();
+    <span class="kw">private</span> <span class="bu">List</span>&lt;IEventoIniciado&gt; oyentesIniciado = <span class="kw">new</span> <span class="bu">ArrayList</span>&lt;&gt;();
+    <span class="kw">private</span> <span class="bu">List</span>&lt;IEventoFinalizado&gt; oyentesFinalizado = <span class="kw">new</span> <span class="bu">ArrayList</span>&lt;&gt;();
 
-    public HiloEventos() {
-        this(false);
+    <span class="kw">public</span> <span class="fu">HiloEventos</span>() {
+        <span class="kw">this</span>(<span class="kw">false</span>);
     }
 
-    public HiloEventos(final boolean isDaemon) {
-        this.setDaemon(isDaemon);
+    <span class="kw">public</span> <span class="fu">HiloEventos</span>(<span class="dt">final</span> <span class="dt">boolean</span> isDaemon) {
+        <span class="kw">this</span>.<span class="fu">setDaemon</span>(isDaemon);
     }
 
-    public void run () {
-        for (IEventoIniciado o : oyentesIniciado) {
-            o.iniciado();
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">run</span> () {
+        <span class="kw">for</span> (IEventoIniciado o : oyentesIniciado) {
+            o.<span class="fu">iniciado</span>();
         }
 
-        operacionesRun();
+        <span class="fu">operacionesRun</span>();
 
-        for (IEventoFinalizado o : oyentesFinalizado) {
-            o.finalizado();
+        <span class="kw">for</span> (IEventoFinalizado o : oyentesFinalizado) {
+            o.<span class="fu">finalizado</span>();
         }
     }
 
-    public abstract void operacionesRun();
+    <span class="kw">public</span> <span class="kw">abstract</span> <span class="dt">void</span> <span class="fu">operacionesRun</span>();
 
-    public void addEscuchadorIniciado(IEventoIniciado iEventoIniciado) {
-        oyentesIniciado.add(iEventoIniciado);
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">addEscuchadorIniciado</span>(IEventoIniciado iEventoIniciado) {
+        oyentesIniciado.<span class="fu">add</span>(iEventoIniciado);
     }
 
-    public void removeEscuchadorIniciado(IEventoIniciado escuchador) {
-        oyentesIniciado.remove(escuchador);
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">removeEscuchadorIniciado</span>(IEventoIniciado escuchador) {
+        oyentesIniciado.<span class="fu">remove</span>(escuchador);
     }
 
-    public void addEscuchadorFinalizado(IEventoFinalizado escuchador) {
-        oyentesFinalizado.add(escuchador);
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">addEscuchadorFinalizado</span>(IEventoFinalizado escuchador) {
+        oyentesFinalizado.<span class="fu">add</span>(escuchador);
     }
 
-    public void removeEscuchadorFinalizado(IEventoFinalizado escuchador) {
-        oyentesFinalizado.remove(escuchador);
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">removeEscuchadorFinalizado</span>(IEventoFinalizado escuchador) {
+        oyentesFinalizado.<span class="fu">remove</span>(escuchador);
     }
 
-    //
+    <span class="co">//</span>
 
-    public interface IEventoIniciado {
-        void iniciado();
+    <span class="kw">public</span> <span class="kw">interface</span> IEventoIniciado {
+        <span class="dt">void</span> <span class="fu">iniciado</span>();
     }
 
-    public interface IEventoFinalizado {
-        void finalizado();
+    <span class="kw">public</span> <span class="kw">interface</span> IEventoFinalizado {
+        <span class="dt">void</span> <span class="fu">finalizado</span>();
     }
-}</code></pre>
+}</code></pre></div>
 <p>Como podéis ver, se trata de una clase abstracta. Eso quiere decir que no se puede instanciar tal cual, para poder lograrlo se ha de implementar en este caso el método que falta. Dicho método en este caso se llama <code>operacionesRun()</code> y dentro de él se encontrarán todas las operaciones que deseemos que realice el hilo en segundo plano.</p>
 <p>La clase tampoco tiene nada extraordinario, en el método <code>run()</code> se llama a la función que acabamos de implementar y luego finaliza.</p>
 <p>Para saber cuando termina, y también cuando comienza, tenemos a nuestra disposición unos oyentes, que se disparan al comenzar y finalizar la ejecución del hilo hijo. Usamos las interfaces del final de la clase para poder crear los eventos personalizados donde queramos, y lo mejor de todo es que se nos permite usar cuantos necesitemos.</p>
 <p>En cuanto a los constructores, es bastante interesante la propiedad <code>daemon</code>. Un <em>daemon</em> o <em>demonio</em> es un hilo que proporciona servicios al resto de hilos en ejecución, llamados hilos de usuario. Por este motivo, los hilos demonios debe permanecer en ejecución mientras haya al menos vivo un hilo de usuario. Es cuando todos los hilos de usuario terminan cuando los hilos demonios pueden cerrarse, y por lo tanto terminar el programa. Aprovechando que su función es prestar servicios, podemos decir que si la ejecución del hilo padre terminar por cualquier circunstancia antes de que termine la ejecución de sus hilos hijos, todos los hilos hijos que sean demonios se cerrarán automáticamente.</p>
 <p>A continuación os pongo un ejemplo de cómo usar la clase anterior:</p>
-<pre class="java"><code>import hiloeventos.HiloEventos.IEventoFinalizado;
-import hiloeventos.HiloEventos.IEventoIniciado;
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">import</span><span class="im"> hiloeventos.HiloEventos.IEventoFinalizado;</span>
+<span class="kw">import</span><span class="im"> hiloeventos.HiloEventos.IEventoIniciado;</span>
 
-public class Main {
+<span class="kw">public</span> <span class="kw">class</span> Main {
 
-    public static void main(String[] args) {
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {
 
-        System.out.println(&quot;EL HILO PADRE COMIENZA&quot;);
+        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;EL HILO PADRE COMIENZA&quot;</span>);
 
-        HiloEventos hilo1 = new HiloEventos(false) {
+        HiloEventos hilo1 = <span class="kw">new</span> <span class="fu">HiloEventos</span>(<span class="kw">false</span>) {
 
-            @Override
-            public void operacionesRun() {
-                System.out.println(&quot;ENTRAMOS EN EL RUN DEL HILO HIJO&quot;);
+            <span class="at">@Override</span>
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">operacionesRun</span>() {
+                <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;ENTRAMOS EN EL RUN DEL HILO HIJO&quot;</span>);
 
-                //Operación compleja del hilo hijo
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                <span class="co">//Operación compleja del hilo hijo</span>
+                <span class="kw">try</span> {
+                    <span class="bu">Thread</span>.<span class="fu">sleep</span>(<span class="dv">1000</span>);
+                } <span class="kw">catch</span> (<span class="bu">InterruptedException</span> e) {
+                    e.<span class="fu">printStackTrace</span>();
                 }
 
-                System.out.println(&quot;SALIMOS DEL RUN DEL HILO HIJO&quot;);
+                <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;SALIMOS DEL RUN DEL HILO HIJO&quot;</span>);
             }
         };
 
-        hilo1.addEscuchadorIniciado(new IEventoIniciado() {
-            @Override
-            public void iniciado() {
-                System.out.println(&quot;EL HILO HIJO COMIENZA&quot;);
+        hilo1.<span class="fu">addEscuchadorIniciado</span>(<span class="kw">new</span> <span class="fu">IEventoIniciado</span>() {
+            <span class="at">@Override</span>
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">iniciado</span>() {
+                <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;EL HILO HIJO COMIENZA&quot;</span>);
             }
         });
 
-        hilo1.addEscuchadorFinalizado(new IEventoFinalizado() {
-            @Override
-            public void finalizado() {
-                System.out.println(&quot;EL HILO HIJO TERMINA&quot;);
+        hilo1.<span class="fu">addEscuchadorFinalizado</span>(<span class="kw">new</span> <span class="fu">IEventoFinalizado</span>() {
+            <span class="at">@Override</span>
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">finalizado</span>() {
+                <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;EL HILO HIJO TERMINA&quot;</span>);
             }
         });
 
-        hilo1.start();
+        hilo1.<span class="fu">start</span>();
 
-        //Operación compleja del hilo padre
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        <span class="co">//Operación compleja del hilo padre</span>
+        <span class="kw">try</span> {
+            <span class="bu">Thread</span>.<span class="fu">sleep</span>(<span class="dv">500</span>);
+        } <span class="kw">catch</span> (<span class="bu">InterruptedException</span> e) {
+            e.<span class="fu">printStackTrace</span>();
         }
 
-        System.out.println(&quot;EL HILO PADRE TERMINA&quot;);
+        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;EL HILO PADRE TERMINA&quot;</span>);
     }
-}
-</code></pre>
+}</code></pre></div>
 <p>Como puede verse, a la hora de instanciar la clase, se nos obliga a implementar el método que falta, e incluimos en él una espera simulando un computo largo. Luego creamos los oyentes para que nos avisen cuando el hilo hijo comienza y finaliza su ejecución. Obviamente podemos realizar cualquier tipo de acción en los oyentes, de la misma forma que si no necesitamos alguno de ellos, no tenemos porqué crearlos.</p>
 <p>Recordad lanzar el hilo hijo usando el método <code>start()</code>. Si no llamamos a este método, el hilo no se lanzará.</p>
 <p>Tras todo eso, simulamos otro cómputo para el hilo padre. Nos aseguramos que es más corto que el de su hijo para poder hacer algunas pruebas. Las salidas de este programa en concreto son la siguientes:</p>
@@ -347,27 +377,9 @@ EL HILO PADRE TERMINA</code></pre>
 <p>Tan solo tenéis que pensar un momento para que se os ocurran cientos de casos en los que se podría usar una clase como esta. Al ser abstracta cada implementación es distinta, y permite realizar infinitas tareas con tan solo una clase en nuestro proyecto. Imaginad por ejemplo: una instalación en segundo plano, o el cálculo de estadísticas de uso de la aplicación.</p>
 <p>Espero que os sea útil y que comentéis.</p>
 <p>Saludos, <br> Lázarus Surazal.</p>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/><hr><div class="navigationContainer"><a class="navigateButton right" href="md_2016_09_22.html">Siguiente <i class="fa fa-arrow-right"></i></a><a class="navigateButton left" href="md_2015_08_17.html"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a></div>
 
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
-
-<hr>
-<div class="navigateContainer">
-	<a id ="navigationRight" class="navigateButton right navigateButtonInvisible" href="#">
-		Siguiente
-		<i class="fa fa-arrow-right"></i>
-	</a>
-	<a id="navigationLeft" class="navigateButton left navigateButtonInvisible" href="#">
-		<i class="fa fa-arrow-left"></i>
-		Anterior
-	</a>
-	<a class="navigateButton center" href="./">
-		<i class="fa fa-home"></i>
-		Volver a la página principal
-	</a>
-</div>
-
-<script src="js/navigation.js"> </script>
-<link rel="stylesheet" type="text/css" href="css/info.css"/>
+			<link rel="stylesheet" type="text/css" href="css/info.css"/>
 <link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
 
 <div style="float:left; margin: 20px 0;">
@@ -407,16 +419,20 @@ EL HILO PADRE TERMINA</code></pre>
 		</div>
 	</div>
 </div>
-<div id="comments" style="float:left; width:100%;">
+			<div id="comments" style="float:left; width:100%;">
 	<script src="https://utteranc.es/client.js"
 		repo="cjpelaezrivas/prLazarus"
 		issue-term="title"
 		crossorigin	="anonymous"
 		async>
 	</script>
-	<noscript>Please enable JavaScript to view the comments.</noscript>
+	<noscript>
+		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+			Por favor, activa JavaScript para ver los comentarios.
+		</div>
+	</noscript>
 </div>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+			<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div class="message" style="padding: 10px 0 25px 0">
 	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
@@ -433,9 +449,7 @@ EL HILO PADRE TERMINA</code></pre>
 		</div>
 	</div>
 </div>
-
-<script src="js/toc.js"></script>
-<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+			<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
 
 <div class="progressBarContainer">
 	<div class="progressBar">
@@ -443,24 +457,21 @@ EL HILO PADRE TERMINA</code></pre>
 </div>
 
 <script src="js/progressBar.js"></script>
+	
+			
+		</div>
 
+		<script>
+			// add bootstrap table styles to pandoc tables
+			function bootstrapStylePandocTables() {
+				$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+			}
 
+			$(document).ready(function () {
+				bootstrapStylePandocTables();
+			});
 
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-
-</body>
+					</script>
+	
+	</body>
 </html>

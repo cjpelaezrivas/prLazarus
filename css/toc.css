@@ -39,10 +39,6 @@
     border-radius: 4px 4px 4px 4px;
 }
 
-#TOC ul li ul {
-  display: none;
-}
-
 #TOC ul li a, #TOC ul li a:hover, #TOC ul li a:active, #TOC ul li a:visited {
 	display:block;
 
@@ -51,4 +47,8 @@
 	text-decoration: none;
 
 	cursor: pointer;
+}
+
+#TOC ul li ul {
+  display: none;
 }

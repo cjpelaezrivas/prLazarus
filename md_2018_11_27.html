@@ -11,7 +11,7 @@
 		
 	
 	
-	<title>Política de cookies</title>
+	<title>Actualizaciones en el blog</title>
 
 			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -180,48 +180,34 @@ window.cookieconsent.initialise({
 			<div class="fluid-row" id="header">
 
 				
-						<h1 class="title toc-ignore">Política de cookies</h1>
+						<h1 class="title toc-ignore">Actualizaciones en el blog</h1>
 				<!--
 				-->
+					<h4 class="date"><em>martes, 27 de noviembre de 2018</em></h4>
 				<!--
 				-->
+					<b>Etiquetas</b>
+			<div id="tag_section">
+									<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+							</div>
 				<!--
 				-->
 	
 			</div>
 	
 				
-	<p>En cumplimiento con lo dispuesto en el artículo 22.2 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico, prLázarus informa, en esta sección, sobre la política de recogida y tratamiento de cookies.</p>
-<p>Al entrar en esta web ya ha sido informado sobre la utilización de las cookies a través de un aviso o alerta. Si ha accedido y sigue navegando, está aceptando la instalación de dichas cookies.</p>
-<div id="que-son-las-cookies" class="section level2">
-<h2>¿Qué son las cookies?</h2>
-<p>Una cookie es un fichero que se descarga en su ordenador o equipo al acceder a determinadas páginas web. Las cookies permiten a una página web, entre otras cosas, almacenar y recuperar información sobre los hábitos de navegación del Usuario o de su equipo y, dependiendo de la información que contengan y de la forma en que utilice su equipo, pueden utilizarse para reconocer al usuario.</p>
-</div>
-<div id="que-tipo-de-cookies-utiliza-esta-pagina-web" class="section level2">
-<h2>¿Qué tipo de cookies utiliza esta página web?</h2>
-<p>Siguiendo las directrices de la Agencia Española de Protección de Datos se procede a detallar el uso de cookies que hace esta web con el fin de informarle con la máxima exactitud posible.</p>
-<p><strong>Cookies propias</strong></p>
-<ul>
-<li>Cookie para almacenar su decisión una vez aceptada la política de cookies de este sitio. Al mantener este dato, no aparecerá el aviso cada vez que entre o navegue por la página.</li>
-</ul>
-<p><strong>Cookies de terceros</strong></p>
-<ul>
-<li><strong>Google Analytics</strong>: <a href="http://www.google.com/intl/es_ALL/privacy/privacy-policy.html">Política de privacidad de Google Analytics</a></li>
-<li><strong>Utterances</strong>: <a href="https://github.com/utterance/utterances">Página del proyecto Utterances</a></li>
-</ul>
-</div>
-<div id="revocacion-y-eliminacion-de-cookies" class="section level2">
-<h2>Revocación y eliminación de cookies</h2>
-<p>Puede permitir, bloquear o eliminar las cookies instaladas en su ordenador mediante la configuración de las opciones del navegador instalado en su ordenador.</p>
-<p>En la mayoría de los navegadores web se ofrece la posibilidad de permitir, bloquear o eliminar las cookies instaladas en su equipo.</p>
-<p>A continuación puede acceder a la configuración de los navegadores webs más frecuentes para aceptar, instalar o desactivar las cookies:</p>
-<p>Información sobre cookies para <a href="https://support.google.com/chrome/answer/95647?hl=es">Chrome</a>. <br> Información sobre cookies para <a href="http://windows.microsoft.com/es-es/internet-explorer/delete-manage-cookies#ie=ie-11">Explorer</a>. <br> Información sobre cookies para <a href="http://support.mozilla.org/es/kb/cookies-informacion-que-los-sitios-web-guardan-en-">Firefox</a>. <br> Información sobre cookies para <a href="http://help.opera.com/Mac/12.10/es-LA/cookies.html">Opera</a>. <br> Información sobre cookies para <a href="http://support.apple.com/kb/HT1677?viewlocale=es_ES&amp;locale=es_ES">Safari</a>.</p>
-</div>
-<div id="advertencia-sobre-eliminar-y-bloquear-cookies" class="section level2">
-<h2>Advertencia sobre eliminar y bloquear cookies</h2>
-<p>El Usuario puede eliminar y bloquear todas las cookies de este sitio, pero parte del sitio no funcionará o la calidad de la página web y de los contenidos pueden verse afectados.</p>
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/><hr><div class="navigationContainer"><a class="navigateButton right navigateButtonInvisible" href="#">Siguiente <i class="fa fa-arrow-right"></i></a><a class="navigateButton left navigateButtonInvisible" href="#"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a></div>
-</div>
+	<p>Hola de nuevo, En esta entrada voy a hablar sobre los nuevos cambios que he implementado en el blog en los últimos días. Si echáis un vistazo apenas notareis diferencias, únicamente he cambiado algunos detalles en el estilo. Los cambios grandes se han hecho en el interior interior, más concretamente, en la generación del blog.</p>
+<p>Tras aplicar los cambios y hacer algunas pruebas de rendimiento, he medido un tiempo de carga de la página de entre tres y cuatro veces más bajo. Es decir, una carga más rápida obteniendo el mismo resultado. Justo lo que buscaba. Y lo mejor de esto es que la página ya era muy rápida antes de tocar nada.</p>
+<p>Cuando realicé el lavado de cara del blog dejé algunos detalles pendientes con los que no estaba muy conforme. Alguno de ellos ya los solucioné: la gestión de los comentarios, por ejemplo. Aunque este era bastante urgente, así que creo que no cuenta. Pero otros, se quedaron en el tintero porque todo funcionaba como quería, aunque no me convencía del todo cómo estaba hecho.</p>
+<p>Algunas partes de las páginas del blog se terminaban de componer en el dispositivo cliente usando JavaScript. Cuando un usuario entraba a una página, se terminaban de crear algunos componentes, como por ejemplo: las etiquetas de las entradas, los títulos de las tablas de contenido, los botones de navegación al final de cada entrada, entre otras modificaciones.</p>
+<p>El tema de modificar dinámicamente el HTML de la página no me terminaba de convencer. Y es algo normal… Seguridad y velocidad. Además de que algunos usuarios pueden tener la ejecución de código JavaScript desactivada, por lo que básicamente verían la página sin terminar. Funcional sí, pero no completa.</p>
+<p>Pensando un poco en este tema, era una estupidez ejecutar este código JavaScript porque todos los usuarios iban a obtener siempre el mismo resultado visual. Las funciones no eran parametrizables ni configurables. Entonces, ¿por qué no ejecutar este código a la hora del renderizado del blog y generar las páginas estáticas ya terminadas? Eso es justamente lo que he hecho.</p>
+<p>El ahorro de cálculos por parte del cliente es lo que genera el aumento de velocidad en la carga de las páginas. Ahora todo el contenido está incluido en la página estática y simplemente es descargar y mostrar. Hay cosas, por supuesto, que no se pueden hacer siguiendo esta estratégica, pero son las que menos y de menor importancia. Estoy hablando de la barra de progreso de lectura en la parte superior de la página, o en el botón para volver al inicio de las entradas, por ejemplo. Son añadidos estéticos que de no ejecutarse por cualquier motivo la página no pierde contenido.</p>
+<p>El tema de los comentarios va un poco a parte. JavaScript es un requisitos indispensable para mostrarlos, de modo que tampoco se puede hacer mucho. De estar desactivado, aparecerá un aviso para indicar que no puede funcionar correctamente y listo. También he añadido este aviso en la página de búsqueda de entradas para que quede claro que no funciona si la ejecución de scripts está bloqueada.</p>
+<p>Con los nuevos cambios, es aun más fácil la creación de entradas. Ahora toda la información está únicamente en las cabeceras de cada fichero usando el formato <code>yml</code>, y no está desperdigada y duplicada como antes. Estaba hecho un poco de aquella manera, lo sé. A la hora de la renderización se leen estas propiedades y se utilizan donde es pertinente. Lo que hace que todo sea más claro y fácil de mantener.</p>
+<p>Estos cambios han hecho que la generación del sitio requiera un poco más de tiempo (no mucho más, solo unos segundos), ya que hay más procesamiento y todo el código dinámico se genera en este punto. Pero las páginas generadas ahora están completas, lo que hace que aumente la compatibilidad con más navegadores, dispositivos y configuraciones. En definitiva, estoy muy contento con el resultado final y el blog cada vez está más cerca de estar terminado.</p>
+<p>Nos vemos en la próxima entrada, <br> Lázarus Surazal</p>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/><hr><div class="navigationContainer"><a class="navigateButton right navigateButtonInvisible" href="#">Siguiente <i class="fa fa-arrow-right"></i></a><a class="navigateButton left" href="md_2018_10_30.html"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a></div>
 
 			<link rel="stylesheet" type="text/css" href="css/info.css"/>
 <link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
@@ -263,6 +249,19 @@ window.cookieconsent.initialise({
 		</div>
 	</div>
 </div>
+			<div id="comments" style="float:left; width:100%;">
+	<script src="https://utteranc.es/client.js"
+		repo="cjpelaezrivas/prLazarus"
+		issue-term="title"
+		crossorigin	="anonymous"
+		async>
+	</script>
+	<noscript>
+		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+			Por favor, activa JavaScript para ver los comentarios.
+		</div>
+	</noscript>
+</div>
 			<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div class="message" style="padding: 10px 0 25px 0">
@@ -280,6 +279,14 @@ window.cookieconsent.initialise({
 		</div>
 	</div>
 </div>
+			<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+
+<div class="progressBarContainer">
+	<div class="progressBar">
+	</div>
+</div>
+
+<script src="js/progressBar.js"></script>
 	
 			
 		</div>

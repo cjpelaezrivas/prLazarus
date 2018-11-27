@@ -4,25 +4,23 @@
 
 <head>
 
-<meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="pandoc" />
 
+		
+	
+	
+	<title>Java3D - Introducción a la Programación de Videojuegos</title>
 
-
-
-<title>Java3D - Introducción a la Programación de Videojuegos</title>
-
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<meta charset="utf-8" />
+			<meta charset="utf-8" />
 <meta http-equiv="content-type" content="text/html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="author" content="Carlos J. Peláez Rivas" />
@@ -41,7 +39,6 @@
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 
 <script src="js/scroll.js"></script>
-<script src="js/tags.js"></script>
 <script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
 <script>
 	lightbox.option({
@@ -85,97 +82,78 @@ window.cookieconsent.initialise({
 
   gtag('config', 'UA-74491738-2');
 </script>
-
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
-
-
+	
+	
+	
+	
+			<style type="text/css">
+			h1 {
+				font-size: 34px;
+			}
+			h1.title {
+				font-size: 38px;
+			}
+			h2 {
+				font-size: 30px;
+			}
+			h3 {
+				font-size: 24px;
+			}
+			h4 {
+				font-size: 18px;
+			}
+			h5 {
+				font-size: 16px;
+			}
+			h6 {
+				font-size: 12px;
+			}
+			.table th:not([align]) {
+				text-align: left;
+			}
+					</style>
+	
+	
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
+			<style type = "text/css">
+			.main-container {
+				max-width: 940px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			code {
+				color: inherit;
+				background-color: rgba(0, 0, 0, 0.04);
+			}
+			img {
+				max-width:100%;
+				height: auto;
+			}
+			.tabbed-pane {
+				padding-top: 12px;
+			}
+			button.code-folding-btn:focus {
+				outline: none;
+			}
+		</style>
 
+		
+		<div class="container-fluid main-container">
 
+		<!-- tabsets -->
+		<script>
+			$(document).ready(function () {
+				window.buildTabsets("TOC");
+			});
+		</script>
 
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+		<!-- code folding -->
+		
+			
+			<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 
 <div id="navbar">
 	<div id="zoneA">
@@ -198,20 +176,31 @@ $(document).ready(function () {
 		</div>
 	</div>
 </div>
+	
+			<div class="fluid-row" id="header">
 
-<div class="fluid-row" id="header">
-
-
-
-<h1 class="title toc-ignore">Java3D - Introducción a la Programación de Videojuegos</h1>
-
-</div>
-
-
-<script type="text/javascript">
-generateEntryInfo('viernes, 15 de marzo de 2013', 'Consejos', 'Java', 'Java3D', 'Tutoriales', 'Videojuegos');
-</script>
-<p>Muy buenas a todos, <br> Siento mucho haber estado tantos meses sin escribir, la verdad es que no he tenido trabajos demasiado buenos este tiempo, aunque sí que los he tenido bastante complejos, por lo que no eran dados a desarrollarlos en este diario. Pero vamos a dejarnos de tonterías que puede que os interesen menos o más y vamos a lo que dice el título.</p>
+				
+						<h1 class="title toc-ignore">Java3D - Introducción a la Programación de Videojuegos</h1>
+				<!--
+				-->
+					<h4 class="date"><em>viernes, 15 de marzo de 2013</em></h4>
+				<!--
+				-->
+					<b>Etiquetas</b>
+			<div id="tag_section">
+									<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+									<a class="tag" href="md_search.html?tag=Java">Java</a>
+									<a class="tag" href="md_search.html?tag=Java3D">Java3D</a>
+									<a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
+									<a class="tag" href="md_search.html?tag=Videojuegos">Videojuegos</a>
+							</div>
+				<!--
+				-->
+	
+			</div>
+	
+				
+	<p>Muy buenas a todos, <br> Siento mucho haber estado tantos meses sin escribir, la verdad es que no he tenido trabajos demasiado buenos este tiempo, aunque sí que los he tenido bastante complejos, por lo que no eran dados a desarrollarlos en este diario. Pero vamos a dejarnos de tonterías que puede que os interesen menos o más y vamos a lo que dice el título.</p>
 <p>Pues bien, en este semestre tengo una optativa titulada: ‘Programación de Videojuegos’. No es dejéis engañar por el nombre, es y no es al mismo tiempo lo que dice… <br> Bueno, mi intención es ir haciendo resúmenes del contenido de la asignatura para poder ayudar a todo el que quiera y/o esté interesado en aprender.</p>
 <p>Para comenzar, decir que usaremos como lenguaje de programación Java, y usaremos las librerías de Java3D. Os pondré el enlace de descarga al final de la entrada. Para continuar con las herramientas, en este caso dejaremos de lado Eclipse, y usaremos como IDE a NetBeans. Cosas del profesor, me gusta más Eclipse, pero para quitarme de problemas y poder tener su soporte usaré el que ha dicho. Ni que decir tiene que en Eclipse funciona todo a la perfección de igual forma. Probado por mí mismo, al menos en la versión Juno.</p>
 <p>Como primera parte de esta serie de tutoriales, vamos a instalar NetBeans [1], lo que es un proceso sencillo y las librerías de JDK de Java [2] y Java3D [3]. Una vez hecho esto, pasaremos a arrancar nuestro IDE y a crear nuestra primera aplicación en 3D. Esto será en el siguiente tutorial.</p>
@@ -219,27 +208,9 @@ generateEntryInfo('viernes, 15 de marzo de 2013', 'Consejos', 'Java', 'Java3D', 
 <p><strong>Enlaces:</strong> <br> 1. <a href="http://netbeans.org/downloads/">NetBeans IDE</a> <br> 2. <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java ES (JDK)</a> <br> 3. <a href="http://java3d.java.net/binary-builds.html">Java3D</a></p>
 <p>Recordad que siempre debéis seleccionar vuestro SO y tened en cuenta si es de 32 o 64 bits. Cualquier duda no dudéis en preguntar. Os responderé a la mayor brevedad. <br> Pero una cosa a tener en cuenta: Estos tutoriales y en general, todo el contenido del blog, está pensado para personas que más o menos tienen idea de lo que va la cosa. Si no entiendes el contenido de esté y tienes interés en hacerlo, deberías buscar medios para aprender este lenguaje de programación, ya que yo puedo daros algunos consejos, pero no puedo enseñaros todos los detalles.</p>
 <p>Saludos, <br> Lázarus Surazal.</p>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/><hr><div class="navigationContainer"><a class="navigateButton right" href="md_2013_06_13.html">Siguiente <i class="fa fa-arrow-right"></i></a><a class="navigateButton left" href="md_2012_10_14.html"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a></div>
 
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
-
-<hr>
-<div class="navigateContainer">
-	<a id ="navigationRight" class="navigateButton right navigateButtonInvisible" href="#">
-		Siguiente
-		<i class="fa fa-arrow-right"></i>
-	</a>
-	<a id="navigationLeft" class="navigateButton left navigateButtonInvisible" href="#">
-		<i class="fa fa-arrow-left"></i>
-		Anterior
-	</a>
-	<a class="navigateButton center" href="./">
-		<i class="fa fa-home"></i>
-		Volver a la página principal
-	</a>
-</div>
-
-<script src="js/navigation.js"> </script>
-<link rel="stylesheet" type="text/css" href="css/info.css"/>
+			<link rel="stylesheet" type="text/css" href="css/info.css"/>
 <link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
 
 <div style="float:left; margin: 20px 0;">
@@ -279,16 +250,20 @@ generateEntryInfo('viernes, 15 de marzo de 2013', 'Consejos', 'Java', 'Java3D', 
 		</div>
 	</div>
 </div>
-<div id="comments" style="float:left; width:100%;">
+			<div id="comments" style="float:left; width:100%;">
 	<script src="https://utteranc.es/client.js"
 		repo="cjpelaezrivas/prLazarus"
 		issue-term="title"
 		crossorigin	="anonymous"
 		async>
 	</script>
-	<noscript>Please enable JavaScript to view the comments.</noscript>
+	<noscript>
+		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+			Por favor, activa JavaScript para ver los comentarios.
+		</div>
+	</noscript>
 </div>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+			<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div class="message" style="padding: 10px 0 25px 0">
 	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
@@ -305,9 +280,7 @@ generateEntryInfo('viernes, 15 de marzo de 2013', 'Consejos', 'Java', 'Java3D', 
 		</div>
 	</div>
 </div>
-
-<script src="js/toc.js"></script>
-<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+			<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
 
 <div class="progressBarContainer">
 	<div class="progressBar">
@@ -315,24 +288,21 @@ generateEntryInfo('viernes, 15 de marzo de 2013', 'Consejos', 'Java', 'Java3D', 
 </div>
 
 <script src="js/progressBar.js"></script>
+	
+			
+		</div>
 
+		<script>
+			// add bootstrap table styles to pandoc tables
+			function bootstrapStylePandocTables() {
+				$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+			}
 
+			$(document).ready(function () {
+				bootstrapStylePandocTables();
+			});
 
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-
-</body>
+					</script>
+	
+	</body>
 </html>

@@ -4,25 +4,23 @@
 
 <head>
 
-<meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="pandoc" />
 
+		
+	
+	
+	<title>Imprimir por consola nombre y valor de variables [Eclipse] [Java]</title>
 
-
-
-<title>Imprimir por consola nombre y valor de variables [Eclipse] [Java]</title>
-
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<meta charset="utf-8" />
+			<meta charset="utf-8" />
 <meta http-equiv="content-type" content="text/html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="author" content="Carlos J. Peláez Rivas" />
@@ -41,7 +39,6 @@
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 
 <script src="js/scroll.js"></script>
-<script src="js/tags.js"></script>
 <script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
 <script>
 	lightbox.option({
@@ -85,97 +82,122 @@ window.cookieconsent.initialise({
 
   gtag('config', 'UA-74491738-2');
 </script>
+	
+	
+			<style type="text/css">code{white-space: pre;}</style>
+		<style type="text/css">
+			div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+					</style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
-
-
+					<style type="text/css">
+				pre:not([class]) {
+					background-color: white;
+				}
+			</style>
+			
+	
+			<style type="text/css">
+			h1 {
+				font-size: 34px;
+			}
+			h1.title {
+				font-size: 38px;
+			}
+			h2 {
+				font-size: 30px;
+			}
+			h3 {
+				font-size: 24px;
+			}
+			h4 {
+				font-size: 18px;
+			}
+			h5 {
+				font-size: 16px;
+			}
+			h6 {
+				font-size: 12px;
+			}
+			.table th:not([align]) {
+				text-align: left;
+			}
+					</style>
+	
+	
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
+			<style type = "text/css">
+			.main-container {
+				max-width: 940px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			code {
+				color: inherit;
+				background-color: rgba(0, 0, 0, 0.04);
+			}
+			img {
+				max-width:100%;
+				height: auto;
+			}
+			.tabbed-pane {
+				padding-top: 12px;
+			}
+			button.code-folding-btn:focus {
+				outline: none;
+			}
+		</style>
 
+		
+		<div class="container-fluid main-container">
 
+		<!-- tabsets -->
+		<script>
+			$(document).ready(function () {
+				window.buildTabsets("TOC");
+			});
+		</script>
 
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+		<!-- code folding -->
+		
+			
+			<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 
 <div id="navbar">
 	<div id="zoneA">
@@ -198,20 +220,30 @@ $(document).ready(function () {
 		</div>
 	</div>
 </div>
+	
+			<div class="fluid-row" id="header">
 
-<div class="fluid-row" id="header">
-
-
-
-<h1 class="title toc-ignore">Imprimir por consola nombre y valor de variables [Eclipse] [Java]</h1>
-
-</div>
-
-
-<script type="text/javascript">
-generateEntryInfo('jueves, 22 de septiembre de 2016', 'Eficiencia', 'Java', 'Tutoriales', 'Utilidades');
-</script>
-<p>Hola a todos,<br> Hacía bastante tiempo que no escribía ni publicaba nada, y aunque tengo varias entradas a medias y varios proyectos de los que me gustaría hablar, la verdad es que no dispongo de mucho tiempo libre.</p>
+				
+						<h1 class="title toc-ignore">Imprimir por consola nombre y valor de variables [Eclipse] [Java]</h1>
+				<!--
+				-->
+					<h4 class="date"><em>jueves, 22 de septiembre de 2016</em></h4>
+				<!--
+				-->
+					<b>Etiquetas</b>
+			<div id="tag_section">
+									<a class="tag" href="md_search.html?tag=Eficiencia">Eficiencia</a>
+									<a class="tag" href="md_search.html?tag=Java">Java</a>
+									<a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
+									<a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
+							</div>
+				<!--
+				-->
+	
+			</div>
+	
+				
+	<p>Hola a todos,<br> Hacía bastante tiempo que no escribía ni publicaba nada, y aunque tengo varias entradas a medias y varios proyectos de los que me gustaría hablar, la verdad es que no dispongo de mucho tiempo libre.</p>
 <p>Hoy tengo para vosotros algo que me resulta muy útil y creo que facilita bastante el trabajo a la hora de imprimir por consola el valor de cierta variable de nuestro código. Es cierto que existe el modo de ejecución debug, el cual nos permite ver en cada momento y paso a paso el valor de todas las variables de nuestro código, pero al final siempre nos vemos obligados a imprimir algún valor por consola, y aquí estoy para dar una solución rápida a este tedioso problema.</p>
 <p>Mi solución se basa en el uso de las plantillas de código que ofrece Eclipse. La verdad es que esta idea me vino de un corto periodo de uso que le di a IntelliJ IDEA, IDE en el que me resultaba muy sencilla la tarea de mostrar una variable y su valor por consola. Echaba de menos esta funcionalidad en Eclipse, el cual ahora mismo es el IDE que más uso, tanto en casa como en el trabajo, de modo que me decidí a buscar una solución.</p>
 <p>Como he dicho, la idea es usar las plantillas de código de Eclipse para lograrlo. Vamos a ponernos a ello:</p>
@@ -226,7 +258,7 @@ Fig. 1. Ventana de opciones de Eclipse.
 </figure>
 <p>A continuación pulsamos sobre nuevo y se nos abrirá la ventana de configuración. Debemos indicar un nombre, el cual será el texto que debemos escribir para ejecutar el comando que llamará a la plantilla; el contexto, que debemos seleccionar Java statement; una descripcion, que nos aparecerá en el menu de autocompletado al usar la plantilla; y el patrón de la plantilla.</p>
 <p>En mi caso, los valores que he usado han sido:<br> <strong>Nombre:</strong> var<br> <strong>Descripción:</strong> print to standard out the name and value of a given variable<br> <strong>Patrón de la plantilla:</strong></p>
-<pre class="java"><code>System.out.println(&quot;${enclosing_type}.${enclosing_method}() -&gt; ${var:var(java.lang.Object, byte, short, int, long, float, double, boolean, char)}=&quot; + ${var:var(java.lang.Object, byte, short, int, long, float, double, boolean, char)});${cursor}</code></pre>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;${enclosing_type}.${enclosing_method}() -&gt; ${var:var(java.lang.Object, byte, short, int, long, float, double, boolean, char)}=&quot;</span> + ${var:<span class="fu">var</span>(java.<span class="fu">lang</span>.<span class="fu">Object</span>, <span class="dt">byte</span>, <span class="dt">short</span>, <span class="dt">int</span>, <span class="dt">long</span>, <span class="dt">float</span>, <span class="dt">double</span>, <span class="dt">boolean</span>, <span class="dt">char</span>)});${cursor}</code></pre></div>
 <p>Observando el patrón, vemos que no tiene mucha complejidad. Escribe el comando para imprimir por consola, luego añade el nombre de la clase y el método desde donde se llama, y a continuación concatenamos el nombre y el valor de la variable.</p>
 <p>Por si os pica la curiosidad, los elementos <code>${var}</code> tienen todos esos parámetros porque si no indicamos ninguno nos ofrece sólo las variables declaradas que no son primitivas. Yo quería todas las variables, de modo que se indican como parámetros la clase Object (que engloba todas las variables objetos que heredan de ella) y todas las primitivas de Java. Además, al tener los dos elementos <code>${var}</code> el mismo id, únicamente tenemos que indicar la variable una sola vez. Fantástico.</p>
 <figure class="alignRight">
@@ -239,7 +271,7 @@ Fig. 2. Ventana de autocompletado de Eclipse.
 <p>Para usar la plantilla tenemos que escribir en el editor de código el nombre que le hemos dado, en mi caso <code>var</code>, y usar el comando <strong><code>Crtl + Espacio</code></strong>, de esa manera desplegamos el asistente de autocompletado. En caso de que sea la única coincidencia, la plantilla se completará automáticamente, pero si existen varios resultados, se mostrará una ventana como la de la Fig. 2, y debemos seleccionar la opción deseada. Aquí podemos ver la utilidad de poner una descripción a nuestra plantilla de código.</p>
 <p>Una vez tenemos la plantilla en el editor de código, se desplegará una nueva ventana para seleccionar qué variable deseamos mostrar. Como podéis comprobar, la clase y el método desde donde se ha llamada ya se ha completado automáticamente, y sólo resta elegir la variable. Tal y como se ve en la Fig. 3.</p>
 <p>Para concluir, si ejecutamos el código, no tiene mucho misterio pero lo pongo igual, obtendremos lo siguiente en la consola:</p>
-<pre class="r"><code>Main.main() -&gt; name1=hello</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Main.main</span>() -&gt;<span class="st"> </span>name1=hello</code></pre></div>
 <figure class="alignRight">
 <a href="./images/entries/2016_09_22/3.jpg" data-lightbox="image-gallery-1" data-title="Fig. 3. Ventana para seleccionar campos."> <img src="images/entries/2016_09_22/3.jpg" width="320"> </a>
 <figcaption>
@@ -249,27 +281,9 @@ Fig. 3. Ventana para seleccionar campos.
 <p>Ahora podremos mostrar rápidamente cualquier variable y su valor en cualquier momento y en cualquier método sin necesidad de andar formateando todas las líneas individualmente. Ni que decir tiene que si os interesa podéis editar la plantilla a vuestro gusto y añadir o quitar campos a vuestro antojo. Las plantillas de código son herramientas muy potentes que no todos los programadores usan, y es una lástima.</p>
 <p>Bueno, me despido y os animo a si alguien tiene alguna idea sobre alguna plantilla la deje en los comentarios.</p>
 <p>Saludos. <br> Lázarus Surazal.</p>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/><hr><div class="navigationContainer"><a class="navigateButton right" href="md_2018_03_21.html">Siguiente <i class="fa fa-arrow-right"></i></a><a class="navigateButton left" href="md_2015_08_24.html"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a></div>
 
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
-
-<hr>
-<div class="navigateContainer">
-	<a id ="navigationRight" class="navigateButton right navigateButtonInvisible" href="#">
-		Siguiente
-		<i class="fa fa-arrow-right"></i>
-	</a>
-	<a id="navigationLeft" class="navigateButton left navigateButtonInvisible" href="#">
-		<i class="fa fa-arrow-left"></i>
-		Anterior
-	</a>
-	<a class="navigateButton center" href="./">
-		<i class="fa fa-home"></i>
-		Volver a la página principal
-	</a>
-</div>
-
-<script src="js/navigation.js"> </script>
-<link rel="stylesheet" type="text/css" href="css/info.css"/>
+			<link rel="stylesheet" type="text/css" href="css/info.css"/>
 <link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
 
 <div style="float:left; margin: 20px 0;">
@@ -309,16 +323,20 @@ Fig. 3. Ventana para seleccionar campos.
 		</div>
 	</div>
 </div>
-<div id="comments" style="float:left; width:100%;">
+			<div id="comments" style="float:left; width:100%;">
 	<script src="https://utteranc.es/client.js"
 		repo="cjpelaezrivas/prLazarus"
 		issue-term="title"
 		crossorigin	="anonymous"
 		async>
 	</script>
-	<noscript>Please enable JavaScript to view the comments.</noscript>
+	<noscript>
+		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+			Por favor, activa JavaScript para ver los comentarios.
+		</div>
+	</noscript>
 </div>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+			<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div class="message" style="padding: 10px 0 25px 0">
 	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
@@ -335,9 +353,7 @@ Fig. 3. Ventana para seleccionar campos.
 		</div>
 	</div>
 </div>
-
-<script src="js/toc.js"></script>
-<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+			<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
 
 <div class="progressBarContainer">
 	<div class="progressBar">
@@ -345,24 +361,21 @@ Fig. 3. Ventana para seleccionar campos.
 </div>
 
 <script src="js/progressBar.js"></script>
+	
+			
+		</div>
 
+		<script>
+			// add bootstrap table styles to pandoc tables
+			function bootstrapStylePandocTables() {
+				$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+			}
 
+			$(document).ready(function () {
+				bootstrapStylePandocTables();
+			});
 
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-
-</body>
+					</script>
+	
+	</body>
 </html>

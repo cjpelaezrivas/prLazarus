@@ -4,25 +4,23 @@
 
 <head>
 
-<meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="pandoc" />
 
+		
+	
+	
+	<title>Copiar directorio y contenido [Java] [Windows]</title>
 
-
-
-<title>Copiar directorio y contenido [Java] [Windows]</title>
-
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<meta charset="utf-8" />
+			<meta charset="utf-8" />
 <meta http-equiv="content-type" content="text/html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="author" content="Carlos J. Peláez Rivas" />
@@ -41,7 +39,6 @@
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 
 <script src="js/scroll.js"></script>
-<script src="js/tags.js"></script>
 <script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
 <script>
 	lightbox.option({
@@ -85,97 +82,122 @@ window.cookieconsent.initialise({
 
   gtag('config', 'UA-74491738-2');
 </script>
+	
+	
+			<style type="text/css">code{white-space: pre;}</style>
+		<style type="text/css">
+			div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+					</style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
-
-
+					<style type="text/css">
+				pre:not([class]) {
+					background-color: white;
+				}
+			</style>
+			
+	
+			<style type="text/css">
+			h1 {
+				font-size: 34px;
+			}
+			h1.title {
+				font-size: 38px;
+			}
+			h2 {
+				font-size: 30px;
+			}
+			h3 {
+				font-size: 24px;
+			}
+			h4 {
+				font-size: 18px;
+			}
+			h5 {
+				font-size: 16px;
+			}
+			h6 {
+				font-size: 12px;
+			}
+			.table th:not([align]) {
+				text-align: left;
+			}
+					</style>
+	
+	
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
+			<style type = "text/css">
+			.main-container {
+				max-width: 940px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			code {
+				color: inherit;
+				background-color: rgba(0, 0, 0, 0.04);
+			}
+			img {
+				max-width:100%;
+				height: auto;
+			}
+			.tabbed-pane {
+				padding-top: 12px;
+			}
+			button.code-folding-btn:focus {
+				outline: none;
+			}
+		</style>
 
+		
+		<div class="container-fluid main-container">
 
+		<!-- tabsets -->
+		<script>
+			$(document).ready(function () {
+				window.buildTabsets("TOC");
+			});
+		</script>
 
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+		<!-- code folding -->
+		
+			
+			<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 
 <div id="navbar">
 	<div id="zoneA">
@@ -198,110 +220,101 @@ $(document).ready(function () {
 		</div>
 	</div>
 </div>
+	
+			<div class="fluid-row" id="header">
 
-<div class="fluid-row" id="header">
-
-
-
-<h1 class="title toc-ignore">Copiar directorio y contenido [Java] [Windows]</h1>
-
-</div>
-
-
-<script type="text/javascript">
-generateEntryInfo('martes, 10 de junio de 2014', 'Java', 'Tutoriales', 'Utilidades');
-</script>
-<p>Muy buenas gente,<br> hoy vamos a ver otro pequeño proceso que en este caso en lugar de borrar como el anterior se usará para copiar directorios de forma recursiva. Con esto quiero decir que le damos un directorio origen y un destino, y nuestro método creará el destino si no existe y toda la estructura de directorios que contenga. Además, también realizará una copia de todos y cada uno de los ficheros que vaya encontrando en todo el proceso.</p>
-<pre class="java"><code>/**
- * Copiar un directorio y todo su contenido de forma recursiva
- * @param origen
- * @param destino
- */
-private void copiarDirectorio(String origen, String destino) {
-    comprobarCrearDirectorio(destino);
-    File directorio = new File(origen);
-    File f;
-    if (directorio.isDirectory()) {
-        comprobarCrearDirectorio(destino);
-        String [] files = directorio.list();
-        if (files.length &gt; 0) {
-            for (String archivo : files) {
-                f = new File (origen + File.separator + archivo);
-                if(f.isDirectory()) {
-                    comprobarCrearDirectorio(destino+File.separator+archivo+File.separator);
-                    copiarDirectorio(origen+File.separator+archivo+File.separator, destino+File.separator+archivo+File.separator);
-                } else { //Es un archivo
-                    copiarArchivo(origen+File.separator+archivo, destino+File.separator+archivo);
+				
+						<h1 class="title toc-ignore">Copiar directorio y contenido [Java] [Windows]</h1>
+				<!--
+				-->
+					<h4 class="date"><em>martes, 10 de junio de 2014</em></h4>
+				<!--
+				-->
+					<b>Etiquetas</b>
+			<div id="tag_section">
+									<a class="tag" href="md_search.html?tag=Java">Java</a>
+									<a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
+									<a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
+							</div>
+				<!--
+				-->
+	
+			</div>
+	
+				
+	<p>Muy buenas gente,<br> hoy vamos a ver otro pequeño proceso que en este caso en lugar de borrar como el anterior se usará para copiar directorios de forma recursiva. Con esto quiero decir que le damos un directorio origen y un destino, y nuestro método creará el destino si no existe y toda la estructura de directorios que contenga. Además, también realizará una copia de todos y cada uno de los ficheros que vaya encontrando en todo el proceso.</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="co">/**</span>
+ <span class="co">*</span> Copiar un directorio y todo su contenido de forma recursiva
+ <span class="co">* </span><span class="kw">@param origen</span>
+ <span class="co">*</span> <span class="kw">@param destino</span>
+ <span class="co">*/</span>
+<span class="kw">private</span> <span class="dt">void</span> <span class="fu">copiarDirectorio</span>(<span class="bu">String</span> origen, <span class="bu">String</span> destino) {
+    <span class="fu">comprobarCrearDirectorio</span>(destino);
+    <span class="bu">File</span> directorio = <span class="kw">new</span> <span class="bu">File</span>(origen);
+    <span class="bu">File</span> f;
+    <span class="kw">if</span> (directorio.<span class="fu">isDirectory</span>()) {
+        <span class="fu">comprobarCrearDirectorio</span>(destino);
+        <span class="bu">String</span> [] files = directorio.<span class="fu">list</span>();
+        <span class="kw">if</span> (files.<span class="fu">length</span> &gt; <span class="dv">0</span>) {
+            <span class="kw">for</span> (<span class="bu">String</span> archivo : files) {
+                f = <span class="kw">new</span> <span class="bu">File</span> (origen + <span class="bu">File</span>.<span class="fu">separator</span> + archivo);
+                <span class="kw">if</span>(f.<span class="fu">isDirectory</span>()) {
+                    <span class="fu">comprobarCrearDirectorio</span>(destino+<span class="bu">File</span>.<span class="fu">separator</span>+archivo+<span class="bu">File</span>.<span class="fu">separator</span>);
+                    <span class="fu">copiarDirectorio</span>(origen+<span class="bu">File</span>.<span class="fu">separator</span>+archivo+<span class="bu">File</span>.<span class="fu">separator</span>, destino+<span class="bu">File</span>.<span class="fu">separator</span>+archivo+<span class="bu">File</span>.<span class="fu">separator</span>);
+                } <span class="kw">else</span> { <span class="co">//Es un archivo</span>
+                    <span class="fu">copiarArchivo</span>(origen+<span class="bu">File</span>.<span class="fu">separator</span>+archivo, destino+<span class="bu">File</span>.<span class="fu">separator</span>+archivo);
                 }
             }
         }
     }
-}</code></pre>
+}</code></pre></div>
 <p>Como podéis ver, este proceso llama a copiar archivo. Este es el código necesario para copiar dos archivos dadas sus rutas absolutas.</p>
-<pre class="java"><code>/**
- * Copia el archivo origen en el destino
- * @param sOrigen
- * @param sDestino
- */
-private void copiarArchivo(String sOrigen, String sDestino) {
-    try {
-        File origen = new File(sOrigen);
-        File destino = new File(sDestino);
-        InputStream in = new FileInputStream(origen);
-        OutputStream out = new FileOutputStream(destino);
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="co">/**</span>
+ <span class="co">*</span> Copia el archivo origen en el destino
+ <span class="co">* </span><span class="kw">@param sOrigen</span>
+ <span class="co">*</span> <span class="kw">@param sDestino</span>
+ <span class="co">*/</span>
+<span class="kw">private</span> <span class="dt">void</span> <span class="fu">copiarArchivo</span>(<span class="bu">String</span> sOrigen, <span class="bu">String</span> sDestino) {
+    <span class="kw">try</span> {
+        <span class="bu">File</span> origen = <span class="kw">new</span> <span class="bu">File</span>(sOrigen);
+        <span class="bu">File</span> destino = <span class="kw">new</span> <span class="bu">File</span>(sDestino);
+        <span class="bu">InputStream</span> in = <span class="kw">new</span> <span class="bu">FileInputStream</span>(origen);
+        <span class="bu">OutputStream</span> out = <span class="kw">new</span> <span class="bu">FileOutputStream</span>(destino);
 
-        byte[] buf = new byte[1024];
-        int len;
+        <span class="dt">byte</span>[] buf = <span class="kw">new</span> <span class="dt">byte</span>[<span class="dv">1024</span>];
+        <span class="dt">int</span> len;
 
-        while ((len = in.read(buf)) &gt; 0) {
-            out.write(buf, 0, len);
+        <span class="kw">while</span> ((len = in.<span class="fu">read</span>(buf)) &gt; <span class="dv">0</span>) {
+            out.<span class="fu">write</span>(buf, <span class="dv">0</span>, len);
         }
 
-        in.close();
-        out.close();
+        in.<span class="fu">close</span>();
+        out.<span class="fu">close</span>();
 
-    } catch (FileNotFoundException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
+    } <span class="kw">catch</span> (<span class="bu">FileNotFoundException</span> e) {
+        e.<span class="fu">printStackTrace</span>();
+    } <span class="kw">catch</span> (<span class="bu">IOException</span> e) {
+        e.<span class="fu">printStackTrace</span>();
     }
-}</code></pre>
+}</code></pre></div>
 <p>Y por último, el proceso que podemos usar para comprobar si cierto directorio existe, y en caso contrario crearlo para evitar problemas y excepciones.</p>
-<pre class="java"><code>/**
- * Comprueba si un directorio existe, y en caso contrario crea toda la ruta necesaria para que exista
- * @param ruta
- */
-private void comprobarCrearDirectorio(String ruta) {
-    File directorio = new File(ruta);
-    if (!directorio.exists()) {
-        directorio.mkdirs();
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="co">/**</span>
+ <span class="co">*</span> Comprueba si un directorio existe<span class="co">,</span> y en caso contrario crea toda la ruta necesaria para que exista
+ <span class="co">* </span><span class="kw">@param ruta</span>
+ <span class="co">*/</span>
+<span class="kw">private</span> <span class="dt">void</span> <span class="fu">comprobarCrearDirectorio</span>(<span class="bu">String</span> ruta) {
+    <span class="bu">File</span> directorio = <span class="kw">new</span> <span class="bu">File</span>(ruta);
+    <span class="kw">if</span> (!directorio.<span class="fu">exists</span>()) {
+        directorio.<span class="fu">mkdirs</span>();
     }
-}</code></pre>
+}</code></pre></div>
 <p>Este es un proceso muy poderoso. Tened en cuenta que copiará todo, manteniendo todas las propiedades y características, de modo que si no andáis con cuidado podríais llegar copiar el disco duro entero. Lo que sería muy gracioso y tardaría bastante…</p>
 <p>Como en el caso anterior, me gustaría decir que aunque en el título se indica que el algoritmo es para Windows es por el único motivo de que ha sido en el único sistema operativo que lo he probado. Dada la naturaleza de Java, su ejecución no debería tener ningún inconveniente en cualquier otra plataforma.</p>
 <p>Espero que os sea útil y hasta otra ocasión.</p>
 <p>Saludos,<br> Lázarus Surazal.</p>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/><hr><div class="navigationContainer"><a class="navigateButton right" href="md_2014_08_07.html">Siguiente <i class="fa fa-arrow-right"></i></a><a class="navigateButton left" href="md_2014_05_02.html"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a></div>
 
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
-
-<hr>
-<div class="navigateContainer">
-	<a id ="navigationRight" class="navigateButton right navigateButtonInvisible" href="#">
-		Siguiente
-		<i class="fa fa-arrow-right"></i>
-	</a>
-	<a id="navigationLeft" class="navigateButton left navigateButtonInvisible" href="#">
-		<i class="fa fa-arrow-left"></i>
-		Anterior
-	</a>
-	<a class="navigateButton center" href="./">
-		<i class="fa fa-home"></i>
-		Volver a la página principal
-	</a>
-</div>
-
-<script src="js/navigation.js"> </script>
-<link rel="stylesheet" type="text/css" href="css/info.css"/>
+			<link rel="stylesheet" type="text/css" href="css/info.css"/>
 <link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
 
 <div style="float:left; margin: 20px 0;">
@@ -341,16 +354,20 @@ private void comprobarCrearDirectorio(String ruta) {
 		</div>
 	</div>
 </div>
-<div id="comments" style="float:left; width:100%;">
+			<div id="comments" style="float:left; width:100%;">
 	<script src="https://utteranc.es/client.js"
 		repo="cjpelaezrivas/prLazarus"
 		issue-term="title"
 		crossorigin	="anonymous"
 		async>
 	</script>
-	<noscript>Please enable JavaScript to view the comments.</noscript>
+	<noscript>
+		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+			Por favor, activa JavaScript para ver los comentarios.
+		</div>
+	</noscript>
 </div>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+			<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div class="message" style="padding: 10px 0 25px 0">
 	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
@@ -367,9 +384,7 @@ private void comprobarCrearDirectorio(String ruta) {
 		</div>
 	</div>
 </div>
-
-<script src="js/toc.js"></script>
-<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+			<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
 
 <div class="progressBarContainer">
 	<div class="progressBar">
@@ -377,24 +392,21 @@ private void comprobarCrearDirectorio(String ruta) {
 </div>
 
 <script src="js/progressBar.js"></script>
+	
+			
+		</div>
 
+		<script>
+			// add bootstrap table styles to pandoc tables
+			function bootstrapStylePandocTables() {
+				$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+			}
 
+			$(document).ready(function () {
+				bootstrapStylePandocTables();
+			});
 
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-
-</body>
+					</script>
+	
+	</body>
 </html>

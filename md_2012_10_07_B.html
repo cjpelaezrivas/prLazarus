@@ -4,25 +4,23 @@
 
 <head>
 
-<meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="pandoc" />
 
+		
+	
+	
+	<title>Método intérprete</title>
 
-
-
-<title>Método intérprete</title>
-
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<meta charset="utf-8" />
+			<meta charset="utf-8" />
 <meta http-equiv="content-type" content="text/html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="author" content="Carlos J. Peláez Rivas" />
@@ -41,7 +39,6 @@
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 
 <script src="js/scroll.js"></script>
-<script src="js/tags.js"></script>
 <script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
 <script>
 	lightbox.option({
@@ -85,97 +82,78 @@ window.cookieconsent.initialise({
 
   gtag('config', 'UA-74491738-2');
 </script>
-
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
-
-
+	
+	
+	
+	
+			<style type="text/css">
+			h1 {
+				font-size: 34px;
+			}
+			h1.title {
+				font-size: 38px;
+			}
+			h2 {
+				font-size: 30px;
+			}
+			h3 {
+				font-size: 24px;
+			}
+			h4 {
+				font-size: 18px;
+			}
+			h5 {
+				font-size: 16px;
+			}
+			h6 {
+				font-size: 12px;
+			}
+			.table th:not([align]) {
+				text-align: left;
+			}
+					</style>
+	
+	
 </head>
 
 <body>
 
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
+			<style type = "text/css">
+			.main-container {
+				max-width: 940px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			code {
+				color: inherit;
+				background-color: rgba(0, 0, 0, 0.04);
+			}
+			img {
+				max-width:100%;
+				height: auto;
+			}
+			.tabbed-pane {
+				padding-top: 12px;
+			}
+			button.code-folding-btn:focus {
+				outline: none;
+			}
+		</style>
 
+		
+		<div class="container-fluid main-container">
 
+		<!-- tabsets -->
+		<script>
+			$(document).ready(function () {
+				window.buildTabsets("TOC");
+			});
+		</script>
 
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+		<!-- code folding -->
+		
+			
+			<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 
 <div id="navbar">
 	<div id="zoneA">
@@ -198,47 +176,37 @@ $(document).ready(function () {
 		</div>
 	</div>
 </div>
+	
+			<div class="fluid-row" id="header">
 
-<div class="fluid-row" id="header">
-
-
-
-<h1 class="title toc-ignore">Método intérprete</h1>
-
-</div>
-
-
-<script type="text/javascript">
-generateEntryInfo('domingo, 7 de octubre de 2012', 'Diario de desarrollo', 'Java');
-</script>
-<p>Vamos a comenzar a tratar la verdadera función de nuestro i. Para ello hemos creado un método llamada “interprete”, en el que introducimos una línea limpia de código y que devuelve un String con el resultado. Primero vamos a sacar cada uno de los operandos de la línea usando un <code>Tokenizer</code> con los elementos “+-*/()”. En caso de que no podamos convertir el token en un entero lanzaremos la excepción y dejaremos de ejecutar acciones para esta línea, pues se trata de un error ortográfico. Una vez acabado, vamos a continuar guardando las operaciones a realizar con los operandos anteriores. Para ello convertimos la línea de entrada en un array de caracteres y de ese modo podremos operar con total comodidad.</p>
+				
+						<h1 class="title toc-ignore">Método intérprete</h1>
+				<!--
+				-->
+					<h4 class="date"><em>domingo, 7 de octubre de 2012</em></h4>
+				<!--
+				-->
+					<b>Etiquetas</b>
+			<div id="tag_section">
+									<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+									<a class="tag" href="md_search.html?tag=Java">Java</a>
+							</div>
+				<!--
+				-->
+	
+			</div>
+	
+				
+	<p>Vamos a comenzar a tratar la verdadera función de nuestro i. Para ello hemos creado un método llamada “interprete”, en el que introducimos una línea limpia de código y que devuelve un String con el resultado. Primero vamos a sacar cada uno de los operandos de la línea usando un <code>Tokenizer</code> con los elementos “+-*/()”. En caso de que no podamos convertir el token en un entero lanzaremos la excepción y dejaremos de ejecutar acciones para esta línea, pues se trata de un error ortográfico. Una vez acabado, vamos a continuar guardando las operaciones a realizar con los operandos anteriores. Para ello convertimos la línea de entrada en un array de caracteres y de ese modo podremos operar con total comodidad.</p>
 <p>Este algoritmos será un poco más complicado, tendremos dos listas, que crecerán a la par. En una de ellas guardaremos las operaciones y en otra guardaremos la prioridad con la que deben ser solucionadas. Examinaremos elemento a elemento el array, y cuando encontremos los símbolos: ‘+’, ‘-’, ‘*’ ó ‘/’ guardaremos en una entrada de la lista el símbolo y la prioridad que tenga en ese momento ese símbolo. Si encontramos el símbolo ‘(’ aumentamos la prioridad y si por el contrario encontramos ‘)’ disminuiremos la prioridad. De este modo podemos conservar la prioridad de cada operación a la hora de los usos de paréntesis.</p>
 <p>Una vez acabado esto, es hora de los cálculos. Entraremos en un bucle que se repetirá tantas veces como la máxima prioridad que hayamos detectado. Y solucionaremos ahora todas las divisiones, multiplicaciones, sumas, y restas (en este orden) que coincidan con la prioridad actual. Una vez que hayamos resuelto todas las operaciones de una determinada prioridad, decreceremos la prioridad, y volveremos a realizar todas las operaciones. El proceso acabará cuando la prioridad sea -1. En ese momento solo deberemos tomar el valor guardado en la lista de los operandos en la posición ‘0’ y ese será el resultado de las operaciones.</p>
 <p>Ni que decir tiene que si en el caso de que nos encontremos con que el número de operaciones es 0, la solución será directamente el valor guardado en la primera posición de la lista. De este sencillo modo habremos resuelto todos los apartados excepto el del operador unario. Este es mi espinita clavada. No se me ocurre como puedo solucionarlo y me trae por la calle de la amargura, pues la solución se ha de adaptar a la solución actual, ya que de 5 requisitos tenemos resueltos 4.</p>
 <p>Se han realizado distintos cambios sencillos que no requieren mucha explicación en el código actual con respecto al anterior publica, además los comentarios del actual están basados en un i que no reconoce el operador unario ‘-’, por lo que debe detectar el símbolo ‘-’ como una operación. Esto será cambiado en el momento en el que se le cambie el comportamiento, pues mi idea principal es que una resta, se convierta en una suma en el que el segundo operando es un número negativo, pero seguimos encontrando problemas que no se me ocurre como abordar. Seguiré pensando en ello y lo publicaré cuando me ponga manos la obra.</p>
 <p>Saludos, <br> Lázarus Surazal.</p>
 <p><strong>Descarga:</strong> <br> <em>[Enlace eliminado]</em></p>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/><hr><div class="navigationContainer"><a class="navigateButton right" href="md_2012_10_14.html">Siguiente <i class="fa fa-arrow-right"></i></a><a class="navigateButton left" href="md_2012_10_07.html"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a></div>
 
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
-
-<hr>
-<div class="navigateContainer">
-	<a id ="navigationRight" class="navigateButton right navigateButtonInvisible" href="#">
-		Siguiente
-		<i class="fa fa-arrow-right"></i>
-	</a>
-	<a id="navigationLeft" class="navigateButton left navigateButtonInvisible" href="#">
-		<i class="fa fa-arrow-left"></i>
-		Anterior
-	</a>
-	<a class="navigateButton center" href="./">
-		<i class="fa fa-home"></i>
-		Volver a la página principal
-	</a>
-</div>
-
-<script src="js/navigation.js"> </script>
-<link rel="stylesheet" type="text/css" href="css/info.css"/>
+			<link rel="stylesheet" type="text/css" href="css/info.css"/>
 <link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
 
 <div style="float:left; margin: 20px 0;">
@@ -278,16 +246,20 @@ generateEntryInfo('domingo, 7 de octubre de 2012', 'Diario de desarrollo', 'Java
 		</div>
 	</div>
 </div>
-<div id="comments" style="float:left; width:100%;">
+			<div id="comments" style="float:left; width:100%;">
 	<script src="https://utteranc.es/client.js"
 		repo="cjpelaezrivas/prLazarus"
 		issue-term="title"
 		crossorigin	="anonymous"
 		async>
 	</script>
-	<noscript>Please enable JavaScript to view the comments.</noscript>
+	<noscript>
+		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+			Por favor, activa JavaScript para ver los comentarios.
+		</div>
+	</noscript>
 </div>
-<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+			<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div class="message" style="padding: 10px 0 25px 0">
 	¿Has encontrado algún error? <a href="mailto:cjpelaezrivas@gmail.com">Mándame un correo electrónico para corregirlo</a>. Gracias.
@@ -304,9 +276,7 @@ generateEntryInfo('domingo, 7 de octubre de 2012', 'Diario de desarrollo', 'Java
 		</div>
 	</div>
 </div>
-
-<script src="js/toc.js"></script>
-<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+			<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
 
 <div class="progressBarContainer">
 	<div class="progressBar">
@@ -314,24 +284,21 @@ generateEntryInfo('domingo, 7 de octubre de 2012', 'Diario de desarrollo', 'Java
 </div>
 
 <script src="js/progressBar.js"></script>
+	
+			
+		</div>
 
+		<script>
+			// add bootstrap table styles to pandoc tables
+			function bootstrapStylePandocTables() {
+				$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+			}
 
+			$(document).ready(function () {
+				bootstrapStylePandocTables();
+			});
 
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-
-</body>
+					</script>
+	
+	</body>
 </html>
