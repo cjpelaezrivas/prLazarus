@@ -24,6 +24,10 @@
 	text-decoration: none;
 }
 
+.info_block .content .part a:hover {
+	text-decoration: underline;
+}
+
 .info_block .content .photo {
 	width: 90px;
 	padding-right: 10px;

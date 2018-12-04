@@ -16,6 +16,10 @@
 	text-decoration: none;
 }
 
+.message a:hover {
+	text-decoration: underline;
+}
+
 .footer .content {
 	max-width: 940px;
 	margin-left: auto;

@@ -8,8 +8,6 @@
 	overflow: hidden;
 	background-color: transparent;
 	content: "";
-	display: table;
-	table-layout: fixed;
 }
 
 .progressBar {
