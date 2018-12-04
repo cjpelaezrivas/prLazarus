@@ -23,7 +23,7 @@
 	display: block;
 
 	margin: 2px 0;
-	padding: 8px;
+	padding: 5px;
 
 	width: 100%;
 
@@ -51,7 +51,7 @@
 }
 
 .entry .date {
-	font-size: 14px;
+	font-size: 13px;
 	font-style: italic;
 }
 
@@ -60,7 +60,7 @@
 
 .tag {
 	display: inline-block;
-	padding: 2px 4px;
+	padding: 1px 4px;
 	margin: 5px 2px;
 
 	font-size: 13px;

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 
 <head>
 
@@ -11,7 +11,7 @@
 		
 	
 	
-	<title>Método intérprete</title>
+	<title>prCalculadoraIntérprete - Método intérprete</title>
 
 			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -180,7 +180,7 @@ window.cookieconsent.initialise({
 			<div class="fluid-row" id="header">
 
 				
-						<h1 class="title toc-ignore">Método intérprete</h1>
+						<h1 class="title toc-ignore">prCalculadoraIntérprete - Método intérprete</h1>
 				<!--
 				-->
 					<h4 class="date"><em>domingo, 7 de octubre de 2012</em></h4>
@@ -196,6 +196,7 @@ window.cookieconsent.initialise({
 	
 			</div>
 	
+	
 				
 	<p>Vamos a comenzar a tratar la verdadera función de nuestro i. Para ello hemos creado un método llamada “interprete”, en el que introducimos una línea limpia de código y que devuelve un String con el resultado. Primero vamos a sacar cada uno de los operandos de la línea usando un <code>Tokenizer</code> con los elementos “+-*/()”. En caso de que no podamos convertir el token en un entero lanzaremos la excepción y dejaremos de ejecutar acciones para esta línea, pues se trata de un error ortográfico. Una vez acabado, vamos a continuar guardando las operaciones a realizar con los operandos anteriores. Para ello convertimos la línea de entrada en un array de caracteres y de ese modo podremos operar con total comodidad.</p>
 <p>Este algoritmos será un poco más complicado, tendremos dos listas, que crecerán a la par. En una de ellas guardaremos las operaciones y en otra guardaremos la prioridad con la que deben ser solucionadas. Examinaremos elemento a elemento el array, y cuando encontremos los símbolos: ‘+’, ‘-’, ‘*’ ó ‘/’ guardaremos en una entrada de la lista el símbolo y la prioridad que tenga en ese momento ese símbolo. Si encontramos el símbolo ‘(’ aumentamos la prioridad y si por el contrario encontramos ‘)’ disminuiremos la prioridad. De este modo podemos conservar la prioridad de cada operación a la hora de los usos de paréntesis.</p>
@@ -204,8 +205,31 @@ window.cookieconsent.initialise({
 <p>Se han realizado distintos cambios sencillos que no requieren mucha explicación en el código actual con respecto al anterior publica, además los comentarios del actual están basados en un i que no reconoce el operador unario ‘-’, por lo que debe detectar el símbolo ‘-’ como una operación. Esto será cambiado en el momento en el que se le cambie el comportamiento, pues mi idea principal es que una resta, se convierta en una suma en el que el segundo operando es un número negativo, pero seguimos encontrando problemas que no se me ocurre como abordar. Seguiré pensando en ello y lo publicaré cuando me ponga manos la obra.</p>
 <p>Saludos, <br> Lázarus Surazal.</p>
 <p><strong>Descarga:</strong> <br> <em>[Enlace eliminado]</em></p>
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/><hr><div class="navigationContainer"><a class="navigateButton right" href="md_2012_10_14.html">Siguiente <i class="fa fa-arrow-right"></i></a><a class="navigateButton left" href="md_2012_10_07.html"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a></div>
 
+			<link rel="stylesheet" type="text/css" href="css/relations.css"/>
+<div id="relationsContainer">
+<span class="relatedTitle">Entradas relacionadas</span>
+<ul>
+<li>
+<a href="md_2012_09_29.html">prCalculadoraIntérprete - Inicio de proyecto</a>
+</li>
+<li>
+<a href="md_2012_09_29_B.html">prCalculadoraIntérprete - Primeros pasos</a>
+</li>
+<li>
+<a href="md_2012_10_07.html">prCalculadoraIntérprete - Pequeños cambios…</a>
+</li>
+<li>
+<a href="md_2012_10_14.html">prCalculadoraIntérprete - Fin de proyecto</a>
+</li>
+</ul>
+</div>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
+<hr>
+<div class="navigationContainer">
+<a class="navigateButton right" href="md_2012_10_14.html">Siguiente <i class="fa fa-arrow-right"></i></a><a class="navigateButton left" href="md_2012_10_07.html"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a>
+</div>
+	
 			<link rel="stylesheet" type="text/css" href="css/info.css"/>
 <link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
 

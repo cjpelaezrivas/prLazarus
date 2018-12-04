@@ -1,0 +1,21 @@
+#relationsContainer {
+	margin-top: 20px;
+}
+
+#relationsContainer .relatedTitle {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+#relationsContainer ul {
+	padding: 5px 0 0 0px;
+	list-style: none;
+}
+
+#relationsContainer li a, #relationsContainer li a:visited {
+	text-decoration: none;
+}
+
+#relationsContainer li a:hover, #relationsContainer li a:active {
+	text-decoration: underline;
+}

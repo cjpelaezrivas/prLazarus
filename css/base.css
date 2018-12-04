@@ -55,12 +55,12 @@ body {
 
 pre {
 	line-height: 1.2 !important;
-	font-family: consolas, monospace !important;
 	max-height: 300px;
 }
 
 code {
 	white-space: inherit !important;
+	font-family: consolas, monospace !important;
 }
 
 .main-container {
