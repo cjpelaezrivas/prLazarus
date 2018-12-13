@@ -5,6 +5,7 @@
 	right: 0px;
 
 	background-color: #323232;
+	border-top: solid 2px #e6e6e6;
 }
 
 .message {
@@ -38,12 +39,14 @@
 
 .footer #logo_footer img {
 	height: 75px;
-	margin-top: 10px;
 }
 
-.footer #text {
+.footer #right_column {
 	display: inline-block;
 	padding-top: 20px;
+}
+
+.footer .text {
 	font-size: 12px;
 	color: #ffffff;
 }
@@ -55,7 +58,7 @@
 		text-align: center;
 	}
 
-	.footer #text {
+	.footer #right_column {
 		padding-top: 5px;
 		width: 100%;
 		text-align: center;
