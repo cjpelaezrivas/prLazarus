@@ -1,3 +1,7 @@
+#infoContainer {
+	float:left;
+}
+
 .info_block {
 	float: left;
 	display: inline-block;

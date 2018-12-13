@@ -43,6 +43,8 @@
 	color: #151515;
 	font-weight: bold;
 	text-decoration: none;
+	display: inline-block;
+	text-align: left;
 }
 
 .entry .title:hover, .entry title:active {
