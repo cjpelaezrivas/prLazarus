@@ -63,34 +63,6 @@ code {
 	font-family: consolas, monospace !important;
 }
 
-.main-container {
-	padding: 250px 30px 110px 30px;
-
-	color: #151515;
-	background-color: #ffffff;
-
-	border-left: solid 1px #323232;
-	border-right: solid 1px #323232;
-
-	text-align: justify;
-	font-size: 15px;
-
-	overflow-x: hidden;
-}
-
-@media screen and (max-width: 940px) {
-	.main-container {
-		border: none;
-	}
-}
-
-@media screen and (max-width: 500px) {
-	.main-container {
-		padding-top: 305px;
-		padding-bottom: 180px;
-	}
-}
-
 h1.title, .section h1,  .section h2, .section h3,
 .section h4,  .section h5, .section h6 {
 	text-align: left !important;
