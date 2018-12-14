@@ -74,6 +74,8 @@ code {
 
 	text-align: justify;
 	font-size: 15px;
+
+	overflow-x: hidden;
 }
 
 @media screen and (max-width: 940px) {
