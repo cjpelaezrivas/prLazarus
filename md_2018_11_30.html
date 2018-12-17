@@ -50,8 +50,8 @@
 	})
 </script>
 
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/cookieconsent.min.css"/>
+<script src="js/cookieconsent.min.js"></script>
 <script>
 window.addEventListener("load", function(){
 window.cookieconsent.initialise({
@@ -256,7 +256,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Para realizar esta modificación he recurrido a las relaciones matemáticas y a sus propiedades. A partir de un conjunto, en este caso las entradas, es posible declarar relaciones binarias entre ellas con las propiedades deseadas. A continuación se verá todo esto con un poco más de detalle.</p>
 <div id="relaciones-matematicas" class="section level2">
 <h2>Relaciones matemáticas</h2>
-<p>Las relaciones permiten clasificar u ordenar los distintos elementos del conjunto sobre las que se declaran usando las características de dichos elementos. Aquí entran en juego muchos conceptos: pares ordenados, producto cartesiano, conjuntos, y un largo etcétera. Ni por asomo vamos a tratar todo en profundidad, pero sí se verán algunas partes con más detalle.</p>
+<p>Las relaciones permiten clasificar u ordenar los distintos elementos del conjunto sobre las que se declaran usando las características de dichos elementos. Aquí entran en juego muchos conceptos: pares ordenados, producto cartesiano, conjuntos, y un largo etcétera. No vamos a tratar todo esto en profundidad, pero sí se verán algunas partes con más detalle.</p>
 <center style="margin: -5px 0 5px 0;">
 <img src="images/entries/2018_11_29/1.png" width="235">
 </center>
@@ -285,7 +285,7 @@ a → b
 <div id="implementacion-de-la-solucion" class="section level2">
 <h2>Implementación de la solución</h2>
 <p>Una vez en materia podemos ver cómo he realizado la modificación para añadir el manejo de las relaciones entre entradas. En realidad, he desarrollado una función que trabaja de forma independiente al blog, de modo que la usaré también en el sitio web de mi otro proyecto, <a href="http://www.projectcreationfx.tk">Project Creation FX</a>.</p>
-<p>En primero lugar es necesario un fichero. En este caso, un fichero <code>json</code> que guardará todas las relaciones y los conjuntos de pares de elementos, a los que llamaremos instancias. Las relaciones se declaran con un nombre, si es transitiva o no, el nivel de profundidad hasta el que se usa la transitividad, valor opcional que ahora se verá con más detalle; y su relación inversa si la hubiera.</p>
+<p>En primero lugar es necesario un fichero de configuración. En este caso, un fichero <code>json</code> que guardará todas las relaciones y los conjuntos de pares de elementos, a los que llamaremos instancias. Las relaciones se declaran con un nombre, si es transitiva o no, el nivel de profundidad hasta el que se usa la transitividad, valor opcional que ahora se verá con más detalle; y su relación inversa si la hubiera.</p>
 <p>Para el caso que nos ocupa únicamente tendremos una relación: <em>“está relacionada con”</em>. Esta relación se declara así:</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="op">{</span>
     <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;relatedTo&quot;</span><span class="op">,</span>
@@ -293,9 +293,9 @@ a → b
     <span class="st">&quot;transitive_depth&quot;</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span>
     <span class="st">&quot;inverse&quot;</span><span class="op">:</span> <span class="st">&quot;relatedTo&quot;</span>
 <span class="op">}</span></code></pre></div>
-<p>El sistema desarrollado no da soporte a las relaciones reflexivas. No tienen sentido a la hora de relacionar distintos elementos. No se me ocurre un escenario en el que sea necesario relacionar un fichero y generar un enlace a sí mismo.</p>
+<p>El sistema desarrollado no da soporte a las relaciones reflexivas. Este tipo de relaciones no tienen sentido a la hora de relacionar distintos enlaces en una página web. No se me ocurre un escenario en el que sea necesario relacionar una entrada y generar un enlace a sí misma.</p>
 <p>La propiedad simétrica se cumple siempre que la relación inversa sea la misma que la relación que se está declarando, tal y como ocurre en el ejemplo sobre el que trabajamos. Es decir, la relación <code>relatedTo</code> es simétrica porque su relación inversa es ella misma. Es fácil pensar en relaciones que no son simétricas y tienen como inversa una relación distinta: <em>“es padre de”</em>, por ejemplo, su inversa sería <em>“es hijo de”</em>.</p>
-<p>Además por definición es transitiva, ya que estamos indicándolo de ese modo. La funcionalidad del nivel de profundidad de la transitividad se puede ver fácilmente en el siguiente ejemplo:</p>
+<p>Además, por definición es transitiva, ya que estamos indicándolo de ese modo. La funcionalidad del nivel de profundidad de la transitividad se puede ver fácilmente en el siguiente ejemplo:</p>
 <p>En el caso de tener las siguientes instancias:</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">a → b
 b → c
@@ -311,10 +311,10 @@ b → <span class="at">e</span> (<span class="dv">2</span>)</code></pre></div>
 <ul>
 <li>-1 significa que se ha alcanzado ese resultado usando la relación inversa</li>
 <li>0 significa que se ha alcanzado ese resultado de forma directa usando una instancia declarada</li>
-<li>Un número positivo indica que se ha alcanzado ese resultado usando transitividad, indicando la profundidad con dicho valor</li>
+<li>Un número positivo significa que se ha alcanzado ese resultado usando transitividad, indicando la profundidad con dicho valor</li>
 </ul>
 <p>Puede observarse que no se ha podido relacionar <code>b</code> con <code>f</code> debido a que están demasiado lejos entre ellos y se ha limitado la búsqueda hasta el nivel 2 de profundidad. Este límite es necesario establecerlo porque la función que realiza la búsqueda transitiva es recursiva y necesita una condición de parada. El nivel de profundidad por defecto es 1, pero puede establecerse el que más convenga en cada momento.</p>
-<p>Aquí entra una cuestión filosófica en juego, aunque en el ejemplo anterior matemáticamente se da que <code>a → f</code>, ¿están relacionados realmente estos dos elementos? o ¿están tan separados que realmente ya no existe una relación valiosa entre ellos? Dependerá de la situación en la que nos encontremos. Para mí, un límite de nivel 1 de profundidad es suficiente.</p>
+<p>Aquí entra una cuestión filosófica en juego, aunque en el ejemplo anterior matemáticamente se da que <code>a → f</code>, ¿están relacionados realmente estos dos elementos? o ¿están tan separados que realmente ya no existe una relación valiosa entre ellos? Dependerá de la situación en la que nos encontremos. Para el caso que nos ocupa aquí, un límite de nivel 1 de profundidad es suficiente.</p>
 <p>Volviendo a la implementación, la declaración de las instancias se realiza de la siguiente manera:</p>
 <div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="op">{</span>
     <span class="st">&quot;a&quot;</span><span class="op">:</span> <span class="st">&quot;md_2012_09_29&quot;</span><span class="op">,</span>
@@ -333,8 +333,8 @@ b → <span class="at">e</span> (<span class="dv">2</span>)</code></pre></div>
 <span class="op">}</span></code></pre></div>
 <p>Como se ve en el ejemplo, es posible realizar varias declaraciones usando una lista. Esto es equivalente a declarar cada instancia por separado y únicamente se hace para facilitar el mantenimiento de la estructura de datos.</p>
 <p>Una vez declarado el fichero de relaciones, se pasa a compilar el blog y se genera automáticamente al final de cada entrada la sección de entradas relacionadas con tantos enlaces como corresponda.</p>
-<p>Para ver la potencia de este sistema, en el ejemplo anterior se han declarado para la entrada <code>md_2012_09_29</code> cuatro instancias. Estas instancias generan un total de 20 enlaces entre las cinco entradas que forman el grupo. Es decir, se ha declarado un 20% de los enlaces, el 80% restante se ha generado usando las relaciones inversas y transitividad.</p>
-<p>El sistema desarrollado aquí está desaprovechado y sé que puede dar mucho más de sí. Como ya he comentado, lo usaré en mi otro proyecto para generar la wiki. En ese escenario, usando varias relaciones y con distintas configuraciones, será donde finalmente se vea la potencia real del sistema y todo lo que puede ofrecer.</p>
+<p>Para ver la potencia de este sistema, en el ejemplo anterior se han declarado para la entrada <code>md_2012_09_29</code> cuatro instancias. Estas instancias generan un total de 20 enlaces entre las cinco entradas que forman el grupo. Es decir, se ha declarado un 20% de los enlaces, el 80% restante se ha generado usando las relaciones inversas y transitivas.</p>
+<p>El sistema desarrollado está en este caso casi desaprovechado y sé que puede dar mucho más de sí. Como ya he comentado, lo usaré en mi otro proyecto para generar las relaciones dentro de la wiki. En ese escenario, usando varias relaciones y con distintas configuraciones, será donde finalmente se vea la potencia real del sistema y todo lo que puede ofrecer.</p>
 <p>Espero que os guste el contenido de esta entrada y os parezca interesante. Estoy atento a los comentarios por si alguien está interesado en algún detalle más acerca de cómo está implementado.</p>
 <p>Hasta la próxima, <br> Lázarus Surazal</p>
 </div>
