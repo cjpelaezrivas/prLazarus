@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+
+<head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="pandoc" />
+
+		
+	
+	
+	<title>Proceso de actualización del blog finalizado</title>
+
+			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+			<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Carlos J. Peláez Rivas" />
+<meta name="description" content="prLázarus blog de programación" />
+<meta name="keywords" content="blog,programación,programacion,programming,coding,code,desarrollo,development,java,carlos, jesús,jesus,peláez,pelaez,rivas,cjpelaez,cjpelaezrivas,málaga,malaga,uma,españa,spain" />
+
+<link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/lightbox.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
+
+<link rel="stylesheet" type="text/css" href="css/base.css"/>
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
+<link rel="stylesheet" type="text/css" href="css/toc.css"/>
+<link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
+
+<script src="js/scroll.js"></script>
+<script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
+<script>
+	lightbox.option({
+	  'albumLabel': "Imagen %1 de %2",
+	  'fadeDuration': 250,
+	  'resizeDuration': 250,
+	  'wrapAround': true
+	})
+</script>
+
+<link rel="stylesheet" type="text/css" href="css/cookieconsent.min.css"/>
+<script src="js/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#d4d4d4",
+      "text": "#151515"
+    },
+    "button": {
+      "background": "#003379",
+      "text": "#ffffff"
+    }
+  },
+  "content": {
+    "message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
+    "dismiss": "Aceptar",
+    "link": "Más información",
+    "href": "http://prlazarus.tk/md_cookies_policy.html"
+  }
+})});
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74491738-2');
+</script>
+	
+	
+	
+	
+			<style type="text/css">
+			h1 {
+				font-size: 34px;
+			}
+			h1.title {
+				font-size: 38px;
+			}
+			h2 {
+				font-size: 30px;
+			}
+			h3 {
+				font-size: 24px;
+			}
+			h4 {
+				font-size: 18px;
+			}
+			h5 {
+				font-size: 16px;
+			}
+			h6 {
+				font-size: 12px;
+			}
+			.table th:not([align]) {
+				text-align: left;
+			}
+					</style>
+	
+	
+</head>
+
+<body>
+
+			<style type = "text/css">
+			.main-container {
+				max-width: 940px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			code {
+				color: inherit;
+				background-color: rgba(0, 0, 0, 0.04);
+			}
+			img {
+				max-width:100%;
+				height: auto;
+			}
+			.tabbed-pane {
+				padding-top: 12px;
+			}
+			button.code-folding-btn:focus {
+				outline: none;
+			}
+		</style>
+
+		
+		<div class="container-fluid main-container">
+
+		<!-- tabsets -->
+		<script>
+			$(document).ready(function () {
+				window.buildTabsets("TOC");
+			});
+		</script>
+
+		<!-- code folding -->
+		
+			
+			<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+
+<div id="navbar">
+	<div id="zoneA">
+		<div class="content">
+			<div id="logo">
+				<a href="./"><img src="images/logo.png" alt="prLázarus logo"/></a>
+			</div>
+
+			<div id="subtitle">
+				Blog de desarrollo de proyectos Software, tutoriales, consejos y varios.
+			</div>
+		</div>
+	</div>
+	<div id="zoneB">
+		<div class="content">
+			<div id="menu">
+				<a class="menuItem" href="./"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
+				<a class="menuItem" href="http://cjpelaezrivas.tk"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
+			</div>
+		</div>
+	</div>
+</div>
+	
+			<div class="fluid-row" id="header">
+
+				
+						<h1 class="title toc-ignore ">Proceso de actualización del blog finalizado</h1>
+				<!--
+				-->
+					<h4 class="date"><em>martes, 18 de diciembre de 2018</em></h4>
+				<!--
+				-->
+					<b>Etiquetas</b>
+			<div id="tag_section">
+									<a class="tag" href="md_search.html?tag=Blog">Blog</a>
+									<a class="tag" href="md_search.html?tag=FdP">FdP</a>
+									<a class="tag" href="md_search.html?tag=Información">Información</a>
+							</div>
+				<!--
+				-->
+	
+			</div>
+	
+	
+				
+	<p>Hola de nuevo,<br> Tras varias semanas y la implementación de nuevas mejoras, por fin puedo decir que la nueva versión del blog está terminada. Claro está que puede haber algún que otro cambio o añadido menor en el futuro, pero por fin la versión 2.0 está acabada.</p>
+<p>A continuación detallaré todos los cambios que he realizado desde que en marzo subí la primera actualización del nuevo blog:</p>
+<div id="creacion-del-blog-usando-r-markdown-y-github-pages" class="section level4">
+<h4><strong>Creación del blog usando R Markdown y Github Pages</strong></h4>
+<p>Los detalles de todo el proceso seguido los podéis encontrar <a href="md_2018_03_21.html">aquí</a>. Claramente este es el paso más extenso y con más cambios. Incluía además de la creación de la estructura básica del blog, toda la migración desde el servicio anterior.</p>
+<p>El proceso de aprendizaje de esta tecnología, la parte básica, no fue muy complicada a decir verdad. También es cierto que me falta mucho por aprender, y aunque he profundizado algo más, al menos cuanto necesito para cumplir mis objetivos, aun me queda mucho para dominar esta tecnología.</p>
+</div>
+<div id="eliminar-disqus-como-gestor-de-comentarios" class="section level4">
+<h4><strong>Eliminar Disqus como gestor de comentarios</strong></h4>
+<p>Esto se llevó a cabo por los motivos ya mencionados en la entrada que da comienzo al proceso de renovación. Este paso incluye, claro, añadir como gestor de comentarios a Github Issues. Podéis encontrar referencias a este cambio <a href="https://github.com/cjpelaezrivas/prLazarus/issues/1#issuecomment-381950057">aquí</a>.</p>
+</div>
+<div id="seis-meses-sin-cambios" class="section level4">
+<h4><strong>Seis meses sin cambios</strong></h4>
+<p>Como apunte cómico, un descanso de seis meses nunca viene mal. Supongo que en algún momento me cansé del estado y de cómo estaba hecho el blog y me puse manos a la obra con algunas nuevas ideas.</p>
+</div>
+<div id="eliminar-generacion-dinamica-usando-javascript" class="section level4">
+<h4><strong>Eliminar generación dinámica usando JavaScript</strong></h4>
+<p>Como ya comenté en <a href="md_2018_11_27.html">esta entrada</a>, el blog se terminaba de generar dinámicamente en el dispositivo de cada usuario usando código JavaScript. Como ya se menciona ahí, esto tiene diversos problemas que ya se han solucionado.</p>
+<p>En esta fase me tiré a la piscina con las plantillas de R Markdown, básicamente porque era necesario tocar directamente la compilación del blog para generar todo el código en ese momento. Estos cambios trajeron un aumento de velocidad de carga bastante interesante.</p>
+<p>Aquí también se incluyó toda la información de las entradas en un único lugar. Ahora todo está mucho más claro y ordenado.</p>
+<p>La navegación entre entradas es otro punto que también se llevó a cabo en esta fase. Antes, cada entrada realizaba cálculos en JavaScript para determinar cuál era su anterior y siguiente. Esto era más lento y no compatible para todos los dispositivos. Ahora, este cálculo se realiza también durante la compilación. Se calcula una sola vez, todo está incluido en el código HTML y es compatible con cualquier configuración del navegador.</p>
+<p>Estos cambios traen más beneficios a parte de la velocidad. Ahora los buscadores encuentran enlaces funcionales que van a otros artículos del blog en lugar de código JavaScript que ellos no ejecutan. Esto mejora las conexiones internas del blog drásticamente, ya que antes la única página que relacionaba las entradas era la principal.</p>
+</div>
+<div id="relacionar-las-entradas" class="section level4">
+<h4><strong>Relacionar las entradas</strong></h4>
+<p>Continuando con las relaciones y los cambios hechos en la fase anterior, en esta fase apliqué una idea que me venía rondando la cabeza desde hacía bastante tiempo: la relación de entradas. Todo el proceso está explicado <a href="md_2018_11_30.html">aquí</a>.</p>
+<p>A fin de cuentas, se trata de darle significado semántico a cada entrada, creando grupos y enlaces entre ellas de forma más o menos automática. Todos estos enlaces también se crean en tiempo de compilación, de forma que es una característica inmediata a la hora de visualizar el blog. Esta característica mejora de nuevo las relaciones internas del blog, y como he mencionado ya aumenta la semántica de cada entrada.</p>
+<p>Ya he aplicado esta tecnología en el boceto de wiki disponible en <a href="http://projectcreationfx.tk/md_wiki.html">Project Creation FX</a>. En este otro caso se utilizan distintas relaciones y propiedades para que la función de relación ofrezca toda la potencia que puede dar.</p>
+</div>
+<div id="anadir-el-fichero-sitemap.xml" class="section level4">
+<h4><strong>Añadir el fichero <code>sitemap.xml</code></strong></h4>
+<p>Es posible que debería haber conocido la necesidad de disponer de este fichero en la raíz del alojamiento, pero a decir verdad no he sabido de su importancia hasta hace unas semanas.</p>
+<p>Este paso es, básicamente, la generación del fichero y la subida del mismo al repositorio. No tiene mucha más relevancia. Al parecer, este fichero ayuda a los buscadores a localizar todas las páginas que son accesibles, pues es, a fin de cuentas, un mapa del sitio web.</p>
+</div>
+<div id="ajustes-finales" class="section level4">
+<h4><strong>Ajustes finales</strong></h4>
+<p>En este fase se incluyen diversos cambios de estilos y modificaciones menos importantes. Las listo a continuación para haceros una idea de todo lo que se ha ido tocado:</p>
+<ul>
+<li>Cambios menores en el estilo general de la página</li>
+<li>Mejorar la aplicación de los estilos</li>
+<li>Actualización del pie de página</li>
+<li>Añadir correos electrónicos con dominio personalizado en las secciones de contacto</li>
+<li>Añadir títulos de las entradas siguiente y anterior en forma de <em>tooltip</em></li>
+</ul>
+<p><br></p>
+<p>Estos han sido todos los cambios que se han realizado en este proceso de actualización. Ya se ha mencionado que es posible que se incluya alguna que otra características o cambio, pero por el momento no hay nada programado. El camino desde Blogger al punto en el que nos encontramos no ha sido corto precisamente, pero nos ha servido para aprender bastantes cosas nuevas y poner en práctica muchas ideas.</p>
+<p>Como punto positivo, he de decir que me alegra haber terminado este pequeño proyecto antes de fin de año, de forma que ahora hay sitio para nuevas ideas. Es muy posible que comencemos una nueva serie pronto con nuevas tecnologías.</p>
+<p>También tengo pendiente la creación de un nuevo sitio web estático, y además <a href="http://projectcreationfx.tk">Project Creation FX</a> (tanto el proyecto como el sitio web) sigue teniendo bastantes horas de trabajo por delante. Todavía tengo que crear la versión 1.0 del proyecto y terminar algunas páginas más del sitio web para poder decir que la primera versión está terminada.</p>
+<p>Parece que comenzaremos el nuevo año con bastantes ideas nuevas y otras tantas en proceso. Eso no puede ser malo, siempre está bien estar ocupado.</p>
+<p>Hasta la próxima entrada,<br> Lázarus Surazal</p>
+</div>
+
+			<link rel="stylesheet" type="text/css" href="css/relations.css"/>
+<div id="relationsContainer">
+<span class="relatedTitle">Entradas relacionadas</span>
+<ul>
+<li>
+<a href="md_2018_03_21.html">Nuevo blog, nuevo alojamiento, nuevo comienzo</a>
+</li>
+<li>
+<a href="md_2018_11_27.html">Nuevas actualizaciones en el blog</a>
+</li>
+<li>
+<a href="md_2018_11_30.html">Relacionando las entradas del blog</a>
+</li>
+</ul>
+</div>
+<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
+<hr>
+<div id="navigationContainer">
+<a class="navigateButton right navigateButtonInvisible" href="#">Siguiente <i class="fa fa-arrow-right"></i></a><a class="item hint--bottom-right navigateButton left" href="md_2018_11_30.html" data-hint="Relacionando las entradas del blog"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a>
+</div>
+	
+			<link rel="stylesheet" type="text/css" href="css/info.css"/>
+
+<div id="infoContainer">
+	<div id="infoProfile" class="info_block" style="width:65%;">
+		<div class="title">
+			<b>Perfil</b>
+		</div>
+		<div class="content">
+			<div class="part photo">
+				<img src="images/logo_b.png" width="90px" alt="prLázarus logo info" />
+			</div>
+			<div class="part description">
+				<b>Carlos J. Peláez Rivas (Lázarus Surazal)</b> <br>
+				Graduado y Máster en Ingeniería Informática por la Universidad de Málaga. Actualmente trabajando como desarrollador de aplicaciones en Java usando Vaadin.<br>
+				Apasionado de los videojuegos, la música y alguna que otra tecnología, siempre buscando cosas nuevas que aprender y hacer. <br>
+				<a href="http://cjpelaezrivas.tk">Más sobre mi...</a>
+			</div>
+		</div>
+	</div>
+	<div id="infoContact" class="info_block" style="width:35%;">
+		<div class="title">
+			<b>Contacto</b>
+		</div>
+		<div class="content links">
+			<div class="item hint--bottom-right" data-hint="Perfil personal">
+				<a href="http://cjpelaezrivas.tk"><i class="fa fa-user-circle" style="font-size:38.5px; position:relative; top:-1px;"></i></a>
+			</div>
+			<div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
+				<a href="mailto:cjpelaezrivas@gmail.com"><i class="fa fa-envelope-square"></i></a>
+			</div>
+			<div class="item hint--bottom-right" data-hint="Perfil de GitHub">
+				<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
+			</div>
+			<div class="item hint--bottom-right" data-hint="Perfil de LinkedIn">
+				<a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
+			</div>
+		</div>
+	</div>
+</div>
+			<div id="commentsContainer" style="float:left; width:100%;">
+	<script src="https://utteranc.es/client.js"
+		repo="cjpelaezrivas/prLazarus"
+		issue-term="title"
+		crossorigin	="anonymous"
+		async>
+	</script>
+	<noscript>
+		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+			Por favor, activa JavaScript para ver los comentarios.
+		</div>
+	</noscript>
+</div>
+			<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+
+<div id="footer_message">
+	¿Has encontrado algún error? <a href="mailto:correcciones@prlazarus.tk">Mándame un correo electrónico para corregirlo</a>. Gracias.
+</div>
+<div id="footer">
+	<div class="content">
+		<div id="logo_footer">
+			<a href="http://prlazarus.tk"><img src="images/logo_c.png" alt="prLázarus logo footer" style="margin-top:10px;"/></a>
+			<!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
+		</div>
+		<div id="right_column" class="text">
+			Hecho en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <a href="http://prlazarus.tk">prLázarus</a><br>
+			<i class="fa fa-plug"></i> <i>Con la tecnología de <a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a> y <a href="https://pages.github.com/">GitHub Pages</a></i><br>
+			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
+			&nbsp;|&nbsp;
+			<i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
+			<a href="mailto:info@prlazarus.tk">info@prlazarus.tk</a>
+		</div>
+	</div>
+</div>
+			<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+
+<div id="progressBarContainer">
+	<div class="progressBar">
+	</div>
+</div>
+
+<script src="js/progressBar.js"></script>
+	
+			
+		</div>
+
+		<script>
+			// add bootstrap table styles to pandoc tables
+			function bootstrapStylePandocTables() {
+				$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+			}
+
+			$(document).ready(function () {
+				bootstrapStylePandocTables();
+			});
+
+					</script>
+	
+	</body>
+</html>
