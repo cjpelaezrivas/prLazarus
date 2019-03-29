@@ -1,17 +1,13 @@
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 
 <head>
-
 	<meta charset="utf-8" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="generator" content="pandoc" />
 
-		
-	
-	
-	<title>Power Shooter - Inicio de proyecto</title>
+	<title>Power Shooter - Inicio de proyecto - prLázarus</title>
 
 			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,38 +16,37 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-			<meta charset="utf-8" />
-<meta http-equiv="content-type" content="text/html" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="author" content="Carlos J. Peláez Rivas" />
+			<meta name="author" content="Carlos J. Peláez Rivas" />
 <meta name="description" content="prLázarus blog de programación" />
 <meta name="keywords" content="blog,programación,programacion,programming,coding,code,desarrollo,development,java,carlos, jesús,jesus,peláez,pelaez,rivas,cjpelaez,cjpelaezrivas,málaga,malaga,uma,españa,spain" />
 
 <link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
 
-<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
-<link rel="stylesheet" type="text/css" href="css/lightbox.min.css"/>
-<link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
+<link rel="stylesheet" type="text/css" href="lib/fontawesome-4.7/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="lib/hint-2.5.1/css/hint.base.min.css"/>
+<link rel="stylesheet" type="text/css" href="lib/lightbox-2.10/css/lightbox.min.css"/>
+<link rel="stylesheet" type="text/css" href="lib/cookieconsent2-3.1.0/css/cookieconsent.min.css"/>
 
 <link rel="stylesheet" type="text/css" href="css/base.css"/>
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <link rel="stylesheet" type="text/css" href="css/toc.css"/>
+<link rel="stylesheet" type="text/css" href="css/code.css"/>
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 
-<script src="js/scroll.js"></script>
-<script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
+<script src="lib/scrolltotop-1.0/js/scrolltotop.js"></script>
+
+<script src="lib/lightbox-2.10/js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
 <script>
-	lightbox.option({
-	  'albumLabel': "Imagen %1 de %2",
-	  'fadeDuration': 250,
-	  'resizeDuration': 250,
-	  'wrapAround': true
-	})
+  lightbox.option({
+    'albumLabel': "Imagen %1 de %2",
+    'fadeDuration': 250,
+    'resizeDuration': 250,
+    'wrapAround': true
+  })
 </script>
 
-<link rel="stylesheet" type="text/css" href="css/cookieconsent.min.css"/>
-<script src="js/cookieconsent.min.js"></script>
+<script src="lib/cookieconsent2-3.1.0/js/cookieconsent.min.js"></script>
 <script>
 window.addEventListener("load", function(){
 window.cookieconsent.initialise({
@@ -83,66 +78,10 @@ window.cookieconsent.initialise({
 
   gtag('config', 'UA-74491738-2');
 </script>
-	
-	
-	
-	
-			<style type="text/css">
-			h1 {
-				font-size: 34px;
-			}
-			h1.title {
-				font-size: 38px;
-			}
-			h2 {
-				font-size: 30px;
-			}
-			h3 {
-				font-size: 24px;
-			}
-			h4 {
-				font-size: 18px;
-			}
-			h5 {
-				font-size: 16px;
-			}
-			h6 {
-				font-size: 12px;
-			}
-			.table th:not([align]) {
-				text-align: left;
-			}
-					</style>
-	
-	
-</head>
+	</head>
 
 <body>
-
-			<style type = "text/css">
-			.main-container {
-				max-width: 940px;
-				margin-left: auto;
-				margin-right: auto;
-			}
-			code {
-				color: inherit;
-				background-color: rgba(0, 0, 0, 0.04);
-			}
-			img {
-				max-width:100%;
-				height: auto;
-			}
-			.tabbed-pane {
-				padding-top: 12px;
-			}
-			button.code-folding-btn:focus {
-				outline: none;
-			}
-		</style>
-
-		
-		<div class="container-fluid main-container">
+	<div class="container-fluid main-container">
 
 		<!-- tabsets -->
 		<script>
@@ -151,10 +90,7 @@ window.cookieconsent.initialise({
 			});
 		</script>
 
-		<!-- code folding -->
-		
-			
-			<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+					<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 
 <div id="navbar">
 	<div id="zoneA">
@@ -177,43 +113,51 @@ window.cookieconsent.initialise({
 		</div>
 	</div>
 </div>
-	
-			<div class="fluid-row" id="header">
+		
+		<div class="fluid-row" id="header">
 
-				
-						<h1 class="title toc-ignore ">Power Shooter - Inicio de proyecto</h1>
-				<!--
-				-->
-					<h4 class="date"><em>lunes, 25 de marzo de 2019</em></h4>
-				<!--
-				-->
-					<b>Etiquetas</b>
-			<div id="tag_section">
-									<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-									<a class="tag" href="md_search.html?tag=IdP">IdP</a>
-									<a class="tag" href="md_search.html?tag=PowerShooter">PowerShooter</a>
-							</div>
-				<!--
-				-->
-	
-			</div>
-	
-	
-						<div id="TOC">
-									<span class="title">Tabla de contenido</span>
-								<ul>
+							<h1 class="title toc-ignore ">Power Shooter - Inicio de proyecto</h1>
+			
+			<!--
+						-->
+
+							<h4 class="date"><em>lunes, 25 de marzo de 2019</em></h4>
+			
+			<!--
+						-->
+
+							<b>Etiquetas</b>
+				<div id="tag_section">
+											<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+											<a class="tag" href="md_search.html?tag=IdP">IdP</a>
+											<a class="tag" href="md_search.html?tag=PowerShooter">PowerShooter</a>
+									</div>
+			
+			<!--
+						-->
+
+		</div>
+
+		
+							<div id="TOC">
+											<span class="title">Tabla de contenido</span>
+										<ul>
+<li><a href="#elementos-jugables">Elementos jugables</a><ul>
 <li><a href="#el-jugador">El jugador</a></li>
 <li><a href="#los-enemigos">Los enemigos</a></li>
 <li><a href="#el-escenario">El escenario</a></li>
+</ul></li>
 </ul>
-			</div>
+				</div>
 			
-	<p>Hola de nuevo,<br> Tras varios meses sin escribir nada en el blog, va siendo hora de volver con algo nuevo.</p>
+		<p>Hola de nuevo,<br> Tras varios meses sin escribir nada en el blog, va siendo hora de volver con algo nuevo.</p>
 <p>Esta es la primera de una serie de entradas que detallarán el proceso de desarrollo de un pequeño proyecto creado sobre <a href="http://www.projectcreationfx.tk">Project Creation FX</a>. Esta biblioteca es un pequeño motor de desarrollo de juegos en 2D en Java que estoy desarrollando de forma paralela. Mi intención es publicar la versión 1.0 este año, pero por desgracia el proceso de pulido requiere más tiempo del que dispongo. A pesar de todo, es posible usar lo que tengo hasta ahora para algún que otro proyecto, y además sirve para realizar pruebas a más alta escala con todos los módulos funcionando en sinergia.</p>
 <p>En concreto, se desarrollará un <em>shooter</em> 2D en vista cenital. La intención es que sea un juego visual con algunos efectos de cámara, partículas y sonidos, rápido y ágil tanto en menús como en <em>gameplay</em> y sobretodo divertido, pero que requiera de cierta estrategia debido a los distintos comportamientos y condiciones que tenga cada enemigo.</p>
 <p>El estilo visual no lo tengo muy claro aún y creo que se irá creando sobre la marcha. De todos modos, la idea inicial es crear algo simplista y basado en formas geométricas. Más fácil de crear para mí y de entender para el jugador.</p>
 <p>Es posible que el nombre del proyecto dé una idea del tipo juego que se me ha ocurrido. Se trata de un juego de disparos (<em>shooter</em>) en el que los enemigos son números, en concreto potencias (<em>power</em>) de dos. El jugador es solo un número más, y debe destruir a los enemigos usando proyectiles que puede disparar con diferentes armas para ganar puntos. Siguiendo con la idea que usé en <a href="">Run for your Life</a> habrá una tabla de puntuaciones global y compartida por todos los jugadores para almacenar las 10 mejores partidas.</p>
 <p>Vamos a ver algunos detalles del juego para hacernos una idea de lo que tenemos entre manos:</p>
+<div id="elementos-jugables" class="section level2">
+<h2>Elementos jugables</h2>
 <div id="el-jugador" class="section level3">
 <h3>El jugador</h3>
 <p>El usuario comienza siendo un número 2 y podrá aumentar su valor, y sus probabilidades de supervivencia, destruyendo enemigos. El jugador podrá moverse con el teclado y apuntar y disparar usando el ratón, de forma similar a juegos como <a href="https://store.steampowered.com/app/242680/Nuclear_Throne/">Nuclear Throne</a>.</p>
@@ -227,27 +171,28 @@ window.cookieconsent.initialise({
 <p>Los enemigos son bastante más interesantes que el jugador en sí. Si listamos la serie de las potencias de dos, puede observarse ciento patrón en la misma:</p>
 <p><strong>2</strong>, <strong>4</strong>, <strong>8</strong>, 1<strong>6</strong>, 3<strong>2</strong>, 6<strong>4</strong>, 12<strong>8</strong>, 25<strong>6</strong>, 51<strong>2</strong>, 102<strong>4</strong>, 204<strong>8</strong>, 409<strong>6</strong>, …</p>
 <p>Se aprecia la serie 2, 4, 8, 6 repitiéndose como cifra final de cada uno de los posibles valores. Esto nos ofrece una oportunidad fantástica para implementar diferentes comportamientos de los enemigos basados en ese número final. Como nota para la implementación, para obtenerla última cifra de cualquier número, basta con hacer módulo 10 del mismo.</p>
-<p>La cifra final de un enemigo también puede llevar asignado un color, de modo que el jugador puede relacionar cada apariencia con el comportamiento del enemigo. La cifra final de un enemigo también puede llevar asignado un color, de modo que el jugador puede relacionar cada apariencia con el comportamiento del enemigo. Dado que el valor que aparece en pantalla en cada enemigo irá cambiando conforme el enemigo recibe daño, el color, y por lo tanto su comportamiento se determinará en función del valor inicial del enemigo.</p>
-<p>Otra característica fantástica de los números es que cuanto más avanzan más cifras tienen, y por lo tanto, más espacio ocupan. Esto es particularidad hará que la dificultad del juego aumente progresivamente. Conforme el jugador avanza en la partida, los enemigos que aparezcan serán más fuertes, es decir, tendrán un valor mayor, y por lo tanto serán necesarios más proyectiles para destruirlos. Cuanto mayor sea el número, más ancho será, y por lo tanto, más grande será necesario que sea el enemigo para que el número quepa en él. Por cierto, si se usa una fuente de ancho fijo para mostrar los números en pantalla, será sencillo calcular dicha anchura. Esto aumento de tamaño hace que la posibilidad de que el enemigo toque al jugador aumente, lo que acerca el final de la partida. En Java, quizás la forma más sencilla de calcular el número de cifras de un número sea convirtiéndolo a String y obteniendo la longitud de la cadena resultante. Ir dividiendo por 10 y contar cuantas veces hay que hacerlo me parece más complejo.</p>
+<p>Esta cifra final también puede llevar asignado un color, de modo que el jugador puede relacionar cada apariencia con el comportamiento del enemigo. Dado que el valor que aparece en pantalla en cada enemigo irá cambiando conforme recibe daño, el color, y por lo tanto su comportamiento se determinará en función del valor inicial del enemigo.</p>
+<p>Otra característica fantástica de los números es que cuanto más avanzan más cifras tienen, y por lo tanto, más espacio ocupan. Esto es particularidad hará que la dificultad del juego aumente progresivamente. Conforme el jugador avanza en la partida, los enemigos que aparezcan serán más fuertes, es decir, tendrán un valor mayor, y por lo tanto serán necesarios más proyectiles para destruirlos. Cuanto mayor sea el número, más ancho será, y por lo tanto, será necesario que el cuerpo del enemigo sea más grande para que el número quepa en él. Por cierto, si se usa una fuente de ancho fijo para mostrar los números en pantalla, será sencillo calcular dicha anchura. Esto aumento de tamaño hace que la posibilidad de que el enemigo toque al jugador aumente, lo que acerca el final de la partida. En Java, quizás la forma más sencilla de calcular el número de cifras de un número sea convirtiéndolo a String y obteniendo la longitud de la cadena resultante. Ir dividiendo por 10 y contar cuantas veces hay que hacerlo me parece más complejo.</p>
 <p>El número de cifras del valor inicial de los enemigos se puede utilizar para parametrizar muchos más aspectos del enemigo, como puede ser su velocidad de movimiento, su habilidad de esquivar o su velocidad y patrón de disparo.</p>
 </div>
 <div id="el-escenario" class="section level3">
 <h3>El escenario</h3>
 <p>El nivel dónde se desarrollará el juego no tendrá límites en ninguna de las dos dimensiones, es decir, el jugador podrá moverse indefinidamente en cualquier dirección. Tengo la idea de usar una función de ruido tridimensional para generar obstáculos y agujeros conforme va avanzando la partida, de modo que se generará alguna especie de muros que impedirán el paso tanto al jugador como a los enemigos, y huecos en el suelo que provocarán la muerte por caída de cualquier entidad que pase por encima de ellos.</p>
 <p>Al inicio de la partida, el terreno será prácticamente liso, pero conforme avance, se volverá mucho más abrupto y lleno de obstáculos. En principio, esto únicamente hará que la dificultad aumente y no se proporcionará ningún tipo de ventaja al jugador, salvo la de usar el escenario en su beneficio.</p>
-<hr />
+<p><br></p>
 <p>Creo que lo detallado en las líneas anteriores puede servir para hacerse una idea del proyecto que se va a desarrollar en esta serie de entradas. Quiero dejar clara la idea de que no se trata de una guía paso a paso, si no de un diario de desarrollo en el que se irán indicando los avances y problemas encontrados conforme avance el proyecto.</p>
 <p>Eso es todo por ahora, espero que vaya todo bien y nos vemos en la siguiente entrada.</p>
 <p>Muchas gracias por leerme,<br> Lázarus Surazal.</p>
 </div>
+</div>
 
-			<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
+					<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
 <hr>
 <div id="navigationContainer">
 <a class="navigateButton right navigateButtonInvisible" href="#">Siguiente <i class="fa fa-arrow-right"></i></a><a class="item hint--bottom-right navigateButton left" href="md_2018_12_18.html" data-hint="Proceso de actualización del blog finalizado"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a>
 </div>
-	
-			<link rel="stylesheet" type="text/css" href="css/info.css"/>
+		
+					<link rel="stylesheet" type="text/css" href="css/info.css"/>
 
 <div id="infoContainer">
 	<div id="infoProfile" class="info_block" style="width:65%;">
@@ -286,7 +231,7 @@ window.cookieconsent.initialise({
 		</div>
 	</div>
 </div>
-			<div id="commentsContainer" style="float:left; width:100%;">
+					<div id="commentsContainer" style="float:left; width:100%;">
 	<script src="https://utteranc.es/client.js"
 		repo="cjpelaezrivas/prLazarus"
 		issue-term="title"
@@ -299,7 +244,7 @@ window.cookieconsent.initialise({
 		</div>
 	</noscript>
 </div>
-			<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+					<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div id="footer_message">
 	¿Has encontrado algún error? <a href="mailto:correcciones@prlazarus.tk">Mándame un correo electrónico para corregirlo</a>. Gracias.
@@ -320,7 +265,7 @@ window.cookieconsent.initialise({
 		</div>
 	</div>
 </div>
-			<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+					<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
 
 <div id="progressBarContainer">
 	<div class="progressBar">
@@ -328,21 +273,7 @@ window.cookieconsent.initialise({
 </div>
 
 <script src="js/progressBar.js"></script>
-	
-			
-		</div>
-
-		<script>
-			// add bootstrap table styles to pandoc tables
-			function bootstrapStylePandocTables() {
-				$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-			}
-
-			$(document).ready(function () {
-				bootstrapStylePandocTables();
-			});
-
-					</script>
-	
-	</body>
+		
+	</div>
+</body>
 </html>

@@ -1,4 +1,7 @@
 .main-container {
+	max-width: 940px;
+	margin-left: auto;
+	margin-right: auto;
 	padding: 250px 30px 110px 30px;
 
 	color: #151515;
@@ -113,7 +116,7 @@
 
 #header h4.date {
 	font-size: 15px !important;
-	margin-top: 0 !important;
+	margin-top: 2px !important;
 }
 
 #header #tag_section {
@@ -124,14 +127,14 @@
 
 .alignRight {
 	float: right;
-    margin: 15px 0 15px 15px;
-    width: auto;
+	margin: 15px 0 15px 15px;
+	width: auto;
 }
 
 .alignLeft {
 	float: left;
-    margin: 15px 15px 15px 0;
-    width: auto;
+	margin: 15px 15px 15px 0;
+	width: auto;
 }
 
 @media screen and (max-width: 500px) {
@@ -144,9 +147,9 @@
 
 figure figcaption {
 	font-style: italic;
-    font-size: 13px;
-    text-align: center;
-    padding-top: 8px;
+	font-size: 13px;
+	text-align: center;
+	padding-top: 8px;
 }
 
 /**/
@@ -204,14 +207,14 @@ figure figcaption {
 /* Cookie Consent */
 
 .cc-window {
-    border-top: solid 1px #323232;
+	border-top: solid 1px #323232;
 }
 
 .cc-message {
 	padding: 0 10px !important;
 	font-size: 15px !important;
-    line-height: 20px !important;
-    text-align: justify;
+	line-height: 20px !important;
+	text-align: justify;
 }
 
 .cc-compliance a {

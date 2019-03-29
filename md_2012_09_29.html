@@ -1,17 +1,13 @@
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 
 <head>
-
 	<meta charset="utf-8" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="generator" content="pandoc" />
 
-		
-	
-	
-	<title>prCalculadoraIntérprete - Inicio de proyecto</title>
+	<title>prCalculadoraIntérprete - Inicio de proyecto - prLázarus</title>
 
 			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,38 +16,37 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-			<meta charset="utf-8" />
-<meta http-equiv="content-type" content="text/html" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="author" content="Carlos J. Peláez Rivas" />
+			<meta name="author" content="Carlos J. Peláez Rivas" />
 <meta name="description" content="prLázarus blog de programación" />
 <meta name="keywords" content="blog,programación,programacion,programming,coding,code,desarrollo,development,java,carlos, jesús,jesus,peláez,pelaez,rivas,cjpelaez,cjpelaezrivas,málaga,malaga,uma,españa,spain" />
 
 <link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
 
-<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
-<link rel="stylesheet" type="text/css" href="css/lightbox.min.css"/>
-<link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
+<link rel="stylesheet" type="text/css" href="lib/fontawesome-4.7/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="lib/hint-2.5.1/css/hint.base.min.css"/>
+<link rel="stylesheet" type="text/css" href="lib/lightbox-2.10/css/lightbox.min.css"/>
+<link rel="stylesheet" type="text/css" href="lib/cookieconsent2-3.1.0/css/cookieconsent.min.css"/>
 
 <link rel="stylesheet" type="text/css" href="css/base.css"/>
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <link rel="stylesheet" type="text/css" href="css/toc.css"/>
+<link rel="stylesheet" type="text/css" href="css/code.css"/>
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 
-<script src="js/scroll.js"></script>
-<script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
+<script src="lib/scrolltotop-1.0/js/scrolltotop.js"></script>
+
+<script src="lib/lightbox-2.10/js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
 <script>
-	lightbox.option({
-	  'albumLabel': "Imagen %1 de %2",
-	  'fadeDuration': 250,
-	  'resizeDuration': 250,
-	  'wrapAround': true
-	})
+  lightbox.option({
+    'albumLabel': "Imagen %1 de %2",
+    'fadeDuration': 250,
+    'resizeDuration': 250,
+    'wrapAround': true
+  })
 </script>
 
-<link rel="stylesheet" type="text/css" href="css/cookieconsent.min.css"/>
-<script src="js/cookieconsent.min.js"></script>
+<script src="lib/cookieconsent2-3.1.0/js/cookieconsent.min.js"></script>
 <script>
 window.addEventListener("load", function(){
 window.cookieconsent.initialise({
@@ -83,66 +78,10 @@ window.cookieconsent.initialise({
 
   gtag('config', 'UA-74491738-2');
 </script>
-	
-	
-	
-	
-			<style type="text/css">
-			h1 {
-				font-size: 34px;
-			}
-			h1.title {
-				font-size: 38px;
-			}
-			h2 {
-				font-size: 30px;
-			}
-			h3 {
-				font-size: 24px;
-			}
-			h4 {
-				font-size: 18px;
-			}
-			h5 {
-				font-size: 16px;
-			}
-			h6 {
-				font-size: 12px;
-			}
-			.table th:not([align]) {
-				text-align: left;
-			}
-					</style>
-	
-	
-</head>
+	</head>
 
 <body>
-
-			<style type = "text/css">
-			.main-container {
-				max-width: 940px;
-				margin-left: auto;
-				margin-right: auto;
-			}
-			code {
-				color: inherit;
-				background-color: rgba(0, 0, 0, 0.04);
-			}
-			img {
-				max-width:100%;
-				height: auto;
-			}
-			.tabbed-pane {
-				padding-top: 12px;
-			}
-			button.code-folding-btn:focus {
-				outline: none;
-			}
-		</style>
-
-		
-		<div class="container-fluid main-container">
+	<div class="container-fluid main-container">
 
 		<!-- tabsets -->
 		<script>
@@ -151,10 +90,7 @@ window.cookieconsent.initialise({
 			});
 		</script>
 
-		<!-- code folding -->
-		
-			
-			<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+					<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 
 <div id="navbar">
 	<div id="zoneA">
@@ -177,31 +113,35 @@ window.cookieconsent.initialise({
 		</div>
 	</div>
 </div>
-	
-			<div class="fluid-row" id="header">
+		
+		<div class="fluid-row" id="header">
 
-				
-						<h1 class="title toc-ignore ">prCalculadoraIntérprete - Inicio de proyecto</h1>
-				<!--
-				-->
-					<h4 class="date"><em>sábado, 29 de septiembre de 2012</em></h4>
-				<!--
-				-->
-					<b>Etiquetas</b>
-			<div id="tag_section">
-									<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
-									<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-									<a class="tag" href="md_search.html?tag=IdP">IdP</a>
-									<a class="tag" href="md_search.html?tag=Java">Java</a>
-							</div>
-				<!--
-				-->
-	
-			</div>
-	
-	
-				
-	<p>Bueno, comenzaremos este diario de desarrollo con un proyecto de la universidad, pues el interés de usar este diario es tener una documentación más o menos razonable y lo más detallada posible sobre todos los proyectos que vaya realizando. Para comenzar decir que usaremos el IDE Eclipse y el lenguaje que usaremos estará en las etiquetas de cada proyecto. En este caso usaremos Java y nuestro primer trabajo tiene este apartado:</p>
+							<h1 class="title toc-ignore ">prCalculadoraIntérprete - Inicio de proyecto</h1>
+			
+			<!--
+						-->
+
+							<h4 class="date"><em>sábado, 29 de septiembre de 2012</em></h4>
+			
+			<!--
+						-->
+
+							<b>Etiquetas</b>
+				<div id="tag_section">
+											<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+											<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+											<a class="tag" href="md_search.html?tag=IdP">IdP</a>
+											<a class="tag" href="md_search.html?tag=Java">Java</a>
+									</div>
+			
+			<!--
+						-->
+
+		</div>
+
+		
+			
+		<p>Bueno, comenzaremos este diario de desarrollo con un proyecto de la universidad, pues el interés de usar este diario es tener una documentación más o menos razonable y lo más detallada posible sobre todos los proyectos que vaya realizando. Para comenzar decir que usaremos el IDE Eclipse y el lenguaje que usaremos estará en las etiquetas de cada proyecto. En este caso usaremos Java y nuestro primer trabajo tiene este apartado:</p>
 <p><strong><em>Este ejercicio propone la realización EXCLUSIVAMENTE mediante programación en JAVA, de un pequeño interprete de expresiones entre números enteros.</em></strong></p>
 <p>Se trata de un intérprete. No es el primero que realizo así que creo que tengo más o menos ideas de cómo afrontarlo. De todos modos aún no he pensado en ello con profundidad. Esto se trata de un análisis de los requisitos que deberá tener nuestro proyecto para ponernos en situación. Recordad que ese es el trabajo de un INGENIERO en Informática, no es el de programa (que también), si no que debe pensar, razonar y argumentar cada paso que da e intentar que su trabajo sea lo más optimo posible. De modo que una vez que tenemos los primeros datos debemos saber que ha de hacer nuestro intérprete (a partir de ahora lo llamaremos i).</p>
 <p>Aprovechando unas pruebas que nos dan en clase, para ver las preguntas que debemos responder usando el i final y será los requisitos que deberá superar nuestro i una vez acabado.</p>
@@ -215,7 +155,7 @@ window.cookieconsent.initialise({
 <p>Pues estas son las pruebas que debe pasar nuestro i, y por tanto serán los requisitos de nuestro sistema.</p>
 <p>Saludos, <br> Lázarus Surazal.</p>
 
-			<link rel="stylesheet" type="text/css" href="css/relations.css"/>
+					<link rel="stylesheet" type="text/css" href="css/relations.css"/>
 <div id="relationsContainer">
 <span class="relatedTitle">Entradas relacionadas</span>
 <ul>
@@ -238,8 +178,8 @@ window.cookieconsent.initialise({
 <div id="navigationContainer">
 <a class="item hint--bottom-left navigateButton right" href="md_2012_09_29_B.html" data-hint="prCalculadoraIntérprete - Primeros pasos">Siguiente <i class="fa fa-arrow-right"></i></a><a class="navigateButton left navigateButtonInvisible" href="#"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a>
 </div>
-	
-			<link rel="stylesheet" type="text/css" href="css/info.css"/>
+		
+					<link rel="stylesheet" type="text/css" href="css/info.css"/>
 
 <div id="infoContainer">
 	<div id="infoProfile" class="info_block" style="width:65%;">
@@ -278,7 +218,7 @@ window.cookieconsent.initialise({
 		</div>
 	</div>
 </div>
-			<div id="commentsContainer" style="float:left; width:100%;">
+					<div id="commentsContainer" style="float:left; width:100%;">
 	<script src="https://utteranc.es/client.js"
 		repo="cjpelaezrivas/prLazarus"
 		issue-term="title"
@@ -291,7 +231,7 @@ window.cookieconsent.initialise({
 		</div>
 	</noscript>
 </div>
-			<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+					<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div id="footer_message">
 	¿Has encontrado algún error? <a href="mailto:correcciones@prlazarus.tk">Mándame un correo electrónico para corregirlo</a>. Gracias.
@@ -312,7 +252,7 @@ window.cookieconsent.initialise({
 		</div>
 	</div>
 </div>
-			<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+					<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
 
 <div id="progressBarContainer">
 	<div class="progressBar">
@@ -320,21 +260,7 @@ window.cookieconsent.initialise({
 </div>
 
 <script src="js/progressBar.js"></script>
-	
-			
-		</div>
-
-		<script>
-			// add bootstrap table styles to pandoc tables
-			function bootstrapStylePandocTables() {
-				$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-			}
-
-			$(document).ready(function () {
-				bootstrapStylePandocTables();
-			});
-
-					</script>
-	
-	</body>
+		
+	</div>
+</body>
 </html>

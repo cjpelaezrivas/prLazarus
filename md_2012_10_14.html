@@ -1,17 +1,13 @@
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 
 <head>
-
 	<meta charset="utf-8" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="generator" content="pandoc" />
 
-		
-	
-	
-	<title>prCalculadoraIntérprete - Fin de proyecto</title>
+	<title>prCalculadoraIntérprete - Fin de proyecto - prLázarus</title>
 
 			<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,38 +16,37 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-			<meta charset="utf-8" />
-<meta http-equiv="content-type" content="text/html" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="author" content="Carlos J. Peláez Rivas" />
+			<meta name="author" content="Carlos J. Peláez Rivas" />
 <meta name="description" content="prLázarus blog de programación" />
 <meta name="keywords" content="blog,programación,programacion,programming,coding,code,desarrollo,development,java,carlos, jesús,jesus,peláez,pelaez,rivas,cjpelaez,cjpelaezrivas,málaga,malaga,uma,españa,spain" />
 
 <link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
 
-<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
-<link rel="stylesheet" type="text/css" href="css/lightbox.min.css"/>
-<link rel="stylesheet" type="text/css" href="css/hint.base.min.css"/>
+<link rel="stylesheet" type="text/css" href="lib/fontawesome-4.7/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="lib/hint-2.5.1/css/hint.base.min.css"/>
+<link rel="stylesheet" type="text/css" href="lib/lightbox-2.10/css/lightbox.min.css"/>
+<link rel="stylesheet" type="text/css" href="lib/cookieconsent2-3.1.0/css/cookieconsent.min.css"/>
 
 <link rel="stylesheet" type="text/css" href="css/base.css"/>
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <link rel="stylesheet" type="text/css" href="css/toc.css"/>
+<link rel="stylesheet" type="text/css" href="css/code.css"/>
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 
-<script src="js/scroll.js"></script>
-<script src="js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
+<script src="lib/scrolltotop-1.0/js/scrolltotop.js"></script>
+
+<script src="lib/lightbox-2.10/js/lightbox.min.js"></script> <!-- http://lokeshdhakar.com/projects/lightbox2/ -->
 <script>
-	lightbox.option({
-	  'albumLabel': "Imagen %1 de %2",
-	  'fadeDuration': 250,
-	  'resizeDuration': 250,
-	  'wrapAround': true
-	})
+  lightbox.option({
+    'albumLabel': "Imagen %1 de %2",
+    'fadeDuration': 250,
+    'resizeDuration': 250,
+    'wrapAround': true
+  })
 </script>
 
-<link rel="stylesheet" type="text/css" href="css/cookieconsent.min.css"/>
-<script src="js/cookieconsent.min.js"></script>
+<script src="lib/cookieconsent2-3.1.0/js/cookieconsent.min.js"></script>
 <script>
 window.addEventListener("load", function(){
 window.cookieconsent.initialise({
@@ -83,66 +78,10 @@ window.cookieconsent.initialise({
 
   gtag('config', 'UA-74491738-2');
 </script>
-	
-	
-	
-	
-			<style type="text/css">
-			h1 {
-				font-size: 34px;
-			}
-			h1.title {
-				font-size: 38px;
-			}
-			h2 {
-				font-size: 30px;
-			}
-			h3 {
-				font-size: 24px;
-			}
-			h4 {
-				font-size: 18px;
-			}
-			h5 {
-				font-size: 16px;
-			}
-			h6 {
-				font-size: 12px;
-			}
-			.table th:not([align]) {
-				text-align: left;
-			}
-					</style>
-	
-	
-</head>
+	</head>
 
 <body>
-
-			<style type = "text/css">
-			.main-container {
-				max-width: 940px;
-				margin-left: auto;
-				margin-right: auto;
-			}
-			code {
-				color: inherit;
-				background-color: rgba(0, 0, 0, 0.04);
-			}
-			img {
-				max-width:100%;
-				height: auto;
-			}
-			.tabbed-pane {
-				padding-top: 12px;
-			}
-			button.code-folding-btn:focus {
-				outline: none;
-			}
-		</style>
-
-		
-		<div class="container-fluid main-container">
+	<div class="container-fluid main-container">
 
 		<!-- tabsets -->
 		<script>
@@ -151,10 +90,7 @@ window.cookieconsent.initialise({
 			});
 		</script>
 
-		<!-- code folding -->
-		
-			
-			<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
+					<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
 
 <div id="navbar">
 	<div id="zoneA">
@@ -177,31 +113,35 @@ window.cookieconsent.initialise({
 		</div>
 	</div>
 </div>
-	
-			<div class="fluid-row" id="header">
+		
+		<div class="fluid-row" id="header">
 
-				
-						<h1 class="title toc-ignore ">prCalculadoraIntérprete - Fin de proyecto</h1>
-				<!--
-				-->
-					<h4 class="date"><em>domingo, 14 de octubre de 2012</em></h4>
-				<!--
-				-->
-					<b>Etiquetas</b>
-			<div id="tag_section">
-									<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
-									<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-									<a class="tag" href="md_search.html?tag=FdP">FdP</a>
-									<a class="tag" href="md_search.html?tag=Java">Java</a>
-							</div>
-				<!--
-				-->
-	
-			</div>
-	
-	
-				
-	<p>Hola a todos. En esta ocasión vamos (creo) a acabar con este proyecto. He estado pensando y creo que lo tengo todo más o menos en mi cabecita. Empecemos…</p>
+							<h1 class="title toc-ignore ">prCalculadoraIntérprete - Fin de proyecto</h1>
+			
+			<!--
+						-->
+
+							<h4 class="date"><em>domingo, 14 de octubre de 2012</em></h4>
+			
+			<!--
+						-->
+
+							<b>Etiquetas</b>
+				<div id="tag_section">
+											<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+											<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+											<a class="tag" href="md_search.html?tag=FdP">FdP</a>
+											<a class="tag" href="md_search.html?tag=Java">Java</a>
+									</div>
+			
+			<!--
+						-->
+
+		</div>
+
+		
+			
+		<p>Hola a todos. En esta ocasión vamos (creo) a acabar con este proyecto. He estado pensando y creo que lo tengo todo más o menos en mi cabecita. Empecemos…</p>
 <p>Para comenzar decir que le método “interprete” que habíamos creado habrá que cambiarlo bastante (al menos la primera parte). Comenzaremos con el primer algoritmo que sacaba los operandos (el más importante creo…). En el caso anterior teníamos un “Tokenizer” con el String “+-*/()”, pues bien, lo cambiaremos a un “Tokenizer” más casero que en teoría separará con el String “+*/()”, sí exacto, no separaremos las restas.Lo llamamos casero porque lo haremos nosotros desde cero. Convertiremos la cadena de entrada a un array de caracteres y recorreremos cada uno de los elementos. En caso de que sea un símbolo de operación o un paréntesis lo añadiremos a un “String builder” principal, y en el caso de que sea números o menos, lo añadiremos a un “String builder” secundario para operar con ellos. En este caso obtendremos cadenas de números, símbolos menos y basura (si la hubiese). Estos Strings lo intentaremos convertir a enteros. En el caso de que se pueda simplemente lo añadimos a la lista de operandos y colocamos en el “String builder” principal en lugar del número una “X”. En otro caso, no podremos convertir el String a entero, en el manejador de la excepción deberemos hacer varias cosas. Primero, debemos asegurarnos de que la entrada está compuesta solo de números y menos, en otro caso es un error sintáctico y acabamos con esta línea aquí. En el caso de que esté bien escrito nos podemos encontrar con varios casos. O un número solo con más de un menos delante, o una serie de restas, que puede comenzar con menos o no. Este último caso se tratará en un método privados a parte. En primera instancia vamos a crear el algoritmo que recorra la cadena y realice todas las operaciones básicas incluyendo la llamada al método que llamaremos: “separador”. Comenzamos…</p>
 <p>Una vez vez acabado el algoritmo, a la segunda mitad de este (el que detectaba las operaciones y las prioridades) sólo hay que cambiarle la entrada que recibe. En lugar de la línea inicial, debemos meterle el contenido de “primario”. A partir de aquí continuará igual todo.</p>
 <p>Además, para que funcione hemos tenido que poner algunos “parches”, como por ejemplo para que detecte los signos menos antes de los paréntesis. En cualquier otro caso, este algoritmo funciona a las mil maravillas, aunque a la hora de signos menos sin números antes de los paréntesis no hemos detectado problemas con los ejemplos que hemos probado, podrían existir algún caso para que el que no dé una solución correcta. Pasamos a comentar el código con todo los detalles posibles. Vamos a ello!</p>
@@ -212,7 +152,7 @@ window.cookieconsent.initialise({
 <p>Saludos, <br> Lázarus Surazal.</p>
 <p><strong>Descarga:</strong> <br> <em>[Enlace eliminado]</em></p>
 
-			<link rel="stylesheet" type="text/css" href="css/relations.css"/>
+					<link rel="stylesheet" type="text/css" href="css/relations.css"/>
 <div id="relationsContainer">
 <span class="relatedTitle">Entradas relacionadas</span>
 <ul>
@@ -235,8 +175,8 @@ window.cookieconsent.initialise({
 <div id="navigationContainer">
 <a class="item hint--bottom-left navigateButton right" href="md_2013_03_15.html" data-hint="Java3D - Introducción a la Programación de Videojuegos">Siguiente <i class="fa fa-arrow-right"></i></a><a class="item hint--bottom-right navigateButton left" href="md_2012_10_07_B.html" data-hint="prCalculadoraIntérprete - Método intérprete"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a>
 </div>
-	
-			<link rel="stylesheet" type="text/css" href="css/info.css"/>
+		
+					<link rel="stylesheet" type="text/css" href="css/info.css"/>
 
 <div id="infoContainer">
 	<div id="infoProfile" class="info_block" style="width:65%;">
@@ -275,7 +215,7 @@ window.cookieconsent.initialise({
 		</div>
 	</div>
 </div>
-			<div id="commentsContainer" style="float:left; width:100%;">
+					<div id="commentsContainer" style="float:left; width:100%;">
 	<script src="https://utteranc.es/client.js"
 		repo="cjpelaezrivas/prLazarus"
 		issue-term="title"
@@ -288,7 +228,7 @@ window.cookieconsent.initialise({
 		</div>
 	</noscript>
 </div>
-			<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+					<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div id="footer_message">
 	¿Has encontrado algún error? <a href="mailto:correcciones@prlazarus.tk">Mándame un correo electrónico para corregirlo</a>. Gracias.
@@ -309,7 +249,7 @@ window.cookieconsent.initialise({
 		</div>
 	</div>
 </div>
-			<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
+					<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
 
 <div id="progressBarContainer">
 	<div class="progressBar">
@@ -317,21 +257,7 @@ window.cookieconsent.initialise({
 </div>
 
 <script src="js/progressBar.js"></script>
-	
-			
-		</div>
-
-		<script>
-			// add bootstrap table styles to pandoc tables
-			function bootstrapStylePandocTables() {
-				$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-			}
-
-			$(document).ready(function () {
-				bootstrapStylePandocTables();
-			});
-
-					</script>
-	
-	</body>
+		
+	</div>
+</body>
 </html>
