@@ -22,9 +22,13 @@
 	max-width: 940px;
 }
 
-#navbar #logo img {
-	width: 100%;
-	max-width: 338px;
+#navbar #logo {
+	height: 145px;
+
+	background-image: url("../images/logo.png");
+	background-position: center left;
+    background-repeat: no-repeat;
+	background-size: contain;
 }
 
 #navbar #subtitle {

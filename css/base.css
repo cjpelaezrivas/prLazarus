@@ -96,9 +96,15 @@ a:hover, a:active {
 }
 
 blockquote {
+	padding: 15px;
+
 	font-size: 15.5px;
 	border-left: 5px solid #003379;
 	background-color: #f0f0f0;
+}
+
+blockquote p {
+	margin: 0;
 }
 
 img {

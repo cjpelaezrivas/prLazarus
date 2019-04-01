@@ -12,6 +12,7 @@
 
 	text-align: justify;
 	font-size: 15px;
+	line-height: 1.42857143;
 
 	overflow-x: hidden;
 }
@@ -24,7 +25,7 @@
 
 @media screen and (max-width: 500px) {
 	.main-container {
-		padding-top: 345px;
+		padding-top: 355px;
 		padding-bottom: 180px;
 	}
 }

@@ -1,18 +1,33 @@
 code {
 	font-family: consolas, monospace !important;
+    font-size: 90%;
+
+    padding: 2px 4px;
+
+    color: #c7254e;
+
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}
+
+pre code {
+    padding: 0;
+	background-color: transparent;
 }
 
 pre {
-	line-height: 1.2;
-	max-height: 300px;
-}
+    overflow-x: auto;
 
-div.sourceCode {
-	overflow-x: auto;
-}
+    line-height: 1.2;
+    max-height: 300px;
 
-pre.sourceCode  {
-	background-color: #f7f7f7;
+    padding: 9.5px;
+
+    font-size: 13px;
+
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
