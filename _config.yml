@@ -1,3 +1,2 @@
 plugins:
-  - jekyll-feed
   - jekyll-sitemap

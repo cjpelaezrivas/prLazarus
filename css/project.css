@@ -15,7 +15,7 @@
 	color: #151515;
 	background-color: #fefefe;
 
-	border: solid 1px #aaaaaa;
+	border: solid 1px #000000;
 	text-decoration: none;
 }
 
@@ -23,7 +23,7 @@
 	float: left;
 
 	padding: 5px 8px;
-	margin: -5px;
+	margin: -6px;
 
 	color:  #ffffff;
 	font-size: 16px;
@@ -43,7 +43,7 @@
 
 .project .image {
 	height: 300px;
-	margin: -5px;
+	margin: -6px;
 
 	background-position: center center;
 	background-repeat: no-repeat, repeat;

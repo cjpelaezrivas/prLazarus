@@ -14,7 +14,7 @@
 	width: 0%;
 	float: left;
 	height: 100%;
-	z-index:99;
+	z-index: 9999;
 	max-width: 100%;
 	background-color: #003379;
 	-webkit-transition: width .6s ease;

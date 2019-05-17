@@ -31,9 +31,19 @@
 	background-size: contain;
 }
 
+#navbar #title {
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
 #navbar #subtitle {
+	margin: 0;
 	padding: 10px;
+
+	font-size: 15px;
 	font-weight: bold;
+	line-height: 1.42857143;
 }
 
 #navbar #menu {

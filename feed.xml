@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+<language>es-es</language>
+<id>https://prlazarus.tk//feed.xml</id>
+<link>https://prlazarus.tk/</link>
+<title>prLázarus</title>
+<subtitle>Blog de desarrollo</subtitle>
+<description>Blog de desarrollo de proyectos Software, tutoriales, consejos y varios.</description>
+<updated>2019-05-17 17:37:17</updated>
+<image>
+<url>https://prlazarus.tk/images/logo.png</url>
+<title>prLázarus</title>
+<link>https://prlazarus.tk/</link>
+</image>
+<item>
+<title>Power Shooter - Inicio de proyecto</title>
+<link>https://prlazarus.tk/md_2019_03_25.html</link>
+<pubDate>lunes, 25 de marzo de 2019</pubDate>
+<category>Diario de desarrollo</category>
+<category>IdP</category>
+<category>PowerShooter</category>
+</item>
+<item>
+<title>Proceso de actualización del blog finalizado</title>
+<link>https://prlazarus.tk/md_2018_12_18.html</link>
+<pubDate>martes, 18 de diciembre de 2018</pubDate>
+<category>Blog</category>
+<category>FdP</category>
+<category>Información</category>
+</item>
+<item>
+<title>Relacionando las entradas del blog</title>
+<link>https://prlazarus.tk/md_2018_11_30.html</link>
+<pubDate>viernes, 30 de noviembre de 2018</pubDate>
+<category>Blog</category>
+<category>Diario de desarrollo</category>
+</item>
+<item>
+<title>Nuevas actualizaciones en el blog</title>
+<link>https://prlazarus.tk/md_2018_11_27.html</link>
+<pubDate>martes, 27 de noviembre de 2018</pubDate>
+<category>Blog</category>
+<category>Diario de desarrollo</category>
+</item>
+<item>
+<title>Opinión: Máster en Ingeniería Informática (UMA)</title>
+<link>https://prlazarus.tk/md_2018_10_30.html</link>
+<description>Artículo de opinión sobre mis vivencias cursando el Máster Oficial en Ingeniería Informática impartido por la UMA.</description>
+<pubDate>martes, 30 de octubre de 2018</pubDate>
+<category>Opinión</category>
+</item>
+<item>
+<title>Contraseñas para nuestro día a día</title>
+<link>https://prlazarus.tk/md_2018_05_04.html</link>
+<pubDate>viernes, 4 de mayo de 2018</pubDate>
+<category>Consejos</category>
+<category>Seguridad</category>
+</item>
+<item>
+<title>Nuevo blog, nuevo alojamiento, nuevo comienzo</title>
+<link>https://prlazarus.tk/md_2018_03_21.html</link>
+<pubDate>miércoles, 21 de marzo de 2018</pubDate>
+<category>Blog</category>
+<category>Diario de desarrollo</category>
+<category>IdP</category>
+<category>Información</category>
+</item>
+<item>
+<title>Imprimir por consola nombre y valor de variables [Eclipse] [Java]</title>
+<link>https://prlazarus.tk/md_2016_09_22.html</link>
+<pubDate>jueves, 22 de septiembre de 2016</pubDate>
+<category>Eficiencia</category>
+<category>Java</category>
+<category>Tutoriales</category>
+<category>Utilidades</category>
+</item>
+<item>
+<title>Hilo (Thread) con eventos [Java]</title>
+<link>https://prlazarus.tk/md_2015_08_24.html</link>
+<pubDate>lunes, 24 de agosto de 2015</pubDate>
+<category>Java</category>
+<category>Tutoriales</category>
+<category>Utilidades</category>
+</item>
+<item>
+<title>10 consejos para escribir comentarios en Java</title>
+<link>https://prlazarus.tk/md_2015_08_17.html</link>
+<pubDate>lunes, 17 de agosto de 2015</pubDate>
+<category>Consejos</category>
+<category>Diseño</category>
+<category>Java</category>
+</item>
+<item>
+<title>Principios de diseño orientado a objetos que todo programador de Java debería conocer</title>
+<link>https://prlazarus.tk/md_2015_08_10.html</link>
+<pubDate>lunes, 10 de agosto de 2015</pubDate>
+<category>Consejos</category>
+<category>Diseño</category>
+<category>Java</category>
+</item>
+<item>
+<title>Cómo evitar las NullPointerException (NPE) en Java [Parte 2]</title>
+<link>https://prlazarus.tk/md_2015_01_12.html</link>
+<pubDate>lunes, 12 de enero de 2015</pubDate>
+<category>Consejos</category>
+<category>Diseño</category>
+<category>Java</category>
+<category>NullPointerException</category>
+</item>
+<item>
+<title>Cómo evitar las NullPointerException (NPE) en Java [Parte 1]</title>
+<link>https://prlazarus.tk/md_2014_10_01.html</link>
+<pubDate>miércoles, 1 de octubre de 2014</pubDate>
+<category>Consejos</category>
+<category>Diseño</category>
+<category>Java</category>
+<category>NullPointerException</category>
+</item>
+<item>
+<title>Plantilla Java para lectura y escritura de ficheros de texto</title>
+<link>https://prlazarus.tk/md_2014_08_07.html</link>
+<pubDate>jueves, 7 de agosto de 2014</pubDate>
+<category>Eficiencia</category>
+<category>Java</category>
+<category>Tutoriales</category>
+<category>Utilidades</category>
+</item>
+<item>
+<title>Copiar directorio y contenido [Java] [Windows]</title>
+<link>https://prlazarus.tk/md_2014_06_10.html</link>
+<pubDate>martes, 10 de junio de 2014</pubDate>
+<category>Java</category>
+<category>Tutoriales</category>
+<category>Utilidades</category>
+</item>
+<item>
+<title>Borrar archivos de un directorio [Java] [Windows]</title>
+<link>https://prlazarus.tk/md_2014_05_02.html</link>
+<pubDate>viernes, 2 de mayo de 2014</pubDate>
+<category>Java</category>
+<category>Tutoriales</category>
+<category>Utilidades</category>
+</item>
+<item>
+<title>Java3D - Decisión de no llevar a cabo la serie de tutoriales</title>
+<link>https://prlazarus.tk/md_2013_06_13.html</link>
+<pubDate>jueves, 13 de junio de 2013</pubDate>
+<category>FdP</category>
+<category>Java3D</category>
+<category>Opinión</category>
+</item>
+<item>
+<title>Java3D - Introducción a la Programación de Videojuegos</title>
+<link>https://prlazarus.tk/md_2013_03_15.html</link>
+<pubDate>viernes, 15 de marzo de 2013</pubDate>
+<category>Consejos</category>
+<category>Java</category>
+<category>Java3D</category>
+<category>Tutoriales</category>
+<category>Videojuegos</category>
+</item>
+<item>
+<title>prCalculadoraIntérprete - Fin de proyecto</title>
+<link>https://prlazarus.tk/md_2012_10_14.html</link>
+<pubDate>domingo, 14 de octubre de 2012</pubDate>
+<category>Consejos</category>
+<category>Diario de desarrollo</category>
+<category>FdP</category>
+<category>Java</category>
+</item>
+<item>
+<title>prCalculadoraIntérprete - Método intérprete</title>
+<link>https://prlazarus.tk/md_2012_10_07_B.html</link>
+<pubDate>domingo, 7 de octubre de 2012</pubDate>
+<category>Diario de desarrollo</category>
+<category>Java</category>
+</item>
+<item>
+<title>prCalculadoraIntérprete - Pequeños cambios...</title>
+<link>https://prlazarus.tk/md_2012_10_07.html</link>
+<pubDate>domingo, 7 de octubre de 2012</pubDate>
+<category>Diario de desarrollo</category>
+<category>Java</category>
+</item>
+<item>
+<title>prCalculadoraIntérprete - Primeros pasos</title>
+<link>https://prlazarus.tk/md_2012_09_29_B.html</link>
+<pubDate>sábado, 29 de septiembre de 2012</pubDate>
+<category>Consejos</category>
+<category>Diario de desarrollo</category>
+<category>Java</category>
+</item>
+<item>
+<title>prCalculadoraIntérprete - Inicio de proyecto</title>
+<link>https://prlazarus.tk/md_2012_09_29.html</link>
+<pubDate>sábado, 29 de septiembre de 2012</pubDate>
+<category>Consejos</category>
+<category>Diario de desarrollo</category>
+<category>IdP</category>
+<category>Java</category>
+</item>
+</channel>
+</rss>

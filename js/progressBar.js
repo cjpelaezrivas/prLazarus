@@ -7,7 +7,7 @@ function calculateProgressBarWidth() {
 	$(".progressBar").css("width", totalScroll + "%");
 }
 
-$(document).ready(() => $(window).scroll(calculateProgressBarWidth));
+$( document ).ready(() => $(window).scroll(calculateProgressBarWidth));
 
 
 calculateProgressBarWidth();
