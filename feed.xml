@@ -7,12 +7,19 @@
 <title>prLázarus</title>
 <subtitle>Blog de desarrollo</subtitle>
 <description>Blog de desarrollo de proyectos Software, tutoriales, consejos y varios.</description>
-<updated>2019-05-17 17:37:17</updated>
+<updated>2019-07-18 19:02:11</updated>
 <image>
 <url>https://prlazarus.tk/images/logo.png</url>
 <title>prLázarus</title>
 <link>https://prlazarus.tk/</link>
 </image>
+<item>
+<title>Project Creation FX: Composición sobre herencia</title>
+<link>https://prlazarus.tk/md_2019_07_18.html</link>
+<pubDate>jueves, 18 de julio de 2019</pubDate>
+<category>Diario de desarrollo</category>
+<category>Project Creation FX</category>
+</item>
 <item>
 <title>Power Shooter - Inicio de proyecto</title>
 <link>https://prlazarus.tk/md_2019_03_25.html</link>
