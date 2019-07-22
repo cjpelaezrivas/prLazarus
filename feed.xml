@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
+<atom:link href="https://prlazarus.tk/feed.xml" rel="self" type="application/rss+xml"/>
 <language>es-ES</language>
 <title>prLázarus -Blog de desarrollo</title>
-<link href="https://prlazarus.tk/feed.xml" rel="alternate" type="application/rss+xml" title="RSS prLázarus"/>
+<link>https://prlazarus.tk/feed.xml</link>
 <description>RSS de blog de desarrollo prLázarus.tk</description>
 <item>
 <title>
