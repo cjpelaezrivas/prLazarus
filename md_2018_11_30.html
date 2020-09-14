@@ -70,28 +70,28 @@
 			},
 			"content": {
 				"message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
-				"dismiss": "Aceptar",
+				"dismiss": "Cerrar mensaje",
 				"link": "Más información",
 				"href": "http://prlazarus.tk/md_cookies_policy.html"
 			}
-		})});
-	</script>
+		})
+	});
+</script>
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
-		gtag('config', 'UA-74491738-2');
-	</script>
+	gtag('config', 'UA-74491738-2');
+</script>
 	</head>
 
 <body>
 	<div class="container-fluid main-container">
 
-		<!-- tabsets -->
 		<script>
 			$(document).ready(function () {
 				window.buildTabsets("TOC");
@@ -128,7 +128,7 @@
 		
 		<div class="fluid-row" id="header">
 
-							<h1 class="title toc-ignore ">Relacionando las entradas del blog</h1>
+						<h1 class="title toc-ignore ">Relacionando las entradas del blog</h1>
 			
 			<!--
 						-->
@@ -158,16 +158,16 @@
 					<div id="TOC">
 									<span class="title">Tabla de contenido</span>
 								<ul>
-<li><a href="#relaciones-matematicas">Relaciones matemáticas</a></li>
+<li><a href="#relaciones-matemáticas">Relaciones matemáticas</a></li>
 <li><a href="#propiedades-de-las-relaciones">Propiedades de las relaciones</a></li>
-<li><a href="#implementacion-de-la-solucion">Implementación de la solución</a></li>
+<li><a href="#implementación-de-la-solución">Implementación de la solución</a></li>
 </ul>
 			</div>
 		
 		<p>Hola de nuevo,<br> Parece que le he cogido justo a esto de escribir entradas. En esta ocasión voy a hablar un poco sobre la nueva modificación incluida en el blog: La sección de entradas relacionadas.</p>
 <p>Todos hemos visto en muchas páginas una sección que relaciona distintas páginas dentro del sitio que estamos visitando. De este modo se aumenta el número de enlaces internos, y además ofrece a los visitantes una forma cómoda de navegar por el sitio visitando páginas que están relacionas de alguna forma con la actual.</p>
 <p>Para realizar esta modificación he recurrido a las relaciones matemáticas y a sus propiedades. A partir de un conjunto, en este caso las entradas, es posible declarar relaciones binarias entre ellas con las propiedades deseadas. A continuación se verá todo esto con un poco más de detalle.</p>
-<div id="relaciones-matematicas" class="section level2">
+<div id="relaciones-matemáticas" class="section level2">
 <h2>Relaciones matemáticas</h2>
 <p>Las relaciones permiten clasificar u ordenar los distintos elementos del conjunto sobre las que se declaran usando las características de dichos elementos. Aquí entran en juego muchos conceptos: pares ordenados, producto cartesiano, conjuntos, y un largo etcétera. No vamos a tratar todo esto en profundidad, pero sí se verán algunas partes con más detalle.</p>
 <center style="margin: -5px 0 5px 0;">
@@ -195,31 +195,31 @@ a → b
 </ul>
 <p>Estas propiedades no son excluyentes, de modo que una relación puede cumplir las tres condiciones al mismo tiempo sin ningún tipo de problema.</p>
 </div>
-<div id="implementacion-de-la-solucion" class="section level2">
+<div id="implementación-de-la-solución" class="section level2">
 <h2>Implementación de la solución</h2>
 <p>Una vez en materia podemos ver cómo he realizado la modificación para añadir el manejo de las relaciones entre entradas. En realidad, he desarrollado una función que trabaja de forma independiente al blog, de modo que la usaré también en el sitio web de mi otro proyecto, <a href="http://www.projectcreationfx.tk">Project Creation FX</a>.</p>
 <p>En primero lugar es necesario un fichero de configuración. En este caso, un fichero <code>json</code> que guardará todas las relaciones y los conjuntos de pares de elementos, a los que llamaremos instancias. Las relaciones se declaran con un nombre, si es transitiva o no, el nivel de profundidad hasta el que se usa la transitividad, valor opcional que ahora se verá con más detalle; y su relación inversa si la hubiera.</p>
 <p>Para el caso que nos ocupa únicamente tendremos una relación: <em>“está relacionada con”</em>. Esta relación se declara así:</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="op">{</span>
-    <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;relatedTo&quot;</span><span class="op">,</span>
-    <span class="st">&quot;transitive&quot;</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span>
-    <span class="st">&quot;transitive_depth&quot;</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span>
-    <span class="st">&quot;inverse&quot;</span><span class="op">:</span> <span class="st">&quot;relatedTo&quot;</span>
-<span class="op">}</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;relatedTo&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="st">&quot;transitive&quot;</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="st">&quot;transitive_depth&quot;</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="st">&quot;inverse&quot;</span><span class="op">:</span> <span class="st">&quot;relatedTo&quot;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="op">}</span></a></code></pre></div>
 <p>El sistema desarrollado no da soporte a las relaciones reflexivas. Este tipo de relaciones no tienen sentido a la hora de relacionar distintos enlaces en una página web. No se me ocurre un escenario en el que sea necesario relacionar una entrada y generar un enlace a sí misma.</p>
 <p>La propiedad simétrica se cumple siempre que la relación inversa sea la misma que la relación que se está declarando, tal y como ocurre en el ejemplo sobre el que trabajamos. Es decir, la relación <code>relatedTo</code> es simétrica porque su relación inversa es ella misma. Es fácil pensar en relaciones que no son simétricas y tienen como inversa una relación distinta: <em>“es padre de”</em>, por ejemplo, su inversa sería <em>“es hijo de”</em>.</p>
 <p>Además, por definición es transitiva, ya que estamos indicándolo de ese modo. La funcionalidad del nivel de profundidad de la transitividad se puede ver fácilmente en el siguiente ejemplo:</p>
 <p>En el caso de tener las siguientes instancias:</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">a → b
-b → c
-c → d
-d → e
-e → f</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">a → b</a>
+<a class="sourceLine" id="cb2-2" title="2">b → c</a>
+<a class="sourceLine" id="cb2-3" title="3">c → d</a>
+<a class="sourceLine" id="cb2-4" title="4">d → e</a>
+<a class="sourceLine" id="cb2-5" title="5">e → f</a></code></pre></div>
 <p>Usar la relación <code>relatedTo</code> sobre <code>b</code> con nivel de profundidad 2 nos ofrecería los siguientes resultados:</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">b → <span class="at">a</span> (<span class="op">-</span><span class="dv">1</span>)
-b → <span class="at">c</span> (<span class="dv">0</span>)
-b → <span class="at">d</span> (<span class="dv">1</span>)
-b → <span class="at">e</span> (<span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">b → <span class="at">a</span> (<span class="op">-</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb3-2" title="2">b → <span class="at">c</span> (<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb3-3" title="3">b → <span class="at">d</span> (<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb3-4" title="4">b → <span class="at">e</span> (<span class="dv">2</span>)</a></code></pre></div>
 <p>Junto a cada resultado puede verse el grado de relación que existe entre <code>b</code> y el otro elemento:</p>
 <ul>
 <li>-1 significa que se ha alcanzado ese resultado usando la relación inversa</li>
@@ -229,21 +229,21 @@ b → <span class="at">e</span> (<span class="dv">2</span>)</code></pre></div>
 <p>Puede observarse que no se ha podido relacionar <code>b</code> con <code>f</code> debido a que están demasiado lejos entre ellos y se ha limitado la búsqueda hasta el nivel 2 de profundidad. Este límite es necesario establecerlo porque la función que realiza la búsqueda transitiva es recursiva y necesita una condición de parada. El nivel de profundidad por defecto es 1, pero puede establecerse el que más convenga en cada momento.</p>
 <p>Aquí entra una cuestión filosófica en juego, aunque en el ejemplo anterior matemáticamente se da que <code>a → f</code>, ¿están relacionados realmente estos dos elementos? o ¿están tan separados que realmente ya no existe una relación valiosa entre ellos? Dependerá de la situación en la que nos encontremos. Para el caso que nos ocupa aquí, un límite de nivel 1 de profundidad es suficiente.</p>
 <p>Volviendo a la implementación, la declaración de las instancias se realiza de la siguiente manera:</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="op">{</span>
-    <span class="st">&quot;a&quot;</span><span class="op">:</span> <span class="st">&quot;md_2012_09_29&quot;</span><span class="op">,</span>
-    <span class="st">&quot;r&quot;</span><span class="op">:</span> <span class="st">&quot;relatedTo&quot;</span><span class="op">,</span>
-    <span class="st">&quot;b&quot;</span><span class="op">:</span> [
-        <span class="st">&quot;md_2012_09_29_B&quot;</span><span class="op">,</span> <span class="co">// md_2012_09_29 → md_2012_09_29_B</span>
-        <span class="st">&quot;md_2012_10_07&quot;</span><span class="op">,</span>   <span class="co">// md_2012_09_29 → md_2012_10_07</span>
-        <span class="st">&quot;md_2012_10_07_B&quot;</span><span class="op">,</span> <span class="co">// md_2012_09_29 → md_2012_10_07_B</span>
-        <span class="st">&quot;md_2012_10_14&quot;</span>    <span class="co">// md_2012_09_29 → md_2012_10_14</span>
-    ]
-<span class="op">},</span>
-<span class="op">{</span>
-    <span class="st">&quot;a&quot;</span><span class="op">:</span> <span class="st">&quot;md_2013_03_15&quot;</span><span class="op">,</span>
-    <span class="st">&quot;r&quot;</span><span class="op">:</span> <span class="st">&quot;relatedTo&quot;</span><span class="op">,</span>
-    <span class="st">&quot;b&quot;</span><span class="op">:</span> <span class="st">&quot;md_2013_06_13&quot;</span>   <span class="co">// md_2013_03_15 → md_2013_06_13</span>
-<span class="op">}</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">    <span class="st">&quot;a&quot;</span><span class="op">:</span> <span class="st">&quot;md_2012_09_29&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="st">&quot;r&quot;</span><span class="op">:</span> <span class="st">&quot;relatedTo&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="st">&quot;b&quot;</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb4-5" title="5">        <span class="st">&quot;md_2012_09_29_B&quot;</span><span class="op">,</span> <span class="co">// md_2012_09_29 → md_2012_09_29_B</span></a>
+<a class="sourceLine" id="cb4-6" title="6">        <span class="st">&quot;md_2012_10_07&quot;</span><span class="op">,</span>   <span class="co">// md_2012_09_29 → md_2012_10_07</span></a>
+<a class="sourceLine" id="cb4-7" title="7">        <span class="st">&quot;md_2012_10_07_B&quot;</span><span class="op">,</span> <span class="co">// md_2012_09_29 → md_2012_10_07_B</span></a>
+<a class="sourceLine" id="cb4-8" title="8">        <span class="st">&quot;md_2012_10_14&quot;</span>    <span class="co">// md_2012_09_29 → md_2012_10_14</span></a>
+<a class="sourceLine" id="cb4-9" title="9">    ]</a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="op">},</span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="op">{</span></a>
+<a class="sourceLine" id="cb4-12" title="12">    <span class="st">&quot;a&quot;</span><span class="op">:</span> <span class="st">&quot;md_2013_03_15&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-13" title="13">    <span class="st">&quot;r&quot;</span><span class="op">:</span> <span class="st">&quot;relatedTo&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-14" title="14">    <span class="st">&quot;b&quot;</span><span class="op">:</span> <span class="st">&quot;md_2013_06_13&quot;</span>   <span class="co">// md_2013_03_15 → md_2013_06_13</span></a>
+<a class="sourceLine" id="cb4-15" title="15"><span class="op">}</span></a></code></pre></div>
 <p>Como se ve en el ejemplo, es posible realizar varias declaraciones usando una lista. Esto es equivalente a declarar cada instancia por separado y únicamente se hace para facilitar el mantenimiento de la estructura de datos.</p>
 <p>Una vez declarado el fichero de relaciones, se pasa a compilar el blog y se genera automáticamente al final de cada entrada la sección de entradas relacionadas con tantos enlaces como corresponda.</p>
 <p>Para ver la potencia de este sistema, en el ejemplo anterior se han declarado para la entrada <code>md_2012_09_29</code> cuatro instancias. Estas instancias generan un total de 20 enlaces entre las cinco entradas que forman el grupo. Es decir, se ha declarado un 20% de los enlaces, el 80% restante se ha generado usando las relaciones inversas y transitivas.</p>
@@ -304,7 +304,7 @@ b → <span class="at">e</span> (<span class="dv">2</span>)</code></pre></div>
 				<a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
 			</div>
 			<div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
-				<a href="mailto:cjpelaezrivas@gmail.com"><i class="fa fa-envelope-square"></i></a>
+				<a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
 			</div>
 			<div class="item hint--bottom-right" data-hint="Perfil de GitHub">
 				<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
@@ -357,7 +357,7 @@ b → <span class="at">e</span> (<span class="dv">2</span>)</code></pre></div>
 					<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div id="footer_message">
-	¿Has encontrado algún error? <a href="mailto:correcciones@prlazarus.tk">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
+	¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
 </div>
 <div id="footer">
 	<div class="content">
@@ -366,14 +366,14 @@ b → <span class="at">e</span> (<span class="dv">2</span>)</code></pre></div>
 			<!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
 		</div>
 		<div id="right_column" class="text">
-			Hecho en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <a href="http://prlazarus.tk">prLázarus</a><br>
-			<i class="fa fa-plug"></i> <i>Con la tecnología de <a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a> y <a href="https://pages.github.com/">GitHub Pages</a></i><br>
-			<i><a href="./feed.xml">RSS</a>
+			Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.tk">prLázarus</a></i><br>
+			<i class="fa fa-plug"></i> Con la tecnología de <i><a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
+			<i><a href="./feed.xml">RSS</a></i>
 			&nbsp;|&nbsp;
 			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
 			&nbsp;|&nbsp;
 			<i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
-			<a href="mailto:info@prlazarus.tk">info@prlazarus.tk</a>
+			<a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
 		</div>
 	</div>
 </div>

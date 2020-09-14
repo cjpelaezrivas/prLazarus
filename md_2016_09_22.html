@@ -70,28 +70,28 @@
 			},
 			"content": {
 				"message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
-				"dismiss": "Aceptar",
+				"dismiss": "Cerrar mensaje",
 				"link": "Más información",
 				"href": "http://prlazarus.tk/md_cookies_policy.html"
 			}
-		})});
-	</script>
+		})
+	});
+</script>
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
-		gtag('config', 'UA-74491738-2');
-	</script>
+	gtag('config', 'UA-74491738-2');
+</script>
 	</head>
 
 <body>
 	<div class="container-fluid main-container">
 
-		<!-- tabsets -->
 		<script>
 			$(document).ready(function () {
 				window.buildTabsets("TOC");
@@ -128,7 +128,7 @@
 		
 		<div class="fluid-row" id="header">
 
-							<h1 class="title toc-ignore ">Imprimir por consola nombre y valor de variables [Eclipse] [Java]</h1>
+						<h1 class="title toc-ignore ">Imprimir por consola nombre y valor de variables [Eclipse] [Java]</h1>
 			
 			<!--
 						-->
@@ -169,7 +169,7 @@ Fig. 1. Ventana de opciones de Eclipse.
 </figure>
 <p>A continuación pulsamos sobre nuevo y se nos abrirá la ventana de configuración. Debemos indicar un nombre, el cual será el texto que debemos escribir para ejecutar el comando que llamará a la plantilla; el contexto, que debemos seleccionar Java statement; una descripcion, que nos aparecerá en el menu de autocompletado al usar la plantilla; y el patrón de la plantilla.</p>
 <p>En mi caso, los valores que he usado han sido:<br> <strong>Nombre:</strong> var<br> <strong>Descripción:</strong> print to standard out the name and value of a given variable<br> <strong>Patrón de la plantilla:</strong></p>
-<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;${enclosing_type}.${enclosing_method}() -&gt; ${var:var(java.lang.Object, byte, short, int, long, float, double, boolean, char)}=&quot;</span> + ${var:<span class="fu">var</span>(java.<span class="fu">lang</span>.<span class="fu">Object</span>, <span class="dt">byte</span>, <span class="dt">short</span>, <span class="dt">int</span>, <span class="dt">long</span>, <span class="dt">float</span>, <span class="dt">double</span>, <span class="dt">boolean</span>, <span class="dt">char</span>)});${cursor}</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;${enclosing_type}.${enclosing_method}() -&gt; ${var:var(java.lang.Object, byte, short, int, long, float, double, boolean, char)}=&quot;</span> + ${var:<span class="fu">var</span>(java.<span class="fu">lang</span>.<span class="fu">Object</span>, <span class="dt">byte</span>, <span class="dt">short</span>, <span class="dt">int</span>, <span class="dt">long</span>, <span class="dt">float</span>, <span class="dt">double</span>, <span class="dt">boolean</span>, <span class="dt">char</span>)});${cursor}</a></code></pre></div>
 <p>Observando el patrón, vemos que no tiene mucha complejidad. Escribe el comando para imprimir por consola, luego añade el nombre de la clase y el método desde donde se llama, y a continuación concatenamos el nombre y el valor de la variable.</p>
 <p>Por si os pica la curiosidad, los elementos <code>${var}</code> tienen todos esos parámetros porque si no indicamos ninguno nos ofrece sólo las variables declaradas que no son primitivas. Yo quería todas las variables, de modo que se indican como parámetros la clase Object (que engloba todas las variables objetos que heredan de ella) y todas las primitivas de Java. Además, al tener los dos elementos <code>${var}</code> el mismo id, únicamente tenemos que indicar la variable una sola vez. Fantástico.</p>
 <figure class="alignRight">
@@ -182,7 +182,7 @@ Fig. 2. Ventana de autocompletado de Eclipse.
 <p>Para usar la plantilla tenemos que escribir en el editor de código el nombre que le hemos dado, en mi caso <code>var</code>, y usar el comando <strong><code>Crtl + Espacio</code></strong>, de esa manera desplegamos el asistente de autocompletado. En caso de que sea la única coincidencia, la plantilla se completará automáticamente, pero si existen varios resultados, se mostrará una ventana como la de la Fig. 2, y debemos seleccionar la opción deseada. Aquí podemos ver la utilidad de poner una descripción a nuestra plantilla de código.</p>
 <p>Una vez tenemos la plantilla en el editor de código, se desplegará una nueva ventana para seleccionar qué variable deseamos mostrar. Como podéis comprobar, la clase y el método desde donde se ha llamada ya se ha completado automáticamente, y sólo resta elegir la variable. Tal y como se ve en la Fig. 3.</p>
 <p>Para concluir, si ejecutamos el código, no tiene mucho misterio pero lo pongo igual, obtendremos lo siguiente en la consola:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Main.main</span>() -&gt;<span class="st"> </span>name1=hello</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">Main.main</span>() -&gt;<span class="st"> </span>name1=hello</a></code></pre></div>
 <figure class="alignRight">
 <a href="./images/entries/2016_09_22/3.jpg" data-lightbox="image-gallery-1" data-title="Fig. 3. Ventana para seleccionar campos."> <img src="images/entries/2016_09_22/3.jpg" width="320"> </a>
 <figcaption>
@@ -248,7 +248,7 @@ Fig. 3. Ventana para seleccionar campos.
 				<a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
 			</div>
 			<div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
-				<a href="mailto:cjpelaezrivas@gmail.com"><i class="fa fa-envelope-square"></i></a>
+				<a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
 			</div>
 			<div class="item hint--bottom-right" data-hint="Perfil de GitHub">
 				<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
@@ -301,7 +301,7 @@ Fig. 3. Ventana para seleccionar campos.
 					<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div id="footer_message">
-	¿Has encontrado algún error? <a href="mailto:correcciones@prlazarus.tk">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
+	¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
 </div>
 <div id="footer">
 	<div class="content">
@@ -310,14 +310,14 @@ Fig. 3. Ventana para seleccionar campos.
 			<!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
 		</div>
 		<div id="right_column" class="text">
-			Hecho en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <a href="http://prlazarus.tk">prLázarus</a><br>
-			<i class="fa fa-plug"></i> <i>Con la tecnología de <a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a> y <a href="https://pages.github.com/">GitHub Pages</a></i><br>
-			<i><a href="./feed.xml">RSS</a>
+			Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.tk">prLázarus</a></i><br>
+			<i class="fa fa-plug"></i> Con la tecnología de <i><a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
+			<i><a href="./feed.xml">RSS</a></i>
 			&nbsp;|&nbsp;
 			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
 			&nbsp;|&nbsp;
 			<i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
-			<a href="mailto:info@prlazarus.tk">info@prlazarus.tk</a>
+			<a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
 		</div>
 	</div>
 </div>

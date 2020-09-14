@@ -70,28 +70,28 @@
 			},
 			"content": {
 				"message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
-				"dismiss": "Aceptar",
+				"dismiss": "Cerrar mensaje",
 				"link": "Más información",
 				"href": "http://prlazarus.tk/md_cookies_policy.html"
 			}
-		})});
-	</script>
+		})
+	});
+</script>
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
-		gtag('config', 'UA-74491738-2');
-	</script>
+	gtag('config', 'UA-74491738-2');
+</script>
 	</head>
 
 <body>
 	<div class="container-fluid main-container">
 
-		<!-- tabsets -->
 		<script>
 			$(document).ready(function () {
 				window.buildTabsets("TOC");
@@ -128,7 +128,7 @@
 		
 		<div class="fluid-row" id="header">
 
-							<h1 class="title toc-ignore ">Principios de diseño orientado a objetos que todo programador de Java debería conocer</h1>
+						<h1 class="title toc-ignore ">Principios de diseño orientado a objetos que todo programador de Java debería conocer</h1>
 			
 			<!--
 						-->
@@ -157,11 +157,11 @@
 								<ul>
 <li><a href="#dry-dont-repeat-yourself-o-no-te-repitas">DRY (Don’t Repeat Yourself o No te repitas)</a></li>
 <li><a href="#encapsular-lo-que-puede-cambiar">Encapsular lo que puede cambiar</a></li>
-<li><a href="#el-principio-de-diseno-cerrado-abierto">El principio de diseño Cerrado-Abierto</a></li>
-<li><a href="#srp-single-responsibility-principle-o-principio-de-responsabilidad-unica">SRP (Single Responsibility Principle o Principio de responsabilidad única)</a></li>
-<li><a href="#isp-interface-sgregation-principle-o-principio-de-segregacion-de-interfaces">ISP (Interface Sgregation Principle o Principio de segregación de interfaces)</a></li>
+<li><a href="#el-principio-de-diseño-cerrado-abierto">El principio de diseño Cerrado-Abierto</a></li>
+<li><a href="#srp-single-responsibility-principle-o-principio-de-responsabilidad-única">SRP (Single Responsibility Principle o Principio de responsabilidad única)</a></li>
+<li><a href="#isp-interface-sgregation-principle-o-principio-de-segregación-de-interfaces">ISP (Interface Sgregation Principle o Principio de segregación de interfaces)</a></li>
 <li><a href="#programa-usando-interfaces-y-no-implementaciones">Programa usando interfaces y no implementaciones</a></li>
-<li><a href="#principio-de-delegacion">Principio de delegación</a></li>
+<li><a href="#principio-de-delegación">Principio de delegación</a></li>
 </ul>
 			</div>
 		
@@ -181,16 +181,16 @@
 <h2>Encapsular lo que puede cambiar</h2>
 <p>Lo único cierto que nos vamos a encontrar en el Software es que cambia. De modo que debemos encapsular lo que vemos, o sospechamos, que puede cambiar. Esto ofrece muchas ventajas, como por ejemplo pruebas y mantenimiento más sencillos. A la hora de programar en Java, lo mejor es hacer las variables y los métodos privados por defecto, y de ese modo aumentar el acceso paso a paso. Muchos patrones de diseño, como por ejemplo: <em>Factory</em> usa la encapsulación de este modo, dando flexibilidad de introducir nuevo código después sin impactar en el código existente.</p>
 </div>
-<div id="el-principio-de-diseno-cerrado-abierto" class="section level2">
+<div id="el-principio-de-diseño-cerrado-abierto" class="section level2">
 <h2>El principio de diseño Cerrado-Abierto</h2>
 <p>Las clases, y los métodos o funciones, deberían estar abiertos para poder añadir nuevas funcionalidades, pero cerrados a las modificaciones. Esto nos permite no tener que modificar código que funciona y que ha sido probado. En una situación ideal, si debes añadir funcionalidad a una clase, tras terminar, únicamente deberías probar lo nuevo, y lo antiguo debería seguir funcionando de la misma forma que lo hacía antes. Esto se debe a que no deberías haber modificado nada de lo que había.</p>
 </div>
-<div id="srp-single-responsibility-principle-o-principio-de-responsabilidad-unica" class="section level2">
+<div id="srp-single-responsibility-principle-o-principio-de-responsabilidad-única" class="section level2">
 <h2>SRP (Single Responsibility Principle o Principio de responsabilidad única)</h2>
 <p>A la hora de modificar una clase, no debería existir más de una razón para llevarlo a cabo, o lo que es lo mismo, una clase únicamente debería dedicarse a una tarea bien concreta.</p>
 <p>Si usas una clase para llevar a cabo más de una funcionalidad en Java, estarás introduciendo relaciones y/o uniones entre ambas. Lo peor de todo es que si aparece la necesidad de modificar una funcionalidad, lo más probable es que se rompa la otra. Esto requerirá reparar el problema, y luego una nueva tanda de pruebas para comprobar que todo está correcto. Podemos decir que se trata del doble de trabajo.</p>
 </div>
-<div id="isp-interface-sgregation-principle-o-principio-de-segregacion-de-interfaces" class="section level2">
+<div id="isp-interface-sgregation-principle-o-principio-de-segregación-de-interfaces" class="section level2">
 <h2>ISP (Interface Sgregation Principle o Principio de segregación de interfaces)</h2>
 <p>Este principio nos indica que una clase no debería implementar una interfaz si no la va usar. Esto ocurre sobre todo cuando una interfaz contiene más de una funcionalidad, y el cliente sólo necesita una de ellas.</p>
 <p>El diseño de las interfaces puede ser complicado, dado que si creas una, ya no puedes modificarla sin romper todas las implementaciones realizadas. Pero uno de los beneficios de este principio de diseño es que, ya que Java obliga a implementar todos los métodos de la interfaz antes de usar una clase que la implemente, una sola funcionalidad significa menos métodos a implementar.</p>
@@ -200,7 +200,7 @@
 <p>Debes intentar siempre programa usando interfaces, esto te ayudará a obtener un código más flexible que podrá trabajar con cualquier nueva implementación de dichas interfaces.</p>
 <p>De modo que sería razonable usar variables cuyo tipo sea una interfaz, y devolver en los métodos y usar en sus argumentos interfaces.</p>
 </div>
-<div id="principio-de-delegacion" class="section level2">
+<div id="principio-de-delegación" class="section level2">
 <h2>Principio de delegación</h2>
 <p>Intenta no hacer todo el trabajo por tu cuenta, delega cada tarea a la clase correspondiente. El ejemplo clásico usado del principio de delegación es la creación de los métodos <code>equals()</code> y <code>hashCode()</code>. A la hora de comparar dos objetos por igualdad siempre le preguntamos a la clase en sí que haga la comparación, en lugar de lo haga la clase padre (siempre que sea posible y correcto).</p>
 <p>Todos estos principios de diseño pueden ayuda a conseguir un código mejor y más flexible, consiguiente una alta cohesión y baja relación entre las clases. La teoría es el primer paso, pero lo más importante es desarrollar estas habilidades para saberlas usar llegado el momento.</p>
@@ -264,7 +264,7 @@
 				<a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
 			</div>
 			<div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
-				<a href="mailto:cjpelaezrivas@gmail.com"><i class="fa fa-envelope-square"></i></a>
+				<a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
 			</div>
 			<div class="item hint--bottom-right" data-hint="Perfil de GitHub">
 				<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
@@ -317,7 +317,7 @@
 					<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div id="footer_message">
-	¿Has encontrado algún error? <a href="mailto:correcciones@prlazarus.tk">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
+	¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
 </div>
 <div id="footer">
 	<div class="content">
@@ -326,14 +326,14 @@
 			<!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
 		</div>
 		<div id="right_column" class="text">
-			Hecho en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <a href="http://prlazarus.tk">prLázarus</a><br>
-			<i class="fa fa-plug"></i> <i>Con la tecnología de <a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a> y <a href="https://pages.github.com/">GitHub Pages</a></i><br>
-			<i><a href="./feed.xml">RSS</a>
+			Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.tk">prLázarus</a></i><br>
+			<i class="fa fa-plug"></i> Con la tecnología de <i><a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
+			<i><a href="./feed.xml">RSS</a></i>
 			&nbsp;|&nbsp;
 			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
 			&nbsp;|&nbsp;
 			<i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
-			<a href="mailto:info@prlazarus.tk">info@prlazarus.tk</a>
+			<a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
 		</div>
 	</div>
 </div>

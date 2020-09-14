@@ -70,28 +70,28 @@
 			},
 			"content": {
 				"message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
-				"dismiss": "Aceptar",
+				"dismiss": "Cerrar mensaje",
 				"link": "Más información",
 				"href": "http://prlazarus.tk/md_cookies_policy.html"
 			}
-		})});
-	</script>
+		})
+	});
+</script>
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
-		gtag('config', 'UA-74491738-2');
-	</script>
+	gtag('config', 'UA-74491738-2');
+</script>
 	</head>
 
 <body>
 	<div class="container-fluid main-container">
 
-		<!-- tabsets -->
 		<script>
 			$(document).ready(function () {
 				window.buildTabsets("TOC");
@@ -128,7 +128,7 @@
 		
 		<div class="fluid-row" id="header">
 
-							<h1 class="title toc-ignore ">prCalculadoraIntérprete - Fin de proyecto</h1>
+						<h1 class="title toc-ignore ">prCalculadoraIntérprete - Fin de proyecto</h1>
 			
 			<!--
 						-->
@@ -155,7 +155,7 @@
 
 		
 		<p>Hola a todos. En esta ocasión vamos (creo) a acabar con este proyecto. He estado pensando y creo que lo tengo todo más o menos en mi cabecita. Empecemos…</p>
-<p>Para comenzar decir que le método “interprete” que habíamos creado habrá que cambiarlo bastante (al menos la primera parte). Comenzaremos con el primer algoritmo que sacaba los operandos (el más importante creo…). En el caso anterior teníamos un “Tokenizer” con el String “+-*/()”, pues bien, lo cambiaremos a un “Tokenizer” más casero que en teoría separará con el String “+*/()”, sí exacto, no separaremos las restas.Lo llamamos casero porque lo haremos nosotros desde cero. Convertiremos la cadena de entrada a un array de caracteres y recorreremos cada uno de los elementos. En caso de que sea un símbolo de operación o un paréntesis lo añadiremos a un “String builder” principal, y en el caso de que sea números o menos, lo añadiremos a un “String builder” secundario para operar con ellos. En este caso obtendremos cadenas de números, símbolos menos y basura (si la hubiese). Estos Strings lo intentaremos convertir a enteros. En el caso de que se pueda simplemente lo añadimos a la lista de operandos y colocamos en el “String builder” principal en lugar del número una “X”. En otro caso, no podremos convertir el String a entero, en el manejador de la excepción deberemos hacer varias cosas. Primero, debemos asegurarnos de que la entrada está compuesta solo de números y menos, en otro caso es un error sintáctico y acabamos con esta línea aquí. En el caso de que esté bien escrito nos podemos encontrar con varios casos. O un número solo con más de un menos delante, o una serie de restas, que puede comenzar con menos o no. Este último caso se tratará en un método privados a parte. En primera instancia vamos a crear el algoritmo que recorra la cadena y realice todas las operaciones básicas incluyendo la llamada al método que llamaremos: “separador”. Comenzamos…</p>
+<p>Para comenzar decir que le método “interprete” que habíamos creado habrá que cambiarlo bastante (al menos la primera parte). Comenzaremos con el primer algoritmo que sacaba los operandos (el más importante creo…). En el caso anterior teníamos un “Tokenizer” con el String “+-<em>/()”, pues bien, lo cambiaremos a un "Tokenizer" más casero que en teoría separará con el String “+</em>/()”, sí exacto, no separaremos las restas.Lo llamamos casero porque lo haremos nosotros desde cero. Convertiremos la cadena de entrada a un array de caracteres y recorreremos cada uno de los elementos. En caso de que sea un símbolo de operación o un paréntesis lo añadiremos a un “String builder” principal, y en el caso de que sea números o menos, lo añadiremos a un “String builder” secundario para operar con ellos. En este caso obtendremos cadenas de números, símbolos menos y basura (si la hubiese). Estos Strings lo intentaremos convertir a enteros. En el caso de que se pueda simplemente lo añadimos a la lista de operandos y colocamos en el “String builder” principal en lugar del número una “X”. En otro caso, no podremos convertir el String a entero, en el manejador de la excepción deberemos hacer varias cosas. Primero, debemos asegurarnos de que la entrada está compuesta solo de números y menos, en otro caso es un error sintáctico y acabamos con esta línea aquí. En el caso de que esté bien escrito nos podemos encontrar con varios casos. O un número solo con más de un menos delante, o una serie de restas, que puede comenzar con menos o no. Este último caso se tratará en un método privados a parte. En primera instancia vamos a crear el algoritmo que recorra la cadena y realice todas las operaciones básicas incluyendo la llamada al método que llamaremos: “separador”. Comenzamos…</p>
 <p>Una vez vez acabado el algoritmo, a la segunda mitad de este (el que detectaba las operaciones y las prioridades) sólo hay que cambiarle la entrada que recibe. En lugar de la línea inicial, debemos meterle el contenido de “primario”. A partir de aquí continuará igual todo.</p>
 <p>Además, para que funcione hemos tenido que poner algunos “parches”, como por ejemplo para que detecte los signos menos antes de los paréntesis. En cualquier otro caso, este algoritmo funciona a las mil maravillas, aunque a la hora de signos menos sin números antes de los paréntesis no hemos detectado problemas con los ejemplos que hemos probado, podrían existir algún caso para que el que no dé una solución correcta. Pasamos a comentar el código con todo los detalles posibles. Vamos a ello!</p>
 <p>Bueno, una vez acabado los comentarios en principio habremos acabado la versión 1.0 de este pequeño programa. Nos costó un poco porque era algo ambiguo, pero la verdad que también fue divertido a la hora de ver cómo va haciendo los cálculos.</p>
@@ -220,7 +220,7 @@
 				<a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
 			</div>
 			<div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
-				<a href="mailto:cjpelaezrivas@gmail.com"><i class="fa fa-envelope-square"></i></a>
+				<a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
 			</div>
 			<div class="item hint--bottom-right" data-hint="Perfil de GitHub">
 				<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
@@ -273,7 +273,7 @@
 					<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div id="footer_message">
-	¿Has encontrado algún error? <a href="mailto:correcciones@prlazarus.tk">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
+	¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
 </div>
 <div id="footer">
 	<div class="content">
@@ -282,14 +282,14 @@
 			<!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
 		</div>
 		<div id="right_column" class="text">
-			Hecho en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <a href="http://prlazarus.tk">prLázarus</a><br>
-			<i class="fa fa-plug"></i> <i>Con la tecnología de <a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a> y <a href="https://pages.github.com/">GitHub Pages</a></i><br>
-			<i><a href="./feed.xml">RSS</a>
+			Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.tk">prLázarus</a></i><br>
+			<i class="fa fa-plug"></i> Con la tecnología de <i><a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
+			<i><a href="./feed.xml">RSS</a></i>
 			&nbsp;|&nbsp;
 			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
 			&nbsp;|&nbsp;
 			<i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
-			<a href="mailto:info@prlazarus.tk">info@prlazarus.tk</a>
+			<a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
 		</div>
 	</div>
 </div>

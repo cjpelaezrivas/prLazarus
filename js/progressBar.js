@@ -1,13 +1,10 @@
 function calculateProgressBarWidth() {
-	var wintop = $(window).scrollTop();
-	var winheight = $(window).height();
-	var docheight = $('.main-container').height();
-	var totalScroll = (wintop / (docheight - winheight)) * 100;
+	var winTop = $(window).scrollTop();
+	var winHeight = $(window).height();
+	var docHeight = $('.main-container').height();
+	var totalScroll = (winTop / (docHeight - winHeight)) * 100;
 
 	$(".progressBar").css("width", totalScroll + "%");
 }
 
-$( document ).ready(() => $(window).scroll(calculateProgressBarWidth));
-
-
-calculateProgressBarWidth();
+$(document).ready(() => $(window).scroll(calculateProgressBarWidth));

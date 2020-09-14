@@ -28,6 +28,10 @@
 	box-sizing: inherit;
 }
 
+:focus {
+	outline: none;
+}
+
 ::selection {
 	color: #FFFFFF;
 	background: #323232;

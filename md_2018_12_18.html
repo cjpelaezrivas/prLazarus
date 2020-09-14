@@ -70,28 +70,28 @@
 			},
 			"content": {
 				"message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
-				"dismiss": "Aceptar",
+				"dismiss": "Cerrar mensaje",
 				"link": "Más información",
 				"href": "http://prlazarus.tk/md_cookies_policy.html"
 			}
-		})});
-	</script>
+		})
+	});
+</script>
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
-		gtag('config', 'UA-74491738-2');
-	</script>
+	gtag('config', 'UA-74491738-2');
+</script>
 	</head>
 
 <body>
 	<div class="container-fluid main-container">
 
-		<!-- tabsets -->
 		<script>
 			$(document).ready(function () {
 				window.buildTabsets("TOC");
@@ -128,7 +128,7 @@
 		
 		<div class="fluid-row" id="header">
 
-							<h1 class="title toc-ignore ">Proceso de actualización del blog finalizado</h1>
+						<h1 class="title toc-ignore ">Proceso de actualización del blog finalizado</h1>
 			
 			<!--
 						-->
@@ -159,19 +159,19 @@
 					<div id="TOC">
 									<span class="title">Tabla de contenido</span>
 								<ul>
-<li><a href="#creacion-del-blog-usando-r-markdown-y-github-pages">Creación del blog usando R Markdown y Github Pages</a></li>
+<li><a href="#creación-del-blog-usando-r-markdown-y-github-pages">Creación del blog usando R Markdown y Github Pages</a></li>
 <li><a href="#eliminar-disqus-como-gestor-de-comentarios">Eliminar Disqus como gestor de comentarios</a></li>
 <li><a href="#seis-meses-sin-cambios">Seis meses sin cambios</a></li>
-<li><a href="#eliminar-generacion-dinamica-usando-javascript">Eliminar generación dinámica usando JavaScript</a></li>
+<li><a href="#eliminar-generación-dinámica-usando-javascript">Eliminar generación dinámica usando JavaScript</a></li>
 <li><a href="#relacionar-las-entradas">Relacionar las entradas</a></li>
-<li><a href="#anadir-el-fichero-sitemap.xml">Añadir el fichero sitemap.xml</a></li>
+<li><a href="#añadir-el-fichero-sitemap.xml">Añadir el fichero sitemap.xml</a></li>
 <li><a href="#ajustes-finales">Ajustes finales</a></li>
 </ul>
 			</div>
 		
 		<p>Hola de nuevo,<br> Tras varias semanas y la implementación de nuevas mejoras, por fin puedo decir que la nueva versión del blog está terminada. Claro está que puede haber algún que otro cambio o añadido menor en el futuro, pero por fin la versión 2.0 está acabada.</p>
 <p>A continuación detallaré todos los cambios que he realizado desde que en marzo subí la primera actualización del nuevo blog:</p>
-<div id="creacion-del-blog-usando-r-markdown-y-github-pages" class="section level2">
+<div id="creación-del-blog-usando-r-markdown-y-github-pages" class="section level2">
 <h2>Creación del blog usando R Markdown y Github Pages</h2>
 <p>Los detalles de todo el proceso seguido los podéis encontrar <a href="md_2018_03_21.html">aquí</a>. Claramente este es el paso más extenso y con más cambios. Incluía además de la creación de la estructura básica del blog, toda la migración desde el servicio anterior.</p>
 <p>El proceso de aprendizaje de esta tecnología, la parte básica, no fue muy complicada a decir verdad. También es cierto que me falta mucho por aprender, y aunque he profundizado algo más, al menos cuanto necesito para cumplir mis objetivos, aun me queda mucho para dominar esta tecnología.</p>
@@ -184,7 +184,7 @@
 <h2>Seis meses sin cambios</h2>
 <p>Como apunte cómico, un descanso de seis meses nunca viene mal. Supongo que en algún momento me cansé del estado y de cómo estaba hecho el blog y me puse manos a la obra con algunas nuevas ideas.</p>
 </div>
-<div id="eliminar-generacion-dinamica-usando-javascript" class="section level2">
+<div id="eliminar-generación-dinámica-usando-javascript" class="section level2">
 <h2>Eliminar generación dinámica usando JavaScript</h2>
 <p>Como ya comenté en <a href="md_2018_11_27.html">esta entrada</a>, el blog se terminaba de generar dinámicamente en el dispositivo de cada usuario usando código JavaScript. Como ya se menciona ahí, esto tiene diversos problemas que ya se han solucionado.</p>
 <p>En esta fase me tiré a la piscina con las plantillas de R Markdown, básicamente porque era necesario tocar directamente la compilación del blog para generar todo el código en ese momento. Estos cambios trajeron un aumento de velocidad de carga bastante interesante.</p>
@@ -198,13 +198,13 @@
 <p>A fin de cuentas, se trata de darle significado semántico a cada entrada, creando grupos y enlaces entre ellas de forma más o menos automática. Todos estos enlaces también se crean en tiempo de compilación, de forma que es una característica inmediata a la hora de visualizar el blog. Esta característica mejora de nuevo las relaciones internas del blog, y como he mencionado ya aumenta la semántica de cada entrada.</p>
 <p>Ya he aplicado esta tecnología en el boceto de wiki disponible en <a href="http://projectcreationfx.tk/md_wiki.html">Project Creation FX</a>. En este otro caso se utilizan distintas relaciones y propiedades para que la función de relación ofrezca toda la potencia que puede dar.</p>
 </div>
-<div id="anadir-el-fichero-sitemap.xml" class="section level2">
+<div id="añadir-el-fichero-sitemap.xml" class="section level2">
 <h2>Añadir el fichero sitemap.xml</h2>
 <p>Es posible que debería haber conocido la necesidad de disponer de este fichero en la raíz del alojamiento, pero a decir verdad no he sabido de su importancia hasta hace unas semanas.</p>
 <p><del>Este paso es, básicamente, la generación del fichero y la subida del mismo al repositorio. No tiene mucha más relevancia.</del> Al parecer, este fichero ayuda a los buscadores a localizar todas las páginas que son accesibles, pues es, a fin de cuentas, un mapa del sitio web.</p>
 <p>La generación del fichero se puede automatizar si se usa GitHub Pages, como es el caso. Bastan con crear el fichero <code>_config.yml</code> en la raiz del repositorio con el siguiente contenido:</p>
-<div class="sourceCode"><pre class="sourceCode yml"><code class="sourceCode yaml"><span class="fu">plugins:</span>
-  <span class="kw">-</span> jekyll-sitemap</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">plugins:</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">-</span> jekyll-sitemap</a></code></pre></div>
 <p>GitHub se encarga del resto. El fichero no será visible en el repositorio, pero si se accede a la URL correspondiente, se debería poder ver el contenido del mismo sin problemas.</p>
 </div>
 <div id="ajustes-finales" class="section level2">
@@ -277,7 +277,7 @@
 				<a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
 			</div>
 			<div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
-				<a href="mailto:cjpelaezrivas@gmail.com"><i class="fa fa-envelope-square"></i></a>
+				<a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
 			</div>
 			<div class="item hint--bottom-right" data-hint="Perfil de GitHub">
 				<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
@@ -330,7 +330,7 @@
 					<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div id="footer_message">
-	¿Has encontrado algún error? <a href="mailto:correcciones@prlazarus.tk">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
+	¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
 </div>
 <div id="footer">
 	<div class="content">
@@ -339,14 +339,14 @@
 			<!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
 		</div>
 		<div id="right_column" class="text">
-			Hecho en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <a href="http://prlazarus.tk">prLázarus</a><br>
-			<i class="fa fa-plug"></i> <i>Con la tecnología de <a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a> y <a href="https://pages.github.com/">GitHub Pages</a></i><br>
-			<i><a href="./feed.xml">RSS</a>
+			Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.tk">prLázarus</a></i><br>
+			<i class="fa fa-plug"></i> Con la tecnología de <i><a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
+			<i><a href="./feed.xml">RSS</a></i>
 			&nbsp;|&nbsp;
 			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
 			&nbsp;|&nbsp;
 			<i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
-			<a href="mailto:info@prlazarus.tk">info@prlazarus.tk</a>
+			<a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
 		</div>
 	</div>
 </div>

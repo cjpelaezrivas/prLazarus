@@ -6,6 +6,7 @@
 .entry {
 	float: left;
 	display: block;
+	margin-top: -1px;
 
 	padding: 5px 5px;
 
@@ -15,13 +16,14 @@
 	background-color: #fefefe;
 
 	border: solid 1px #aaaaaa;
-	border-bottom: none;
+	/*border-bottom: none;*/
 	text-decoration: none;
 }
 
-.entry:last-child {
+/*.entry:last-child {
 	border-bottom: solid 1px #aaaaaa;
 }
+*/
 
 .entry:hover {
 	background-color: #efefef;

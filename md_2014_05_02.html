@@ -70,28 +70,28 @@
 			},
 			"content": {
 				"message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
-				"dismiss": "Aceptar",
+				"dismiss": "Cerrar mensaje",
 				"link": "Más información",
 				"href": "http://prlazarus.tk/md_cookies_policy.html"
 			}
-		})});
-	</script>
+		})
+	});
+</script>
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
-		gtag('config', 'UA-74491738-2');
-	</script>
+	gtag('config', 'UA-74491738-2');
+</script>
 	</head>
 
 <body>
 	<div class="container-fluid main-container">
 
-		<!-- tabsets -->
 		<script>
 			$(document).ready(function () {
 				window.buildTabsets("TOC");
@@ -128,7 +128,7 @@
 		
 		<div class="fluid-row" id="header">
 
-							<h1 class="title toc-ignore ">Borrar archivos de un directorio [Java] [Windows]</h1>
+						<h1 class="title toc-ignore ">Borrar archivos de un directorio [Java] [Windows]</h1>
 			
 			<!--
 						-->
@@ -155,47 +155,47 @@
 		
 		<p>Buenas,<br> hoy vamos a ver como borrar todos los archivos dentro de un directorio o únicamente los archivos con una extensión dada.</p>
 <p>Esto es muy sencillo. Únicamente copiamos el siguiente código en una clase en nuestro proyecto y lo llamamos con el directorio, la antigüedad y la extensión de archivos a eliminar.</p>
-<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">private</span> <span class="dt">void</span> <span class="fu">borrarContenidoDirectorio</span>(<span class="bu">String</span> direccion, <span class="dt">int</span> numDias, <span class="bu">String</span> extension) {
-    <span class="bu">File</span> directorio = <span class="kw">new</span> <span class="bu">File</span>(direccion);
-    <span class="kw">if</span> (directorio.<span class="fu">exists</span>() &amp;&amp; directorio.<span class="fu">isDirectory</span>()) {
-        <span class="bu">File</span> f;
-        <span class="dt">long</span> t;
-        <span class="kw">for</span> (<span class="bu">String</span> archivo : directorio.<span class="fu">list</span>()) {
-            f = <span class="kw">new</span> <span class="bu">File</span>(direccion + <span class="bu">File</span>.<span class="fu">separator</span> + archivo);
-            t = (<span class="bu">System</span>.<span class="fu">currentTimeMillis</span>() - f.<span class="fu">lastModified</span>());
-            <span class="co">// long cantidadDia = (t / 86400000);</span>
-            <span class="co">// 86400000 ms es equivalente a un día (24 horas)</span>
-            <span class="kw">if</span> ((extension == <span class="kw">null</span> &amp;&amp; t &gt; (<span class="dv">86400000</span> * numDias))
-                    || (archivo.<span class="fu">contains</span>(<span class="st">&quot;.&quot;</span> + extension) &amp;&amp; t &gt; (<span class="dv">86400000</span> * numDias))) {
-                f.<span class="fu">delete</span>();
-                f.<span class="fu">deleteOnExit</span>();
-            }
-        }
-    }
-}</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">private</span> <span class="dt">void</span> <span class="fu">borrarContenidoDirectorio</span>(<span class="bu">String</span> direccion, <span class="dt">int</span> numDias, <span class="bu">String</span> extension) {</a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="bu">File</span> directorio = <span class="kw">new</span> <span class="bu">File</span>(direccion);</a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">if</span> (directorio.<span class="fu">exists</span>() &amp;&amp; directorio.<span class="fu">isDirectory</span>()) {</a>
+<a class="sourceLine" id="cb1-4" title="4">        <span class="bu">File</span> f;</a>
+<a class="sourceLine" id="cb1-5" title="5">        <span class="dt">long</span> t;</a>
+<a class="sourceLine" id="cb1-6" title="6">        <span class="kw">for</span> (<span class="bu">String</span> archivo : directorio.<span class="fu">list</span>()) {</a>
+<a class="sourceLine" id="cb1-7" title="7">            f = <span class="kw">new</span> <span class="bu">File</span>(direccion + <span class="bu">File</span>.<span class="fu">separator</span> + archivo);</a>
+<a class="sourceLine" id="cb1-8" title="8">            t = (<span class="bu">System</span>.<span class="fu">currentTimeMillis</span>() - f.<span class="fu">lastModified</span>());</a>
+<a class="sourceLine" id="cb1-9" title="9">            <span class="co">// long cantidadDia = (t / 86400000);</span></a>
+<a class="sourceLine" id="cb1-10" title="10">            <span class="co">// 86400000 ms es equivalente a un día (24 horas)</span></a>
+<a class="sourceLine" id="cb1-11" title="11">            <span class="kw">if</span> ((extension == <span class="kw">null</span> &amp;&amp; t &gt; (<span class="dv">86400000</span> * numDias))</a>
+<a class="sourceLine" id="cb1-12" title="12">                    || (archivo.<span class="fu">contains</span>(<span class="st">&quot;.&quot;</span> + extension) &amp;&amp; t &gt; (<span class="dv">86400000</span> * numDias))) {</a>
+<a class="sourceLine" id="cb1-13" title="13">                f.<span class="fu">delete</span>();</a>
+<a class="sourceLine" id="cb1-14" title="14">                f.<span class="fu">deleteOnExit</span>();</a>
+<a class="sourceLine" id="cb1-15" title="15">            }</a>
+<a class="sourceLine" id="cb1-16" title="16">        }</a>
+<a class="sourceLine" id="cb1-17" title="17">    }</a>
+<a class="sourceLine" id="cb1-18" title="18">}</a></code></pre></div>
 <p>El código no necesita mucha explicación. Es simple, y creo que efectivo para cualquier aplicación. En el caso de que se quiera borrar todos los archivos dentro de un directorio usar el útimo argumento como “null”.</p>
 <p>Y si queréis borrar de forma recursiva a través de distintos directorios emparentados, la implementación sería muy sencilla a partir de esta. A continuación un método para borrar todo el contenido de un directorio, sea el que sea, y a él mismo al final del proceso.</p>
-<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">private</span> <span class="dt">void</span> <span class="fu">borrarDirectorio</span>(<span class="bu">String</span> direccion) {
-    <span class="bu">File</span> directorio = <span class="kw">new</span> <span class="bu">File</span>(direccion);
-    <span class="kw">if</span> (directorio.<span class="fu">exists</span>() &amp;&amp; directorio.<span class="fu">isDirectory</span>()) {
-        <span class="bu">File</span> f;
-        <span class="kw">for</span> (<span class="bu">String</span> archivo : directorio.<span class="fu">list</span>()) {
-            f = <span class="kw">new</span> <span class="bu">File</span>(direccion + <span class="bu">File</span>.<span class="fu">separator</span> + archivo);
-            <span class="kw">if</span> (f.<span class="fu">isDirectory</span>()) {
-                <span class="fu">borrarDirectorio</span>(f.<span class="fu">getAbsolutePath</span>());
-                f.<span class="fu">delete</span>();
-                f.<span class="fu">deleteOnExit</span>();
-            } <span class="kw">else</span> { <span class="co">//Es un archivo</span>
-                f.<span class="fu">delete</span>();
-                f.<span class="fu">deleteOnExit</span>();
-            }
-        }
-
-        <span class="co">//Borrar las 2 siguientes líneas para no eliminar el directorio raíz</span>
-        directorio.<span class="fu">delete</span>();
-        directorio.<span class="fu">deleteOnExit</span>();
-    }
-}</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">private</span> <span class="dt">void</span> <span class="fu">borrarDirectorio</span>(<span class="bu">String</span> direccion) {</a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="bu">File</span> directorio = <span class="kw">new</span> <span class="bu">File</span>(direccion);</a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="kw">if</span> (directorio.<span class="fu">exists</span>() &amp;&amp; directorio.<span class="fu">isDirectory</span>()) {</a>
+<a class="sourceLine" id="cb2-4" title="4">        <span class="bu">File</span> f;</a>
+<a class="sourceLine" id="cb2-5" title="5">        <span class="kw">for</span> (<span class="bu">String</span> archivo : directorio.<span class="fu">list</span>()) {</a>
+<a class="sourceLine" id="cb2-6" title="6">            f = <span class="kw">new</span> <span class="bu">File</span>(direccion + <span class="bu">File</span>.<span class="fu">separator</span> + archivo);</a>
+<a class="sourceLine" id="cb2-7" title="7">            <span class="kw">if</span> (f.<span class="fu">isDirectory</span>()) {</a>
+<a class="sourceLine" id="cb2-8" title="8">                <span class="fu">borrarDirectorio</span>(f.<span class="fu">getAbsolutePath</span>());</a>
+<a class="sourceLine" id="cb2-9" title="9">                f.<span class="fu">delete</span>();</a>
+<a class="sourceLine" id="cb2-10" title="10">                f.<span class="fu">deleteOnExit</span>();</a>
+<a class="sourceLine" id="cb2-11" title="11">            } <span class="kw">else</span> { <span class="co">//Es un archivo</span></a>
+<a class="sourceLine" id="cb2-12" title="12">                f.<span class="fu">delete</span>();</a>
+<a class="sourceLine" id="cb2-13" title="13">                f.<span class="fu">deleteOnExit</span>();</a>
+<a class="sourceLine" id="cb2-14" title="14">            }</a>
+<a class="sourceLine" id="cb2-15" title="15">        }</a>
+<a class="sourceLine" id="cb2-16" title="16"></a>
+<a class="sourceLine" id="cb2-17" title="17">        <span class="co">//Borrar las 2 siguientes líneas para no eliminar el directorio raíz</span></a>
+<a class="sourceLine" id="cb2-18" title="18">        directorio.<span class="fu">delete</span>();</a>
+<a class="sourceLine" id="cb2-19" title="19">        directorio.<span class="fu">deleteOnExit</span>();</a>
+<a class="sourceLine" id="cb2-20" title="20">    }</a>
+<a class="sourceLine" id="cb2-21" title="21">}</a></code></pre></div>
 <p>No deberíais tener problemas al copiar el código y pegarlo en vuestro IDE para que todo salga tal y como aparece en el blog. Yo lo he probado hasta ahora con Eclipse y funciona bien.</p>
 <p>Me gustaría decir que aunque en el título se indica que el algoritmo es para Windows es por el único motivo de que ha sido en el único sistema operativo que lo he probado. Dada la naturaleza de Java, su ejecución no debería tener ningún inconveniente en cualquier otra plataforma.</p>
 <p>Espero que sea útil a alguien. Hasta la próxima.</p>
@@ -256,7 +256,7 @@
 				<a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
 			</div>
 			<div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
-				<a href="mailto:cjpelaezrivas@gmail.com"><i class="fa fa-envelope-square"></i></a>
+				<a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
 			</div>
 			<div class="item hint--bottom-right" data-hint="Perfil de GitHub">
 				<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
@@ -309,7 +309,7 @@
 					<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
 <div id="footer_message">
-	¿Has encontrado algún error? <a href="mailto:correcciones@prlazarus.tk">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
+	¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
 </div>
 <div id="footer">
 	<div class="content">
@@ -318,14 +318,14 @@
 			<!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
 		</div>
 		<div id="right_column" class="text">
-			Hecho en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <a href="http://prlazarus.tk">prLázarus</a><br>
-			<i class="fa fa-plug"></i> <i>Con la tecnología de <a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a> y <a href="https://pages.github.com/">GitHub Pages</a></i><br>
-			<i><a href="./feed.xml">RSS</a>
+			Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.tk">prLázarus</a></i><br>
+			<i class="fa fa-plug"></i> Con la tecnología de <i><a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
+			<i><a href="./feed.xml">RSS</a></i>
 			&nbsp;|&nbsp;
 			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
 			&nbsp;|&nbsp;
 			<i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
-			<a href="mailto:info@prlazarus.tk">info@prlazarus.tk</a>
+			<a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
 		</div>
 	</div>
 </div>
