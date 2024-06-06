@@ -1,16 +1,16 @@
-#TOC .title{
+.table-of-contents .title{
 	color: #000000;
 	font-size: 15px;
 	font-weight: bold;
 }
 
-#TOC ul {
+.table-of-contents ul {
 	padding: 5px 0 15px 0;
 
 	list-style: none;
 }
 
-#TOC ul li {
+.table-of-contents ul li {
 	display:block;
 
 	border-top: none;
@@ -19,27 +19,27 @@
 	border-left: solid 1px #dcdcc8;
 }
 
-#TOC ul li:hover {
+.table-of-contents ul li:hover {
 	background-color: #EFEFEF;
 }
 
-#TOC ul li:first-child {
+.table-of-contents ul li:first-child {
 	border-top: solid 1px #dcdcc8;
 
 	border-radius: 4px 4px 0 0;
 }
 
-#TOC ul li:last-child {
+.table-of-contents ul li:last-child {
 	border-bottom: solid 1px #dcdcc8;
 
 	border-radius: 0 0 4px 4px;
 }
 
-#TOC ul li:only-child {
+.table-of-contents ul li:only-child {
     border-radius: 4px 4px 4px 4px;
 }
 
-#TOC ul li a, #TOC ul li a:hover, #TOC ul li a:active, #TOC ul li a:visited {
+.table-of-contents ul li a, .table-of-contents ul li a:hover, .table-of-contents ul li a:active, .table-of-contents ul li a:visited {
 	display:block;
 
 	padding: 5px 10px;
@@ -49,6 +49,6 @@
 	cursor: pointer;
 }
 
-#TOC ul li ul {
+.table-of-contents ul li ul {
   display: none;
 }

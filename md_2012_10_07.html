@@ -1,300 +1,244 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="pandoc" />
+    <title>prCalculadoraIntérprete - Pequeños cambios...&nbsp;- prLázarus</title>
+    <meta name='Language' content='es' />
+    <meta name='Content-Language' content='es' />
+    <meta name="author" content="Carlos J. Peláez Rivas" />
+    <meta name="description" content="prLázarus - Blog de programación y diario de desarrollo" />
+    <meta name="keywords" content="lazarus,surazal,prlazarus,blog,programación,programacion,programming,coding,code,desarrollo,development,java,carlos,jesús,jesus,j,peláez,pelaez,rivas,cjpelaez,cjpelaezrivas,málaga,malaga,uma,españa,spain" />
+    <meta property="og:site_name" content="prLázarus" />
+    <meta property="og:title" content="prLázarus - Blog de programación" />
+    <meta property="og:description" content="prLázarus - Blog de programación y diario de desarrollo" />
+    <meta name="twitter:title" content="prLázarus - Blog de programación">
+    <meta name="twitter:description" content="prLázarus - Blog de programación y diario de desarrollo" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="lib/bootstrap-4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/fontawesome-4.7/css/fontawesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/hint-2.5.1/css/hint.base.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/lightbox-2.10/css/lightbox.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/cookieconsent2-3.1.0/css/cookieconsent.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/entry.css" />
+    <link rel="stylesheet" type="text/css" href="css/project.css" />
+    <link rel="stylesheet" type="text/css" href="css/toc.css" />
+    <link rel="stylesheet" type="text/css" href="css/code.css" />
+    <link rel="stylesheet" type="text/css" href="css/code-github.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+    <script src="lib/jquery-3.3.1/js/jquery.min.js"></script>
+    <script src="lib/bootstrap-4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/stickytabs-1.2.0/js/stickytabs.js"></script>
+    <script src="lib/scrolltotop-1.0/js/scrolltotop.js"></script>
+    <script src="lib/lightbox-2.10/js/lightbox.min.js"></script>
+    <script>
+      lightbox.option({
+        'albumLabel': "Imagen %1 de %2",
+        'fadeDuration': 250,
+        'resizeDuration': 250,
+        'wrapAround': true,
+        'disable': true
+      })
+    </script>
+    <script src="lib/cookieconsent2-3.1.0/js/cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function() {
+        window.cookieconsent.initialise({
+          "palette": {
+            "popup": {
+              "background": "#d4d4d4",
+              "text": "#151515"
+            },
+            "button": {
+              "background": "#003379",
+              "text": "#ffffff"
+            }
+          },
+          "content": {
+            "message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
+            "dismiss": "Cerrar mensaje",
+            "link": "Más información",
+            "href": "https://blog.prlazarus.es/md_cookies_policy.html"
+          }
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container-fluid main-container">
+      <link rel="stylesheet" type="text/css" href="css/navbar.css" />
+      <div id="navbar">
+        <div id="zoneA">
+          <div class="content">
+            <a href="./">
+              <div id="logo"></div>
+            </a>
+            <h1 id="title">
+              prLázarus
+            </h1>
+            <h2 id="subtitle">
+              Blog sobre el desarrollo de proyectos, enginería software y tutoriales
+            </h2>
+          </div>
+        </div>
+        <div id="zoneB">
+          <div class="content">
+            <div id="menu">
+              <a class="menuItem" href="./"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
+              <a class="menuItem" href="./md_projects.html"><i class="fa fa-rocket"></i><span class="text"> Proyectos</span></a>
+              <a class="menuItem" href="https://cjpelaezrivas.dev"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fluid-row" id="header">
+        <h1 class="title toc-ignore ">prCalculadoraIntérprete - Pequeños cambios...</h1>
+        <div class="date"><em>domingo, 7 de octubre de 2012</em></div>
+        <div id="entry_section">
+          <div id="time_section"><b>Tiempo de lectura:</b> 1 minutos</div>
+        </div>
+        <div id="tag_section">
+          <b>Etiquetas: </b>
+          <a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+          <a class="tag" href="md_search.html?tag=Java">Java</a>
+        </div>
+      </div>
+      <div class="section">
+        <p>Hemos cambiado algunos detalles de nuestro código anterior, debido a requisitos que nos habíamos olvidado anteriormente. Para comenzar hemos cambiado la entrada y salida a opcionales, es decir, si podemos un nombre de fichero de entrada y salida en los argumentos, usaremos esos nombres, en otro caso, usaremos la entrada y salida predefinida de Java: la consola.</p>
+        <p>Cabe decir, que es posible usar un fichero como entrada y la salida estándar como salida.
+          Algo más que hemos agregado es la inclusión de un método nuevo privado llamado “interprete”, el cual tendrá como entrada la línea una vez limpia y una vez acabado su trabajo devolverá la línea que debemos escribir en el archivo de salida.</p>
+        <p>Os adjunto el nuevo código por si queréis ver los cambios realizados.</p>
+        <p>Saludos, <br>
+          Lázarus Surazal.</p>
+        <hr>
+        <p><strong>Descargas:</strong> <br>
+          <em>Enlaces eliminados</em>
+        </p>
+        <hr>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/relations.css" />
+      <div id="relationsContainer">
+        <span class="relatedTitle">Entradas relacionadas</span>
+        <ul>
+          <li><a href="md_2012_09_29.html">prCalculadoraIntérprete - Inicio de proyecto</a></li>
+          <li><a href="md_2012_09_29_B.html">prCalculadoraIntérprete - Primeros pasos</a></li>
+          <li><a href="md_2012_10_07_B.html">prCalculadoraIntérprete - Método intérprete</a></li>
+          <li><a href="md_2012_10_14.html">prCalculadoraIntérprete - Fin de proyecto</a></li>
+        </ul>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/navigation.css" />
+      <hr>
+      <div id="navigationContainer">
+        <a class="item hint--bottom-left navigateButton right" href="md_2012_10_07_B.html" data-hint="prCalculadoraIntérprete - Método intérprete">
+          Siguiente
+          <i class="fa fa-arrow-right"></i>
+        </a>
+        <a class="item hint--bottom-right navigateButton left" href="md_2012_09_29_B.html" data-hint="prCalculadoraIntérprete - Primeros pasos">
+          <i class="fa fa-arrow-left"></i>
+          Anterior
+        </a>
+        <a class="navigateButton center" href="./">
+          <i class="fa fa-home"></i>
+          Volver a la página principal
+        </a>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/info.css" />
+      <div id="infoContainer">
+        <div id="infoProfile" class="info_block">
+          <div class="title">
+            <b>Perfil</b>
+          </div>
+          <div class="content">
+            <div class="part photo">
+              <img src="images/logo_b.png" width="90px" alt="prLázarus logo info" />
+            </div>
+            <div class="part description">
+              <h3 id="name">Carlos J. Peláez Rivas <em id="alias">(Lázarus Surazal)</em></h3>
+              Graduado y Máster en Ingeniería Informática por la Universidad de Málaga (España). También cursé un Experto en tecnologías de Blockchain. Actualmente trabajando como Software engineer en Málaga.<br>
+              Apasionado de los videojuegos, la música y la tecnología, siempre buscando cosas nuevas que aprender, hacer (y a veces romper).<br>
+              <a href="https://cjpelaezrivas.dev">Más sobre mi...</a>
+            </div>
+          </div>
+        </div>
+        <div id="infoContact" class="info_block">
+          <div class="title">
+            <b>Contacto</b>
+          </div>
+          <div class="content links">
+            <div class="item hint--bottom-right" data-hint="Perfil personal">
+              <a href="https://cjpelaezrivas.dev" style="font-size: 38px; line-height: 38px;"><i class="fa fa-user-circle"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="prLázarus - RSS">
+              <a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
+              <a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="Perfil de GitHub">
+              <a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="Perfil de LinkedIn">
+              <a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="commentsContainer" style="float:left; width:100%;">
+        <script src="https://utteranc.es/client.js" repo="cjpelaezrivas/prlazarus" issue-term="title" label="comments" theme="github-light" crossorigin="anonymous" async>
+        </script>
+        <noscript>
+          <div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+            Por favor, activa JavaScript para ver los comentarios.
+          </div>
+        </noscript>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/footer.css" />
+      <div id="footer_message">
+        ¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="https://github.com/cjpelaezrivas/prLazarus/issues">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
+      </div>
+      <div id="footer">
+        <div class="content">
+          <div id="logo_footer">
+            <a href="https://prlazarus.es"><img src="images/logo_c.png" alt="prLázarus logo footer" style="margin-top:10px;" /></a>
 
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="generator" content="pandoc" />
+            <!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
+          </div>
+          <div id="right_column" class="text">
+            Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag" /></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.es">prLázarus</a></i><br>
+            <i class="fa fa-plug"></i> Con la tecnología de <i><a href="https://cjpelaezrivas.dev/ProjectLighthouse/">Project Lighthouse</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
+            <i><a href="./feed.xml">RSS</a></i>
+            &nbsp;|&nbsp;
+            <i><a href="md_cookies_policy.html">Política de cookies</a></i>
+            &nbsp;|&nbsp;
+            <i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
+            <a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
+          </div>
+        </div>
+      </div>
 
-	<title>prCalculadoraIntérprete - Pequeños cambios… - prLázarus</title>
+      <!-- Default Statcounter code for prLázarus - Blog -->
+      <script type="text/javascript">
+        var sc_project = 12995152;
+        var sc_invisible = 1;
+        var sc_security = "7de2ea10";
+      </script>
+      <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+      <noscript>
+        <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12995152/0/7de2ea10/1/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></a></div>
+      </noscript>
 
-			<meta name='Language' content='es' />
-<meta name='Content-Language' content='es' />
-
-<meta name="author" content="Carlos J. Peláez Rivas" />
-<meta name="description" content="prLázarus - Blog de programación y diario de desarrollo" />
-<meta name="keywords" content="lazarus,surazal,prlazarus,blog,programación,programacion,programming,coding,code,desarrollo,development,java,carlos,jesús,jesus,j,peláez,pelaez,rivas,cjpelaez,cjpelaezrivas,málaga,malaga,uma,españa,spain"/>
-
-<meta property="og:site_name" content="prLázarus" />
-<meta property="og:title" content="prLázarus - Blog de programación" />
-<meta property="og:description" content="prLázarus - Blog de programación y diario de desarrollo" />
-<meta name="twitter:title" content="prLázarus - Blog de programación">
-<meta name="twitter:description" content="prLázarus - Blog de programación y diario de desarrollo" />
-
-<link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
-<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
-
-<link rel="stylesheet" href="lib/bootstrap-4.1.3/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="lib/fontawesome-4.7/css/fontawesome.min.css"/>
-<link rel="stylesheet" type="text/css" href="lib/hint-2.5.1/css/hint.base.min.css"/>
-<link rel="stylesheet" type="text/css" href="lib/lightbox-2.10/css/lightbox.min.css"/>
-<link rel="stylesheet" type="text/css" href="lib/cookieconsent2-3.1.0/css/cookieconsent.min.css"/>
-
-<link rel="stylesheet" type="text/css" href="css/base.css"/>
-<link rel="stylesheet" type="text/css" href="css/main.css"/>
-<link rel="stylesheet" type="text/css" href="css/entry.css"/>
-<link rel="stylesheet" type="text/css" href="css/project.css"/>
-<link rel="stylesheet" type="text/css" href="css/toc.css"/>
-<link rel="stylesheet" type="text/css" href="css/code.css"/>
-<link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
-
-<script src="lib/jquery-3.3.1/js/jquery.min.js"></script>
-<script src="lib/bootstrap-4.1.3/js/bootstrap.bundle.min.js"></script>
-<script src="lib/stickytabs-1.2.0/js/stickytabs.js"></script>
-<script src="lib/scrolltotop-1.0/js/scrolltotop.js"></script>
-
-<script src="lib/lightbox-2.10/js/lightbox.min.js"></script>
-<script>
-	lightbox.option({
-		'albumLabel': "Imagen %1 de %2",
-		'fadeDuration': 250,
-		'resizeDuration': 250,
-		'wrapAround': true
-	})
-</script>
-
-<script src="lib/cookieconsent2-3.1.0/js/cookieconsent.min.js"></script>
-<script>
-	window.addEventListener("load", function(){
-		window.cookieconsent.initialise({
-			"palette": {
-				"popup": {
-					"background": "#d4d4d4",
-					"text": "#151515"
-				},
-				"button": {
-					"background": "#003379",
-					"text": "#ffffff"
-				}
-			},
-			"content": {
-				"message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
-				"dismiss": "Cerrar mensaje",
-				"link": "Más información",
-				"href": "http://prlazarus.tk/md_cookies_policy.html"
-			}
-		})
-	});
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', 'UA-74491738-2');
-</script>
-	</head>
-
-<body>
-	<div class="container-fluid main-container">
-
-		<script>
-			$(document).ready(function () {
-				window.buildTabsets("TOC");
-			});
-		</script>
-
-					<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
-
-<div id="navbar">
-	<div id="zoneA">
-		<div class="content">
-			<a href="./">
-				<div id="logo"></div>
-			</a>
-
-			<h1 id="title">
-				prLázarus
-			</h1>
-			<h2 id="subtitle">
-				Blog de desarrollo de proyectos Software, tutoriales, consejos y varios.
-			</h2>
-		</div>
-	</div>
-	<div id="zoneB">
-		<div class="content">
-			<div id="menu">
-				<a class="menuItem" href="./"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
-				<a class="menuItem" href="./md_projects.html"><i class="fa fa-rocket"></i><span class="text"> Proyectos</span></a>
-				<a class="menuItem" href="http://cjpelaezrivas.tk"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
-			</div>
-		</div>
-	</div>
-</div>
-		
-		<div class="fluid-row" id="header">
-
-						<h1 class="title toc-ignore ">prCalculadoraIntérprete - Pequeños cambios…</h1>
-			
-			<!--
-						-->
-
-			<!--
-						-->
-
-							<h4 class="date">
-<em>domingo, 7 de octubre de 2012</em>
-</h4>
-			
-							<b>Etiquetas</b>
-				<div id="tag_section">
-											<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-											<a class="tag" href="md_search.html?tag=Java">Java</a>
-									</div>
-			
-			<!--
-						-->
-
-		</div>
-
-		
-		<p>Hemos cambiado algunos detalles de nuestro código anterior, debido a requisitos que nos habíamos olvidado anteriormente. Para comenzar hemos cambiado la entrada y salida a opcionales, es decir, si podemos un nombre de fichero de entrada y salida en los argumentos, usaremos esos nombres, en otro caso, usaremos la entrada y salida predefinida de Java: la consola.</p>
-<p>Cabe decir, que es posible usar un fichero como entrada y la salida estándar como salida. Algo más que hemos agregado es la inclusión de un método nuevo privado llamado “interprete”, el cual tendrá como entrada la línea una vez limpia y una vez acabado su trabajo devolverá la línea que debemos escribir en el archivo de salida.</p>
-<p>Os adjunto el nuevo código por si queréis ver los cambios realizados.</p>
-<p>Saludos, <br> Lázarus Surazal.</p>
-<p><strong>Descarga:</strong> <br> <em>[Enlace eliminado]</em></p>
-
-					<link rel="stylesheet" type="text/css" href="css/relations.css"/>
-<div id="relationsContainer">
-<span class="relatedTitle">Entradas relacionadas</span>
-<ul>
-<li>
-<a href="md_2012_09_29.html">prCalculadoraIntérprete - Inicio de proyecto</a>
-</li>
-<li>
-<a href="md_2012_09_29_B.html">prCalculadoraIntérprete - Primeros pasos</a>
-</li>
-<li>
-<a href="md_2012_10_07_B.html">prCalculadoraIntérprete - Método intérprete</a>
-</li>
-<li>
-<a href="md_2012_10_14.html">prCalculadoraIntérprete - Fin de proyecto</a>
-</li>
-</ul>
-</div>
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
-<hr>
-<div id="navigationContainer">
-<a class="item hint--bottom-left navigateButton right" href="md_2012_10_07_B.html" data-hint="prCalculadoraIntérprete - Método intérprete">Siguiente <i class="fa fa-arrow-right"></i></a><a class="item hint--bottom-right navigateButton left" href="md_2012_09_29_B.html" data-hint="prCalculadoraIntérprete - Primeros pasos"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a>
-</div>
-		
-					<link rel="stylesheet" type="text/css" href="css/info.css"/>
-
-<div id="infoContainer">
-	<div id="infoProfile" class="info_block">
-		<div class="title">
-			<b>Perfil</b>
-		</div>
-		<div class="content">
-			<div class="part photo">
-				<img src="images/logo_b.png" width="90px" alt="prLázarus logo info" />
-			</div>
-			<div class="part description">
-				<b>Carlos J. Peláez Rivas (Lázarus Surazal)</b> <br>
-				Graduado y Máster en Ingeniería Informática por la Universidad de Málaga. Actualmente trabajando como desarrollador de aplicaciones en Java usando Vaadin.<br>
-				Apasionado de los videojuegos, la música y alguna que otra tecnología, siempre buscando cosas nuevas que aprender y hacer. <br>
-				<a href="http://cjpelaezrivas.tk">Más sobre mi...</a>
-			</div>
-		</div>
-	</div>
-	<div id="infoContact" class="info_block">
-		<div class="title">
-			<b>Contacto</b>
-		</div>
-		<div class="content links">
-			<div class="item hint--bottom-right" data-hint="Perfil personal">
-				<a href="http://cjpelaezrivas.tk" style="font-size: 38px; line-height: 38px;"><i class="fa fa-user-circle"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="prLázarus - RSS">
-				<a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
-				<a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="Perfil de GitHub">
-				<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="Perfil de LinkedIn">
-				<a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
-			</div>
-		</div>
-	</div>
-
-	<div id="infoSuscribe" class="info_block">
-		<div class="title">
-			<b>Notificaciones</b>
-		</div>
-		<div class="content">
-			<form  method="post" action="https://prlazarus.us20.list-manage.com/subscribe/post?u=5dc6163ee27b4b8f0090978e1&amp;id=6b3b278c76" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-		    	<div>
-					<input type="email" name="EMAIL" class="field" id="mce-EMAIL" placeholder="Dirección de email" value="">
-
-					<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-			    	<div style="position: absolute; left: -5000px;" aria-hidden="true">
-			    		<input type="text" name="b_5dc6163ee27b4b8f0090978e1_6b3b278c76" tabindex="-1" value="">
-			    	</div>
-
-			    	<div class="item hint--bottom hint--large" data-hint="Recibe notificaciones por correo electrónico cada vez que se publique una nueva entrada." style="width:100%;">
-						<button type="submit" id="mc-embedded-subscribe" form="mc-embedded-subscribe-form">
-							<i class="fa fa-envelope"></i> Suscribirse
-						</button>
-					</div>
-		    	</div>
-			</form>
-		</div>
-	</div>
-</div>
-					<div id="commentsContainer" style="float:left; width:100%;">
-	<script src="https://utteranc.es/client.js"
-        repo="cjpelaezrivas/prlazarus"
-        issue-term="title"
-        label="comments"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-	</script>
-	<noscript>
-		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
-			Por favor, activa JavaScript para ver los comentarios.
-		</div>
-	</noscript>
-</div>
-					<link rel="stylesheet" type="text/css" href="css/footer.css"/>
-
-<div id="footer_message">
-	¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
-</div>
-<div id="footer">
-	<div class="content">
-		<div id="logo_footer">
-			<a href="http://prlazarus.tk"><img src="images/logo_c.png" alt="prLázarus logo footer" style="margin-top:10px;"/></a>
-			<!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
-		</div>
-		<div id="right_column" class="text">
-			Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.tk">prLázarus</a></i><br>
-			<i class="fa fa-plug"></i> Con la tecnología de <i><a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
-			<i><a href="./feed.xml">RSS</a></i>
-			&nbsp;|&nbsp;
-			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
-			&nbsp;|&nbsp;
-			<i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
-			<a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
-		</div>
-	</div>
-</div>
-					<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
-
-<div id="progressBarContainer">
-	<div class="progressBar">
-	</div>
-</div>
-
-<script src="js/progressBar.js"></script>
-		
-	</div>
-</body>
+      <!-- End of Statcounter Code -->
+      <link rel="stylesheet" type="text/css" href="css/progressBar.css" />
+      <div id="progressBarContainer">
+        <div class="progressBar">
+        </div>
+      </div>
+      <script src="js/progressBar.js"></script>
+    </div>
+  </body>
 </html>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="pandoc" />
-    <title>Borrar archivos de un directorio [Java] [Windows]&nbsp;- prLázarus</title>
+    <title>Patrones de diseño - Introducción&nbsp;- prLázarus</title>
     <meta name='Language' content='es' />
     <meta name='Content-Language' content='es' />
     <meta name="author" content="Carlos J. Peláez Rivas" />
@@ -97,90 +97,122 @@
         </div>
       </div>
       <div class="fluid-row" id="header">
-        <h1 class="title toc-ignore ">Borrar archivos de un directorio [Java] [Windows]</h1>
-        <div class="date"><em>viernes, 2 de mayo de 2014</em></div>
+        <h1 class="title toc-ignore ">Patrones de diseño - Introducción</h1>
+        <div class="date"><em>miércoles, 30 de septiembre de 2020</em></div>
         <div id="entry_section">
-          <div id="time_section"><b>Tiempo de lectura:</b> 2 minutos</div>
+          <div id="time_section"><b>Tiempo de lectura:</b> 5 minutos</div>
         </div>
         <div id="tag_section">
           <b>Etiquetas: </b>
-          <a class="tag" href="md_search.html?tag=Java">Java</a>
-          <a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
+          <a class="tag" href="md_search.html?tag=Patrones de diseño">Patrones de diseño</a>
+          <a class="tag" href="md_search.html?tag=Eficiencia">Eficiencia</a>
           <a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
         </div>
       </div>
+      <b>Tabla de contenido</b>
+      <div class="table-of-contents">
+        <ul>
+          <li><a href="#%C2%BFqu%C3%A9-es-un-patr%C3%B3n-de-dise%C3%B1o%3F">¿Qué es un patrón de diseño?</a></li>
+          <li><a href="#%C2%BFqu%C3%A9-patr%C3%B3n-de-dise%C3%B1o-usar%3F">¿Qué patrón de diseño usar?</a></li>
+          <li><a href="#%C2%BFc%C3%B3mo-se-organizan-los-patrones-de-dise%C3%B1o%3F">¿Cómo se organizan los patrones de diseño?</a></li>
+          <li><a href="#cat%C3%A1logo-de-patrones-de-dise%C3%B1o">Catálogo de patrones de diseño</a></li>
+        </ul>
+      </div>
       <div class="section">
-        <p>Buenas,<br>
-          hoy vamos a ver como borrar todos los archivos dentro de un directorio o únicamente los archivos con una extensión dada.</p>
-        <p>Esto es muy sencillo. Únicamente copiamos el siguiente código en una clase en nuestro proyecto y lo llamamos con el directorio, la antigüedad y la extensión de archivos a eliminar.</p>
-        <pre><code class="hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">borrarContenidoDirectorio</span><span class="hljs-params">(String direccion, <span class="hljs-type">int</span> numDias, String extension)</span> {
-	<span class="hljs-type">File</span> <span class="hljs-variable">directorio</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(direccion);
-	<span class="hljs-keyword">if</span> (directorio.exists() &amp;&amp; directorio.isDirectory()) {
-		File f;
-		<span class="hljs-type">long</span> t;
-		<span class="hljs-keyword">for</span> (String archivo : directorio.list()) {
-			f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(direccion + File.separator + archivo);
-			t = (System.currentTimeMillis() - f.lastModified());
-			<span class="hljs-comment">// long cantidadDia = (t / 86400000);</span>
-			<span class="hljs-comment">// 86400000 ms es equivalente a un día (24 horas)</span>
-			<span class="hljs-keyword">if</span> ((extension == <span class="hljs-literal">null</span> &amp;&amp; t &gt; (<span class="hljs-number">86400000</span> * numDias))
-					|| (archivo.contains(<span class="hljs-string">&quot;.&quot;</span> + extension) &amp;&amp; t &gt; (<span class="hljs-number">86400000</span> * numDias))) {
-				f.delete();
-				f.deleteOnExit();
-			}
-		}
-	}
-}
-</code></pre>
-        <p>El código no necesita mucha explicación. Es simple, y creo que efectivo para cualquier aplicación.
-          En el caso de que se quiera borrar todos los archivos dentro de un directorio usar el útimo argumento como &quot;null&quot;.</p>
-        <p>Y si queréis borrar de forma recursiva a través de distintos directorios emparentados, la implementación sería muy sencilla a partir de esta. A continuación un método para borrar todo el contenido de un directorio, sea el que sea, y a él mismo al final del proceso.</p>
-        <pre><code class="hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">borrarDirectorio</span><span class="hljs-params">(String direccion)</span> {
-	<span class="hljs-type">File</span> <span class="hljs-variable">directorio</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(direccion);
-	<span class="hljs-keyword">if</span> (directorio.exists() &amp;&amp; directorio.isDirectory()) {
-		File f;
-		<span class="hljs-keyword">for</span> (String archivo : directorio.list()) {
-			f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(direccion + File.separator + archivo);
-			<span class="hljs-keyword">if</span> (f.isDirectory()) {
-				borrarDirectorio(f.getAbsolutePath());
-				f.delete();
-				f.deleteOnExit();
-			} <span class="hljs-keyword">else</span> { <span class="hljs-comment">//Es un archivo</span>
-				f.delete();
-				f.deleteOnExit();
-			}
-		}
-		<span class="hljs-comment">//Borrar las 2 siguientes líneas para no eliminar el directorio raíz</span>
-		directorio.delete();
-		directorio.deleteOnExit();
-	}
-}
-</code></pre>
-        <p>No deberíais tener problemas al copiar el código y pegarlo en vuestro IDE para que todo salga tal y como aparece en el blog. Yo lo he probado hasta ahora con Eclipse y funciona bien.</p>
-        <p>Me gustaría decir que aunque en el título se indica que el algoritmo es para Windows es por el único motivo de que ha sido en el único sistema operativo que lo he probado. Dada la naturaleza de Java, su ejecución no debería tener ningún inconveniente en cualquier otra plataforma.</p>
-        <p>Espero que sea útil a alguien. Hasta la próxima.</p>
-        <p>Saludos,<br>
+        <p>Hola. <br>
+          de nuevo ha pasado bastante tiempo desde la última entrada. Intentaremos coger el ritmo de nuevo con una serie de entradas dirigidas a los patrones de diseño. En esta primera entrada se comentará qué es un patrón de diseño y para qué pueden usarse. Además, se añadirán enlaces a las futuras entradas de cada patrón para una navegación más sencilla. ¡Comenzamos!</p>
+        <h2 id="%C2%BFqu%C3%A9-es-un-patr%C3%B3n-de-dise%C3%B1o%3F">¿Qué es un patrón de diseño?</h2>
+        <p>Esta es la primera pregunta que debemos hacernos y quizás la más importante. Para saber usar una herramienta lo mejor es saber qué es y para qué sirve antes incluso de pensar en posibles utilidades de la misma. Al final los patrones de diseño no son más que otra herramienta más que tenemos a nuestra disposición a la hora de enfrentarnos a un problema.</p>
+        <p>Pues bien, un patrón de diseño es una solución a un tipo de problema conocido y que es frecuente. A veces, en la programación orientada a objetos, nos enfrentamos a problemas que en su forma más básica ya han sido resueltos por otros programadores. ¿No sería genial usar esa solución que está probada en nuestro beneficio? La idea, al final, es reutilizar ese &quot;código&quot; para resolver nuestro problema. Ahorra tiempo y esfuerzo. Así de sencillo.</p>
+        <h2 id="%C2%BFqu%C3%A9-patr%C3%B3n-de-dise%C3%B1o-usar%3F">¿Qué patrón de diseño usar?</h2>
+        <p>Claro, para saber si existe un patrón de diseño que soluciona un problema concreto, lo primero que se debe hacer es comprender la descripción de dicho problema y compararla con los patrones que conozcas. Eso obliga a saber, al menos, la utilidad de cada uno de los patrones de diseño existentes. Con esto en mente, solo resta ver qué patrones (o patrones) se acercan más al problema propuesto.</p>
+        <p>Tras seleccionar el patrón, el siguiente paso es renombrar cada una de las partes de este al caso concreto que se está tratando. Se debe tener en cuenta que la estructura del problema puede no coincidir exactamente con la del patrón. A veces existen diferentes restricciones de la aplicación que el patrón genérico no posee. Es posible modificarla estructura y las relaciones entre los objetos todo lo necesario. Un patrón es una guía, no una regla.</p>
+        <h2 id="%C2%BFc%C3%B3mo-se-organizan-los-patrones-de-dise%C3%B1o%3F">¿Cómo se organizan los patrones de diseño?</h2>
+        <p>Los diferentes patrones de diseño se pueden organizar en tres categorías en función de su uso: construcción, composición y comportamiento.</p>
+        <ul>
+          <li><strong>Construcción:</strong> Tienen como objetivo organizar la creación de objetos</li>
+          <li><strong>Estructuración:</strong> Su propósito es facilitar la organización de la jerarquía de clases y las relaciones entre ellas</li>
+          <li><strong>Comportamiento:</strong> Permiten organizar las interacciones y repartir el procesamiento entre los distintos objetos</li>
+        </ul>
+        <p>Esta primera organización, nos ayudará pre-filtrar los patrones en función del propósito de nuestro caso.</p>
+        <h2 id="cat%C3%A1logo-de-patrones-de-dise%C3%B1o">Catálogo de patrones de diseño</h2>
+        <p>Existen un total de 23 patrones de diseño organizados en las tres categorías antes indicadas. A continuación se indica una pequeña descripción para cada uno de los patrones que indica su posible utilidad.</p>
+        <h3 id="construcci%C3%B3n">Construcción</h3>
+        <ul>
+          <li><strong>Abstract Factory:</strong> tiene como objetivo la creación de objetos reagrupados en
+            familias sin tener que conocer las clases concretas destinadas a la creación de
+            estos objetos.</li>
+          <li><strong>Builder:</strong> permite separar la construcción de objetos complejos de su
+            implementación de modo que un cliente pueda crear estos objetos complejos con
+            implementaciones diferentes.</li>
+          <li><strong>Factory Method:</strong> presenta un método abstracto para la
+            creación de un objeto reportando a las subclases la creación efectiva de la instancia.</li>
+          <li><strong>Prototype:</strong> permite crear nuevos objetos por duplicación de objetos existentes
+            llamados prototipos que disponen de la capacidad de ser clonados.</li>
+          <li><strong>Singleton:</strong> permite asegurar que de una clase existe una única
+            instancia y proporciona un método único que la devuelve.</li>
+        </ul>
+        <h3 id="estructuraci%C3%B3n">Estructuración</h3>
+        <ul>
+          <li><strong>Adapter:</strong> tiene como objetivo convertir la interfaz de una clase existente en la
+            interfaz esperada por los clientes también existentes para que puedan trabajar de
+            forma conjunta.</li>
+          <li><strong>Bridge:</strong> tiene como objetivo separar los aspectos conceptuales de una jerarquía
+            de clases de su implementación.</li>
+          <li><strong>Composite:</strong> proporciona un marco de diseño de una composición de objetos con
+            una profundidad de composición variable, basando el diseño en un árbol.</li>
+          <li><strong>Decorator:</strong> permite agregar dinámicamente funcionalidades suplementarias a un
+            objeto.</li>
+          <li><strong>Facade:</strong> tiene como objetivo reagrupar las interfaces de un conjunto de objetos
+            en una interfaz unificada que resulte más fácil de utilizar.</li>
+          <li><strong>Flyweight:</strong> facilita la compartición de un conjunto importante de objetos con
+            granularidad muy fina.</li>
+          <li><strong>Proxy:</strong> construye un objeto que se substituye por otro objeto y que controla su
+            acceso.</li>
+        </ul>
+        <h3 id="comportamiento">Comportamiento</h3>
+        <ul>
+          <li><strong>Chain of responsibility:</strong> crea una cadena de objetos tal que si un objeto de la
+            cadena no puede responder a una petición, la pueda transmitir a sus sucesores
+            hasta que uno de ellos responda.</li>
+          <li><strong>Command:</strong> tiene como objetivo transformar una consulta en un objeto,
+            facilitando operaciones como la anulación, la actualización de consultas y su
+            seguimiento.</li>
+          <li><strong>Interpreter:</strong> proporciona un marco para dar una representación mediante
+            objetos de la gramática de un lenguaje con el objetivo de evaluar,
+            interpretándolas, expresiones escritas en este lenguaje.</li>
+          <li><strong>Iterator:</strong> proporciona un acceso secuencial a una colección de objetos sin que
+            los clientes se preocupen de la implementación de esta colección.</li>
+          <li><strong>Mediator:</strong> construye un objeto cuya vocación es la gestión y el control de las
+            interacciones en el seno de un conjunto de objetos sin que estos elementos se
+            conozcan mutuamente.</li>
+          <li><strong>Memento:</strong> salvaguarda y restaura el estado de un objeto.</li>
+          <li><strong>Observer:</strong> construye una dependencia entre un sujeto y sus observadores de
+            modo que cada modificación del sujeto sea notificada a los observadores para
+            que puedan actualizar su estado.</li>
+          <li><strong>State:</strong> permite a un objeto adaptar su comportamiento en función de su estado
+            interno.</li>
+          <li><strong>Strategy:</strong> adapta el comportamiento y los algoritmos de un objeto en función de
+            una necesidad concreta sin por ello cargar las interacciones con los clientes de
+            este objeto.</li>
+          <li><strong>Template Method:</strong> permite reportar en las subclases ciertas etapas de una de las
+            operaciones de un objeto, estando éstas descritas en las subclases.</li>
+          <li><strong>Visitor:</strong> construye una operación a realizar en los elementos de un conjunto de
+            objetos. Es posible agregar nuevas operaciones sin modificar las clases de estos
+            objetos.</li>
+        </ul>
+        <p>Muchas gracias por leerme,<br>
           Lázarus Surazal.
         </p>
-      </div>
-      <link rel="stylesheet" type="text/css" href="css/relations.css" />
-      <div id="relationsContainer">
-        <span class="relatedTitle">Entradas relacionadas</span>
-        <ul>
-          <li><a href="md_2014_06_10.html">Copiar directorio y contenido [Java] [Windows]</a></li>
-          <li><a href="md_2014_08_07.html">Plantilla Java para lectura y escritura de ficheros de texto</a></li>
-          <li><a href="md_2015_08_24.html">Hilo (Thread) con eventos [Java]</a></li>
-          <li><a href="md_2016_09_22.html">Imprimir por consola nombre y valor de variables [Eclipse] [Java]</a></li>
-        </ul>
       </div>
       <link rel="stylesheet" type="text/css" href="css/navigation.css" />
       <hr>
       <div id="navigationContainer">
-        <a class="item hint--bottom-left navigateButton right" href="md_2014_06_10.html" data-hint="Copiar directorio y contenido [Java] [Windows]">
+        <a class="navigateButton right navigateButtonInvisible" href="#">
           Siguiente
           <i class="fa fa-arrow-right"></i>
         </a>
-        <a class="item hint--bottom-right navigateButton left" href="md_2013_06_13.html" data-hint="Java3D - Decisión de no llevar a cabo la serie de tutoriales">
+        <a class="item hint--bottom-right navigateButton left" href="md_2019_07_18.html" data-hint="Project Creation FX: Composición sobre herencia">
           <i class="fa fa-arrow-left"></i>
           Anterior
         </a>

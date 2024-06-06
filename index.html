@@ -1,525 +1,548 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="pandoc" />
+    <title>prLázarus</title>
+    <meta name='Language' content='es' />
+    <meta name='Content-Language' content='es' />
+    <meta name="author" content="Carlos J. Peláez Rivas" />
+    <meta name="description" content="prLázarus - Blog de programación y diario de desarrollo" />
+    <meta name="keywords" content="lazarus,surazal,prlazarus,blog,programación,programacion,programming,coding,code,desarrollo,development,java,carlos,jesús,jesus,j,peláez,pelaez,rivas,cjpelaez,cjpelaezrivas,málaga,malaga,uma,españa,spain" />
+    <meta property="og:site_name" content="prLázarus" />
+    <meta property="og:title" content="prLázarus - Blog de programación" />
+    <meta property="og:description" content="prLázarus - Blog de programación y diario de desarrollo" />
+    <meta name="twitter:title" content="prLázarus - Blog de programación">
+    <meta name="twitter:description" content="prLázarus - Blog de programación y diario de desarrollo" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="lib/bootstrap-4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/fontawesome-4.7/css/fontawesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/hint-2.5.1/css/hint.base.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/lightbox-2.10/css/lightbox.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/cookieconsent2-3.1.0/css/cookieconsent.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/entry.css" />
+    <link rel="stylesheet" type="text/css" href="css/project.css" />
+    <link rel="stylesheet" type="text/css" href="css/toc.css" />
+    <link rel="stylesheet" type="text/css" href="css/code.css" />
+    <link rel="stylesheet" type="text/css" href="css/code-github.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+    <script src="lib/jquery-3.3.1/js/jquery.min.js"></script>
+    <script src="lib/bootstrap-4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/stickytabs-1.2.0/js/stickytabs.js"></script>
+    <script src="lib/scrolltotop-1.0/js/scrolltotop.js"></script>
+    <script src="lib/lightbox-2.10/js/lightbox.min.js"></script>
+    <script>
+      lightbox.option({
+        'albumLabel': "Imagen %1 de %2",
+        'fadeDuration': 250,
+        'resizeDuration': 250,
+        'wrapAround': true,
+        'disable': true
+      })
+    </script>
+    <script src="lib/cookieconsent2-3.1.0/js/cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function() {
+        window.cookieconsent.initialise({
+          "palette": {
+            "popup": {
+              "background": "#d4d4d4",
+              "text": "#151515"
+            },
+            "button": {
+              "background": "#003379",
+              "text": "#ffffff"
+            }
+          },
+          "content": {
+            "message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
+            "dismiss": "Cerrar mensaje",
+            "link": "Más información",
+            "href": "https://blog.prlazarus.es/md_cookies_policy.html"
+          }
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container-fluid main-container">
+      <link rel="stylesheet" type="text/css" href="css/navbar.css" />
+      <div id="navbar">
+        <div id="zoneA">
+          <div class="content">
+            <a href="./">
+              <div id="logo"></div>
+            </a>
+            <h1 id="title">
+              prLázarus
+            </h1>
+            <h2 id="subtitle">
+              Blog sobre el desarrollo de proyectos, enginería software y tutoriales
+            </h2>
+          </div>
+        </div>
+        <div id="zoneB">
+          <div class="content">
+            <div id="menu">
+              <a class="menuItem" href="./"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
+              <a class="menuItem" href="./md_projects.html"><i class="fa fa-rocket"></i><span class="text"> Proyectos</span></a>
+              <a class="menuItem" href="https://cjpelaezrivas.dev"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fluid-row" id="header">
+      </div>
+      <div class="section">
+        <h3 id="todas-las-entradas-del-blog">Todas las entradas del blog</h3>
+        <style>
+          .filter_title {
+            width: 100%;
+            padding: 15px 15px;
+            font-size: 17px;
+            border: solid 1px #aaaaaa;
+          }
+        </style>
+        <script src="js/filter.js"></script>
+        <input type="text" name="filter_title" class="filter_title" style="display: none" placeholder="Filtrar por título..." maxlength="50">
+        <script>
+          window.onload = function() {
+            var input = document.getElementsByName("filter_title")[0];
+            if (input) {
+              input.style.display = "block";
+              input.addEventListener('input', function(event) {
+                removeFilter();
+                filterByParameters();
+                filterByTitle(input.value);
+              });
+            }
+          }
+        </script>
+        <div class="year">
+          <h3 class="yearTitle">2020</h3>
+          <div class="entries">
+            <div class="entry">
+              <a class="title" href="md_2020_09_30.html">
+                <h4>Patrones de diseño - Introducción</h4>
+              </a>
+              <div class="date">miércoles, 30 de septiembre de 2020</div>
+              <div class="description">Inicio de una nueva serie de entradas relacionadas con los patrones de diseño.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Patrones de diseño">Patrones de diseño</a>
+                <a class="tag" href="md_search.html?tag=Eficiencia">Eficiencia</a>
+                <a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="year">
+          <h3 class="yearTitle">2019</h3>
+          <div class="entries">
+            <div class="entry">
+              <a class="title" href="md_2019_07_18.html">
+                <h4>Project Creation FX: Composición sobre herencia</h4>
+              </a>
+              <div class="date">jueves, 18 de julio de 2019</div>
+              <div class="description">Artículo de opinión sobre el desarrollo de Project Creation FX, y los cambios realizados relacionados con las entidades.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+                <a class="tag" href="md_search.html?tag=Project Creation FX">Project Creation FX</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2019_03_25.html">
+                <h4>Power Shooter - Inicio de proyecto</h4>
+              </a>
+              <div class="date">lunes, 25 de marzo de 2019</div>
+              <div class="description">Incio de un nuevo proyecto para el blog usando ProjectCreationFX como base.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+                <a class="tag" href="md_search.html?tag=IdP">IdP</a>
+                <a class="tag" href="md_search.html?tag=PowerShooter">PowerShooter</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="year">
+          <h3 class="yearTitle">2018</h3>
+          <div class="entries">
+            <div class="entry">
+              <a class="title" href="md_2018_12_18.html">
+                <h4>Proceso de actualización del blog finalizado</h4>
+              </a>
+              <div class="date">martes, 18 de diciembre de 2018</div>
+              <div class="description">Artículo que cierra el proceso de migración del blog desde Blogger, detallando todos los cambios que se han llevado a cabo.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Blog">Blog</a>
+                <a class="tag" href="md_search.html?tag=FdP">FdP</a>
+                <a class="tag" href="md_search.html?tag=Información">Información</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2018_11_30.html">
+                <h4>Relacionando las entradas del blog</h4>
+              </a>
+              <div class="date">viernes, 30 de noviembre de 2018</div>
+              <div class="description">Detalles de las funciones creadas para relacionar entradas en el blog.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Blog">Blog</a>
+                <a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2018_11_27.html">
+                <h4>Nuevas actualizaciones en el blog</h4>
+              </a>
+              <div class="date">martes, 27 de noviembre de 2018</div>
+              <div class="description">Artículo detallando las nuevas mejoras incluidas en el blog.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Blog">Blog</a>
+                <a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2018_10_30.html">
+                <h4>Opinión: Máster en Ingeniería Informática (UMA)</h4>
+              </a>
+              <div class="date">martes, 30 de octubre de 2018</div>
+              <div class="description">Artículo de opinión sobre mis vivencias cursando el Máster Oficial en Ingeniería Informática impartido por la UMA.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Opinión">Opinión</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2018_05_04.html">
+                <h4>Contraseñas para nuestro día a día</h4>
+              </a>
+              <div class="date">viernes, 4 de mayo de 2018</div>
+              <div class="description">Artículo de opinión sobre el uso de contraseñas para nuestro trabajo cotidiano.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+                <a class="tag" href="md_search.html?tag=Seguridad">Seguridad</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2018_03_21.html">
+                <h4>Nuevo blog, nuevo alojamiento, nuevo comienzo</h4>
+              </a>
+              <div class="date">miércoles, 21 de marzo de 2018</div>
+              <div class="description">Primera entrada del blog tras la migración desde Blogger. </div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Blog">Blog</a>
+                <a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+                <a class="tag" href="md_search.html?tag=IdP">IdP</a>
+                <a class="tag" href="md_search.html?tag=Información">Información</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="year">
+          <h3 class="yearTitle">2016</h3>
+          <div class="entries">
+            <div class="entry">
+              <a class="title" href="md_2016_09_22.html">
+                <h4>Imprimir por consola nombre y valor de variables [Eclipse] [Java]</h4>
+              </a>
+              <div class="date">jueves, 22 de septiembre de 2016</div>
+              <div class="description">Tutorial para facilitar las operaciones de imprimir por consola el nombre y valor de una variable en Java usando plantillas de código.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Eficiencia">Eficiencia</a>
+                <a class="tag" href="md_search.html?tag=Java">Java</a>
+                <a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
+                <a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="year">
+          <h3 class="yearTitle">2015</h3>
+          <div class="entries">
+            <div class="entry">
+              <a class="title" href="md_2015_08_24.html">
+                <h4>Hilo (Thread) con eventos [Java]</h4>
+              </a>
+              <div class="date">lunes, 24 de agosto de 2015</div>
+              <div class="description">Tutorial sobre cómo incluir eventos asíncronos a los hilos en Java.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Java">Java</a>
+                <a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
+                <a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2015_08_17.html">
+                <h4>10 consejos para escribir comentarios en Java</h4>
+              </a>
+              <div class="date">lunes, 17 de agosto de 2015</div>
+              <div class="description">Lista de consejos a la hora de escribir comentarios en nuestro código Java.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+                <a class="tag" href="md_search.html?tag=Diseño">Diseño</a>
+                <a class="tag" href="md_search.html?tag=Java">Java</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2015_08_10.html">
+                <h4>Principios de diseño orientado a objetos que todo programador de Java debería conocer</h4>
+              </a>
+              <div class="date">lunes, 10 de agosto de 2015</div>
+              <div class="description">Artículo en el que se detallan los principios más básicos a la hora de programar usando orientación a objetos (OOP).</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+                <a class="tag" href="md_search.html?tag=Diseño">Diseño</a>
+                <a class="tag" href="md_search.html?tag=Java">Java</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2015_01_12.html">
+                <h4>Cómo evitar las NullPointerException (NPE) en Java [Parte 2]</h4>
+              </a>
+              <div class="date">lunes, 12 de enero de 2015</div>
+              <div class="description">Segunda parte del artículo dedicado a las NullPointerExceptions en Java, dando algunos consejos de cómo evitarlas.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+                <a class="tag" href="md_search.html?tag=Diseño">Diseño</a>
+                <a class="tag" href="md_search.html?tag=Java">Java</a>
+                <a class="tag" href="md_search.html?tag=NullPointerException">NullPointerException</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="year">
+          <h3 class="yearTitle">2014</h3>
+          <div class="entries">
+            <div class="entry">
+              <a class="title" href="md_2014_10_01.html">
+                <h4>Cómo evitar las NullPointerException (NPE) en Java [Parte 1]</h4>
+              </a>
+              <div class="date">miércoles, 1 de octubre de 2014</div>
+              <div class="description">Primera parte del artículo dedicado a la NullPointerExceptions en Java, explicando qué son y cuándo se producen.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+                <a class="tag" href="md_search.html?tag=Diseño">Diseño</a>
+                <a class="tag" href="md_search.html?tag=Java">Java</a>
+                <a class="tag" href="md_search.html?tag=NullPointerException">NullPointerException</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2014_08_07.html">
+                <h4>Plantilla Java para lectura y escritura de ficheros de texto</h4>
+              </a>
+              <div class="date">jueves, 7 de agosto de 2014</div>
+              <div class="description">Enlaces a la plantilla de lectura y escritura de ficheros que uso como base para scripts y utilidades en Java.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Eficiencia">Eficiencia</a>
+                <a class="tag" href="md_search.html?tag=Java">Java</a>
+                <a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
+                <a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2014_06_10.html">
+                <h4>Copiar directorio y contenido [Java] [Windows]</h4>
+              </a>
+              <div class="date">martes, 10 de junio de 2014</div>
+              <div class="description">Tutorial de cómo copiar ficheros y directorios usando Java.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Java">Java</a>
+                <a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
+                <a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2014_05_02.html">
+                <h4>Borrar archivos de un directorio [Java] [Windows]</h4>
+              </a>
+              <div class="date">viernes, 2 de mayo de 2014</div>
+              <div class="description">Tutorial de cómo borrar ficheros y directorios usando Java.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Java">Java</a>
+                <a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
+                <a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="year">
+          <h3 class="yearTitle">2013</h3>
+          <div class="entries">
+            <div class="entry">
+              <a class="title" href="md_2013_06_13.html">
+                <h4>Java3D - Decisión de no llevar a cabo la serie de tutoriales</h4>
+              </a>
+              <div class="date">jueves, 13 de junio de 2013</div>
+              <div class="description">Artículo de opinión sobre Java3D y los motivos para no continuar con la serie de tutoriales.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=FdP">FdP</a>
+                <a class="tag" href="md_search.html?tag=Java3D">Java3D</a>
+                <a class="tag" href="md_search.html?tag=Opinión">Opinión</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2013_03_15.html">
+                <h4>Java3D - Introducción a la Programación de Videojuegos</h4>
+              </a>
+              <div class="date">viernes, 15 de marzo de 2013</div>
+              <div class="description">Pasos preparatorio para la instalación y configuración del entorno.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+                <a class="tag" href="md_search.html?tag=Java">Java</a>
+                <a class="tag" href="md_search.html?tag=Java3D">Java3D</a>
+                <a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
+                <a class="tag" href="md_search.html?tag=Videojuegos">Videojuegos</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="year">
+          <h3 class="yearTitle">2012</h3>
+          <div class="entries">
+            <div class="entry">
+              <a class="title" href="md_2012_10_14.html">
+                <h4>prCalculadoraIntérprete - Fin de proyecto</h4>
+              </a>
+              <div class="date">domingo, 14 de octubre de 2012</div>
+              <div class="description">Cierre del primer proyecto del blog. Resumen de resultados y conclusiones.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+                <a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+                <a class="tag" href="md_search.html?tag=FdP">FdP</a>
+                <a class="tag" href="md_search.html?tag=Java">Java</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2012_10_07_B.html">
+                <h4>prCalculadoraIntérprete - Método intérprete</h4>
+              </a>
+              <div class="date">domingo, 7 de octubre de 2012</div>
+              <div class="description">Implementación de la lógica base para el intérprete.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+                <a class="tag" href="md_search.html?tag=Java">Java</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2012_10_07.html">
+                <h4>prCalculadoraIntérprete - Pequeños cambios...</h4>
+              </a>
+              <div class="date">domingo, 7 de octubre de 2012</div>
+              <div class="description">Actualización de la solución parcial del ejercicio, para permiter seleccionar las entradas y salidas.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+                <a class="tag" href="md_search.html?tag=Java">Java</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2012_09_29_B.html">
+                <h4>prCalculadoraIntérprete - Primeros pasos</h4>
+              </a>
+              <div class="date">sábado, 29 de septiembre de 2012</div>
+              <div class="description">Creación del esqueleto del intérprete a implementar.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+                <a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+                <a class="tag" href="md_search.html?tag=Java">Java</a>
+              </div>
+            </div>
+            <div class="entry">
+              <a class="title" href="md_2012_09_29.html">
+                <h4>prCalculadoraIntérprete - Inicio de proyecto</h4>
+              </a>
+              <div class="date">sábado, 29 de septiembre de 2012</div>
+              <div class="description">Primera entrada del blog, en la que se describe el enunciado del problema a resolver.</div>
+              <div class="tags">
+                <a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+                <a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+                <a class="tag" href="md_search.html?tag=IdP">IdP</a>
+                <a class="tag" href="md_search.html?tag=Java">Java</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="noResult block warning icon fa-search" style="display:none; margin-top:20px;">No se ha encontrado ningún resultado.</div>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/info.css" />
+      <div id="infoContainer">
+        <div id="infoProfile" class="info_block">
+          <div class="title">
+            <b>Perfil</b>
+          </div>
+          <div class="content">
+            <div class="part photo">
+              <img src="images/logo_b.png" width="90px" alt="prLázarus logo info" />
+            </div>
+            <div class="part description">
+              <h3 id="name">Carlos J. Peláez Rivas <em id="alias">(Lázarus Surazal)</em></h3>
+              Graduado y Máster en Ingeniería Informática por la Universidad de Málaga (España). También cursé un Experto en tecnologías de Blockchain. Actualmente trabajando como Software engineer en Málaga.<br>
+              Apasionado de los videojuegos, la música y la tecnología, siempre buscando cosas nuevas que aprender, hacer (y a veces romper).<br>
+              <a href="https://cjpelaezrivas.dev">Más sobre mi...</a>
+            </div>
+          </div>
+        </div>
+        <div id="infoContact" class="info_block">
+          <div class="title">
+            <b>Contacto</b>
+          </div>
+          <div class="content links">
+            <div class="item hint--bottom-right" data-hint="Perfil personal">
+              <a href="https://cjpelaezrivas.dev" style="font-size: 38px; line-height: 38px;"><i class="fa fa-user-circle"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="prLázarus - RSS">
+              <a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
+              <a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="Perfil de GitHub">
+              <a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="Perfil de LinkedIn">
+              <a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/footer.css" />
+      <div id="footer_message">
+        ¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="https://github.com/cjpelaezrivas/prLazarus/issues">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
+      </div>
+      <div id="footer">
+        <div class="content">
+          <div id="logo_footer">
+            <a href="https://prlazarus.es"><img src="images/logo_c.png" alt="prLázarus logo footer" style="margin-top:10px;" /></a>
 
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="generator" content="pandoc" />
+            <!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
+          </div>
+          <div id="right_column" class="text">
+            Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag" /></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.es">prLázarus</a></i><br>
+            <i class="fa fa-plug"></i> Con la tecnología de <i><a href="https://cjpelaezrivas.dev/ProjectLighthouse/">Project Lighthouse</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
+            <i><a href="./feed.xml">RSS</a></i>
+            &nbsp;|&nbsp;
+            <i><a href="md_cookies_policy.html">Política de cookies</a></i>
+            &nbsp;|&nbsp;
+            <i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
+            <a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
+          </div>
+        </div>
+      </div>
 
-	<title>prLázarus</title>
+      <!-- Default Statcounter code for prLázarus - Blog -->
+      <script type="text/javascript">
+        var sc_project = 12995152;
+        var sc_invisible = 1;
+        var sc_security = "7de2ea10";
+      </script>
+      <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+      <noscript>
+        <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12995152/0/7de2ea10/1/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></a></div>
+      </noscript>
 
-			<meta name='Language' content='es' />
-<meta name='Content-Language' content='es' />
-
-<meta name="author" content="Carlos J. Peláez Rivas" />
-<meta name="description" content="prLázarus - Blog de programación y diario de desarrollo" />
-<meta name="keywords" content="lazarus,surazal,prlazarus,blog,programación,programacion,programming,coding,code,desarrollo,development,java,carlos,jesús,jesus,j,peláez,pelaez,rivas,cjpelaez,cjpelaezrivas,málaga,malaga,uma,españa,spain"/>
-
-<meta property="og:site_name" content="prLázarus" />
-<meta property="og:title" content="prLázarus - Blog de programación" />
-<meta property="og:description" content="prLázarus - Blog de programación y diario de desarrollo" />
-<meta name="twitter:title" content="prLázarus - Blog de programación">
-<meta name="twitter:description" content="prLázarus - Blog de programación y diario de desarrollo" />
-
-<link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
-<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
-
-<link rel="stylesheet" href="lib/bootstrap-4.1.3/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="lib/fontawesome-4.7/css/fontawesome.min.css"/>
-<link rel="stylesheet" type="text/css" href="lib/hint-2.5.1/css/hint.base.min.css"/>
-<link rel="stylesheet" type="text/css" href="lib/lightbox-2.10/css/lightbox.min.css"/>
-<link rel="stylesheet" type="text/css" href="lib/cookieconsent2-3.1.0/css/cookieconsent.min.css"/>
-
-<link rel="stylesheet" type="text/css" href="css/base.css"/>
-<link rel="stylesheet" type="text/css" href="css/main.css"/>
-<link rel="stylesheet" type="text/css" href="css/entry.css"/>
-<link rel="stylesheet" type="text/css" href="css/project.css"/>
-<link rel="stylesheet" type="text/css" href="css/toc.css"/>
-<link rel="stylesheet" type="text/css" href="css/code.css"/>
-<link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
-
-<script src="lib/jquery-3.3.1/js/jquery.min.js"></script>
-<script src="lib/bootstrap-4.1.3/js/bootstrap.bundle.min.js"></script>
-<script src="lib/stickytabs-1.2.0/js/stickytabs.js"></script>
-<script src="lib/scrolltotop-1.0/js/scrolltotop.js"></script>
-
-<script src="lib/lightbox-2.10/js/lightbox.min.js"></script>
-<script>
-	lightbox.option({
-		'albumLabel': "Imagen %1 de %2",
-		'fadeDuration': 250,
-		'resizeDuration': 250,
-		'wrapAround': true
-	})
-</script>
-
-<script src="lib/cookieconsent2-3.1.0/js/cookieconsent.min.js"></script>
-<script>
-	window.addEventListener("load", function(){
-		window.cookieconsent.initialise({
-			"palette": {
-				"popup": {
-					"background": "#d4d4d4",
-					"text": "#151515"
-				},
-				"button": {
-					"background": "#003379",
-					"text": "#ffffff"
-				}
-			},
-			"content": {
-				"message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
-				"dismiss": "Cerrar mensaje",
-				"link": "Más información",
-				"href": "http://prlazarus.tk/md_cookies_policy.html"
-			}
-		})
-	});
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', 'UA-74491738-2');
-</script>
-	</head>
-
-<body>
-	<div class="container-fluid main-container">
-
-		<script>
-			$(document).ready(function () {
-				window.buildTabsets("TOC");
-			});
-		</script>
-
-					<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
-
-<div id="navbar">
-	<div id="zoneA">
-		<div class="content">
-			<a href="./">
-				<div id="logo"></div>
-			</a>
-
-			<h1 id="title">
-				prLázarus
-			</h1>
-			<h2 id="subtitle">
-				Blog de desarrollo de proyectos Software, tutoriales, consejos y varios.
-			</h2>
-		</div>
-	</div>
-	<div id="zoneB">
-		<div class="content">
-			<div id="menu">
-				<a class="menuItem" href="./"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
-				<a class="menuItem" href="./md_projects.html"><i class="fa fa-rocket"></i><span class="text"> Proyectos</span></a>
-				<a class="menuItem" href="http://cjpelaezrivas.tk"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
-			</div>
-		</div>
-	</div>
-</div>
-		
-		<div class="fluid-row" id="header">
-
-						
-			<!--
-						-->
-
-			<!--
-						-->
-
-			
-			
-			<!--
-						-->
-
-		</div>
-
-		
-		<div id="todas-las-entradas-del-blog" class="section level3">
-<h3>Todas las entradas del blog</h3>
-<style>
-	.filter_title {
-		width: 100%;
-		padding: 15px 15px;
-		font-size: 17px;
-		border: solid 1px #aaaaaa;
-	}
-</style>
-
-<script src="js/filter.js"></script>
-
-<input type="text" name="filter_title" class="filter_title" style="display: none" placeholder="Filtrar por título..." maxlength="50">
-
-<script>
-	window.onload = function () {
-		var input = document.getElementsByName("filter_title")[0];
-		if(input) {
-			input.style.display = "block";
-			input.addEventListener('input', function (event) {
-				removeFilter();
-				filterByParameters();
-				filterByTitle(input.value);
-			});
-		}
-	}
-</script>
-<div class="year">
-<h3 class="yearTitle">2019</h3>
-<div class="entries">
-<div class="entry">
-<a class="title" href="md_2019_07_18.html"><h4>Project Creation FX: Composición sobre herencia</h4></a>
-<div class="date">jueves, 18 de julio de 2019</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-<a class="tag" href="md_search.html?tag=Project Creation FX">Project Creation FX</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2019_03_25.html"><h4>Power Shooter - Inicio de proyecto</h4></a>
-<div class="date">lunes, 25 de marzo de 2019</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-<a class="tag" href="md_search.html?tag=IdP">IdP</a>
-<a class="tag" href="md_search.html?tag=PowerShooter">PowerShooter</a>
-</div>
-</div>
-</div>
-</div>
-<div class="year">
-<h3 class="yearTitle">2018</h3>
-<div class="entries">
-<div class="entry">
-<a class="title" href="md_2018_12_18.html"><h4>Proceso de actualización del blog finalizado</h4></a>
-<div class="date">martes, 18 de diciembre de 2018</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Blog">Blog</a>
-<a class="tag" href="md_search.html?tag=FdP">FdP</a>
-<a class="tag" href="md_search.html?tag=Información">Información</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2018_11_30.html"><h4>Relacionando las entradas del blog</h4></a>
-<div class="date">viernes, 30 de noviembre de 2018</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Blog">Blog</a>
-<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2018_11_27.html"><h4>Nuevas actualizaciones en el blog</h4></a>
-<div class="date">martes, 27 de noviembre de 2018</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Blog">Blog</a>
-<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2018_10_30.html"><h4>Opinión: Máster en Ingeniería Informática (UMA)</h4></a>
-<div class="date">martes, 30 de octubre de 2018</div>
-<div class="description">Artículo de opinión sobre mis vivencias cursando el Máster Oficial en Ingeniería Informática impartido por la UMA.</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Opinión">Opinión</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2018_05_04.html"><h4>Contraseñas para nuestro día a día</h4></a>
-<div class="date">viernes, 4 de mayo de 2018</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
-<a class="tag" href="md_search.html?tag=Seguridad">Seguridad</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2018_03_21.html"><h4>Nuevo blog, nuevo alojamiento, nuevo comienzo</h4></a>
-<div class="date">miércoles, 21 de marzo de 2018</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Blog">Blog</a>
-<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-<a class="tag" href="md_search.html?tag=IdP">IdP</a>
-<a class="tag" href="md_search.html?tag=Información">Información</a>
-</div>
-</div>
-</div>
-</div>
-<div class="year">
-<h3 class="yearTitle">2016</h3>
-<div class="entries">
-<div class="entry">
-<a class="title" href="md_2016_09_22.html"><h4>Imprimir por consola nombre y valor de variables [Eclipse] [Java]</h4></a>
-<div class="date">jueves, 22 de septiembre de 2016</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Eficiencia">Eficiencia</a>
-<a class="tag" href="md_search.html?tag=Java">Java</a>
-<a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
-<a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
-</div>
-</div>
-</div>
-</div>
-<div class="year">
-<h3 class="yearTitle">2015</h3>
-<div class="entries">
-<div class="entry">
-<a class="title" href="md_2015_08_24.html"><h4>Hilo (Thread) con eventos [Java]</h4></a>
-<div class="date">lunes, 24 de agosto de 2015</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Java">Java</a>
-<a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
-<a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2015_08_17.html"><h4>10 consejos para escribir comentarios en Java</h4></a>
-<div class="date">lunes, 17 de agosto de 2015</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
-<a class="tag" href="md_search.html?tag=Diseño">Diseño</a>
-<a class="tag" href="md_search.html?tag=Java">Java</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2015_08_10.html"><h4>Principios de diseño orientado a objetos que todo programador de Java debería conocer</h4></a>
-<div class="date">lunes, 10 de agosto de 2015</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
-<a class="tag" href="md_search.html?tag=Diseño">Diseño</a>
-<a class="tag" href="md_search.html?tag=Java">Java</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2015_01_12.html"><h4>Cómo evitar las NullPointerException (NPE) en Java [Parte 2]</h4></a>
-<div class="date">lunes, 12 de enero de 2015</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
-<a class="tag" href="md_search.html?tag=Diseño">Diseño</a>
-<a class="tag" href="md_search.html?tag=Java">Java</a>
-<a class="tag" href="md_search.html?tag=NullPointerException">NullPointerException</a>
-</div>
-</div>
-</div>
-</div>
-<div class="year">
-<h3 class="yearTitle">2014</h3>
-<div class="entries">
-<div class="entry">
-<a class="title" href="md_2014_10_01.html"><h4>Cómo evitar las NullPointerException (NPE) en Java [Parte 1]</h4></a>
-<div class="date">miércoles, 1 de octubre de 2014</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
-<a class="tag" href="md_search.html?tag=Diseño">Diseño</a>
-<a class="tag" href="md_search.html?tag=Java">Java</a>
-<a class="tag" href="md_search.html?tag=NullPointerException">NullPointerException</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2014_08_07.html"><h4>Plantilla Java para lectura y escritura de ficheros de texto</h4></a>
-<div class="date">jueves, 7 de agosto de 2014</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Eficiencia">Eficiencia</a>
-<a class="tag" href="md_search.html?tag=Java">Java</a>
-<a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
-<a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2014_06_10.html"><h4>Copiar directorio y contenido [Java] [Windows]</h4></a>
-<div class="date">martes, 10 de junio de 2014</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Java">Java</a>
-<a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
-<a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2014_05_02.html"><h4>Borrar archivos de un directorio [Java] [Windows]</h4></a>
-<div class="date">viernes, 2 de mayo de 2014</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Java">Java</a>
-<a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
-<a class="tag" href="md_search.html?tag=Utilidades">Utilidades</a>
-</div>
-</div>
-</div>
-</div>
-<div class="year">
-<h3 class="yearTitle">2013</h3>
-<div class="entries">
-<div class="entry">
-<a class="title" href="md_2013_06_13.html"><h4>Java3D - Decisión de no llevar a cabo la serie de tutoriales</h4></a>
-<div class="date">jueves, 13 de junio de 2013</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=FdP">FdP</a>
-<a class="tag" href="md_search.html?tag=Java3D">Java3D</a>
-<a class="tag" href="md_search.html?tag=Opinión">Opinión</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2013_03_15.html"><h4>Java3D - Introducción a la Programación de Videojuegos</h4></a>
-<div class="date">viernes, 15 de marzo de 2013</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
-<a class="tag" href="md_search.html?tag=Java">Java</a>
-<a class="tag" href="md_search.html?tag=Java3D">Java3D</a>
-<a class="tag" href="md_search.html?tag=Tutoriales">Tutoriales</a>
-<a class="tag" href="md_search.html?tag=Videojuegos">Videojuegos</a>
-</div>
-</div>
-</div>
-</div>
-<div class="year">
-<h3 class="yearTitle">2012</h3>
-<div class="entries">
-<div class="entry">
-<a class="title" href="md_2012_10_14.html"><h4>prCalculadoraIntérprete - Fin de proyecto</h4></a>
-<div class="date">domingo, 14 de octubre de 2012</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
-<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-<a class="tag" href="md_search.html?tag=FdP">FdP</a>
-<a class="tag" href="md_search.html?tag=Java">Java</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2012_10_07_B.html"><h4>prCalculadoraIntérprete - Método intérprete</h4></a>
-<div class="date">domingo, 7 de octubre de 2012</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-<a class="tag" href="md_search.html?tag=Java">Java</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2012_10_07.html"><h4>prCalculadoraIntérprete - Pequeños cambios...</h4></a>
-<div class="date">domingo, 7 de octubre de 2012</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-<a class="tag" href="md_search.html?tag=Java">Java</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2012_09_29_B.html"><h4>prCalculadoraIntérprete - Primeros pasos</h4></a>
-<div class="date">sábado, 29 de septiembre de 2012</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
-<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-<a class="tag" href="md_search.html?tag=Java">Java</a>
-</div>
-</div>
-<div class="entry">
-<a class="title" href="md_2012_09_29.html"><h4>prCalculadoraIntérprete - Inicio de proyecto</h4></a>
-<div class="date">sábado, 29 de septiembre de 2012</div>
-<div class="tags">
-<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
-<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-<a class="tag" href="md_search.html?tag=IdP">IdP</a>
-<a class="tag" href="md_search.html?tag=Java">Java</a>
-</div>
-</div>
-</div>
-</div>
-<div class="noResult block warning icon fa-search" style="display:none; margin-top:20px;">
- No se ha encontrado ningún resultado.</div>
-
-</div>
-
-		
-					<link rel="stylesheet" type="text/css" href="css/info.css"/>
-
-<div id="infoContainer">
-	<div id="infoProfile" class="info_block">
-		<div class="title">
-			<b>Perfil</b>
-		</div>
-		<div class="content">
-			<div class="part photo">
-				<img src="images/logo_b.png" width="90px" alt="prLázarus logo info" />
-			</div>
-			<div class="part description">
-				<b>Carlos J. Peláez Rivas (Lázarus Surazal)</b> <br>
-				Graduado y Máster en Ingeniería Informática por la Universidad de Málaga. Actualmente trabajando como desarrollador de aplicaciones en Java usando Vaadin.<br>
-				Apasionado de los videojuegos, la música y alguna que otra tecnología, siempre buscando cosas nuevas que aprender y hacer. <br>
-				<a href="http://cjpelaezrivas.tk">Más sobre mi...</a>
-			</div>
-		</div>
-	</div>
-	<div id="infoContact" class="info_block">
-		<div class="title">
-			<b>Contacto</b>
-		</div>
-		<div class="content links">
-			<div class="item hint--bottom-right" data-hint="Perfil personal">
-				<a href="http://cjpelaezrivas.tk" style="font-size: 38px; line-height: 38px;"><i class="fa fa-user-circle"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="prLázarus - RSS">
-				<a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
-				<a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="Perfil de GitHub">
-				<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="Perfil de LinkedIn">
-				<a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
-			</div>
-		</div>
-	</div>
-
-	<div id="infoSuscribe" class="info_block">
-		<div class="title">
-			<b>Notificaciones</b>
-		</div>
-		<div class="content">
-			<form  method="post" action="https://prlazarus.us20.list-manage.com/subscribe/post?u=5dc6163ee27b4b8f0090978e1&amp;id=6b3b278c76" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-		    	<div>
-					<input type="email" name="EMAIL" class="field" id="mce-EMAIL" placeholder="Dirección de email" value="">
-
-					<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-			    	<div style="position: absolute; left: -5000px;" aria-hidden="true">
-			    		<input type="text" name="b_5dc6163ee27b4b8f0090978e1_6b3b278c76" tabindex="-1" value="">
-			    	</div>
-
-			    	<div class="item hint--bottom hint--large" data-hint="Recibe notificaciones por correo electrónico cada vez que se publique una nueva entrada." style="width:100%;">
-						<button type="submit" id="mc-embedded-subscribe" form="mc-embedded-subscribe-form">
-							<i class="fa fa-envelope"></i> Suscribirse
-						</button>
-					</div>
-		    	</div>
-			</form>
-		</div>
-	</div>
-</div>
-					<link rel="stylesheet" type="text/css" href="css/footer.css"/>
-
-<div id="footer_message">
-	¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
-</div>
-<div id="footer">
-	<div class="content">
-		<div id="logo_footer">
-			<a href="http://prlazarus.tk"><img src="images/logo_c.png" alt="prLázarus logo footer" style="margin-top:10px;"/></a>
-			<!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
-		</div>
-		<div id="right_column" class="text">
-			Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.tk">prLázarus</a></i><br>
-			<i class="fa fa-plug"></i> Con la tecnología de <i><a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
-			<i><a href="./feed.xml">RSS</a></i>
-			&nbsp;|&nbsp;
-			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
-			&nbsp;|&nbsp;
-			<i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
-			<a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
-		</div>
-	</div>
-</div>
-		
-	</div>
-</body>
+      <!-- End of Statcounter Code -->
+    </div>
+  </body>
 </html>

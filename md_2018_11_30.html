@@ -1,391 +1,332 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="pandoc" />
+    <title>Relacionando las entradas del blog&nbsp;- prLázarus</title>
+    <meta name='Language' content='es' />
+    <meta name='Content-Language' content='es' />
+    <meta name="author" content="Carlos J. Peláez Rivas" />
+    <meta name="description" content="prLázarus - Blog de programación y diario de desarrollo" />
+    <meta name="keywords" content="lazarus,surazal,prlazarus,blog,programación,programacion,programming,coding,code,desarrollo,development,java,carlos,jesús,jesus,j,peláez,pelaez,rivas,cjpelaez,cjpelaezrivas,málaga,malaga,uma,españa,spain" />
+    <meta property="og:site_name" content="prLázarus" />
+    <meta property="og:title" content="prLázarus - Blog de programación" />
+    <meta property="og:description" content="prLázarus - Blog de programación y diario de desarrollo" />
+    <meta name="twitter:title" content="prLázarus - Blog de programación">
+    <meta name="twitter:description" content="prLázarus - Blog de programación y diario de desarrollo" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="lib/bootstrap-4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/fontawesome-4.7/css/fontawesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/hint-2.5.1/css/hint.base.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/lightbox-2.10/css/lightbox.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/cookieconsent2-3.1.0/css/cookieconsent.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/entry.css" />
+    <link rel="stylesheet" type="text/css" href="css/project.css" />
+    <link rel="stylesheet" type="text/css" href="css/toc.css" />
+    <link rel="stylesheet" type="text/css" href="css/code.css" />
+    <link rel="stylesheet" type="text/css" href="css/code-github.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+    <script src="lib/jquery-3.3.1/js/jquery.min.js"></script>
+    <script src="lib/bootstrap-4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/stickytabs-1.2.0/js/stickytabs.js"></script>
+    <script src="lib/scrolltotop-1.0/js/scrolltotop.js"></script>
+    <script src="lib/lightbox-2.10/js/lightbox.min.js"></script>
+    <script>
+      lightbox.option({
+        'albumLabel': "Imagen %1 de %2",
+        'fadeDuration': 250,
+        'resizeDuration': 250,
+        'wrapAround': true,
+        'disable': true
+      })
+    </script>
+    <script src="lib/cookieconsent2-3.1.0/js/cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function() {
+        window.cookieconsent.initialise({
+          "palette": {
+            "popup": {
+              "background": "#d4d4d4",
+              "text": "#151515"
+            },
+            "button": {
+              "background": "#003379",
+              "text": "#ffffff"
+            }
+          },
+          "content": {
+            "message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
+            "dismiss": "Cerrar mensaje",
+            "link": "Más información",
+            "href": "https://blog.prlazarus.es/md_cookies_policy.html"
+          }
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container-fluid main-container">
+      <link rel="stylesheet" type="text/css" href="css/navbar.css" />
+      <div id="navbar">
+        <div id="zoneA">
+          <div class="content">
+            <a href="./">
+              <div id="logo"></div>
+            </a>
+            <h1 id="title">
+              prLázarus
+            </h1>
+            <h2 id="subtitle">
+              Blog sobre el desarrollo de proyectos, enginería software y tutoriales
+            </h2>
+          </div>
+        </div>
+        <div id="zoneB">
+          <div class="content">
+            <div id="menu">
+              <a class="menuItem" href="./"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
+              <a class="menuItem" href="./md_projects.html"><i class="fa fa-rocket"></i><span class="text"> Proyectos</span></a>
+              <a class="menuItem" href="https://cjpelaezrivas.dev"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fluid-row" id="header">
+        <h1 class="title toc-ignore ">Relacionando las entradas del blog</h1>
+        <div class="date"><em>viernes, 30 de noviembre de 2018</em></div>
+        <div id="entry_section">
+          <div id="time_section"><b>Tiempo de lectura:</b> 7 minutos</div>
+          <div id="project_section"><b>Proyecto:</b> <a href="md_projects.html#blog">Actualización del blog</a></div>
+        </div>
+        <div id="tag_section">
+          <b>Etiquetas: </b>
+          <a class="tag" href="md_search.html?tag=Blog">Blog</a>
+          <a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
+        </div>
+      </div>
+      <b>Tabla de contenido</b>
+      <div class="table-of-contents">
+        <ul>
+          <li><a href="#relaciones-matem%C3%A1ticas">Relaciones matemáticas</a></li>
+          <li><a href="#propiedades-de-las-relaciones">Propiedades de las relaciones</a></li>
+          <li><a href="#implementaci%C3%B3n-de-la-soluci%C3%B3n">Implementación de la solución</a></li>
+        </ul>
+      </div>
+      <div class="section">
+        <p>Hola de nuevo,<br>
+          Parece que le he cogido justo a esto de escribir entradas. En esta ocasión voy a hablar un poco sobre la nueva modificación incluida en el blog: La sección de entradas relacionadas.</p>
+        <p>Todos hemos visto en muchas páginas una sección que relaciona distintas páginas dentro del sitio que estamos visitando. De este modo se aumenta el número de enlaces internos, y además ofrece a los visitantes una forma cómoda de navegar por el sitio visitando páginas que están relacionas de alguna forma con la actual.</p>
+        <p>Para realizar esta modificación he recurrido a las relaciones matemáticas y a sus propiedades. A partir de un conjunto, en este caso las entradas, es posible declarar relaciones binarias entre ellas con las propiedades deseadas. A continuación se verá todo esto con un poco más de detalle.</p>
+        <h2 id="relaciones-matem%C3%A1ticas">Relaciones matemáticas</h2>
+        <p>Las relaciones permiten clasificar u ordenar los distintos elementos del conjunto sobre las que se declaran usando las características de dichos elementos. Aquí entran en juego muchos conceptos: pares ordenados, producto cartesiano, conjuntos, y un largo etcétera. No vamos a tratar todo esto en profundidad, pero sí se verán algunas partes con más detalle.</p>
+        <center style="margin: -5px 0 5px 0;">
+          <img src="./images/entries/2018_11_29/1.png" width="235">
+        </center>
+        <p>La expresión anterior puede leerse como: una relación <code>R</code> es el conjunto de pares ordenadores <code>(a, b)</code> pertenecientes al producto cartesiano del conjunto <code>A</code> con el conjunto <code>B</code>, cuyos elementos cumplen la propiedad <code>P</code>.</p>
+        <p>En este caso concreto, los conjuntos <code>A</code> y <code>B</code> son el mismos (todas las entradas del blog) y el resultado del producto cartesiano tendría n<sup>2</sup> elementos, siendo n el número de entradas publicadas. Por otro lado, la propiedad <code>P</code> es binaria, y puede ser cualquier características que necesitemos: &quot;<em>es menor que</em>&quot;, &quot;<em>es padre de</em>&quot;, &quot;<em>extiende de</em>&quot;, ...</p>
+        <p>La idea aquí es relacionar dos elementos <code>a</code> y <code>b</code> que pertenecen al conjunto <code>A x B</code> y que comparten la propiedad <code>P</code>. Esta relación se representa de este manera:</p>
+        <center style="margin: -5px 0 5px 0;">
+          <img src="./images/entries/2018_11_29/2.png" width="55">
+        </center>
+        <p>Aunque yo, por simplicidad, voy a usar esta otra notación menos matemática:</p>
+        <center style="margin: -5px 0 5px 0;">
+          a → b
+        </center>
+        <p>Lo que significa que <code>a</code> está relacionado con <code>b</code>.</p>
+        <h2 id="propiedades-de-las-relaciones">Propiedades de las relaciones</h2>
+        <p>No todas las relaciones son iguales. Además de la semántica, existen diferentes propiedades que afecta su comportamiento. Las relaciones puede ser:</p>
+        <ul>
+          <li><strong>Reflexiva</strong><br>
+            Una relación es reflexiva si todos los elementos están relacionados con sigo mismos.</li>
+          <li><strong>Simétrica</strong><br>
+            Una relación es simétrica si todas las parejas que forman la relación tienen su recíproco. Es decir, para todas las parejas de <code>a</code> y <code>b</code> se cumple que: <code>a → b</code> y <code>b → a</code>.</li>
+          <li><strong>Transitiva</strong><br>
+            Una relación es transitiva siempre que un elemento que está relacionado con un segundo, y este a su vez con un tercero, el primero esté relacionado con el tercero. De la forma: <code>a → b</code> y <code>b → c</code>, entonces se da que <code>a → c</code>.</li>
+        </ul>
+        <p>Estas propiedades no son excluyentes, de modo que una relación puede cumplir las tres condiciones al mismo tiempo sin ningún tipo de problema.</p>
+        <h2 id="implementaci%C3%B3n-de-la-soluci%C3%B3n">Implementación de la solución</h2>
+        <p>Una vez en materia podemos ver cómo he realizado la modificación para añadir el manejo de las relaciones entre entradas. En realidad, he desarrollado una función que trabaja de forma independiente al blog, de modo que la usaré también en el sitio web de mi otro proyecto, <a href="https://cjpelaezrivas.dev/ProjectCreationFX/">Project Creation FX</a>.</p>
+        <p>En primero lugar es necesario un fichero de configuración. En este caso, un fichero <code>json</code> que guardará todas las relaciones y los conjuntos de pares de elementos, a los que llamaremos instancias. Las relaciones se declaran con un nombre, si es transitiva o no, el nivel de profundidad hasta el que se usa la transitividad, valor opcional que ahora se verá con más detalle; y su relación inversa si la hubiera.</p>
+        <p>Para el caso que nos ocupa únicamente tendremos una relación: <em>&quot;está relacionada con&quot;</em>. Esta relación se declara así:</p>
+        <pre><code class="hljs">{
+	<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;relatedTo&quot;</span>,
+	<span class="hljs-string">&quot;transitive&quot;</span>: <span class="hljs-literal">true</span>,
+	<span class="hljs-string">&quot;transitive_depth&quot;</span>: <span class="hljs-number">1</span>,
+	<span class="hljs-string">&quot;inverse&quot;</span>: <span class="hljs-string">&quot;relatedTo&quot;</span>
+}
+</code></pre>
+        <p>El sistema desarrollado no da soporte a las relaciones reflexivas. Este tipo de relaciones no tienen sentido a la hora de relacionar distintos enlaces en una página web. No se me ocurre un escenario en el que sea necesario relacionar una entrada y generar un enlace a sí misma.</p>
+        <p>La propiedad simétrica se cumple siempre que la relación inversa sea la misma que la relación que se está declarando, tal y como ocurre en el ejemplo sobre el que trabajamos. Es decir, la relación <code>relatedTo</code> es simétrica porque su relación inversa es ella misma. Es fácil pensar en relaciones que no son simétricas y tienen como inversa una relación distinta: <em>&quot;es padre de&quot;</em>, por ejemplo, su inversa sería <em>&quot;es hijo de&quot;</em>.</p>
+        <p>Además, por definición es transitiva, ya que estamos indicándolo de ese modo. La funcionalidad del nivel de profundidad de la transitividad se puede ver fácilmente en el siguiente ejemplo:</p>
+        <p>En el caso de tener las siguientes instancias:</p>
+        <pre><code class="hljs">a → b
+b → c
+c → d
+d → e
+e → f
+</code></pre>
+        <p>Usar la relación <code>relatedTo</code> sobre <code>b</code> con nivel de profundidad 2 nos ofrecería los siguientes resultados:</p>
+        <pre><code class="hljs">b → a (-<span class="hljs-number">1</span>)
+b → c (<span class="hljs-number">0</span>)
+b → d (<span class="hljs-number">1</span>)
+b → e (<span class="hljs-number">2</span>)
+</code></pre>
+        <p>Junto a cada resultado puede verse el grado de relación que existe entre <code>b</code> y el otro elemento:</p>
+        <ul>
+          <li>-1 significa que se ha alcanzado ese resultado usando la relación inversa</li>
+          <li>0 significa que se ha alcanzado ese resultado de forma directa usando una instancia declarada</li>
+          <li>Un número positivo significa que se ha alcanzado ese resultado usando transitividad, indicando la profundidad con dicho valor</li>
+        </ul>
+        <p>Puede observarse que no se ha podido relacionar <code>b</code> con <code>f</code> debido a que están demasiado lejos entre ellos y se ha limitado la búsqueda hasta el nivel 2 de profundidad. Este límite es necesario establecerlo porque la función que realiza la búsqueda transitiva es recursiva y necesita una condición de parada. El nivel de profundidad por defecto es 1, pero puede establecerse el que más convenga en cada momento.</p>
+        <p>Aquí entra una cuestión filosófica en juego, aunque en el ejemplo anterior matemáticamente se da que <code>a → f</code>, ¿están relacionados realmente estos dos elementos? o ¿están tan separados que realmente ya no existe una relación valiosa entre ellos? Dependerá de la situación en la que nos encontremos. Para el caso que nos ocupa aquí, un límite de nivel 1 de profundidad es suficiente.</p>
+        <p>Volviendo a la implementación, la declaración de las instancias se realiza de la siguiente manera:</p>
+        <pre><code class="hljs">{
+	<span class="hljs-string">&quot;a&quot;</span>: <span class="hljs-string">&quot;md_2012_09_29&quot;</span>,
+	<span class="hljs-string">&quot;r&quot;</span>: <span class="hljs-string">&quot;relatedTo&quot;</span>,
+	<span class="hljs-string">&quot;b&quot;</span>: [
+		<span class="hljs-string">&quot;md_2012_09_29_B&quot;</span>, <span class="hljs-comment">// md_2012_09_29 → md_2012_09_29_B</span>
+		<span class="hljs-string">&quot;md_2012_10_07&quot;</span>,   <span class="hljs-comment">// md_2012_09_29 → md_2012_10_07</span>
+		<span class="hljs-string">&quot;md_2012_10_07_B&quot;</span>, <span class="hljs-comment">// md_2012_09_29 → md_2012_10_07_B</span>
+		<span class="hljs-string">&quot;md_2012_10_14&quot;</span>    <span class="hljs-comment">// md_2012_09_29 → md_2012_10_14</span>
+	]
+},
+{
+	<span class="hljs-string">&quot;a&quot;</span>: <span class="hljs-string">&quot;md_2013_03_15&quot;</span>,
+	<span class="hljs-string">&quot;r&quot;</span>: <span class="hljs-string">&quot;relatedTo&quot;</span>,
+	<span class="hljs-string">&quot;b&quot;</span>: <span class="hljs-string">&quot;md_2013_06_13&quot;</span>   <span class="hljs-comment">// md_2013_03_15 → md_2013_06_13</span>
+}
+</code></pre>
+        <p>Como se ve en el ejemplo, es posible realizar varias declaraciones usando una lista. Esto es equivalente a declarar cada instancia por separado y únicamente se hace para facilitar el mantenimiento de la estructura de datos.</p>
+        <p>Una vez declarado el fichero de relaciones, se pasa a compilar el blog y se genera automáticamente al final de cada entrada la sección de entradas relacionadas con tantos enlaces como corresponda.</p>
+        <p>Para ver la potencia de este sistema, en el ejemplo anterior se han declarado para la entrada <code>md_2012_09_29</code> cuatro instancias. Estas instancias generan un total de 20 enlaces entre las cinco entradas que forman el grupo. Es decir, se ha declarado un 20% de los enlaces, el 80% restante se ha generado usando las relaciones inversas y transitivas.</p>
+        <p>El sistema desarrollado está en este caso casi desaprovechado y sé que puede dar mucho más de sí. Como ya he comentado, lo usaré en mi otro proyecto para generar las relaciones dentro de la wiki. En ese escenario, usando varias relaciones y con distintas configuraciones, será donde finalmente se vea la potencia real del sistema y todo lo que puede ofrecer.</p>
+        <p>Espero que os guste el contenido de esta entrada y os parezca interesante. Estoy atento a los comentarios por si alguien está interesado en algún detalle más acerca de cómo está implementado.</p>
+        <p>Hasta la próxima, <br>
+          Lázarus Surazal
+        </p>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/relations.css" />
+      <div id="relationsContainer">
+        <span class="relatedTitle">Entradas relacionadas</span>
+        <ul>
+          <li><a href="md_2018_03_21.html">Nuevo blog, nuevo alojamiento, nuevo comienzo</a></li>
+          <li><a href="md_2018_11_27.html">Nuevas actualizaciones en el blog</a></li>
+          <li><a href="md_2018_12_18.html">Proceso de actualización del blog finalizado</a></li>
+        </ul>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/navigation.css" />
+      <hr>
+      <div id="navigationContainer">
+        <a class="item hint--bottom-left navigateButton right" href="md_2018_12_18.html" data-hint="Proceso de actualización del blog finalizado">
+          Siguiente
+          <i class="fa fa-arrow-right"></i>
+        </a>
+        <a class="item hint--bottom-right navigateButton left" href="md_2018_11_27.html" data-hint="Nuevas actualizaciones en el blog">
+          <i class="fa fa-arrow-left"></i>
+          Anterior
+        </a>
+        <a class="navigateButton center" href="./">
+          <i class="fa fa-home"></i>
+          Volver a la página principal
+        </a>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/info.css" />
+      <div id="infoContainer">
+        <div id="infoProfile" class="info_block">
+          <div class="title">
+            <b>Perfil</b>
+          </div>
+          <div class="content">
+            <div class="part photo">
+              <img src="images/logo_b.png" width="90px" alt="prLázarus logo info" />
+            </div>
+            <div class="part description">
+              <h3 id="name">Carlos J. Peláez Rivas <em id="alias">(Lázarus Surazal)</em></h3>
+              Graduado y Máster en Ingeniería Informática por la Universidad de Málaga (España). También cursé un Experto en tecnologías de Blockchain. Actualmente trabajando como Software engineer en Málaga.<br>
+              Apasionado de los videojuegos, la música y la tecnología, siempre buscando cosas nuevas que aprender, hacer (y a veces romper).<br>
+              <a href="https://cjpelaezrivas.dev">Más sobre mi...</a>
+            </div>
+          </div>
+        </div>
+        <div id="infoContact" class="info_block">
+          <div class="title">
+            <b>Contacto</b>
+          </div>
+          <div class="content links">
+            <div class="item hint--bottom-right" data-hint="Perfil personal">
+              <a href="https://cjpelaezrivas.dev" style="font-size: 38px; line-height: 38px;"><i class="fa fa-user-circle"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="prLázarus - RSS">
+              <a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
+              <a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="Perfil de GitHub">
+              <a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="Perfil de LinkedIn">
+              <a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="commentsContainer" style="float:left; width:100%;">
+        <script src="https://utteranc.es/client.js" repo="cjpelaezrivas/prlazarus" issue-term="title" label="comments" theme="github-light" crossorigin="anonymous" async>
+        </script>
+        <noscript>
+          <div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+            Por favor, activa JavaScript para ver los comentarios.
+          </div>
+        </noscript>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/footer.css" />
+      <div id="footer_message">
+        ¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="https://github.com/cjpelaezrivas/prLazarus/issues">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
+      </div>
+      <div id="footer">
+        <div class="content">
+          <div id="logo_footer">
+            <a href="https://prlazarus.es"><img src="images/logo_c.png" alt="prLázarus logo footer" style="margin-top:10px;" /></a>
 
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="generator" content="pandoc" />
+            <!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
+          </div>
+          <div id="right_column" class="text">
+            Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag" /></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.es">prLázarus</a></i><br>
+            <i class="fa fa-plug"></i> Con la tecnología de <i><a href="https://cjpelaezrivas.dev/ProjectLighthouse/">Project Lighthouse</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
+            <i><a href="./feed.xml">RSS</a></i>
+            &nbsp;|&nbsp;
+            <i><a href="md_cookies_policy.html">Política de cookies</a></i>
+            &nbsp;|&nbsp;
+            <i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
+            <a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
+          </div>
+        </div>
+      </div>
 
-	<title>Relacionando las entradas del blog - prLázarus</title>
+      <!-- Default Statcounter code for prLázarus - Blog -->
+      <script type="text/javascript">
+        var sc_project = 12995152;
+        var sc_invisible = 1;
+        var sc_security = "7de2ea10";
+      </script>
+      <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+      <noscript>
+        <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12995152/0/7de2ea10/1/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></a></div>
+      </noscript>
 
-			<meta name='Language' content='es' />
-<meta name='Content-Language' content='es' />
-
-<meta name="author" content="Carlos J. Peláez Rivas" />
-<meta name="description" content="prLázarus - Blog de programación y diario de desarrollo" />
-<meta name="keywords" content="lazarus,surazal,prlazarus,blog,programación,programacion,programming,coding,code,desarrollo,development,java,carlos,jesús,jesus,j,peláez,pelaez,rivas,cjpelaez,cjpelaezrivas,málaga,malaga,uma,españa,spain"/>
-
-<meta property="og:site_name" content="prLázarus" />
-<meta property="og:title" content="prLázarus - Blog de programación" />
-<meta property="og:description" content="prLázarus - Blog de programación y diario de desarrollo" />
-<meta name="twitter:title" content="prLázarus - Blog de programación">
-<meta name="twitter:description" content="prLázarus - Blog de programación y diario de desarrollo" />
-
-<link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
-<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
-
-<link rel="stylesheet" href="lib/bootstrap-4.1.3/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="lib/fontawesome-4.7/css/fontawesome.min.css"/>
-<link rel="stylesheet" type="text/css" href="lib/hint-2.5.1/css/hint.base.min.css"/>
-<link rel="stylesheet" type="text/css" href="lib/lightbox-2.10/css/lightbox.min.css"/>
-<link rel="stylesheet" type="text/css" href="lib/cookieconsent2-3.1.0/css/cookieconsent.min.css"/>
-
-<link rel="stylesheet" type="text/css" href="css/base.css"/>
-<link rel="stylesheet" type="text/css" href="css/main.css"/>
-<link rel="stylesheet" type="text/css" href="css/entry.css"/>
-<link rel="stylesheet" type="text/css" href="css/project.css"/>
-<link rel="stylesheet" type="text/css" href="css/toc.css"/>
-<link rel="stylesheet" type="text/css" href="css/code.css"/>
-<link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
-
-<script src="lib/jquery-3.3.1/js/jquery.min.js"></script>
-<script src="lib/bootstrap-4.1.3/js/bootstrap.bundle.min.js"></script>
-<script src="lib/stickytabs-1.2.0/js/stickytabs.js"></script>
-<script src="lib/scrolltotop-1.0/js/scrolltotop.js"></script>
-
-<script src="lib/lightbox-2.10/js/lightbox.min.js"></script>
-<script>
-	lightbox.option({
-		'albumLabel': "Imagen %1 de %2",
-		'fadeDuration': 250,
-		'resizeDuration': 250,
-		'wrapAround': true
-	})
-</script>
-
-<script src="lib/cookieconsent2-3.1.0/js/cookieconsent.min.js"></script>
-<script>
-	window.addEventListener("load", function(){
-		window.cookieconsent.initialise({
-			"palette": {
-				"popup": {
-					"background": "#d4d4d4",
-					"text": "#151515"
-				},
-				"button": {
-					"background": "#003379",
-					"text": "#ffffff"
-				}
-			},
-			"content": {
-				"message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
-				"dismiss": "Cerrar mensaje",
-				"link": "Más información",
-				"href": "http://prlazarus.tk/md_cookies_policy.html"
-			}
-		})
-	});
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', 'UA-74491738-2');
-</script>
-	</head>
-
-<body>
-	<div class="container-fluid main-container">
-
-		<script>
-			$(document).ready(function () {
-				window.buildTabsets("TOC");
-			});
-		</script>
-
-					<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
-
-<div id="navbar">
-	<div id="zoneA">
-		<div class="content">
-			<a href="./">
-				<div id="logo"></div>
-			</a>
-
-			<h1 id="title">
-				prLázarus
-			</h1>
-			<h2 id="subtitle">
-				Blog de desarrollo de proyectos Software, tutoriales, consejos y varios.
-			</h2>
-		</div>
-	</div>
-	<div id="zoneB">
-		<div class="content">
-			<div id="menu">
-				<a class="menuItem" href="./"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
-				<a class="menuItem" href="./md_projects.html"><i class="fa fa-rocket"></i><span class="text"> Proyectos</span></a>
-				<a class="menuItem" href="http://cjpelaezrivas.tk"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
-			</div>
-		</div>
-	</div>
-</div>
-		
-		<div class="fluid-row" id="header">
-
-						<h1 class="title toc-ignore ">Relacionando las entradas del blog</h1>
-			
-			<!--
-						-->
-
-			<!--
-						-->
-
-							<h4 class="date">
-<em>viernes, 30 de noviembre de 2018</em>
-</h4>
-<b>Proyecto</b>
-<div id="project_section">
-<a href="md_projects.html#blog">Actualización del blog</a>
-</div>
-			
-							<b>Etiquetas</b>
-				<div id="tag_section">
-											<a class="tag" href="md_search.html?tag=Blog">Blog</a>
-											<a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-									</div>
-			
-			<!--
-						-->
-
-		</div>
-
-					<div id="TOC">
-									<span class="title">Tabla de contenido</span>
-								<ul>
-<li><a href="#relaciones-matemáticas">Relaciones matemáticas</a></li>
-<li><a href="#propiedades-de-las-relaciones">Propiedades de las relaciones</a></li>
-<li><a href="#implementación-de-la-solución">Implementación de la solución</a></li>
-</ul>
-			</div>
-		
-		<p>Hola de nuevo,<br> Parece que le he cogido justo a esto de escribir entradas. En esta ocasión voy a hablar un poco sobre la nueva modificación incluida en el blog: La sección de entradas relacionadas.</p>
-<p>Todos hemos visto en muchas páginas una sección que relaciona distintas páginas dentro del sitio que estamos visitando. De este modo se aumenta el número de enlaces internos, y además ofrece a los visitantes una forma cómoda de navegar por el sitio visitando páginas que están relacionas de alguna forma con la actual.</p>
-<p>Para realizar esta modificación he recurrido a las relaciones matemáticas y a sus propiedades. A partir de un conjunto, en este caso las entradas, es posible declarar relaciones binarias entre ellas con las propiedades deseadas. A continuación se verá todo esto con un poco más de detalle.</p>
-<div id="relaciones-matemáticas" class="section level2">
-<h2>Relaciones matemáticas</h2>
-<p>Las relaciones permiten clasificar u ordenar los distintos elementos del conjunto sobre las que se declaran usando las características de dichos elementos. Aquí entran en juego muchos conceptos: pares ordenados, producto cartesiano, conjuntos, y un largo etcétera. No vamos a tratar todo esto en profundidad, pero sí se verán algunas partes con más detalle.</p>
-<center style="margin: -5px 0 5px 0;">
-<img src="images/entries/2018_11_29/1.png" width="235">
-</center>
-<p>La expresión anterior puede leerse como: una relación <code>R</code> es el conjunto de pares ordenadores <code>(a, b)</code> pertenecientes al producto cartesiano del conjunto <code>A</code> con el conjunto <code>B</code>, cuyos elementos cumplen la propiedad <code>P</code>.</p>
-<p>En este caso concreto, los conjuntos <code>A</code> y <code>B</code> son el mismos (todas las entradas del blog) y el resultado del producto cartesiano tendría n<sup>2</sup> elementos, siendo n el número de entradas publicadas. Por otro lado, la propiedad <code>P</code> es binaria, y puede ser cualquier características que necesitemos: “<em>es menor que</em>”, “<em>es padre de</em>”, “<em>extiende de</em>”, …</p>
-<p>La idea aquí es relacionar dos elementos <code>a</code> y <code>b</code> que pertenecen al conjunto <code>A x B</code> y que comparten la propiedad <code>P</code>. Esta relación se representa de este manera:</p>
-<center style="margin: -5px 0 5px 0;">
-<img src="images/entries/2018_11_29/2.png" width="55">
-</center>
-<p>Aunque yo, por simplicidad, voy a usar esta otra notación menos matemática:</p>
-<center style="margin: -5px 0 5px 0;">
-a → b
-</center>
-<p>Lo que significa que <code>a</code> está relacionado con <code>b</code>.</p>
-</div>
-<div id="propiedades-de-las-relaciones" class="section level2">
-<h2>Propiedades de las relaciones</h2>
-<p>No todas las relaciones son iguales. Además de la semántica, existen diferentes propiedades que afecta su comportamiento. Las relaciones puede ser:</p>
-<ul>
-<li><strong>Reflexiva</strong><br> Una relación es reflexiva si todos los elementos están relacionados con sigo mismos.</li>
-<li><strong>Simétrica</strong><br> Una relación es simétrica si todas las parejas que forman la relación tienen su recíproco. Es decir, para todas las parejas de <code>a</code> y <code>b</code> se cumple que: <code>a → b</code> y <code>b → a</code>.</li>
-<li><strong>Transitiva</strong><br> Una relación es transitiva siempre que un elemento que está relacionado con un segundo, y este a su vez con un tercero, el primero esté relacionado con el tercero. De la forma: <code>a → b</code> y <code>b → c</code>, entonces se da que <code>a → c</code>.</li>
-</ul>
-<p>Estas propiedades no son excluyentes, de modo que una relación puede cumplir las tres condiciones al mismo tiempo sin ningún tipo de problema.</p>
-</div>
-<div id="implementación-de-la-solución" class="section level2">
-<h2>Implementación de la solución</h2>
-<p>Una vez en materia podemos ver cómo he realizado la modificación para añadir el manejo de las relaciones entre entradas. En realidad, he desarrollado una función que trabaja de forma independiente al blog, de modo que la usaré también en el sitio web de mi otro proyecto, <a href="http://www.projectcreationfx.tk">Project Creation FX</a>.</p>
-<p>En primero lugar es necesario un fichero de configuración. En este caso, un fichero <code>json</code> que guardará todas las relaciones y los conjuntos de pares de elementos, a los que llamaremos instancias. Las relaciones se declaran con un nombre, si es transitiva o no, el nivel de profundidad hasta el que se usa la transitividad, valor opcional que ahora se verá con más detalle; y su relación inversa si la hubiera.</p>
-<p>Para el caso que nos ocupa únicamente tendremos una relación: <em>“está relacionada con”</em>. Esta relación se declara así:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb1-2" title="2">    <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;relatedTo&quot;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb1-3" title="3">    <span class="st">&quot;transitive&quot;</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb1-4" title="4">    <span class="st">&quot;transitive_depth&quot;</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb1-5" title="5">    <span class="st">&quot;inverse&quot;</span><span class="op">:</span> <span class="st">&quot;relatedTo&quot;</span></a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="op">}</span></a></code></pre></div>
-<p>El sistema desarrollado no da soporte a las relaciones reflexivas. Este tipo de relaciones no tienen sentido a la hora de relacionar distintos enlaces en una página web. No se me ocurre un escenario en el que sea necesario relacionar una entrada y generar un enlace a sí misma.</p>
-<p>La propiedad simétrica se cumple siempre que la relación inversa sea la misma que la relación que se está declarando, tal y como ocurre en el ejemplo sobre el que trabajamos. Es decir, la relación <code>relatedTo</code> es simétrica porque su relación inversa es ella misma. Es fácil pensar en relaciones que no son simétricas y tienen como inversa una relación distinta: <em>“es padre de”</em>, por ejemplo, su inversa sería <em>“es hijo de”</em>.</p>
-<p>Además, por definición es transitiva, ya que estamos indicándolo de ese modo. La funcionalidad del nivel de profundidad de la transitividad se puede ver fácilmente en el siguiente ejemplo:</p>
-<p>En el caso de tener las siguientes instancias:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">a → b</a>
-<a class="sourceLine" id="cb2-2" title="2">b → c</a>
-<a class="sourceLine" id="cb2-3" title="3">c → d</a>
-<a class="sourceLine" id="cb2-4" title="4">d → e</a>
-<a class="sourceLine" id="cb2-5" title="5">e → f</a></code></pre></div>
-<p>Usar la relación <code>relatedTo</code> sobre <code>b</code> con nivel de profundidad 2 nos ofrecería los siguientes resultados:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">b → <span class="at">a</span> (<span class="op">-</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb3-2" title="2">b → <span class="at">c</span> (<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb3-3" title="3">b → <span class="at">d</span> (<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb3-4" title="4">b → <span class="at">e</span> (<span class="dv">2</span>)</a></code></pre></div>
-<p>Junto a cada resultado puede verse el grado de relación que existe entre <code>b</code> y el otro elemento:</p>
-<ul>
-<li>-1 significa que se ha alcanzado ese resultado usando la relación inversa</li>
-<li>0 significa que se ha alcanzado ese resultado de forma directa usando una instancia declarada</li>
-<li>Un número positivo significa que se ha alcanzado ese resultado usando transitividad, indicando la profundidad con dicho valor</li>
-</ul>
-<p>Puede observarse que no se ha podido relacionar <code>b</code> con <code>f</code> debido a que están demasiado lejos entre ellos y se ha limitado la búsqueda hasta el nivel 2 de profundidad. Este límite es necesario establecerlo porque la función que realiza la búsqueda transitiva es recursiva y necesita una condición de parada. El nivel de profundidad por defecto es 1, pero puede establecerse el que más convenga en cada momento.</p>
-<p>Aquí entra una cuestión filosófica en juego, aunque en el ejemplo anterior matemáticamente se da que <code>a → f</code>, ¿están relacionados realmente estos dos elementos? o ¿están tan separados que realmente ya no existe una relación valiosa entre ellos? Dependerá de la situación en la que nos encontremos. Para el caso que nos ocupa aquí, un límite de nivel 1 de profundidad es suficiente.</p>
-<p>Volviendo a la implementación, la declaración de las instancias se realiza de la siguiente manera:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb4-2" title="2">    <span class="st">&quot;a&quot;</span><span class="op">:</span> <span class="st">&quot;md_2012_09_29&quot;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb4-3" title="3">    <span class="st">&quot;r&quot;</span><span class="op">:</span> <span class="st">&quot;relatedTo&quot;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb4-4" title="4">    <span class="st">&quot;b&quot;</span><span class="op">:</span> [</a>
-<a class="sourceLine" id="cb4-5" title="5">        <span class="st">&quot;md_2012_09_29_B&quot;</span><span class="op">,</span> <span class="co">// md_2012_09_29 → md_2012_09_29_B</span></a>
-<a class="sourceLine" id="cb4-6" title="6">        <span class="st">&quot;md_2012_10_07&quot;</span><span class="op">,</span>   <span class="co">// md_2012_09_29 → md_2012_10_07</span></a>
-<a class="sourceLine" id="cb4-7" title="7">        <span class="st">&quot;md_2012_10_07_B&quot;</span><span class="op">,</span> <span class="co">// md_2012_09_29 → md_2012_10_07_B</span></a>
-<a class="sourceLine" id="cb4-8" title="8">        <span class="st">&quot;md_2012_10_14&quot;</span>    <span class="co">// md_2012_09_29 → md_2012_10_14</span></a>
-<a class="sourceLine" id="cb4-9" title="9">    ]</a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="op">},</span></a>
-<a class="sourceLine" id="cb4-11" title="11"><span class="op">{</span></a>
-<a class="sourceLine" id="cb4-12" title="12">    <span class="st">&quot;a&quot;</span><span class="op">:</span> <span class="st">&quot;md_2013_03_15&quot;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb4-13" title="13">    <span class="st">&quot;r&quot;</span><span class="op">:</span> <span class="st">&quot;relatedTo&quot;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb4-14" title="14">    <span class="st">&quot;b&quot;</span><span class="op">:</span> <span class="st">&quot;md_2013_06_13&quot;</span>   <span class="co">// md_2013_03_15 → md_2013_06_13</span></a>
-<a class="sourceLine" id="cb4-15" title="15"><span class="op">}</span></a></code></pre></div>
-<p>Como se ve en el ejemplo, es posible realizar varias declaraciones usando una lista. Esto es equivalente a declarar cada instancia por separado y únicamente se hace para facilitar el mantenimiento de la estructura de datos.</p>
-<p>Una vez declarado el fichero de relaciones, se pasa a compilar el blog y se genera automáticamente al final de cada entrada la sección de entradas relacionadas con tantos enlaces como corresponda.</p>
-<p>Para ver la potencia de este sistema, en el ejemplo anterior se han declarado para la entrada <code>md_2012_09_29</code> cuatro instancias. Estas instancias generan un total de 20 enlaces entre las cinco entradas que forman el grupo. Es decir, se ha declarado un 20% de los enlaces, el 80% restante se ha generado usando las relaciones inversas y transitivas.</p>
-<p>El sistema desarrollado está en este caso casi desaprovechado y sé que puede dar mucho más de sí. Como ya he comentado, lo usaré en mi otro proyecto para generar las relaciones dentro de la wiki. En ese escenario, usando varias relaciones y con distintas configuraciones, será donde finalmente se vea la potencia real del sistema y todo lo que puede ofrecer.</p>
-<p>Espero que os guste el contenido de esta entrada y os parezca interesante. Estoy atento a los comentarios por si alguien está interesado en algún detalle más acerca de cómo está implementado.</p>
-<p>Hasta la próxima, <br> Lázarus Surazal</p>
-</div>
-
-					<link rel="stylesheet" type="text/css" href="css/relations.css"/>
-<div id="relationsContainer">
-<span class="relatedTitle">Entradas relacionadas</span>
-<ul>
-<li>
-<a href="md_2018_03_21.html">Nuevo blog, nuevo alojamiento, nuevo comienzo</a>
-</li>
-<li>
-<a href="md_2018_11_27.html">Nuevas actualizaciones en el blog</a>
-</li>
-<li>
-<a href="md_2018_12_18.html">Proceso de actualización del blog finalizado</a>
-</li>
-</ul>
-</div>
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
-<hr>
-<div id="navigationContainer">
-<a class="item hint--bottom-left navigateButton right" href="md_2018_12_18.html" data-hint="Proceso de actualización del blog finalizado">Siguiente <i class="fa fa-arrow-right"></i></a><a class="item hint--bottom-right navigateButton left" href="md_2018_11_27.html" data-hint="Nuevas actualizaciones en el blog"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a>
-</div>
-		
-					<link rel="stylesheet" type="text/css" href="css/info.css"/>
-
-<div id="infoContainer">
-	<div id="infoProfile" class="info_block">
-		<div class="title">
-			<b>Perfil</b>
-		</div>
-		<div class="content">
-			<div class="part photo">
-				<img src="images/logo_b.png" width="90px" alt="prLázarus logo info" />
-			</div>
-			<div class="part description">
-				<b>Carlos J. Peláez Rivas (Lázarus Surazal)</b> <br>
-				Graduado y Máster en Ingeniería Informática por la Universidad de Málaga. Actualmente trabajando como desarrollador de aplicaciones en Java usando Vaadin.<br>
-				Apasionado de los videojuegos, la música y alguna que otra tecnología, siempre buscando cosas nuevas que aprender y hacer. <br>
-				<a href="http://cjpelaezrivas.tk">Más sobre mi...</a>
-			</div>
-		</div>
-	</div>
-	<div id="infoContact" class="info_block">
-		<div class="title">
-			<b>Contacto</b>
-		</div>
-		<div class="content links">
-			<div class="item hint--bottom-right" data-hint="Perfil personal">
-				<a href="http://cjpelaezrivas.tk" style="font-size: 38px; line-height: 38px;"><i class="fa fa-user-circle"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="prLázarus - RSS">
-				<a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
-				<a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="Perfil de GitHub">
-				<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="Perfil de LinkedIn">
-				<a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
-			</div>
-		</div>
-	</div>
-
-	<div id="infoSuscribe" class="info_block">
-		<div class="title">
-			<b>Notificaciones</b>
-		</div>
-		<div class="content">
-			<form  method="post" action="https://prlazarus.us20.list-manage.com/subscribe/post?u=5dc6163ee27b4b8f0090978e1&amp;id=6b3b278c76" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-		    	<div>
-					<input type="email" name="EMAIL" class="field" id="mce-EMAIL" placeholder="Dirección de email" value="">
-
-					<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-			    	<div style="position: absolute; left: -5000px;" aria-hidden="true">
-			    		<input type="text" name="b_5dc6163ee27b4b8f0090978e1_6b3b278c76" tabindex="-1" value="">
-			    	</div>
-
-			    	<div class="item hint--bottom hint--large" data-hint="Recibe notificaciones por correo electrónico cada vez que se publique una nueva entrada." style="width:100%;">
-						<button type="submit" id="mc-embedded-subscribe" form="mc-embedded-subscribe-form">
-							<i class="fa fa-envelope"></i> Suscribirse
-						</button>
-					</div>
-		    	</div>
-			</form>
-		</div>
-	</div>
-</div>
-					<div id="commentsContainer" style="float:left; width:100%;">
-	<script src="https://utteranc.es/client.js"
-        repo="cjpelaezrivas/prlazarus"
-        issue-term="title"
-        label="comments"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-	</script>
-	<noscript>
-		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
-			Por favor, activa JavaScript para ver los comentarios.
-		</div>
-	</noscript>
-</div>
-					<link rel="stylesheet" type="text/css" href="css/footer.css"/>
-
-<div id="footer_message">
-	¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
-</div>
-<div id="footer">
-	<div class="content">
-		<div id="logo_footer">
-			<a href="http://prlazarus.tk"><img src="images/logo_c.png" alt="prLázarus logo footer" style="margin-top:10px;"/></a>
-			<!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
-		</div>
-		<div id="right_column" class="text">
-			Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.tk">prLázarus</a></i><br>
-			<i class="fa fa-plug"></i> Con la tecnología de <i><a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
-			<i><a href="./feed.xml">RSS</a></i>
-			&nbsp;|&nbsp;
-			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
-			&nbsp;|&nbsp;
-			<i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
-			<a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
-		</div>
-	</div>
-</div>
-					<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
-
-<div id="progressBarContainer">
-	<div class="progressBar">
-	</div>
-</div>
-
-<script src="js/progressBar.js"></script>
-		
-	</div>
-</body>
+      <!-- End of Statcounter Code -->
+      <link rel="stylesheet" type="text/css" href="css/progressBar.css" />
+      <div id="progressBarContainer">
+        <div class="progressBar">
+        </div>
+      </div>
+      <script src="js/progressBar.js"></script>
+    </div>
+  </body>
 </html>

@@ -105,13 +105,13 @@
 	margin-bottom: 20px !important;
 }
 
-#header h4.date {
-	font-size: 15px !important;
-	margin-top: 2px !important;
+#header .date {
+	font-size: 15px;
+	margin-top: 2px;
 }
 
-#header #project_section {
-	padding-bottom: 10px;
+#header #entry_section {
+	padding-top: 10px;
 }
 
 #header #project_section a, #header #project_section a:visited {

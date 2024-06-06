@@ -1,199 +1,186 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-<atom:link href="https://prlazarus.tk/feed.xml" rel="self" type="application/rss+xml"/>
+<atom:link href="https://blog.prlazarus.es/feed.xml" rel="self" type="application/rss+xml"/>
 <language>es-ES</language>
-<title>prLázarus -Blog de desarrollo</title>
-<link>https://prlazarus.tk/feed.xml</link>
-<description>RSS de blog de desarrollo prLázarus.tk</description>
+<title>prLázarus - Blog de desarrollo</title>
+<link>https://blog.prlazarus.es/feed.xml</link>
+<description>prLázarus - Blog de desarrollo - RSS</description>
 <item>
-<title>
-<![CDATA[Project Creation FX: Composición sobre herencia]]>
-</title>
+<title><![CDATA[Patrones de diseño - Introducción]]></title>
+<guid>https://prlazarus.tk/md_2020_09_30.html</guid>
+<pubDate>Tue, 29 Sep 2020 22:00:00 GMT</pubDate>
+<description><![CDATA[Inicio de una nueva serie de entradas relacionadas con los patrones de diseño.]]></description>
+<category>Patrones de diseño</category>
+<category>Eficiencia</category>
+<category>Utilidades</category>
+</item>
+<item>
+<title><![CDATA[Project Creation FX: Composición sobre herencia]]></title>
 <guid>https://prlazarus.tk/md_2019_07_18.html</guid>
-<pubDate>Thu, 18 Jul 2019 00:00:00 +0200</pubDate>
+<pubDate>Wed, 17 Jul 2019 22:00:00 GMT</pubDate>
+<description><![CDATA[Artículo de opinión sobre el desarrollo de Project Creation FX, y los cambios realizados relacionados con las entidades.]]></description>
 <category>Diario de desarrollo</category>
 <category>Project Creation FX</category>
 </item>
 <item>
-<title>
-<![CDATA[Power Shooter - Inicio de proyecto]]>
-</title>
+<title><![CDATA[Power Shooter - Inicio de proyecto]]></title>
 <guid>https://prlazarus.tk/md_2019_03_25.html</guid>
-<pubDate>Mon, 25 Mar 2019 00:00:00 +0100</pubDate>
+<pubDate>Sun, 24 Mar 2019 23:00:00 GMT</pubDate>
+<description><![CDATA[Incio de un nuevo proyecto para el blog usando ProjectCreationFX como base.]]></description>
 <category>Diario de desarrollo</category>
 <category>IdP</category>
 <category>PowerShooter</category>
 </item>
 <item>
-<title>
-<![CDATA[Proceso de actualización del blog finalizado]]>
-</title>
+<title><![CDATA[Proceso de actualización del blog finalizado]]></title>
 <guid>https://prlazarus.tk/md_2018_12_18.html</guid>
-<pubDate>Tue, 18 Dec 2018 00:00:00 +0100</pubDate>
+<pubDate>Mon, 17 Dec 2018 23:00:00 GMT</pubDate>
+<description><![CDATA[Artículo que cierra el proceso de migración del blog desde Blogger, detallando todos los cambios que se han llevado a cabo.]]></description>
 <category>Blog</category>
 <category>FdP</category>
 <category>Información</category>
 </item>
 <item>
-<title>
-<![CDATA[Relacionando las entradas del blog]]>
-</title>
+<title><![CDATA[Relacionando las entradas del blog]]></title>
 <guid>https://prlazarus.tk/md_2018_11_30.html</guid>
-<pubDate>Fri, 30 Nov 2018 00:00:00 +0100</pubDate>
+<pubDate>Thu, 29 Nov 2018 23:00:00 GMT</pubDate>
+<description><![CDATA[Detalles de las funciones creadas para relacionar entradas en el blog.]]></description>
 <category>Blog</category>
 <category>Diario de desarrollo</category>
 </item>
 <item>
-<title>
-<![CDATA[Nuevas actualizaciones en el blog]]>
-</title>
+<title><![CDATA[Nuevas actualizaciones en el blog]]></title>
 <guid>https://prlazarus.tk/md_2018_11_27.html</guid>
-<pubDate>Tue, 27 Nov 2018 00:00:00 +0100</pubDate>
+<pubDate>Mon, 26 Nov 2018 23:00:00 GMT</pubDate>
+<description><![CDATA[Artículo detallando las nuevas mejoras incluidas en el blog.]]></description>
 <category>Blog</category>
 <category>Diario de desarrollo</category>
 </item>
 <item>
-<title>
-<![CDATA[Opinión: Máster en Ingeniería Informática (UMA)]]>
-</title>
+<title><![CDATA[Opinión: Máster en Ingeniería Informática (UMA)]]></title>
 <guid>https://prlazarus.tk/md_2018_10_30.html</guid>
-<pubDate>Tue, 30 Oct 2018 00:00:00 +0100</pubDate>
-<description>
-<![CDATA[Artículo de opinión sobre mis vivencias cursando el Máster Oficial en Ingeniería Informática impartido por la UMA.]]>
-</description>
+<pubDate>Mon, 29 Oct 2018 23:00:00 GMT</pubDate>
+<description><![CDATA[Artículo de opinión sobre mis vivencias cursando el Máster Oficial en Ingeniería Informática impartido por la UMA.]]></description>
 <category>Opinión</category>
 </item>
 <item>
-<title>
-<![CDATA[Contraseñas para nuestro día a día]]>
-</title>
+<title><![CDATA[Contraseñas para nuestro día a día]]></title>
 <guid>https://prlazarus.tk/md_2018_05_04.html</guid>
-<pubDate>Fri, 4 May 2018 00:00:00 +0200</pubDate>
+<pubDate>Thu, 03 May 2018 22:00:00 GMT</pubDate>
+<description><![CDATA[Artículo de opinión sobre el uso de contraseñas para nuestro trabajo cotidiano.]]></description>
 <category>Consejos</category>
 <category>Seguridad</category>
 </item>
 <item>
-<title>
-<![CDATA[Nuevo blog, nuevo alojamiento, nuevo comienzo]]>
-</title>
+<title><![CDATA[Nuevo blog, nuevo alojamiento, nuevo comienzo]]></title>
 <guid>https://prlazarus.tk/md_2018_03_21.html</guid>
-<pubDate>Wed, 21 Mar 2018 00:00:00 +0100</pubDate>
+<pubDate>Tue, 20 Mar 2018 23:00:00 GMT</pubDate>
+<description><![CDATA[Primera entrada del blog tras la migración desde Blogger. ]]></description>
 <category>Blog</category>
 <category>Diario de desarrollo</category>
 <category>IdP</category>
 <category>Información</category>
 </item>
 <item>
-<title>
-<![CDATA[Imprimir por consola nombre y valor de variables [Eclipse] [Java]]]>
-</title>
+<title><![CDATA[Imprimir por consola nombre y valor de variables [Eclipse] [Java]]]></title>
 <guid>https://prlazarus.tk/md_2016_09_22.html</guid>
-<pubDate>Thu, 22 Sep 2016 00:00:00 +0200</pubDate>
+<pubDate>Wed, 21 Sep 2016 22:00:00 GMT</pubDate>
+<description><![CDATA[Tutorial para facilitar las operaciones de imprimir por consola el nombre y valor de una variable en Java usando plantillas de código.]]></description>
 <category>Eficiencia</category>
 <category>Java</category>
 <category>Tutoriales</category>
 <category>Utilidades</category>
 </item>
 <item>
-<title>
-<![CDATA[Hilo (Thread) con eventos [Java]]]>
-</title>
+<title><![CDATA[Hilo (Thread) con eventos [Java]]]></title>
 <guid>https://prlazarus.tk/md_2015_08_24.html</guid>
-<pubDate>Mon, 24 Aug 2015 00:00:00 +0200</pubDate>
+<pubDate>Sun, 23 Aug 2015 22:00:00 GMT</pubDate>
+<description><![CDATA[Tutorial sobre cómo incluir eventos asíncronos a los hilos en Java.]]></description>
 <category>Java</category>
 <category>Tutoriales</category>
 <category>Utilidades</category>
 </item>
 <item>
-<title>
-<![CDATA[10 consejos para escribir comentarios en Java]]>
-</title>
+<title><![CDATA[10 consejos para escribir comentarios en Java]]></title>
 <guid>https://prlazarus.tk/md_2015_08_17.html</guid>
-<pubDate>Mon, 17 Aug 2015 00:00:00 +0200</pubDate>
+<pubDate>Sun, 16 Aug 2015 22:00:00 GMT</pubDate>
+<description><![CDATA[Lista de consejos a la hora de escribir comentarios en nuestro código Java.]]></description>
 <category>Consejos</category>
 <category>Diseño</category>
 <category>Java</category>
 </item>
 <item>
-<title>
-<![CDATA[Principios de diseño orientado a objetos que todo programador de Java debería conocer]]>
-</title>
+<title><![CDATA[Principios de diseño orientado a objetos que todo programador de Java debería conocer]]></title>
 <guid>https://prlazarus.tk/md_2015_08_10.html</guid>
-<pubDate>Mon, 10 Aug 2015 00:00:00 +0200</pubDate>
+<pubDate>Sun, 09 Aug 2015 22:00:00 GMT</pubDate>
+<description><![CDATA[Artículo en el que se detallan los principios más básicos a la hora de programar usando orientación a objetos (OOP).]]></description>
 <category>Consejos</category>
 <category>Diseño</category>
 <category>Java</category>
 </item>
 <item>
-<title>
-<![CDATA[Cómo evitar las NullPointerException (NPE) en Java [Parte 2]]]>
-</title>
+<title><![CDATA[Cómo evitar las NullPointerException (NPE) en Java [Parte 2]]]></title>
 <guid>https://prlazarus.tk/md_2015_01_12.html</guid>
-<pubDate>Mon, 12 Jan 2015 00:00:00 +0100</pubDate>
+<pubDate>Sun, 11 Jan 2015 23:00:00 GMT</pubDate>
+<description><![CDATA[Segunda parte del artículo dedicado a las NullPointerExceptions en Java, dando algunos consejos de cómo evitarlas.]]></description>
 <category>Consejos</category>
 <category>Diseño</category>
 <category>Java</category>
 <category>NullPointerException</category>
 </item>
 <item>
-<title>
-<![CDATA[Cómo evitar las NullPointerException (NPE) en Java [Parte 1]]]>
-</title>
+<title><![CDATA[Cómo evitar las NullPointerException (NPE) en Java [Parte 1]]]></title>
 <guid>https://prlazarus.tk/md_2014_10_01.html</guid>
-<pubDate>Wed, 1 Oct 2014 00:00:00 +0200</pubDate>
+<pubDate>Tue, 30 Sep 2014 22:00:00 GMT</pubDate>
+<description><![CDATA[Primera parte del artículo dedicado a la NullPointerExceptions en Java, explicando qué son y cuándo se producen.]]></description>
 <category>Consejos</category>
 <category>Diseño</category>
 <category>Java</category>
 <category>NullPointerException</category>
 </item>
 <item>
-<title>
-<![CDATA[Plantilla Java para lectura y escritura de ficheros de texto]]>
-</title>
+<title><![CDATA[Plantilla Java para lectura y escritura de ficheros de texto]]></title>
 <guid>https://prlazarus.tk/md_2014_08_07.html</guid>
-<pubDate>Thu, 7 Aug 2014 00:00:00 +0200</pubDate>
+<pubDate>Wed, 06 Aug 2014 22:00:00 GMT</pubDate>
+<description><![CDATA[Enlaces a la plantilla de lectura y escritura de ficheros que uso como base para scripts y utilidades en Java.]]></description>
 <category>Eficiencia</category>
 <category>Java</category>
 <category>Tutoriales</category>
 <category>Utilidades</category>
 </item>
 <item>
-<title>
-<![CDATA[Copiar directorio y contenido [Java] [Windows]]]>
-</title>
+<title><![CDATA[Copiar directorio y contenido [Java] [Windows]]]></title>
 <guid>https://prlazarus.tk/md_2014_06_10.html</guid>
-<pubDate>Tue, 10 Jun 2014 00:00:00 +0200</pubDate>
+<pubDate>Mon, 09 Jun 2014 22:00:00 GMT</pubDate>
+<description><![CDATA[Tutorial de cómo copiar ficheros y directorios usando Java.]]></description>
 <category>Java</category>
 <category>Tutoriales</category>
 <category>Utilidades</category>
 </item>
 <item>
-<title>
-<![CDATA[Borrar archivos de un directorio [Java] [Windows]]]>
-</title>
+<title><![CDATA[Borrar archivos de un directorio [Java] [Windows]]]></title>
 <guid>https://prlazarus.tk/md_2014_05_02.html</guid>
-<pubDate>Fri, 2 May 2014 00:00:00 +0200</pubDate>
+<pubDate>Thu, 01 May 2014 22:00:00 GMT</pubDate>
+<description><![CDATA[Tutorial de cómo borrar ficheros y directorios usando Java.]]></description>
 <category>Java</category>
 <category>Tutoriales</category>
 <category>Utilidades</category>
 </item>
 <item>
-<title>
-<![CDATA[Java3D - Decisión de no llevar a cabo la serie de tutoriales]]>
-</title>
+<title><![CDATA[Java3D - Decisión de no llevar a cabo la serie de tutoriales]]></title>
 <guid>https://prlazarus.tk/md_2013_06_13.html</guid>
-<pubDate>Thu, 13 Jun 2013 00:00:00 +0200</pubDate>
+<pubDate>Wed, 12 Jun 2013 22:00:00 GMT</pubDate>
+<description><![CDATA[Artículo de opinión sobre Java3D y los motivos para no continuar con la serie de tutoriales.]]></description>
 <category>FdP</category>
 <category>Java3D</category>
 <category>Opinión</category>
 </item>
 <item>
-<title>
-<![CDATA[Java3D - Introducción a la Programación de Videojuegos]]>
-</title>
+<title><![CDATA[Java3D - Introducción a la Programación de Videojuegos]]></title>
 <guid>https://prlazarus.tk/md_2013_03_15.html</guid>
-<pubDate>Fri, 15 Mar 2013 00:00:00 +0100</pubDate>
+<pubDate>Thu, 14 Mar 2013 23:00:00 GMT</pubDate>
+<description><![CDATA[Pasos preparatorio para la instalación y configuración del entorno.]]></description>
 <category>Consejos</category>
 <category>Java</category>
 <category>Java3D</category>
@@ -201,50 +188,45 @@
 <category>Videojuegos</category>
 </item>
 <item>
-<title>
-<![CDATA[prCalculadoraIntérprete - Fin de proyecto]]>
-</title>
+<title><![CDATA[prCalculadoraIntérprete - Fin de proyecto]]></title>
 <guid>https://prlazarus.tk/md_2012_10_14.html</guid>
-<pubDate>Sun, 14 Oct 2012 00:00:00 +0200</pubDate>
+<pubDate>Sat, 13 Oct 2012 22:00:00 GMT</pubDate>
+<description><![CDATA[Cierre del primer proyecto del blog. Resumen de resultados y conclusiones.]]></description>
 <category>Consejos</category>
 <category>Diario de desarrollo</category>
 <category>FdP</category>
 <category>Java</category>
 </item>
 <item>
-<title>
-<![CDATA[prCalculadoraIntérprete - Método intérprete]]>
-</title>
+<title><![CDATA[prCalculadoraIntérprete - Método intérprete]]></title>
 <guid>https://prlazarus.tk/md_2012_10_07_B.html</guid>
-<pubDate>Sun, 7 Oct 2012 00:00:00 +0200</pubDate>
+<pubDate>Sat, 06 Oct 2012 22:00:00 GMT</pubDate>
+<description><![CDATA[Implementación de la lógica base para el intérprete.]]></description>
 <category>Diario de desarrollo</category>
 <category>Java</category>
 </item>
 <item>
-<title>
-<![CDATA[prCalculadoraIntérprete - Pequeños cambios...]]>
-</title>
+<title><![CDATA[prCalculadoraIntérprete - Pequeños cambios...]]></title>
 <guid>https://prlazarus.tk/md_2012_10_07.html</guid>
-<pubDate>Sun, 7 Oct 2012 00:00:00 +0200</pubDate>
+<pubDate>Sat, 06 Oct 2012 22:00:00 GMT</pubDate>
+<description><![CDATA[Actualización de la solución parcial del ejercicio, para permiter seleccionar las entradas y salidas.]]></description>
 <category>Diario de desarrollo</category>
 <category>Java</category>
 </item>
 <item>
-<title>
-<![CDATA[prCalculadoraIntérprete - Primeros pasos]]>
-</title>
+<title><![CDATA[prCalculadoraIntérprete - Primeros pasos]]></title>
 <guid>https://prlazarus.tk/md_2012_09_29_B.html</guid>
-<pubDate>Sat, 29 Sep 2012 00:00:00 +0200</pubDate>
+<pubDate>Fri, 28 Sep 2012 22:00:00 GMT</pubDate>
+<description><![CDATA[Creación del esqueleto del intérprete a implementar.]]></description>
 <category>Consejos</category>
 <category>Diario de desarrollo</category>
 <category>Java</category>
 </item>
 <item>
-<title>
-<![CDATA[prCalculadoraIntérprete - Inicio de proyecto]]>
-</title>
+<title><![CDATA[prCalculadoraIntérprete - Inicio de proyecto]]></title>
 <guid>https://prlazarus.tk/md_2012_09_29.html</guid>
-<pubDate>Sat, 29 Sep 2012 00:00:00 +0200</pubDate>
+<pubDate>Fri, 28 Sep 2012 22:00:00 GMT</pubDate>
+<description><![CDATA[Primera entrada del blog, en la que se describe el enunciado del problema a resolver.]]></description>
 <category>Consejos</category>
 <category>Diario de desarrollo</category>
 <category>IdP</category>

@@ -1,413 +1,361 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="pandoc" />
+    <title>Cómo evitar las NullPointerException (NPE) en Java [Parte 1]&nbsp;- prLázarus</title>
+    <meta name='Language' content='es' />
+    <meta name='Content-Language' content='es' />
+    <meta name="author" content="Carlos J. Peláez Rivas" />
+    <meta name="description" content="prLázarus - Blog de programación y diario de desarrollo" />
+    <meta name="keywords" content="lazarus,surazal,prlazarus,blog,programación,programacion,programming,coding,code,desarrollo,development,java,carlos,jesús,jesus,j,peláez,pelaez,rivas,cjpelaez,cjpelaezrivas,málaga,malaga,uma,españa,spain" />
+    <meta property="og:site_name" content="prLázarus" />
+    <meta property="og:title" content="prLázarus - Blog de programación" />
+    <meta property="og:description" content="prLázarus - Blog de programación y diario de desarrollo" />
+    <meta name="twitter:title" content="prLázarus - Blog de programación">
+    <meta name="twitter:description" content="prLázarus - Blog de programación y diario de desarrollo" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="lib/bootstrap-4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/fontawesome-4.7/css/fontawesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/hint-2.5.1/css/hint.base.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/lightbox-2.10/css/lightbox.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/cookieconsent2-3.1.0/css/cookieconsent.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/entry.css" />
+    <link rel="stylesheet" type="text/css" href="css/project.css" />
+    <link rel="stylesheet" type="text/css" href="css/toc.css" />
+    <link rel="stylesheet" type="text/css" href="css/code.css" />
+    <link rel="stylesheet" type="text/css" href="css/code-github.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+    <script src="lib/jquery-3.3.1/js/jquery.min.js"></script>
+    <script src="lib/bootstrap-4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/stickytabs-1.2.0/js/stickytabs.js"></script>
+    <script src="lib/scrolltotop-1.0/js/scrolltotop.js"></script>
+    <script src="lib/lightbox-2.10/js/lightbox.min.js"></script>
+    <script>
+      lightbox.option({
+        'albumLabel': "Imagen %1 de %2",
+        'fadeDuration': 250,
+        'resizeDuration': 250,
+        'wrapAround': true,
+        'disable': true
+      })
+    </script>
+    <script src="lib/cookieconsent2-3.1.0/js/cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function() {
+        window.cookieconsent.initialise({
+          "palette": {
+            "popup": {
+              "background": "#d4d4d4",
+              "text": "#151515"
+            },
+            "button": {
+              "background": "#003379",
+              "text": "#ffffff"
+            }
+          },
+          "content": {
+            "message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
+            "dismiss": "Cerrar mensaje",
+            "link": "Más información",
+            "href": "https://blog.prlazarus.es/md_cookies_policy.html"
+          }
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container-fluid main-container">
+      <link rel="stylesheet" type="text/css" href="css/navbar.css" />
+      <div id="navbar">
+        <div id="zoneA">
+          <div class="content">
+            <a href="./">
+              <div id="logo"></div>
+            </a>
+            <h1 id="title">
+              prLázarus
+            </h1>
+            <h2 id="subtitle">
+              Blog sobre el desarrollo de proyectos, enginería software y tutoriales
+            </h2>
+          </div>
+        </div>
+        <div id="zoneB">
+          <div class="content">
+            <div id="menu">
+              <a class="menuItem" href="./"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
+              <a class="menuItem" href="./md_projects.html"><i class="fa fa-rocket"></i><span class="text"> Proyectos</span></a>
+              <a class="menuItem" href="https://cjpelaezrivas.dev"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fluid-row" id="header">
+        <h1 class="title toc-ignore ">Cómo evitar las NullPointerException (NPE) en Java [Parte 1]</h1>
+        <div class="date"><em>miércoles, 1 de octubre de 2014</em></div>
+        <div id="entry_section">
+          <div id="time_section"><b>Tiempo de lectura:</b> 8 minutos</div>
+        </div>
+        <div id="tag_section">
+          <b>Etiquetas: </b>
+          <a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+          <a class="tag" href="md_search.html?tag=Diseño">Diseño</a>
+          <a class="tag" href="md_search.html?tag=Java">Java</a>
+          <a class="tag" href="md_search.html?tag=NullPointerException">NullPointerException</a>
+        </div>
+      </div>
+      <b>Tabla de contenido</b>
+      <div class="table-of-contents">
+        <ul>
+          <li><a href="#%C2%BFqu%C3%A9-es-una-nullpointerexception%3F">¿Qué es una NullPointerException?</a></li>
+          <li><a href="#%C2%BFc%C3%B3mo-resolver-las-nullpointerexception-en-java%3F">¿Cómo resolver las NullPointerException en Java?</a></li>
+          <li><a href="#cuando-no-aparece-nullpointerexception">Cuando no aparece NullPointerException</a></li>
+          <li><a href="#algunos-puntos-importantes-de-las-nullpointerexception">Algunos puntos importantes de las NullPointerException</a></li>
+        </ul>
+      </div>
+      <div class="section">
+        <p>Muy buenas a todos, <br>
+          Hoy vamos a tratar un tema de Java bastante interesante: las excepciones. En concreto, las **NullPointerException **(NPE), las cuales supongo que a todos, y más en los inicios, nos dan tantísimos quebraderos de cabeza y a veces nos saltan en tiempo de ejecución. <br>
+          Nos podemos pasa un rato buscando dónde se producen o porqué, y luego al final terminamos “solucionándolo” con un simple: <strong>if(object != null)</strong>, el cual queda como un parche mal puesto aunque hace su trabajo.</p>
+        <p>Otra forma, para usuarios más avanzados para evitar estas excepciones es la captura de las mismas y su manejo, pero que las tratemos no quiere decir que no aparezcan durante la ejecución, aunque a veces es cierto que es imposible evitarlas, como por ejemplo, la entrada vacía en un cuadro de texto por parte de un usuario de nuestra aplicación.</p>
+        <p>Uno de los problemas que le veo a Java, dado que es un lenguaje de programación orientado a objetos, es que prácticamente todos han de ser inicializados. Y digo prácticamente porque no hemos de inicializar los tipos básicos, pero claro, tampoco los podemos considerar objetos de hecho. <br>
+          Esta simpática excepción nos suele aparecer cuando menos nos lo esperamos, y da igual si se trata de un proyecto grande o pequeño. Puede aparecer en una aplicación que nos han mandado en una asignatura, o durante una reunión de trabajo con un cliente, haciéndonos quedar un poco regular con el cliente y con nuestro jefe.</p>
+        <p>Sin embargo, hasta ahora todo lo que he dicho han sido cosas malas de ella. Pero, ¿para qué sirve realmente esta excepción? Bueno, pues como toda excepción que se precie de llamarse así, es la mejor forma de resolver un problema en nuestro código durante la ejecución. Y diréis, ¿pero qué dice este tío?</p>
+        <p>Claro, a ver, es la mejor manera de resolver una referencia nula siempre y cuando ese caso no esté controlado, de modo que al cortar la ejecución en ese punto evita futuros problemas que podrían llegar a causar grandes daños. Esto nos permite gozar de programas robustos y que trabajan de forma suave. Cómo se suele decir: <strong>“Más vale prevenir que curar...”</strong>.</p>
+        <p>Afortunadamente, aplicando algunas técnicas defensivas en nuestro código y sabiendo siempre lo que hacemos, podemos reducir el número de NPE que nos encontraremos en gran medida. Esto será lo que haremos en esta lección que requerirá al menos dos partes. Comenzaremos explicando qué son y cómo solucionar las NullPointerException y seguiremos dando algunos consejos para programar de forma más segura.</p>
+        <h2 id="%C2%BFqu%C3%A9-es-una-nullpointerexception%3F">¿Qué es una NullPointerException?</h2>
+        <p>Bueno, se trata de un error, o más bien de una excepción que aparece cuando intentamos aplicar operaciones sobre un objeto que es nulo. En Java, al crear cualquier variable de tipo Objeto al inicio apunta a nulo, lo que requiere que dicha variable sea inicializada con su constructor correspondiente. Por tanto, si intentamos acceder a una variable que apunta a nulo, o realizar alguna operación con ella, obtendremos dicha excepción.</p>
+        <p>A continuación veremos escenarios muy típicos dónde nos salta dicha excepción. Para dichos escenarios vamos a usar una clase muy famosas de Java cuando se está comenzado a programar, aunque con algunas modificaciones y sólo implementando lo más básico. A mí me sirvió de mucha ayuda en mis inicios, dado que con este ejemplo vi a qué se refería la idea de orientación a objetos.</p>
+        <p><strong>La clase Jarra:</strong></p>
+        <pre><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Jarra</span> {
+	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String nombre;
+	<span class="hljs-keyword">public</span> <span class="hljs-type">int</span> capacidad;
+	<span class="hljs-keyword">private</span> <span class="hljs-type">int</span> cantidad;
+	<span class="hljs-keyword">public</span> <span class="hljs-title function_">Jarra</span><span class="hljs-params">(String nombre, <span class="hljs-type">int</span> capacidad, <span class="hljs-type">int</span> cantidad)</span> {
+		Jarra.nombre = nombre;
+		<span class="hljs-built_in">this</span>.capacidad = capacidad;
+		<span class="hljs-built_in">this</span>.cantidad = cantidad;
+		<span class="hljs-keyword">if</span> (cantidad &gt; capacidad) {
+			cantidad = capacidad;
+		}
+	}
+	<span class="hljs-keyword">public</span> <span class="hljs-title function_">Jarra</span><span class="hljs-params">(String nombre, <span class="hljs-type">int</span> capacidad)</span> {
+		<span class="hljs-built_in">this</span>(nombre, capacidad, <span class="hljs-number">0</span>);
+	}
+	<span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getCapacidad</span><span class="hljs-params">()</span> {
+		<span class="hljs-keyword">return</span> capacidad;
+	}
+	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setCapacidad</span><span class="hljs-params">(<span class="hljs-type">int</span> capacidad)</span> {
+		<span class="hljs-built_in">this</span>.capacidad = capacidad;
+		<span class="hljs-keyword">if</span> (cantidad &gt; capacidad) {
+			cantidad = capacidad;
+		}
+	}
+	<span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getCantidad</span><span class="hljs-params">()</span> {
+		<span class="hljs-keyword">return</span> cantidad;
+	}
+	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setCantidad</span><span class="hljs-params">(<span class="hljs-type">int</span> cantidad)</span> {
+		<span class="hljs-built_in">this</span>.cantidad = cantidad;
+		<span class="hljs-keyword">if</span> (cantidad &gt; capacidad) {
+			cantidad = capacidad;
+		}
+	}
+	<span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> {
+		<span class="hljs-keyword">return</span> nombre + <span class="hljs-string">&quot; - &quot;</span> + cantidad + <span class="hljs-string">&quot;/&quot;</span> + capacidad;
+	}
+}
+</code></pre>
+        <p>A continuación vamos a ver los escenarios más comunes en los que podemos ver dicha excepción: <br /></p>
+        <p><strong>Escenario 1</strong> <br>
+          <strong>java.lang.NullPointerException al llamar a un método de instancia sobre objetos nulos.</strong> <br>
+          Este puede que sea el error más común que nos podemos encontrar. En este ejemplo es trivial verlo, es más, Eclipse nos avisa de que el objeto será nulo en ese punto, pero en aplicaciones más grandes puede llegar a ser un gran problema.
+        </p>
+        <pre><code class="hljs"><span class="hljs-type">Jarra</span> <span class="hljs-variable">jarraA</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+System.out.println(jarraA.getCantidad()); <span class="hljs-comment">//Se lanzará NullPointerException aquí</span>
+</code></pre>
+        <p>Recuerda siempre inicializar todos los objetos de forma correcta. Aun así, no obtendremos la excepción si llamamos un método estático. Dichos métodos no requieren una instancia para poder ser llamados.</p>
+        <p><strong>Escenario 2</strong> <br>
+          <strong>java.lang.NullPointerException al acceder a una variable de una referencia nula.</strong> <br>
+          Es muy parecida al caso anterior. Si suponemos que dicha variable es pública, y que puede ser accedida desde el exterior, nos aparecerá nuestra querida excepción.
+        </p>
+        <pre><code class="hljs"><span class="hljs-type">Jarra</span> <span class="hljs-variable">jarraA</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+System.out.println(jarraA.capacidad); <span class="hljs-comment">//Se lanzará NullPointerException aquí</span>
+</code></pre>
+        <p><strong>Escenario 3</strong> <br>
+          <strong>java.lang.NullPointerException al lanzar una Excepción cualquiera sin inicializar.</strong> <br>
+          Las excepciones, como todos los demás, son objetos y por tanto han de ser inicializados antes de poder acceder a sus métodos.
+        </p>
+        <pre><code class="hljs"><span class="hljs-type">RuntimeException</span> <span class="hljs-variable">excepcionPrueba</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+<span class="hljs-keyword">throw</span> excepcionPrueba; <span class="hljs-comment">//Se lanzará NullPointerException aquí</span>
+</code></pre>
+        <p><strong>Escenario 4</strong> <br>
+          <strong>java.lang.NullPointerException al intentar obtener la longitud de un array que es nulo.</strong>
+        </p>
+        <pre><code class="hljs">Jarra[] jarrasArray = <span class="hljs-literal">null</span>;
+<span class="hljs-type">int</span> <span class="hljs-variable">longitud</span> <span class="hljs-operator">=</span> jarrasArray.length; <span class="hljs-comment">//Se lanzará NullPointerException aquí</span>
+</code></pre>
+        <p><strong>Escenario 5</strong> <br>
+          <strong>java.lang.NullPointerException al acceder a un elemento de un array que es nulo.</strong>
+        </p>
+        <pre><code class="hljs">Jarra[] jarrasArray = <span class="hljs-literal">null</span>;
+<span class="hljs-type">Jarra</span> <span class="hljs-variable">jarraB</span> <span class="hljs-operator">=</span> jarrasArray[<span class="hljs-number">1</span>]; <span class="hljs-comment">//Se lanzará NullPointerException aquí</span>
+</code></pre>
+        <p>Obviamente, este escenario y el anterior pueden ser trasladados al uso de cualquier tipo de estructura de datos. En este caso hemos usado los array porque son los objetos más simples que podemos usar, pero por ejemplo se podría haber mostrado con listas o conjuntos.</p>
+        <p><strong>Escenario 6</strong> <br>
+          <strong>java.lang.NullPointerException al intentar usar synchronize sobre objetos nulos o intentar usar objetos nulos dentro de bloques synchronized.</strong>
+        </p>
+        <pre><code class="hljs"><span class="hljs-type">Jarra</span> <span class="hljs-variable">jarraC</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+<span class="hljs-keyword">synchronized</span> (jarraC) { <span class="hljs-comment">//Se lanzará NullPointerException aquí</span>
+	System.out.println(<span class="hljs-string">&quot;Este bloque es synchronized sobre una variable nula&quot;</span>);
+}
+</code></pre>
+        <h2 id="%C2%BFc%C3%B3mo-resolver-las-nullpointerexception-en-java%3F">¿Cómo resolver las NullPointerException en Java?</h2>
+        <p>Para resolverlas, lo primero que hemos de conocer es qué las causa. Esto puede llegar a ser una tarea muy sencilla si sabemos dónde buscar. Toda la información que necesitamos la encontremos en la traza de errores en la consola de nuestro entorno de desarrollo (IDE), incluyendo la línea exacta dónde se ha producido el lanzamiento de la excepción y la pila de llamada de métodos antes de que se produjera.</p>
+        <p>El siguiente paso será buscar en esa línea o adyacentes qué objeto es el que causa la excepción, y ya tenemos la mitad del trabajo hecho. El resto de la tarea será saber por qué ese objeto es nulo en ese momento. Puede que se deba a un error en la creación del objeto o cualquier otro motivo, por lo que esta tarea varía y no puedo dar una solución exacta. A veces la mejor solución es tener mucho cuidado al desarrollar, aplicar técnicas preventivas para objetos nulos y usar métodos Null Safe.</p>
+        <h2 id="cuando-no-aparece-nullpointerexception">Cuando no aparece NullPointerException</h2>
+        <p>Si accedemos a métodos o clases estáticas nunca obtendremos dicha excepción, incluso si hacemos referencias a variables que apuntan a nulo. Esto es debido a que las variables y métodos estáticos son, en tiempo de compilación, ‘atados’ basándose en el nombre de la clase y no son asociados con objetos. En el siguiente ejemplo no saltará una excepción, dado que la variable nombre es estática, y en su lugar nos imprimirá por pantalla el valor real de la variable, que en este caso es: 'null'.</p>
+        <pre><code class="hljs"><span class="hljs-type">Jarra</span> <span class="hljs-variable">jarraD</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+System.out.println(jarraD.nombre);
+</code></pre>
+        <h2 id="algunos-puntos-importantes-de-las-nullpointerexception">Algunos puntos importantes de las NullPointerException</h2>
+        <p>Para terminar con esta primera parte de la lección vamos a dar algunos consejos, sugerencias y detalles a tener en cuenta con estas caprichosas excepciones.</p>
+        <ol>
+          <li>Las NullPointerException con excepciones no comprobadas porque extienden (son hijas de) RuntimeException y por lo tanto no es necesario controlarlas con un bloque try-catch.</li>
+          <li>Cuando obtengas una excepción NullPointerException busca la línea en la que se ha producido para encontrar al objeto que la causa.</li>
+          <li>Los IDE modernos, como por ejemplo Eclipse o Netbeans, nos dan un enlace en la consola para ir directamente a la clase y línea donde se ha producido la excepción.</li>
+          <li>Se pueden usar puntos de ruptura en el modo Debug del IDE para suspender la ejecución del programa cuando la excepción ocurre, de modo que se nos permite ver el valor de todas las variables en memoria y comprobar qué está fallando.</li>
+          <li>Nunca olvides mirar el nombre del hilo de ejecución donde se ha producido la excepción. Si desarrollamos una aplicación multi-hilo se puede poner la cosa muy difícil si por algún motivo algún hilo hace referencia a nulo en algún momento.</li>
+          <li>Lo mejor es evitar las NullPointerException durante el desarrollo siguiendo algunas técnicas de prevención o añadiendo comprobaciones en las bases de datos como restricciones.</li>
+        </ol>
+        <p>Por el momento esto es todo. En la siguiente parte vamos a poner en práctica algunas técnicas de prevención útiles para evitar las NullPointerException en Java.</p>
+        <p>Saludos, <br>
+          Lázarus Surazal.
+        </p>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/relations.css" />
+      <div id="relationsContainer">
+        <span class="relatedTitle">Entradas relacionadas</span>
+        <ul>
+          <li><a href="md_2015_01_12.html">Cómo evitar las NullPointerException (NPE) en Java [Parte 2]</a></li>
+          <li><a href="md_2015_08_10.html">Principios de diseño orientado a objetos que todo programador de Java debería conocer</a></li>
+          <li><a href="md_2015_08_17.html">10 consejos para escribir comentarios en Java</a></li>
+          <li><a href="md_2018_05_04.html">Contraseñas para nuestro día a día</a></li>
+        </ul>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/navigation.css" />
+      <hr>
+      <div id="navigationContainer">
+        <a class="item hint--bottom-left navigateButton right" href="md_2015_01_12.html" data-hint="Cómo evitar las NullPointerException (NPE) en Java [Parte 2]">
+          Siguiente
+          <i class="fa fa-arrow-right"></i>
+        </a>
+        <a class="item hint--bottom-right navigateButton left" href="md_2014_08_07.html" data-hint="Plantilla Java para lectura y escritura de ficheros de texto">
+          <i class="fa fa-arrow-left"></i>
+          Anterior
+        </a>
+        <a class="navigateButton center" href="./">
+          <i class="fa fa-home"></i>
+          Volver a la página principal
+        </a>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/info.css" />
+      <div id="infoContainer">
+        <div id="infoProfile" class="info_block">
+          <div class="title">
+            <b>Perfil</b>
+          </div>
+          <div class="content">
+            <div class="part photo">
+              <img src="images/logo_b.png" width="90px" alt="prLázarus logo info" />
+            </div>
+            <div class="part description">
+              <h3 id="name">Carlos J. Peláez Rivas <em id="alias">(Lázarus Surazal)</em></h3>
+              Graduado y Máster en Ingeniería Informática por la Universidad de Málaga (España). También cursé un Experto en tecnologías de Blockchain. Actualmente trabajando como Software engineer en Málaga.<br>
+              Apasionado de los videojuegos, la música y la tecnología, siempre buscando cosas nuevas que aprender, hacer (y a veces romper).<br>
+              <a href="https://cjpelaezrivas.dev">Más sobre mi...</a>
+            </div>
+          </div>
+        </div>
+        <div id="infoContact" class="info_block">
+          <div class="title">
+            <b>Contacto</b>
+          </div>
+          <div class="content links">
+            <div class="item hint--bottom-right" data-hint="Perfil personal">
+              <a href="https://cjpelaezrivas.dev" style="font-size: 38px; line-height: 38px;"><i class="fa fa-user-circle"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="prLázarus - RSS">
+              <a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
+              <a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="Perfil de GitHub">
+              <a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="Perfil de LinkedIn">
+              <a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="commentsContainer" style="float:left; width:100%;">
+        <script src="https://utteranc.es/client.js" repo="cjpelaezrivas/prlazarus" issue-term="title" label="comments" theme="github-light" crossorigin="anonymous" async>
+        </script>
+        <noscript>
+          <div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+            Por favor, activa JavaScript para ver los comentarios.
+          </div>
+        </noscript>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/footer.css" />
+      <div id="footer_message">
+        ¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="https://github.com/cjpelaezrivas/prLazarus/issues">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
+      </div>
+      <div id="footer">
+        <div class="content">
+          <div id="logo_footer">
+            <a href="https://prlazarus.es"><img src="images/logo_c.png" alt="prLázarus logo footer" style="margin-top:10px;" /></a>
 
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="generator" content="pandoc" />
+            <!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
+          </div>
+          <div id="right_column" class="text">
+            Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag" /></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.es">prLázarus</a></i><br>
+            <i class="fa fa-plug"></i> Con la tecnología de <i><a href="https://cjpelaezrivas.dev/ProjectLighthouse/">Project Lighthouse</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
+            <i><a href="./feed.xml">RSS</a></i>
+            &nbsp;|&nbsp;
+            <i><a href="md_cookies_policy.html">Política de cookies</a></i>
+            &nbsp;|&nbsp;
+            <i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
+            <a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
+          </div>
+        </div>
+      </div>
 
-	<title>Cómo evitar las NullPointerException (NPE) en Java [Parte 1] - prLázarus</title>
+      <!-- Default Statcounter code for prLázarus - Blog -->
+      <script type="text/javascript">
+        var sc_project = 12995152;
+        var sc_invisible = 1;
+        var sc_security = "7de2ea10";
+      </script>
+      <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+      <noscript>
+        <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12995152/0/7de2ea10/1/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></a></div>
+      </noscript>
 
-			<meta name='Language' content='es' />
-<meta name='Content-Language' content='es' />
-
-<meta name="author" content="Carlos J. Peláez Rivas" />
-<meta name="description" content="prLázarus - Blog de programación y diario de desarrollo" />
-<meta name="keywords" content="lazarus,surazal,prlazarus,blog,programación,programacion,programming,coding,code,desarrollo,development,java,carlos,jesús,jesus,j,peláez,pelaez,rivas,cjpelaez,cjpelaezrivas,málaga,malaga,uma,españa,spain"/>
-
-<meta property="og:site_name" content="prLázarus" />
-<meta property="og:title" content="prLázarus - Blog de programación" />
-<meta property="og:description" content="prLázarus - Blog de programación y diario de desarrollo" />
-<meta name="twitter:title" content="prLázarus - Blog de programación">
-<meta name="twitter:description" content="prLázarus - Blog de programación y diario de desarrollo" />
-
-<link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
-<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
-
-<link rel="stylesheet" href="lib/bootstrap-4.1.3/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="lib/fontawesome-4.7/css/fontawesome.min.css"/>
-<link rel="stylesheet" type="text/css" href="lib/hint-2.5.1/css/hint.base.min.css"/>
-<link rel="stylesheet" type="text/css" href="lib/lightbox-2.10/css/lightbox.min.css"/>
-<link rel="stylesheet" type="text/css" href="lib/cookieconsent2-3.1.0/css/cookieconsent.min.css"/>
-
-<link rel="stylesheet" type="text/css" href="css/base.css"/>
-<link rel="stylesheet" type="text/css" href="css/main.css"/>
-<link rel="stylesheet" type="text/css" href="css/entry.css"/>
-<link rel="stylesheet" type="text/css" href="css/project.css"/>
-<link rel="stylesheet" type="text/css" href="css/toc.css"/>
-<link rel="stylesheet" type="text/css" href="css/code.css"/>
-<link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
-
-<script src="lib/jquery-3.3.1/js/jquery.min.js"></script>
-<script src="lib/bootstrap-4.1.3/js/bootstrap.bundle.min.js"></script>
-<script src="lib/stickytabs-1.2.0/js/stickytabs.js"></script>
-<script src="lib/scrolltotop-1.0/js/scrolltotop.js"></script>
-
-<script src="lib/lightbox-2.10/js/lightbox.min.js"></script>
-<script>
-	lightbox.option({
-		'albumLabel': "Imagen %1 de %2",
-		'fadeDuration': 250,
-		'resizeDuration': 250,
-		'wrapAround': true
-	})
-</script>
-
-<script src="lib/cookieconsent2-3.1.0/js/cookieconsent.min.js"></script>
-<script>
-	window.addEventListener("load", function(){
-		window.cookieconsent.initialise({
-			"palette": {
-				"popup": {
-					"background": "#d4d4d4",
-					"text": "#151515"
-				},
-				"button": {
-					"background": "#003379",
-					"text": "#ffffff"
-				}
-			},
-			"content": {
-				"message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
-				"dismiss": "Cerrar mensaje",
-				"link": "Más información",
-				"href": "http://prlazarus.tk/md_cookies_policy.html"
-			}
-		})
-	});
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', 'UA-74491738-2');
-</script>
-	</head>
-
-<body>
-	<div class="container-fluid main-container">
-
-		<script>
-			$(document).ready(function () {
-				window.buildTabsets("TOC");
-			});
-		</script>
-
-					<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
-
-<div id="navbar">
-	<div id="zoneA">
-		<div class="content">
-			<a href="./">
-				<div id="logo"></div>
-			</a>
-
-			<h1 id="title">
-				prLázarus
-			</h1>
-			<h2 id="subtitle">
-				Blog de desarrollo de proyectos Software, tutoriales, consejos y varios.
-			</h2>
-		</div>
-	</div>
-	<div id="zoneB">
-		<div class="content">
-			<div id="menu">
-				<a class="menuItem" href="./"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
-				<a class="menuItem" href="./md_projects.html"><i class="fa fa-rocket"></i><span class="text"> Proyectos</span></a>
-				<a class="menuItem" href="http://cjpelaezrivas.tk"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
-			</div>
-		</div>
-	</div>
-</div>
-		
-		<div class="fluid-row" id="header">
-
-						<h1 class="title toc-ignore ">Cómo evitar las NullPointerException (NPE) en Java [Parte 1]</h1>
-			
-			<!--
-						-->
-
-			<!--
-						-->
-
-							<h4 class="date">
-<em>miércoles, 1 de octubre de 2014</em>
-</h4>
-			
-							<b>Etiquetas</b>
-				<div id="tag_section">
-											<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
-											<a class="tag" href="md_search.html?tag=Diseño">Diseño</a>
-											<a class="tag" href="md_search.html?tag=Java">Java</a>
-											<a class="tag" href="md_search.html?tag=NullPointerException">NullPointerException</a>
-									</div>
-			
-			<!--
-						-->
-
-		</div>
-
-					<div id="TOC">
-									<span class="title">Tabla de contenido</span>
-								<ul>
-<li><a href="#qué-es-una-nullpointerexception">¿Qué es una NullPointerException?</a></li>
-<li><a href="#cómo-resolver-las-nullpointerexception-en-java">¿Cómo resolver las NullPointerException en Java?</a></li>
-<li><a href="#cuando-no-aparece-nullpointerexception">Cuando no aparece NullPointerException</a></li>
-<li><a href="#algunos-puntos-importantes-de-las-nullpointerexception">Algunos puntos importantes de las NullPointerException</a></li>
-</ul>
-			</div>
-		
-		<p>Muy buenas a todos, <br> Hoy vamos a tratar un tema de Java bastante interesante: las excepciones. En concreto, las <strong>NullPointerException </strong>(NPE), las cuales supongo que a todos, y más en los inicios, nos dan tantísimos quebraderos de cabeza y a veces nos saltan en tiempo de ejecución. <br> Nos podemos pasa un rato buscando dónde se producen o porqué, y luego al final terminamos “solucionándolo” con un simple: <strong>if(object != null)</strong>, el cual queda como un parche mal puesto aunque hace su trabajo.</p>
-<p>Otra forma, para usuarios más avanzados para evitar estas excepciones es la captura de las mismas y su manejo, pero que las tratemos no quiere decir que no aparezcan durante la ejecución, aunque a veces es cierto que es imposible evitarlas, como por ejemplo, la entrada vacía en un cuadro de texto por parte de un usuario de nuestra aplicación.</p>
-<p>Uno de los problemas que le veo a Java, dado que es un lenguaje de programación orientado a objetos, es que prácticamente todos han de ser inicializados. Y digo prácticamente porque no hemos de inicializar los tipos básicos, pero claro, tampoco los podemos considerar objetos de hecho. <br> Esta simpática excepción nos suele aparecer cuando menos nos lo esperamos, y da igual si se trata de un proyecto grande o pequeño. Puede aparecer en una aplicación que nos han mandado en una asignatura, o durante una reunión de trabajo con un cliente, haciéndonos quedar un poco regular con el cliente y con nuestro jefe.</p>
-<p>Sin embargo, hasta ahora todo lo que he dicho han sido cosas malas de ella. Pero, ¿para qué sirve realmente esta excepción? Bueno, pues como toda excepción que se precie de llamarse así, es la mejor forma de resolver un problema en nuestro código durante la ejecución. Y diréis, ¿pero qué dice este tío?</p>
-<p>Claro, a ver, es la mejor manera de resolver una referencia nula siempre y cuando ese caso no esté controlado, de modo que al cortar la ejecución en ese punto evita futuros problemas que podrían llegar a causar grandes daños. Esto nos permite gozar de programas robustos y que trabajan de forma suave. Cómo se suele decir: <strong>“Más vale prevenir que curar…”</strong>.</p>
-<p>Afortunadamente, aplicando algunas técnicas defensivas en nuestro código y sabiendo siempre lo que hacemos, podemos reducir el número de NPE que nos encontraremos en gran medida. Esto será lo que haremos en esta lección que requerirá al menos dos partes. Comenzaremos explicando qué son y cómo solucionar las NullPointerException y seguiremos dando algunos consejos para programar de forma más segura.</p>
-<div id="qué-es-una-nullpointerexception" class="section level2">
-<h2>¿Qué es una NullPointerException?</h2>
-<p>Bueno, se trata de un error, o más bien de una excepción que aparece cuando intentamos aplicar operaciones sobre un objeto que es nulo. En Java, al crear cualquier variable de tipo Objeto al inicio apunta a nulo, lo que requiere que dicha variable sea inicializada con su constructor correspondiente. Por tanto, si intentamos acceder a una variable que apunta a nulo, o realizar alguna operación con ella, obtendremos dicha excepción.</p>
-<p>A continuación veremos escenarios muy típicos dónde nos salta dicha excepción. Para dichos escenarios vamos a usar una clase muy famosas de Java cuando se está comenzado a programar, aunque con algunas modificaciones y sólo implementando lo más básico. A mí me sirvió de mucha ayuda en mis inicios, dado que con este ejemplo vi a qué se refería la idea de orientación a objetos.</p>
-<p><strong>La clase Jarra:</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">public</span> <span class="kw">class</span> Jarra {</a>
-<a class="sourceLine" id="cb1-2" title="2">    <span class="kw">public</span> <span class="dt">static</span> <span class="bu">String</span> nombre;</a>
-<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">public</span> <span class="dt">int</span> capacidad;</a>
-<a class="sourceLine" id="cb1-4" title="4">    <span class="kw">private</span> <span class="dt">int</span> cantidad;</a>
-<a class="sourceLine" id="cb1-5" title="5"></a>
-<a class="sourceLine" id="cb1-6" title="6">    <span class="kw">public</span> <span class="fu">Jarra</span>(<span class="bu">String</span> nombre, <span class="dt">int</span> capacidad, <span class="dt">int</span> cantidad) {</a>
-<a class="sourceLine" id="cb1-7" title="7">        Jarra.<span class="fu">nombre</span> = nombre;</a>
-<a class="sourceLine" id="cb1-8" title="8">        <span class="kw">this</span>.<span class="fu">capacidad</span> = capacidad;</a>
-<a class="sourceLine" id="cb1-9" title="9">        <span class="kw">this</span>.<span class="fu">cantidad</span> = cantidad;</a>
-<a class="sourceLine" id="cb1-10" title="10"></a>
-<a class="sourceLine" id="cb1-11" title="11">        <span class="kw">if</span> (cantidad &gt; capacidad) {</a>
-<a class="sourceLine" id="cb1-12" title="12">            cantidad = capacidad;</a>
-<a class="sourceLine" id="cb1-13" title="13">        }</a>
-<a class="sourceLine" id="cb1-14" title="14">    }</a>
-<a class="sourceLine" id="cb1-15" title="15"></a>
-<a class="sourceLine" id="cb1-16" title="16">    <span class="kw">public</span> <span class="fu">Jarra</span>(<span class="bu">String</span> nombre, <span class="dt">int</span> capacidad) {</a>
-<a class="sourceLine" id="cb1-17" title="17">        <span class="kw">this</span>(nombre, capacidad, <span class="dv">0</span>);</a>
-<a class="sourceLine" id="cb1-18" title="18">    }</a>
-<a class="sourceLine" id="cb1-19" title="19"></a>
-<a class="sourceLine" id="cb1-20" title="20">    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">getCapacidad</span>() {</a>
-<a class="sourceLine" id="cb1-21" title="21">        <span class="kw">return</span> capacidad;</a>
-<a class="sourceLine" id="cb1-22" title="22">    }</a>
-<a class="sourceLine" id="cb1-23" title="23"></a>
-<a class="sourceLine" id="cb1-24" title="24">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setCapacidad</span>(<span class="dt">int</span> capacidad) {</a>
-<a class="sourceLine" id="cb1-25" title="25">        <span class="kw">this</span>.<span class="fu">capacidad</span> = capacidad;</a>
-<a class="sourceLine" id="cb1-26" title="26"></a>
-<a class="sourceLine" id="cb1-27" title="27">        <span class="kw">if</span> (cantidad &gt; capacidad) {</a>
-<a class="sourceLine" id="cb1-28" title="28">            cantidad = capacidad;</a>
-<a class="sourceLine" id="cb1-29" title="29">        }</a>
-<a class="sourceLine" id="cb1-30" title="30">    }</a>
-<a class="sourceLine" id="cb1-31" title="31"></a>
-<a class="sourceLine" id="cb1-32" title="32">    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">getCantidad</span>() {</a>
-<a class="sourceLine" id="cb1-33" title="33">        <span class="kw">return</span> cantidad;</a>
-<a class="sourceLine" id="cb1-34" title="34">    }</a>
-<a class="sourceLine" id="cb1-35" title="35"></a>
-<a class="sourceLine" id="cb1-36" title="36">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setCantidad</span>(<span class="dt">int</span> cantidad) {</a>
-<a class="sourceLine" id="cb1-37" title="37">        <span class="kw">this</span>.<span class="fu">cantidad</span> = cantidad;</a>
-<a class="sourceLine" id="cb1-38" title="38"></a>
-<a class="sourceLine" id="cb1-39" title="39">        <span class="kw">if</span> (cantidad &gt; capacidad) {</a>
-<a class="sourceLine" id="cb1-40" title="40">            cantidad = capacidad;</a>
-<a class="sourceLine" id="cb1-41" title="41">        }</a>
-<a class="sourceLine" id="cb1-42" title="42">    }</a>
-<a class="sourceLine" id="cb1-43" title="43"></a>
-<a class="sourceLine" id="cb1-44" title="44">    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span>() {</a>
-<a class="sourceLine" id="cb1-45" title="45">        <span class="kw">return</span> nombre + <span class="st">&quot; - &quot;</span> + cantidad + <span class="st">&quot;/&quot;</span> + capacidad;</a>
-<a class="sourceLine" id="cb1-46" title="46">    }</a>
-<a class="sourceLine" id="cb1-47" title="47">}</a></code></pre></div>
-<p>A continuación vamos a ver los escenarios más comunes en los que podemos ver dicha excepción: <br /></p>
-<p><strong>Escenario 1</strong> <br> <strong>java.lang.NullPointerException al llamar a un método de instancia sobre objetos nulos.</strong> <br> Este puede que sea el error más común que nos podemos encontrar. En este ejemplo es trivial verlo, es más, Eclipse nos avisa de que el objeto será nulo en ese punto, pero en aplicaciones más grandes puede llegar a ser un gran problema.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">Jarra jarraA = <span class="kw">null</span>;</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(jarraA.<span class="fu">getCantidad</span>()); <span class="co">//Se lanzará NullPointerException aquí</span></a></code></pre></div>
-<p>Recuerda siempre inicializar todos los objetos de forma correcta. Aun así, no obtendremos la excepción si llamamos un método estático. Dichos métodos no requieren una instancia para poder ser llamados.</p>
-<p><strong>Escenario 2</strong> <br> <strong>java.lang.NullPointerException al acceder a una variable de una referencia nula.</strong> <br> Es muy parecida al caso anterior. Si suponemos que dicha variable es pública, y que puede ser accedida desde el exterior, nos aparecerá nuestra querida excepción.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">Jarra jarraA = <span class="kw">null</span>;</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(jarraA.<span class="fu">capacidad</span>); <span class="co">//Se lanzará NullPointerException aquí</span></a></code></pre></div>
-<p><strong>Escenario 3</strong> <br> <strong>java.lang.NullPointerException al lanzar una Excepción cualquiera sin inicializar.</strong> <br> Las excepciones, como todos los demás, son objetos y por tanto han de ser inicializados antes de poder acceder a sus métodos.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1"><span class="bu">RuntimeException</span> excepcionPrueba = <span class="kw">null</span>;</a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="kw">throw</span> excepcionPrueba; <span class="co">//Se lanzará NullPointerException aquí</span></a></code></pre></div>
-<p><strong>Escenario 4</strong> <br> <strong>java.lang.NullPointerException al intentar obtener la longitud de un array que es nulo.</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb5-1" title="1">Jarra[] jarrasArray = <span class="kw">null</span>;</a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="dt">int</span> longitud = jarrasArray.<span class="fu">length</span>; <span class="co">//Se lanzará NullPointerException aquí</span></a></code></pre></div>
-<p><strong>Escenario 5</strong> <br> <strong>java.lang.NullPointerException al acceder a un elemento de un array que es nulo.</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb6-1" title="1">Jarra[] jarrasArray = <span class="kw">null</span>;</a>
-<a class="sourceLine" id="cb6-2" title="2">Jarra jarraB = jarrasArray[<span class="dv">1</span>]; <span class="co">//Se lanzará NullPointerException aquí</span></a></code></pre></div>
-<p>Obviamente, este escenario y el anterior pueden ser trasladados al uso de cualquier tipo de estructura de datos. En este caso hemos usado los array porque son los objetos más simples que podemos usar, pero por ejemplo se podría haber mostrado con listas o conjuntos.</p>
-<p><strong>Escenario 6</strong> <br> <strong>java.lang.NullPointerException al intentar usar synchronize sobre objetos nulos o intentar usar objetos nulos dentro de bloques synchronized.</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb7-1" title="1">Jarra jarraC = <span class="kw">null</span>;</a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="kw">synchronized</span> (jarraC) { <span class="co">//Se lanzará NullPointerException aquí</span></a>
-<a class="sourceLine" id="cb7-3" title="3">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Este bloque es synchronized sobre una variable nula&quot;</span>);</a>
-<a class="sourceLine" id="cb7-4" title="4">}</a></code></pre></div>
-</div>
-<div id="cómo-resolver-las-nullpointerexception-en-java" class="section level2">
-<h2>¿Cómo resolver las NullPointerException en Java?</h2>
-<p>Para resolverlas, lo primero que hemos de conocer es qué las causa. Esto puede llegar a ser una tarea muy sencilla si sabemos dónde buscar. Toda la información que necesitamos la encontremos en la traza de errores en la consola de nuestro entorno de desarrollo (IDE), incluyendo la línea exacta dónde se ha producido el lanzamiento de la excepción y la pila de llamada de métodos antes de que se produjera.</p>
-<p>El siguiente paso será buscar en esa línea o adyacentes qué objeto es el que causa la excepción, y ya tenemos la mitad del trabajo hecho. El resto de la tarea será saber por qué ese objeto es nulo en ese momento. Puede que se deba a un error en la creación del objeto o cualquier otro motivo, por lo que esta tarea varía y no puedo dar una solución exacta. A veces la mejor solución es tener mucho cuidado al desarrollar, aplicar técnicas preventivas para objetos nulos y usar métodos Null Safe.</p>
-</div>
-<div id="cuando-no-aparece-nullpointerexception" class="section level2">
-<h2>Cuando no aparece NullPointerException</h2>
-<p>Si accedemos a métodos o clases estáticas nunca obtendremos dicha excepción, incluso si hacemos referencias a variables que apuntan a nulo. Esto es debido a que las variables y métodos estáticos son, en tiempo de compilación, ‘atados’ basándose en el nombre de la clase y no son asociados con objetos. En el siguiente ejemplo no saltará una excepción, dado que la variable nombre es estática, y en su lugar nos imprimirá por pantalla el valor real de la variable, que en este caso es: ‘null’.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb8-1" title="1">Jarra jarraD = <span class="kw">null</span>;</a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(jarraD.<span class="fu">nombre</span>);</a></code></pre></div>
-</div>
-<div id="algunos-puntos-importantes-de-las-nullpointerexception" class="section level2">
-<h2>Algunos puntos importantes de las NullPointerException</h2>
-<p>Para terminar con esta primera parte de la lección vamos a dar algunos consejos, sugerencias y detalles a tener en cuenta con estas caprichosas excepciones.</p>
-<ol style="list-style-type: decimal">
-<li>Las NullPointerException con excepciones no comprobadas porque extienden (son hijas de) RuntimeException y por lo tanto no es necesario controlarlas con un bloque try-catch.</li>
-<li>Cuando obtengas una excepción NullPointerException busca la línea en la que se ha producido para encontrar al objeto que la causa.</li>
-<li>Los IDE modernos, como por ejemplo Eclipse o Netbeans, nos dan un enlace en la consola para ir directamente a la clase y línea donde se ha producido la excepción.</li>
-<li>Se pueden usar puntos de ruptura en el modo Debug del IDE para suspender la ejecución del programa cuando la excepción ocurre, de modo que se nos permite ver el valor de todas las variables en memoria y comprobar qué está fallando.</li>
-<li>Nunca olvides mirar el nombre del hilo de ejecución donde se ha producido la excepción. Si desarrollamos una aplicación multi-hilo se puede poner la cosa muy difícil si por algún motivo algún hilo hace referencia a nulo en algún momento.</li>
-<li>Lo mejor es evitar las NullPointerException durante el desarrollo siguiendo algunas técnicas de prevención o añadiendo comprobaciones en las bases de datos como restricciones.</li>
-</ol>
-<p>Por el momento esto es todo. En la siguiente parte vamos a poner en práctica algunas técnicas de prevención útiles para evitar las NullPointerException en Java.</p>
-<p>Saludos, <br> Lázarus Surazal.</p>
-</div>
-
-					<link rel="stylesheet" type="text/css" href="css/relations.css"/>
-<div id="relationsContainer">
-<span class="relatedTitle">Entradas relacionadas</span>
-<ul>
-<li>
-<a href="md_2015_01_12.html">Cómo evitar las NullPointerException (NPE) en Java [Parte 2]</a>
-</li>
-<li>
-<a href="md_2015_08_10.html">Principios de diseño orientado a objetos que todo programador de Java debería conocer</a>
-</li>
-<li>
-<a href="md_2015_08_17.html">10 consejos para escribir comentarios en Java</a>
-</li>
-<li>
-<a href="md_2018_05_04.html">Contraseñas para nuestro día a día</a>
-</li>
-</ul>
-</div>
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
-<hr>
-<div id="navigationContainer">
-<a class="item hint--bottom-left navigateButton right" href="md_2015_01_12.html" data-hint="Cómo evitar las NullPointerException (NPE) en Java [Parte 2]">Siguiente <i class="fa fa-arrow-right"></i></a><a class="item hint--bottom-right navigateButton left" href="md_2014_08_07.html" data-hint="Plantilla Java para lectura y escritura de ficheros de texto"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a>
-</div>
-		
-					<link rel="stylesheet" type="text/css" href="css/info.css"/>
-
-<div id="infoContainer">
-	<div id="infoProfile" class="info_block">
-		<div class="title">
-			<b>Perfil</b>
-		</div>
-		<div class="content">
-			<div class="part photo">
-				<img src="images/logo_b.png" width="90px" alt="prLázarus logo info" />
-			</div>
-			<div class="part description">
-				<b>Carlos J. Peláez Rivas (Lázarus Surazal)</b> <br>
-				Graduado y Máster en Ingeniería Informática por la Universidad de Málaga. Actualmente trabajando como desarrollador de aplicaciones en Java usando Vaadin.<br>
-				Apasionado de los videojuegos, la música y alguna que otra tecnología, siempre buscando cosas nuevas que aprender y hacer. <br>
-				<a href="http://cjpelaezrivas.tk">Más sobre mi...</a>
-			</div>
-		</div>
-	</div>
-	<div id="infoContact" class="info_block">
-		<div class="title">
-			<b>Contacto</b>
-		</div>
-		<div class="content links">
-			<div class="item hint--bottom-right" data-hint="Perfil personal">
-				<a href="http://cjpelaezrivas.tk" style="font-size: 38px; line-height: 38px;"><i class="fa fa-user-circle"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="prLázarus - RSS">
-				<a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
-				<a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="Perfil de GitHub">
-				<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="Perfil de LinkedIn">
-				<a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
-			</div>
-		</div>
-	</div>
-
-	<div id="infoSuscribe" class="info_block">
-		<div class="title">
-			<b>Notificaciones</b>
-		</div>
-		<div class="content">
-			<form  method="post" action="https://prlazarus.us20.list-manage.com/subscribe/post?u=5dc6163ee27b4b8f0090978e1&amp;id=6b3b278c76" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-		    	<div>
-					<input type="email" name="EMAIL" class="field" id="mce-EMAIL" placeholder="Dirección de email" value="">
-
-					<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-			    	<div style="position: absolute; left: -5000px;" aria-hidden="true">
-			    		<input type="text" name="b_5dc6163ee27b4b8f0090978e1_6b3b278c76" tabindex="-1" value="">
-			    	</div>
-
-			    	<div class="item hint--bottom hint--large" data-hint="Recibe notificaciones por correo electrónico cada vez que se publique una nueva entrada." style="width:100%;">
-						<button type="submit" id="mc-embedded-subscribe" form="mc-embedded-subscribe-form">
-							<i class="fa fa-envelope"></i> Suscribirse
-						</button>
-					</div>
-		    	</div>
-			</form>
-		</div>
-	</div>
-</div>
-					<div id="commentsContainer" style="float:left; width:100%;">
-	<script src="https://utteranc.es/client.js"
-        repo="cjpelaezrivas/prlazarus"
-        issue-term="title"
-        label="comments"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-	</script>
-	<noscript>
-		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
-			Por favor, activa JavaScript para ver los comentarios.
-		</div>
-	</noscript>
-</div>
-					<link rel="stylesheet" type="text/css" href="css/footer.css"/>
-
-<div id="footer_message">
-	¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
-</div>
-<div id="footer">
-	<div class="content">
-		<div id="logo_footer">
-			<a href="http://prlazarus.tk"><img src="images/logo_c.png" alt="prLázarus logo footer" style="margin-top:10px;"/></a>
-			<!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
-		</div>
-		<div id="right_column" class="text">
-			Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.tk">prLázarus</a></i><br>
-			<i class="fa fa-plug"></i> Con la tecnología de <i><a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
-			<i><a href="./feed.xml">RSS</a></i>
-			&nbsp;|&nbsp;
-			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
-			&nbsp;|&nbsp;
-			<i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
-			<a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
-		</div>
-	</div>
-</div>
-					<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
-
-<div id="progressBarContainer">
-	<div class="progressBar">
-	</div>
-</div>
-
-<script src="js/progressBar.js"></script>
-		
-	</div>
-</body>
+      <!-- End of Statcounter Code -->
+      <link rel="stylesheet" type="text/css" href="css/progressBar.css" />
+      <div id="progressBarContainer">
+        <div class="progressBar">
+        </div>
+      </div>
+      <script src="js/progressBar.js"></script>
+    </div>
+  </body>
 </html>

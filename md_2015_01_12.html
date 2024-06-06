@@ -1,404 +1,386 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="pandoc" />
+    <title>Cómo evitar las NullPointerException (NPE) en Java [Parte 2]&nbsp;- prLázarus</title>
+    <meta name='Language' content='es' />
+    <meta name='Content-Language' content='es' />
+    <meta name="author" content="Carlos J. Peláez Rivas" />
+    <meta name="description" content="prLázarus - Blog de programación y diario de desarrollo" />
+    <meta name="keywords" content="lazarus,surazal,prlazarus,blog,programación,programacion,programming,coding,code,desarrollo,development,java,carlos,jesús,jesus,j,peláez,pelaez,rivas,cjpelaez,cjpelaezrivas,málaga,malaga,uma,españa,spain" />
+    <meta property="og:site_name" content="prLázarus" />
+    <meta property="og:title" content="prLázarus - Blog de programación" />
+    <meta property="og:description" content="prLázarus - Blog de programación y diario de desarrollo" />
+    <meta name="twitter:title" content="prLázarus - Blog de programación">
+    <meta name="twitter:description" content="prLázarus - Blog de programación y diario de desarrollo" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="lib/bootstrap-4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/fontawesome-4.7/css/fontawesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/hint-2.5.1/css/hint.base.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/lightbox-2.10/css/lightbox.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/cookieconsent2-3.1.0/css/cookieconsent.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/entry.css" />
+    <link rel="stylesheet" type="text/css" href="css/project.css" />
+    <link rel="stylesheet" type="text/css" href="css/toc.css" />
+    <link rel="stylesheet" type="text/css" href="css/code.css" />
+    <link rel="stylesheet" type="text/css" href="css/code-github.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+    <script src="lib/jquery-3.3.1/js/jquery.min.js"></script>
+    <script src="lib/bootstrap-4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/stickytabs-1.2.0/js/stickytabs.js"></script>
+    <script src="lib/scrolltotop-1.0/js/scrolltotop.js"></script>
+    <script src="lib/lightbox-2.10/js/lightbox.min.js"></script>
+    <script>
+      lightbox.option({
+        'albumLabel': "Imagen %1 de %2",
+        'fadeDuration': 250,
+        'resizeDuration': 250,
+        'wrapAround': true,
+        'disable': true
+      })
+    </script>
+    <script src="lib/cookieconsent2-3.1.0/js/cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function() {
+        window.cookieconsent.initialise({
+          "palette": {
+            "popup": {
+              "background": "#d4d4d4",
+              "text": "#151515"
+            },
+            "button": {
+              "background": "#003379",
+              "text": "#ffffff"
+            }
+          },
+          "content": {
+            "message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
+            "dismiss": "Cerrar mensaje",
+            "link": "Más información",
+            "href": "https://blog.prlazarus.es/md_cookies_policy.html"
+          }
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container-fluid main-container">
+      <link rel="stylesheet" type="text/css" href="css/navbar.css" />
+      <div id="navbar">
+        <div id="zoneA">
+          <div class="content">
+            <a href="./">
+              <div id="logo"></div>
+            </a>
+            <h1 id="title">
+              prLázarus
+            </h1>
+            <h2 id="subtitle">
+              Blog sobre el desarrollo de proyectos, enginería software y tutoriales
+            </h2>
+          </div>
+        </div>
+        <div id="zoneB">
+          <div class="content">
+            <div id="menu">
+              <a class="menuItem" href="./"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
+              <a class="menuItem" href="./md_projects.html"><i class="fa fa-rocket"></i><span class="text"> Proyectos</span></a>
+              <a class="menuItem" href="https://cjpelaezrivas.dev"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fluid-row" id="header">
+        <h1 class="title toc-ignore ">Cómo evitar las NullPointerException (NPE) en Java [Parte 2]</h1>
+        <div class="date"><em>lunes, 12 de enero de 2015</em></div>
+        <div id="entry_section">
+          <div id="time_section"><b>Tiempo de lectura:</b> 10 minutos</div>
+        </div>
+        <div id="tag_section">
+          <b>Etiquetas: </b>
+          <a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+          <a class="tag" href="md_search.html?tag=Diseño">Diseño</a>
+          <a class="tag" href="md_search.html?tag=Java">Java</a>
+          <a class="tag" href="md_search.html?tag=NullPointerException">NullPointerException</a>
+        </div>
+      </div>
+      <b>Tabla de contenido</b>
+      <div class="table-of-contents">
+        <ul>
+          <li><a href="#consejos-y-mejores-pr%C3%A1cticas-para-evitar-las-nullpointerexception">Consejos y mejores prácticas para evitar las NullPointerException</a></li>
+          <li><a href="#para-finalizar...">Para finalizar...</a></li>
+        </ul>
+      </div>
+      <div class="section">
+        <p>Muy buenas a todos,
+          Hoy vamos a continuar con la segunda parte de la lección de la excepción NullPointerException. Si tenéis interés en ver la primera parte de la lección y conocer algunos detalles más de esta excepción en particular y qué escenarios la causan, podéis leerla <a href="md_2014_10_01.html">aquí</a>.</p>
+        <p>La parte que nos toca hoy va más encaminada a cómo evitar este tipo de excepciones que a controlarlas. <strong>¡Vamos a ello!</strong> <br>
+          Recordando, las NullPointerException (NPE) son la mejor manera de resolver las referencias a objetos nulos, y además, son la clave para tener programas robustos y que se ejecutan de forma suave. Vamos a ver una serie de técnicas preventivas para evitar estas excepciones en gran medida. Lo que podemos resumir como: <em><strong>&quot;Más vale prevenir, que curar...&quot;</strong></em>.</p>
+        <p>Si seguimos estas técnicas, además minimizaremos el uso de las típicas comprobaciones !=null, lo que nos ahorrará mucho código. Probablemente, un programador experto conozca todas o algunas de estas técnicas, pero siempre vienen bien recordarlas o puede que sean útiles para programadores no tan duchos en la materia.</p>
+        <h2 id="consejos-y-mejores-pr%C3%A1cticas-para-evitar-las-nullpointerexception">Consejos y mejores prácticas para evitar las NullPointerException</h2>
+        <p>Enumeraremos una serie de reglas muy sencillas de seguir, pero que tendrán un impacto significante en nuestro código, añadiendo calidad y robustez.</p>
+        <p><strong>Consejo 1</strong> <br>
+          <strong>Invoca a los métodos equals() e equalsIgnoreCase() sobre objetos conocidos, en lugar de sobre objetos desconocidos.</strong> <br>
+          La mejor idea es llamar siempre a equals() sobre objetos que tenemos total certeza que no son nulos. Por ejemplo sobre un String conocido, como veréis a continuación en el ejemplo.
+        </p>
+        <p>De acuerdo, el método equals() es simétrico, es indiferente usar a.equals(b), que usar b.equals(a), pero elegir el orden apropiado puede ayudarnos en muchos momentos, y será de de las mejores prácticas que deberíamos empezar a aplicar. Siempre que no lo hagamos ya.</p>
+        <pre><code class="hljs"><span class="hljs-type">Object</span> <span class="hljs-variable">objetoDesconocido</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+<span class="hljs-comment">// Uso incorrecto - No sabemos si se lanzarán NullPointerException o no</span>
+<span class="hljs-keyword">if</span>(objetoDesconocido.equals(<span class="hljs-string">&quot;objetoConocido&quot;</span>)) { <span class="hljs-comment">//Aquí puede lanzarse una NPE si &#x27;objetoDesconocido&#x27; es nulo</span>
+	System.out.println(<span class="hljs-string">&quot;...&quot;</span>);
+}
+<span class="hljs-comment">// Uso correcto - Sabemos con total certeza que no aparecerán las NullPointerException</span>
+<span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;objetoConocido&quot;</span>.equals(objetoDesconocido)) { <span class="hljs-comment">//Aquí evitamos las NPE aunque &#x27;objetoDesconocido&#x27; sea nulo</span>
+	System.out.println(<span class="hljs-string">&quot;...&quot;</span>);
+}
+</code></pre>
+        <p>Este puede llegar a ser el consejo más sencillo y práctico que vais a encontrar hoy aquí, y si se usa, los resultados son tremendamente buenos, dado que el método equals() puede llegar a convertirse en algo muy usado en cualquier tipo de proyecto.</p>
+        <p><strong>Consejo 2</strong> <br>
+          <strong>Usar <code>String.valueOf()</code> en lugar de toString() dónde ambos nos den el mismo resultado.</strong> <br>
+          Dado que el método <code>toString()</code> sobre objetos nulos nos lanza una NPE, si podemos obtener el mismo valor usando el método <code>valueOf()</code> entonces vamos a preferirlo de calle. Esto es debido a que si invocamos al método <code>valueOf()</code> sobre un objeto nulo, este nos devolverá &quot;null&quot;, de modo que es especialmente útil en clases &quot;envueltas&quot; (Wrapper clases), tales como <code>Integer</code>, <code>Float</code>, <code>Double</code> o <code>BigDecimal</code>.
+        </p>
+        <pre><code class="hljs"><span class="hljs-type">BigDecimal</span> <span class="hljs-variable">bd</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+<span class="hljs-comment">// Uso incorrecto - No sabemos si se lanzarán NullPointerException o no</span>
+System.out.println(bd.toString()); <span class="hljs-comment">//Aquí puede lanzarse una NPE si &#x27;bd&#x27; es nulo</span>
+<span class="hljs-comment">// Uso correcto - Sabemos con total certeza que no aparecerán las NullPointerException</span>
+System.out.println(String.valueOf(bd)); <span class="hljs-comment">//Aquí evitamos las NPE aunque &#x27;bd&#x27; sea nulo</span>
+</code></pre>
+        <p>Podemos usar este consejo si no estamos seguro de que los objetos usados sean nulos o no.</p>
+        <p><strong>Consejo 3</strong> <br>
+          <strong>Usar librerías y métodos 'Null Safe'.</strong> <br>
+          Puede que parezca una tontería, pero el uso de determinadas librerías en nuestro proyecto puede afectar en muchos puntos al desarrollo del mismo. Hay muchísimas librerías libres (Open source) por ahí esperando a ser usadas por ti, las cuales son capaces de realizar la ardua tarea de comprobar las referencias nulas, y ahorrarle el trabajo a tu persona.
+          Una de las más famosas, y también puede que la más usada, es StringUtils de Apache Commons. Contiene una gran cantidad de métodos 'Null Safe' que cuando los descubrís pensáis: ¿Pero cómo no he visto yo esto antes...?
+          Ahora en serio. Podemos usar distintos métodos muy útiles, tales como: <code>StringUtils.isBlank()</code>, <code>StringUtils.isNumeric()</code>, <code>StringUtils.isWhiteSpace()</code> y un largo etcétera, sin preocuparnos lo más mínimo de las NullPointerExceptions.
+          He aquí algunos ejemplos esclarecedores:
+        </p>
+        <pre><code class="hljs">System.out.println(StringUtils.isEmpty(<span class="hljs-literal">null</span>));
+System.out.println(StringUtils.isBlank(<span class="hljs-literal">null</span>));
+System.out.println(StringUtils.isNumeric(<span class="hljs-literal">null</span>));
+System.out.println(StringUtils.isAllUpperCase(<span class="hljs-literal">null</span>));
+<span class="hljs-comment">/* Obteniendo como salida:
+true
+true
+false
+false */</span>
+</code></pre>
+        <p>Obviamente no debemos ser creyentes ciegos. Nuestra obligación es leer la documentación de las clases y métodos 'Null Safe' que usemos en nuestro código, de modo que no lleguemos a ninguna conclusión equivocada sobre los mismo. También podéis fiaros ciegamente de mí, es otra opción.</p>
+        <p>Por si os quedáis con ganas de más métodos 'Null Safe', aquí os doy otro muy útil. Se trata de <code>ObjetUtils.equals()</code> de Apache Commons. Viene muy al caso. Antes hemos hablado del método <code>equals()</code> y los casos en los que podía lanzar una NPE. Bueno, con este método todos esos problemas de orden y excepciones desaparecen. Cualquiera de los dos objetos puede ser nulo y simplemente obtendremos el booleano que corresponda a las entradas dadas.</p>
+        <p>Claro que no todo es idílico. Este método hace algunas comprobaciones más que <code>equals()</code>, lo que se traduce en más tiempo de ejecución, y puede llegar a afectar al rendimiento si estamos realizando una tarea que se basa en la velocidad de ejecución. Vale, Java tampoco es que sea el lenguaje más rápido del mundo, ni que vaya a consumir segundos realizando las comprobaciones pero tampoco es cuestión de matar moscas a cañonazos. Si sabemos que ciertos objetos nunca serán nulos, por ejemplo, ¿para qué hacer comprobaciones de más?</p>
+        <p>Este método, al menos en mi opinión, es algo a tener en cuenta para ciertas situaciones, y para nada es la mejor opción siempre. Por lo que a mí respecta no sustituye al método <code>equals()</code> de Object. Aquí algunos ejemplos para ver su salida para ciertas entradas:</p>
+        <pre><code class="hljs">System.out.println(ObjectUtils.equals(<span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>));  <span class="hljs-comment">// true</span>
+System.out.println(ObjectUtils.equals(<span class="hljs-literal">null</span>, <span class="hljs-string">&quot;&quot;</span>)); <span class="hljs-comment">// false</span>
+System.out.println(ObjectUtils.equals(<span class="hljs-string">&quot;&quot;</span>, <span class="hljs-literal">null</span>) ); <span class="hljs-comment">// false</span>
+System.out.println(ObjectUtils.equals(<span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;&quot;</span>)); <span class="hljs-comment">//true</span>
+System.out.println(ObjectUtils.equals(Boolean.TRUE, <span class="hljs-literal">null</span>)); <span class="hljs-comment">//false</span>
+System.out.println(ObjectUtils.equals(Boolean.TRUE, <span class="hljs-string">&quot;true&quot;</span>)); <span class="hljs-comment">//false</span>
+System.out.println(ObjectUtils.equals(Boolean.TRUE, Boolean.TRUE)); <span class="hljs-comment">//true</span>
+System.out.println(ObjectUtils.equals(Boolean.TRUE, Boolean.FALSE)); <span class="hljs-comment">// false</span>
+</code></pre>
+        <p><strong>Consejo 4</strong> <br>
+          <strong>Evitar devolver NULL como salida de los métodos.</strong> <br>
+          En lugar de devolver null, es mejor idea devolver una colección o array vacío. Devolviendo colecciones o arrays vacíos estamos seguros seguros de que llamadas como size(), length() no fallaran nunca con una NPE. De modo que evitamos esas comprobaciones inútiles antes de tratar una colección.
+        </p>
+        <p><code>Collections.class</code> dispone de constantes para listas, conjuntos y maps que pueden ser usados de la siguiente manera:</p>
+        <pre><code class="hljs"><span class="hljs-keyword">public</span> List <span class="hljs-title function_">getEmptyList</span><span class="hljs-params">()</span>{
+	<span class="hljs-type">List</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> Collections.EMPTY_LIST;
+	<span class="hljs-keyword">return</span> result;
+}
+<span class="hljs-keyword">public</span> Set <span class="hljs-title function_">getEmptySet</span><span class="hljs-params">()</span>{
+	<span class="hljs-type">Set</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> Collections.EMPTY_SET;
+	<span class="hljs-keyword">return</span> result;
+}
+<span class="hljs-keyword">public</span> Map <span class="hljs-title function_">getEmptyMap</span><span class="hljs-params">()</span>{
+	<span class="hljs-type">Map</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> Collections.EMPTY_MAP;
+	<span class="hljs-keyword">return</span> result;
+}
+</code></pre>
+        <p><strong>Consejo 5</strong> <br>
+          <strong>Uso de las anotaciones @NotNull and @Nullable.</strong> <br>
+          Mientras se desarrolla código se pueden añadir notas sobre la nulabilidad de cierto método dejando claro si este es 'Null Safe' o no lo es. Esto es posible gracias a las etiquetas <code>@NotNull</code> y <code>@Nullable</code>. Los compiladores, IDE o herramientas modernas pueden leer estas anotaciones y asistir a los usuarios sobre falta de comprobaciones en objetos potencialmente nulos, o sobre comprobaciones innecesarias que se han realizado.
+        </p>
+        <p>Además, aunque no estemos trabajando con una herramienta capaz de llevar a cabo estas acciones, estas anotaciones funcionan como documentación, lo que significa que el programador echando un vistazo rápido a la documentación de cierto método puede decidir rápidamente si es necesaria una comprobación para que no sea nulo o no.</p>
+        <p>A pesar de todo, esto es una práctica algo nueva. No todos los programadores de Java la realizan a día de hoy y puede llevar algún tiempo en ser adoptada por completo. Igualmente, no es una mala práctica, y si estás aprendiendo en estos momentos (lo cual nunca se debería dejar de hacer) lo más recomendable es aplicar esta técnica.</p>
+        <p><strong>Consejo 6</strong> <br>
+          <strong>Evitar 'autoboxing' y 'unboxing' innecesarios en el código.</strong> <br>
+          Y preguntareis, ¿qué es 'autoboxing' y 'unboxing'? <br>
+          Bueno, es normal que no lo sepais. Aunque lo usamos casi a diario en Java, pero de manera automática. Estas acciones son llevadas a cabo por el entorno de Java, de modo que no somos conscientes de ellas.
+          Esto es un ejemplo de 'autoboxing':
+        </p>
+        <pre><code class="hljs"><span class="hljs-type">Integer</span> <span class="hljs-variable">integer</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;
+</code></pre>
+        <p>Nosotros escribimos lo anterior, pero luego Java lo traducirá por algo así:</p>
+        <pre><code class="hljs"><span class="hljs-type">int</span> <span class="hljs-variable">numero</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;
+<span class="hljs-type">Integer</span> <span class="hljs-variable">integer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Integer</span>(numero);
+</code></pre>
+        <p>Y esto es un ejemplo de 'unboxing':</p>
+        <pre><code class="hljs"><span class="hljs-type">int</span> <span class="hljs-variable">in</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Integer</span>(<span class="hljs-number">3</span>);
+</code></pre>
+        <p>Lo que Java también traducirá por algo como:</p>
+        <pre><code class="hljs"><span class="hljs-type">Integer</span> <span class="hljs-variable">integer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Integer</span>(<span class="hljs-number">3</span>);
+<span class="hljs-type">int</span> <span class="hljs-variable">in</span> <span class="hljs-operator">=</span> integer.intValue();
+</code></pre>
+        <p>Bueno, ahora que tenemos algo más claro lo que significan estos conceptos podemos proseguir con este consejo.
+          La cosa es que a pesar de otras desventajas como la de crear objetos temporales, el 'autoboxing' y el 'unboxing' también son propensos a lanzar una NPE, en caso de que el objeto de la clase contenedora sea nulo.</p>
+        <pre><code class="hljs"><span class="hljs-type">Persona</span> <span class="hljs-variable">lazarus</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Persona</span>(<span class="hljs-string">&quot;Lázarus&quot;</span>);
+<span class="hljs-type">int</span> <span class="hljs-variable">telefono</span> <span class="hljs-operator">=</span> lazarus.getTelefono();
+</code></pre>
+        <p>Explico el ejemplo anterior:
+          Tenemos el objeto Persona. Persona tiene diferentes atributos, tales como nombre, dirección y teléfono. Nombre y dirección son de tipo <code>String</code>, y teléfono es de tipo <code>Integer</code>.
+          Usaremos un constructor que tiene como entrada el nombre, y no inicializaremos el resto de variables. Ahora pedimos el teléfono de 'lazarus', pero el valor de teléfono es nulo, luego al hacer el 'unboxing' obtendremos una NullPointerException. Que tonto, ¿verdad?</p>
+        <p>También existía la posibilidad de pedir el teléfono en una variable Integer, aquí no habríamos tenido problemas, y habríamos obtenido referencia a null en la variable destino.</p>
+        <p><strong>Consejo 7</strong> <br>
+          <strong>Seguir restricciones y definir valores por defecto razanobles.</strong> <br>
+          Una de las mejores formas de evitar las NullPointerException en Java es tan simple como definir restricciones y seguirlas. La mayoria de las NPE suceden por crear objetos con información incompleta o porque todas las dependencias necesarias no han sido dadas.
+          Si no permitimos crear objetos incompletos y de forma 'bonita' denegamos cualquier petición de creación, podemos prevenir muchas NPE por el camino.
+        </p>
+        <p>De forma similar, si permitimos crear dichos objetos, deberíamos trabajar con valores por defecto razonables. Vamos a usar un ejemplo:
+          El objeto Empleado no puede ser creado sin id ni nombre, pero el número de teléfono es opcional. Ahora bien, en lugar de devolver nulo cuando pedimos el número de teléfono de un Empleado que no lo tiene, devolvemos, por ejemplo, el valor cero.</p>
+        <p>Sin embargo, este tipo de decisiones debe ser tomada con mucho cuidado, dado que a veces comprobar si un valor es nulo o no puede ser más sencillo que comprobar si lo devuelto es un valor válido o no.
+          Por cierto, una cosa más: definir qué puede ser nulo, y qué no ofrece al programador la posibilidad de tomar decisiones informadas en sus acciones en el momento que lo necesite, sin embargo, estas son importantes decisiones de diseño y han de ser tomadas y seguidas consecuentemente.</p>
+        <p><strong>Consejo 8</strong> <br>
+          <strong>Uso de restricciones en las bases de datos.</strong> <br>
+          Si usamos bases de datos para guardar los objetos de nuestra aplicación, tales como Clientes, Pedidos, o cualquier otro objeto, deberíamos usar restricciones de nulabilidad en la misma base de datos.
+        </p>
+        <p>Dado que las bases de datos pueden obtener datos de muy diversas fuentes, comprobar la nulabilidad justo antes de insertarlos garantizará la integridad de los datos. Además, las restricciones de la base de datos contribuirán a reducir las comprobaciones de nulabilidad en el código Java, teniendo la certeza de qué objetos pueden llegar a ser nulo y cuales no.</p>
+        <p><strong>Consejo 9</strong> <br>
+          <strong>Usar un objeto patrón Nulo.</strong> <br>
+          Este es otro modo de evitar las NullPointerException en Java. Si un método devuelve un objeto, por ejemplo, un Iterador sobre cierta colección, pero en la llamada el objeto no dispone de un Iterador, devolvería null. En lugar de eso este método podría devolver el objeto de tipo Null.
+        </p>
+        <p>¿Qué significa esto?, preguntareis. Un objeto de tipo Null es un objeto especial que tiene un significado diferente dependiendo del contexto donde se aplique. Por ejemplo, en este caso se puede tratar de un iterador vacío, y usando <code>hasNext()</code> sobre él devolverá siempre falso. Evitando de esa forma la NPE.
+          De forma similar los métodos que devuelven colecciones, en lugar de null, podrían devolver colecciones vacías.</p>
+        <h2 id="para-finalizar...">Para finalizar...</h2>
+        <p>Bueno, esto es todo. Aquí damos por concluida la lección de 'Cómo evitar las NullPointerException en Java'. Espero que algunos de estos consejos os sean útiles, y que apreciéis su importancia, dado que con muy poco esfuerzo inicial podemos llegar a ahorrar horas buscando errores en nuestro código.
+          Además, no quiero irme sin hacer referencia al Blog Javarevisited cuya entrada, la cual podéis encontrar <a href="http://javarevisited.blogspot.com.es/2013/05/ava-tips-and-best-practices-to-avoid-nullpointerexception-program-application.html">aquí</a>, sirvió de base para esta lección sobre excepciones.</p>
+        <p>Espero que os sea de utilidad y hasta la próxima. A ser originales. <br>
+          Lázarus Surazal.</p>
+        <p><em>Sé que esta entrada al Blog me quedó un poco más larga de lo normal, pero tampoco quería partir en dos esta parte de la lección. De este modo nos quedan dos partes, cada una con un contenido bien diferenciado de la otra.
+Además, si queréis contribuir con alguna idea más, la podéis escribir en los comentarios y la añadiré a la lista.</em>
+        </p>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/relations.css" />
+      <div id="relationsContainer">
+        <span class="relatedTitle">Entradas relacionadas</span>
+        <ul>
+          <li><a href="md_2014_10_01.html">Cómo evitar las NullPointerException (NPE) en Java [Parte 1]</a></li>
+          <li><a href="md_2015_08_10.html">Principios de diseño orientado a objetos que todo programador de Java debería conocer</a></li>
+          <li><a href="md_2015_08_17.html">10 consejos para escribir comentarios en Java</a></li>
+          <li><a href="md_2018_05_04.html">Contraseñas para nuestro día a día</a></li>
+        </ul>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/navigation.css" />
+      <hr>
+      <div id="navigationContainer">
+        <a class="item hint--bottom-left navigateButton right" href="md_2015_08_10.html" data-hint="Principios de diseño orientado a objetos que todo programador de Java debería conocer">
+          Siguiente
+          <i class="fa fa-arrow-right"></i>
+        </a>
+        <a class="item hint--bottom-right navigateButton left" href="md_2014_10_01.html" data-hint="Cómo evitar las NullPointerException (NPE) en Java [Parte 1]">
+          <i class="fa fa-arrow-left"></i>
+          Anterior
+        </a>
+        <a class="navigateButton center" href="./">
+          <i class="fa fa-home"></i>
+          Volver a la página principal
+        </a>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/info.css" />
+      <div id="infoContainer">
+        <div id="infoProfile" class="info_block">
+          <div class="title">
+            <b>Perfil</b>
+          </div>
+          <div class="content">
+            <div class="part photo">
+              <img src="images/logo_b.png" width="90px" alt="prLázarus logo info" />
+            </div>
+            <div class="part description">
+              <h3 id="name">Carlos J. Peláez Rivas <em id="alias">(Lázarus Surazal)</em></h3>
+              Graduado y Máster en Ingeniería Informática por la Universidad de Málaga (España). También cursé un Experto en tecnologías de Blockchain. Actualmente trabajando como Software engineer en Málaga.<br>
+              Apasionado de los videojuegos, la música y la tecnología, siempre buscando cosas nuevas que aprender, hacer (y a veces romper).<br>
+              <a href="https://cjpelaezrivas.dev">Más sobre mi...</a>
+            </div>
+          </div>
+        </div>
+        <div id="infoContact" class="info_block">
+          <div class="title">
+            <b>Contacto</b>
+          </div>
+          <div class="content links">
+            <div class="item hint--bottom-right" data-hint="Perfil personal">
+              <a href="https://cjpelaezrivas.dev" style="font-size: 38px; line-height: 38px;"><i class="fa fa-user-circle"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="prLázarus - RSS">
+              <a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
+              <a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="Perfil de GitHub">
+              <a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
+            </div>
+            <div class="item hint--bottom-right" data-hint="Perfil de LinkedIn">
+              <a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="commentsContainer" style="float:left; width:100%;">
+        <script src="https://utteranc.es/client.js" repo="cjpelaezrivas/prlazarus" issue-term="title" label="comments" theme="github-light" crossorigin="anonymous" async>
+        </script>
+        <noscript>
+          <div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
+            Por favor, activa JavaScript para ver los comentarios.
+          </div>
+        </noscript>
+      </div>
+      <link rel="stylesheet" type="text/css" href="css/footer.css" />
+      <div id="footer_message">
+        ¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="https://github.com/cjpelaezrivas/prLazarus/issues">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
+      </div>
+      <div id="footer">
+        <div class="content">
+          <div id="logo_footer">
+            <a href="https://prlazarus.es"><img src="images/logo_c.png" alt="prLázarus logo footer" style="margin-top:10px;" /></a>
 
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="generator" content="pandoc" />
+            <!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
+          </div>
+          <div id="right_column" class="text">
+            Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag" /></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.es">prLázarus</a></i><br>
+            <i class="fa fa-plug"></i> Con la tecnología de <i><a href="https://cjpelaezrivas.dev/ProjectLighthouse/">Project Lighthouse</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
+            <i><a href="./feed.xml">RSS</a></i>
+            &nbsp;|&nbsp;
+            <i><a href="md_cookies_policy.html">Política de cookies</a></i>
+            &nbsp;|&nbsp;
+            <i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
+            <a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
+          </div>
+        </div>
+      </div>
 
-	<title>Cómo evitar las NullPointerException (NPE) en Java [Parte 2] - prLázarus</title>
+      <!-- Default Statcounter code for prLázarus - Blog -->
+      <script type="text/javascript">
+        var sc_project = 12995152;
+        var sc_invisible = 1;
+        var sc_security = "7de2ea10";
+      </script>
+      <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+      <noscript>
+        <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12995152/0/7de2ea10/1/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></a></div>
+      </noscript>
 
-			<meta name='Language' content='es' />
-<meta name='Content-Language' content='es' />
-
-<meta name="author" content="Carlos J. Peláez Rivas" />
-<meta name="description" content="prLázarus - Blog de programación y diario de desarrollo" />
-<meta name="keywords" content="lazarus,surazal,prlazarus,blog,programación,programacion,programming,coding,code,desarrollo,development,java,carlos,jesús,jesus,j,peláez,pelaez,rivas,cjpelaez,cjpelaezrivas,málaga,malaga,uma,españa,spain"/>
-
-<meta property="og:site_name" content="prLázarus" />
-<meta property="og:title" content="prLázarus - Blog de programación" />
-<meta property="og:description" content="prLázarus - Blog de programación y diario de desarrollo" />
-<meta name="twitter:title" content="prLázarus - Blog de programación">
-<meta name="twitter:description" content="prLázarus - Blog de programación y diario de desarrollo" />
-
-<link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
-<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
-
-<link rel="stylesheet" href="lib/bootstrap-4.1.3/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="lib/fontawesome-4.7/css/fontawesome.min.css"/>
-<link rel="stylesheet" type="text/css" href="lib/hint-2.5.1/css/hint.base.min.css"/>
-<link rel="stylesheet" type="text/css" href="lib/lightbox-2.10/css/lightbox.min.css"/>
-<link rel="stylesheet" type="text/css" href="lib/cookieconsent2-3.1.0/css/cookieconsent.min.css"/>
-
-<link rel="stylesheet" type="text/css" href="css/base.css"/>
-<link rel="stylesheet" type="text/css" href="css/main.css"/>
-<link rel="stylesheet" type="text/css" href="css/entry.css"/>
-<link rel="stylesheet" type="text/css" href="css/project.css"/>
-<link rel="stylesheet" type="text/css" href="css/toc.css"/>
-<link rel="stylesheet" type="text/css" href="css/code.css"/>
-<link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
-
-<script src="lib/jquery-3.3.1/js/jquery.min.js"></script>
-<script src="lib/bootstrap-4.1.3/js/bootstrap.bundle.min.js"></script>
-<script src="lib/stickytabs-1.2.0/js/stickytabs.js"></script>
-<script src="lib/scrolltotop-1.0/js/scrolltotop.js"></script>
-
-<script src="lib/lightbox-2.10/js/lightbox.min.js"></script>
-<script>
-	lightbox.option({
-		'albumLabel': "Imagen %1 de %2",
-		'fadeDuration': 250,
-		'resizeDuration': 250,
-		'wrapAround': true
-	})
-</script>
-
-<script src="lib/cookieconsent2-3.1.0/js/cookieconsent.min.js"></script>
-<script>
-	window.addEventListener("load", function(){
-		window.cookieconsent.initialise({
-			"palette": {
-				"popup": {
-					"background": "#d4d4d4",
-					"text": "#151515"
-				},
-				"button": {
-					"background": "#003379",
-					"text": "#ffffff"
-				}
-			},
-			"content": {
-				"message": "Este sitio web utiliza cookies propias y de terceros para que tengas la mejor experiencia de usuario posible. Si continuas navegando estás aceptando el uso de las mencionadas cookies y la política de cookies.",
-				"dismiss": "Cerrar mensaje",
-				"link": "Más información",
-				"href": "http://prlazarus.tk/md_cookies_policy.html"
-			}
-		})
-	});
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74491738-2"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-
-	gtag('config', 'UA-74491738-2');
-</script>
-	</head>
-
-<body>
-	<div class="container-fluid main-container">
-
-		<script>
-			$(document).ready(function () {
-				window.buildTabsets("TOC");
-			});
-		</script>
-
-					<link rel="stylesheet" type="text/css" href="css/navbar.css"/>
-
-<div id="navbar">
-	<div id="zoneA">
-		<div class="content">
-			<a href="./">
-				<div id="logo"></div>
-			</a>
-
-			<h1 id="title">
-				prLázarus
-			</h1>
-			<h2 id="subtitle">
-				Blog de desarrollo de proyectos Software, tutoriales, consejos y varios.
-			</h2>
-		</div>
-	</div>
-	<div id="zoneB">
-		<div class="content">
-			<div id="menu">
-				<a class="menuItem" href="./"><i class="fa fa-home"></i><span class="text"> Página principal</span></a>
-				<a class="menuItem" href="./md_projects.html"><i class="fa fa-rocket"></i><span class="text"> Proyectos</span></a>
-				<a class="menuItem" href="http://cjpelaezrivas.tk"><i class="fa fa-user-circle"></i><span class="text"> Sobre mí</span></a>
-			</div>
-		</div>
-	</div>
-</div>
-		
-		<div class="fluid-row" id="header">
-
-						<h1 class="title toc-ignore ">Cómo evitar las NullPointerException (NPE) en Java [Parte 2]</h1>
-			
-			<!--
-						-->
-
-			<!--
-						-->
-
-							<h4 class="date">
-<em>lunes, 12 de enero de 2015</em>
-</h4>
-			
-							<b>Etiquetas</b>
-				<div id="tag_section">
-											<a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
-											<a class="tag" href="md_search.html?tag=Diseño">Diseño</a>
-											<a class="tag" href="md_search.html?tag=Java">Java</a>
-											<a class="tag" href="md_search.html?tag=NullPointerException">NullPointerException</a>
-									</div>
-			
-			<!--
-						-->
-
-		</div>
-
-					<div id="TOC">
-									<span class="title">Tabla de contenido</span>
-								<ul>
-<li><a href="#consejos-y-mejores-prácticas-para-evitar-las-nullpointerexception">Consejos y mejores prácticas para evitar las NullPointerException</a></li>
-<li><a href="#para-finalizar">Para finalizar…</a></li>
-</ul>
-			</div>
-		
-		<p>Muy buenas a todos, Hoy vamos a continuar con la segunda parte de la lección de la excepción NullPointerException. Si tenéis interés en ver la primera parte de la lección y conocer algunos detalles más de esta excepción en particular y qué escenarios la causan, podéis leerla <a href="md_2014_10_01.html">aquí</a>.</p>
-<p>La parte que nos toca hoy va más encaminada a cómo evitar este tipo de excepciones que a controlarlas. <strong>¡Vamos a ello!</strong> <br> Recordando, las NullPointerException (NPE) son la mejor manera de resolver las referencias a objetos nulos, y además, son la clave para tener programas robustos y que se ejecutan de forma suave. Vamos a ver una serie de técnicas preventivas para evitar estas excepciones en gran medida. Lo que podemos resumir como: <strong><em>“Más vale prevenir, que curar…”</em></strong>.</p>
-<p>Si seguimos estas técnicas, además minimizaremos el uso de las típicas comprobaciones !=null, lo que nos ahorrará mucho código. Probablemente, un programador experto conozca todas o algunas de estas técnicas, pero siempre vienen bien recordarlas o puede que sean útiles para programadores no tan duchos en la materia.</p>
-<div id="consejos-y-mejores-prácticas-para-evitar-las-nullpointerexception" class="section level2">
-<h2>Consejos y mejores prácticas para evitar las NullPointerException</h2>
-<p>Enumeraremos una serie de reglas muy sencillas de seguir, pero que tendrán un impacto significante en nuestro código, añadiendo calidad y robustez.</p>
-<p><strong>Consejo 1</strong> <br> <strong>Invoca a los métodos equals() e equalsIgnoreCase() sobre objetos conocidos, en lugar de sobre objetos desconocidos.</strong> <br> La mejor idea es llamar siempre a equals() sobre objetos que tenemos total certeza que no son nulos. Por ejemplo sobre un String conocido, como veréis a continuación en el ejemplo.</p>
-<p>De acuerdo, el método equals() es simétrico, es indiferente usar a.equals(b), que usar b.equals(a), pero elegir el orden apropiado puede ayudarnos en muchos momentos, y será de de las mejores prácticas que deberíamos empezar a aplicar. Siempre que no lo hagamos ya.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1"><span class="bu">Object</span> objetoDesconocido = <span class="kw">null</span>;</a>
-<a class="sourceLine" id="cb1-2" title="2"></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="co">// Uso incorrecto - No sabemos si se lanzarán NullPointerException o no</span></a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="kw">if</span>(objetoDesconocido.<span class="fu">equals</span>(<span class="st">&quot;objetoConocido&quot;</span>)) { <span class="co">//Aquí puede lanzarse una NPE si &#39;objetoDesconocido&#39; es nulo</span></a>
-<a class="sourceLine" id="cb1-5" title="5">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;...&quot;</span>);</a>
-<a class="sourceLine" id="cb1-6" title="6">}</a>
-<a class="sourceLine" id="cb1-7" title="7"></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="co">// Uso correcto - Sabemos con total certeza que no aparecerán las NullPointerException</span></a>
-<a class="sourceLine" id="cb1-9" title="9"><span class="kw">if</span>(<span class="st">&quot;objetoConocido&quot;</span>.<span class="fu">equals</span>(objetoDesconocido)) { <span class="co">//Aquí evitamos las NPE aunque &#39;objetoDesconocido&#39; sea nulo</span></a>
-<a class="sourceLine" id="cb1-10" title="10">    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;...&quot;</span>);</a>
-<a class="sourceLine" id="cb1-11" title="11">}</a></code></pre></div>
-<p>Este puede llegar a ser el consejo más sencillo y práctico que vais a encontrar hoy aquí, y si se usa, los resultados son tremendamente buenos, dado que el método equals() puede llegar a convertirse en algo muy usado en cualquier tipo de proyecto.</p>
-<p><strong>Consejo 2</strong> <br> <strong>Usar <code>String.valueOf()</code> en lugar de toString() dónde ambos nos den el mismo resultado.</strong> <br> Dado que el método <code>toString()</code> sobre objetos nulos nos lanza una NPE, si podemos obtener el mismo valor usando el método <code>valueOf()</code> entonces vamos a preferirlo de calle. Esto es debido a que si invocamos al método <code>valueOf()</code> sobre un objeto nulo, este nos devolverá “null”, de modo que es especialmente útil en clases “envueltas” (Wrapper clases), tales como <code>Integer</code>, <code>Float</code>, <code>Double</code> o <code>BigDecimal</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1"><span class="bu">BigDecimal</span> bd = <span class="kw">null</span>;</a>
-<a class="sourceLine" id="cb2-2" title="2"></a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="co">// Uso incorrecto - No sabemos si se lanzarán NullPointerException o no</span></a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(bd.<span class="fu">toString</span>()); <span class="co">//Aquí puede lanzarse una NPE si &#39;bd&#39; es nulo</span></a>
-<a class="sourceLine" id="cb2-5" title="5"></a>
-<a class="sourceLine" id="cb2-6" title="6"><span class="co">// Uso correcto - Sabemos con total certeza que no aparecerán las NullPointerException</span></a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="bu">String</span>.<span class="fu">valueOf</span>(bd)); <span class="co">//Aquí evitamos las NPE aunque &#39;bd&#39; sea nulo</span></a></code></pre></div>
-<p>Podemos usar este consejo si no estamos seguro de que los objetos usados sean nulos o no.</p>
-<p><strong>Consejo 3</strong> <br> <strong>Usar librerías y métodos ‘Null Safe’.</strong> <br> Puede que parezca una tontería, pero el uso de determinadas librerías en nuestro proyecto puede afectar en muchos puntos al desarrollo del mismo. Hay muchísimas librerías libres (Open source) por ahí esperando a ser usadas por ti, las cuales son capaces de realizar la ardua tarea de comprobar las referencias nulas, y ahorrarle el trabajo a tu persona. Una de las más famosas, y también puede que la más usada, es StringUtils de Apache Commons. Contiene una gran cantidad de métodos ‘Null Safe’ que cuando los descubrís pensáis: ¿Pero cómo no he visto yo esto antes…? Ahora en serio. Podemos usar distintos métodos muy útiles, tales como: <code>StringUtils.isBlank()</code>, <code>StringUtils.isNumeric()</code>, <code>StringUtils.isWhiteSpace()</code> y un largo etcétera, sin preocuparnos lo más mínimo de las NullPointerExceptions. He aquí algunos ejemplos esclarecedores:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(StringUtils.<span class="fu">isEmpty</span>(<span class="kw">null</span>));</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(StringUtils.<span class="fu">isBlank</span>(<span class="kw">null</span>));</a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(StringUtils.<span class="fu">isNumeric</span>(<span class="kw">null</span>));</a>
-<a class="sourceLine" id="cb3-4" title="4"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(StringUtils.<span class="fu">isAllUpperCase</span>(<span class="kw">null</span>));</a>
-<a class="sourceLine" id="cb3-5" title="5"></a>
-<a class="sourceLine" id="cb3-6" title="6"><span class="co">/* Obteniendo como salida:</span></a>
-<a class="sourceLine" id="cb3-7" title="7"><span class="co">true</span></a>
-<a class="sourceLine" id="cb3-8" title="8"><span class="co">true</span></a>
-<a class="sourceLine" id="cb3-9" title="9"><span class="co">false</span></a>
-<a class="sourceLine" id="cb3-10" title="10"><span class="co">false */</span></a></code></pre></div>
-<p>Obviamente no debemos ser creyentes ciegos. Nuestra obligación es leer la documentación de las clases y métodos ‘Null Safe’ que usemos en nuestro código, de modo que no lleguemos a ninguna conclusión equivocada sobre los mismo. También podéis fiaros ciegamente de mí, es otra opción.</p>
-<p>Por si os quedáis con ganas de más métodos ‘Null Safe’, aquí os doy otro muy útil. Se trata de <code>ObjetUtils.equals()</code> de Apache Commons. Viene muy al caso. Antes hemos hablado del método <code>equals()</code> y los casos en los que podía lanzar una NPE. Bueno, con este método todos esos problemas de orden y excepciones desaparecen. Cualquiera de los dos objetos puede ser nulo y simplemente obtendremos el booleano que corresponda a las entradas dadas.</p>
-<p>Claro que no todo es idílico. Este método hace algunas comprobaciones más que <code>equals()</code>, lo que se traduce en más tiempo de ejecución, y puede llegar a afectar al rendimiento si estamos realizando una tarea que se basa en la velocidad de ejecución. Vale, Java tampoco es que sea el lenguaje más rápido del mundo, ni que vaya a consumir segundos realizando las comprobaciones pero tampoco es cuestión de matar moscas a cañonazos. Si sabemos que ciertos objetos nunca serán nulos, por ejemplo, ¿para qué hacer comprobaciones de más?</p>
-<p>Este método, al menos en mi opinión, es algo a tener en cuenta para ciertas situaciones, y para nada es la mejor opción siempre. Por lo que a mí respecta no sustituye al método <code>equals()</code> de Object. Aquí algunos ejemplos para ver su salida para ciertas entradas:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(ObjectUtils.<span class="fu">equals</span>(<span class="kw">null</span>, <span class="kw">null</span>));  <span class="co">// true</span></a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(ObjectUtils.<span class="fu">equals</span>(<span class="kw">null</span>, <span class="st">&quot;&quot;</span>)); <span class="co">// false</span></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(ObjectUtils.<span class="fu">equals</span>(<span class="st">&quot;&quot;</span>, <span class="kw">null</span>) ); <span class="co">// false</span></a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(ObjectUtils.<span class="fu">equals</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;&quot;</span>)); <span class="co">//true</span></a>
-<a class="sourceLine" id="cb4-5" title="5"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(ObjectUtils.<span class="fu">equals</span>(<span class="bu">Boolean</span>.<span class="fu">TRUE</span>, <span class="kw">null</span>)); <span class="co">//false</span></a>
-<a class="sourceLine" id="cb4-6" title="6"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(ObjectUtils.<span class="fu">equals</span>(<span class="bu">Boolean</span>.<span class="fu">TRUE</span>, <span class="st">&quot;true&quot;</span>)); <span class="co">//false</span></a>
-<a class="sourceLine" id="cb4-7" title="7"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(ObjectUtils.<span class="fu">equals</span>(<span class="bu">Boolean</span>.<span class="fu">TRUE</span>, <span class="bu">Boolean</span>.<span class="fu">TRUE</span>)); <span class="co">//true</span></a>
-<a class="sourceLine" id="cb4-8" title="8"><span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(ObjectUtils.<span class="fu">equals</span>(<span class="bu">Boolean</span>.<span class="fu">TRUE</span>, <span class="bu">Boolean</span>.<span class="fu">FALSE</span>)); <span class="co">// false</span></a></code></pre></div>
-<p><strong>Consejo 4</strong> <br> <strong>Evitar devolver NULL como salida de los métodos.</strong> <br> En lugar de devolver null, es mejor idea devolver una colección o array vacío. Devolviendo colecciones o arrays vacíos estamos seguros seguros de que llamadas como size(), length() no fallaran nunca con una NPE. De modo que evitamos esas comprobaciones inútiles antes de tratar una colección.</p>
-<p><code>Collections.class</code> dispone de constantes para listas, conjuntos y maps que pueden ser usados de la siguiente manera:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">public</span> <span class="bu">List</span> <span class="fu">getEmptyList</span>(){</a>
-<a class="sourceLine" id="cb5-2" title="2">    <span class="bu">List</span> result = <span class="bu">Collections</span>.<span class="fu">EMPTY_LIST</span>;</a>
-<a class="sourceLine" id="cb5-3" title="3">    <span class="kw">return</span> result;</a>
-<a class="sourceLine" id="cb5-4" title="4">}</a>
-<a class="sourceLine" id="cb5-5" title="5"></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="kw">public</span> <span class="bu">Set</span> <span class="fu">getEmptySet</span>(){</a>
-<a class="sourceLine" id="cb5-7" title="7">    <span class="bu">Set</span> result = <span class="bu">Collections</span>.<span class="fu">EMPTY_SET</span>;</a>
-<a class="sourceLine" id="cb5-8" title="8">    <span class="kw">return</span> result;</a>
-<a class="sourceLine" id="cb5-9" title="9">}</a>
-<a class="sourceLine" id="cb5-10" title="10"></a>
-<a class="sourceLine" id="cb5-11" title="11"><span class="kw">public</span> <span class="bu">Map</span> <span class="fu">getEmptyMap</span>(){</a>
-<a class="sourceLine" id="cb5-12" title="12">    <span class="bu">Map</span> result = <span class="bu">Collections</span>.<span class="fu">EMPTY_MAP</span>;</a>
-<a class="sourceLine" id="cb5-13" title="13">    <span class="kw">return</span> result;</a>
-<a class="sourceLine" id="cb5-14" title="14">}</a></code></pre></div>
-<p><strong>Consejo 5</strong> <br> <strong>Uso de las anotaciones <span class="citation">@NotNull</span> and <span class="citation">@Nullable</span>.</strong> <br> Mientras se desarrolla código se pueden añadir notas sobre la nulabilidad de cierto método dejando claro si este es ‘Null Safe’ o no lo es. Esto es posible gracias a las etiquetas <code>@NotNull</code> y <code>@Nullable</code>. Los compiladores, IDE o herramientas modernas pueden leer estas anotaciones y asistir a los usuarios sobre falta de comprobaciones en objetos potencialmente nulos, o sobre comprobaciones innecesarias que se han realizado.</p>
-<p>Además, aunque no estemos trabajando con una herramienta capaz de llevar a cabo estas acciones, estas anotaciones funcionan como documentación, lo que significa que el programador echando un vistazo rápido a la documentación de cierto método puede decidir rápidamente si es necesaria una comprobación para que no sea nulo o no.</p>
-<p>A pesar de todo, esto es una práctica algo nueva. No todos los programadores de Java la realizan a día de hoy y puede llevar algún tiempo en ser adoptada por completo. Igualmente, no es una mala práctica, y si estás aprendiendo en estos momentos (lo cual nunca se debería dejar de hacer) lo más recomendable es aplicar esta técnica.</p>
-<p><strong>Consejo 6</strong> <br> <strong>Evitar ‘autoboxing’ y ‘unboxing’ innecesarios en el código.</strong> <br> Y preguntareis, ¿qué es ‘autoboxing’ y ‘unboxing’? <br> Bueno, es normal que no lo sepais. Aunque lo usamos casi a diario en Java, pero de manera automática. Estas acciones son llevadas a cabo por el entorno de Java, de modo que no somos conscientes de ellas. Esto es un ejemplo de ‘autoboxing’:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb6-1" title="1"><span class="bu">Integer</span> integer = <span class="dv">3</span>;</a></code></pre></div>
-<p>Nosotros escribimos lo anterior, pero luego Java lo traducirá por algo así:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb7-1" title="1"><span class="dt">int</span> numero = <span class="dv">3</span>;</a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="bu">Integer</span> integer = <span class="kw">new</span> <span class="bu">Integer</span>(numero);</a></code></pre></div>
-<p>Y esto es un ejemplo de ‘unboxing’:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb8-1" title="1"><span class="dt">int</span> in = <span class="kw">new</span> <span class="bu">Integer</span>(<span class="dv">3</span>);</a></code></pre></div>
-<p>Lo que Java también traducirá por algo como:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb9-1" title="1"><span class="bu">Integer</span> integer = <span class="kw">new</span> <span class="bu">Integer</span>(<span class="dv">3</span>);</a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="dt">int</span> in = integer.<span class="fu">intValue</span>();</a></code></pre></div>
-<p>Bueno, ahora que tenemos algo más claro lo que significan estos conceptos podemos proseguir con este consejo. La cosa es que a pesar de otras desventajas como la de crear objetos temporales, el ‘autoboxing’ y el ‘unboxing’ también son propensos a lanzar una NPE, en caso de que el objeto de la clase contenedora sea nulo.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb10-1" title="1">Persona lazarus = <span class="kw">new</span> <span class="fu">Persona</span>(<span class="st">&quot;Lázarus&quot;</span>);</a>
-<a class="sourceLine" id="cb10-2" title="2"><span class="dt">int</span> telefono = lazarus.<span class="fu">getTelefono</span>();</a></code></pre></div>
-<p>Explico el ejemplo anterior: Tenemos el objeto Persona. Persona tiene diferentes atributos, tales como nombre, dirección y teléfono. Nombre y dirección son de tipo <code>String</code>, y teléfono es de tipo <code>Integer</code>. Usaremos un constructor que tiene como entrada el nombre, y no inicializaremos el resto de variables. Ahora pedimos el teléfono de ‘lazarus’, pero el valor de teléfono es nulo, luego al hacer el ‘unboxing’ obtendremos una NullPointerException. Que tonto, ¿verdad?</p>
-<p>También existía la posibilidad de pedir el teléfono en una variable Integer, aquí no habríamos tenido problemas, y habríamos obtenido referencia a null en la variable destino.</p>
-<p><strong>Consejo 7</strong> <br> <strong>Seguir restricciones y definir valores por defecto razanobles.</strong> <br> Una de las mejores formas de evitar las NullPointerException en Java es tan simple como definir restricciones y seguirlas. La mayoria de las NPE suceden por crear objetos con información incompleta o porque todas las dependencias necesarias no han sido dadas. Si no permitimos crear objetos incompletos y de forma ‘bonita’ denegamos cualquier petición de creación, podemos prevenir muchas NPE por el camino.</p>
-<p>De forma similar, si permitimos crear dichos objetos, deberíamos trabajar con valores por defecto razonables. Vamos a usar un ejemplo: El objeto Empleado no puede ser creado sin id ni nombre, pero el número de teléfono es opcional. Ahora bien, en lugar de devolver nulo cuando pedimos el número de teléfono de un Empleado que no lo tiene, devolvemos, por ejemplo, el valor cero.</p>
-<p>Sin embargo, este tipo de decisiones debe ser tomada con mucho cuidado, dado que a veces comprobar si un valor es nulo o no puede ser más sencillo que comprobar si lo devuelto es un valor válido o no. Por cierto, una cosa más: definir qué puede ser nulo, y qué no ofrece al programador la posibilidad de tomar decisiones informadas en sus acciones en el momento que lo necesite, sin embargo, estas son importantes decisiones de diseño y han de ser tomadas y seguidas consecuentemente.</p>
-<p><strong>Consejo 8</strong> <br> <strong>Uso de restricciones en las bases de datos.</strong> <br> Si usamos bases de datos para guardar los objetos de nuestra aplicación, tales como Clientes, Pedidos, o cualquier otro objeto, deberíamos usar restricciones de nulabilidad en la misma base de datos.</p>
-<p>Dado que las bases de datos pueden obtener datos de muy diversas fuentes, comprobar la nulabilidad justo antes de insertarlos garantizará la integridad de los datos. Además, las restricciones de la base de datos contribuirán a reducir las comprobaciones de nulabilidad en el código Java, teniendo la certeza de qué objetos pueden llegar a ser nulo y cuales no.</p>
-<p><strong>Consejo 9</strong> <br> <strong>Usar un objeto patrón Nulo.</strong> <br> Este es otro modo de evitar las NullPointerException en Java. Si un método devuelve un objeto, por ejemplo, un Iterador sobre cierta colección, pero en la llamada el objeto no dispone de un Iterador, devolvería null. En lugar de eso este método podría devolver el objeto de tipo Null.</p>
-<p>¿Qué significa esto?, preguntareis. Un objeto de tipo Null es un objeto especial que tiene un significado diferente dependiendo del contexto donde se aplique. Por ejemplo, en este caso se puede tratar de un iterador vacío, y usando <code>hasNext()</code> sobre él devolverá siempre falso. Evitando de esa forma la NPE. De forma similar los métodos que devuelven colecciones, en lugar de null, podrían devolver colecciones vacías.</p>
-</div>
-<div id="para-finalizar" class="section level2">
-<h2>Para finalizar…</h2>
-<p>Bueno, esto es todo. Aquí damos por concluida la lección de ‘Cómo evitar las NullPointerException en Java’. Espero que algunos de estos consejos os sean útiles, y que apreciéis su importancia, dado que con muy poco esfuerzo inicial podemos llegar a ahorrar horas buscando errores en nuestro código. Además, no quiero irme sin hacer referencia al Blog Javarevisited cuya entrada, la cual podéis encontrar <a href="http://javarevisited.blogspot.com.es/2013/05/ava-tips-and-best-practices-to-avoid-nullpointerexception-program-application.html">aquí</a>, sirvió de base para esta lección sobre excepciones.</p>
-<p>Espero que os sea de utilidad y hasta la próxima. A ser originales. <br> Lázarus Surazal.</p>
-<p><em>Sé que esta entrada al Blog me quedó un poco más larga de lo normal, pero tampoco quería partir en dos esta parte de la lección. De este modo nos quedan dos partes, cada una con un contenido bien diferenciado de la otra. Además, si queréis contribuir con alguna idea más, la podéis escribir en los comentarios y la añadiré a la lista.</em></p>
-</div>
-
-					<link rel="stylesheet" type="text/css" href="css/relations.css"/>
-<div id="relationsContainer">
-<span class="relatedTitle">Entradas relacionadas</span>
-<ul>
-<li>
-<a href="md_2014_10_01.html">Cómo evitar las NullPointerException (NPE) en Java [Parte 1]</a>
-</li>
-<li>
-<a href="md_2015_08_10.html">Principios de diseño orientado a objetos que todo programador de Java debería conocer</a>
-</li>
-<li>
-<a href="md_2015_08_17.html">10 consejos para escribir comentarios en Java</a>
-</li>
-<li>
-<a href="md_2018_05_04.html">Contraseñas para nuestro día a día</a>
-</li>
-</ul>
-</div>
-<link rel="stylesheet" type="text/css" href="css/navigation.css"/>
-<hr>
-<div id="navigationContainer">
-<a class="item hint--bottom-left navigateButton right" href="md_2015_08_10.html" data-hint="Principios de diseño orientado a objetos que todo programador de Java debería conocer">Siguiente <i class="fa fa-arrow-right"></i></a><a class="item hint--bottom-right navigateButton left" href="md_2014_10_01.html" data-hint="Cómo evitar las NullPointerException (NPE) en Java [Parte 1]"><i class="fa fa-arrow-left"></i> Anterior</a><a class="navigateButton center" href="./"><i class="fa fa-home"></i> Volver a la página principal</a>
-</div>
-		
-					<link rel="stylesheet" type="text/css" href="css/info.css"/>
-
-<div id="infoContainer">
-	<div id="infoProfile" class="info_block">
-		<div class="title">
-			<b>Perfil</b>
-		</div>
-		<div class="content">
-			<div class="part photo">
-				<img src="images/logo_b.png" width="90px" alt="prLázarus logo info" />
-			</div>
-			<div class="part description">
-				<b>Carlos J. Peláez Rivas (Lázarus Surazal)</b> <br>
-				Graduado y Máster en Ingeniería Informática por la Universidad de Málaga. Actualmente trabajando como desarrollador de aplicaciones en Java usando Vaadin.<br>
-				Apasionado de los videojuegos, la música y alguna que otra tecnología, siempre buscando cosas nuevas que aprender y hacer. <br>
-				<a href="http://cjpelaezrivas.tk">Más sobre mi...</a>
-			</div>
-		</div>
-	</div>
-	<div id="infoContact" class="info_block">
-		<div class="title">
-			<b>Contacto</b>
-		</div>
-		<div class="content links">
-			<div class="item hint--bottom-right" data-hint="Perfil personal">
-				<a href="http://cjpelaezrivas.tk" style="font-size: 38px; line-height: 38px;"><i class="fa fa-user-circle"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="prLázarus - RSS">
-				<a href="./feed.xml"><i class="fa fa-rss-square"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="Enviar correo electrónico">
-				<a href="mailto:prlazarus.info@gmail.com"><i class="fa fa-envelope-square"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="Perfil de GitHub">
-				<a href="https://github.com/cjpelaezrivas"><i class="fa fa-github-square"></i></a>
-			</div>
-			<div class="item hint--bottom-right" data-hint="Perfil de LinkedIn">
-				<a href="https://www.linkedin.com/in/cjpelaezrivas"><i class="fa fa-linkedin-square"></i></a>
-			</div>
-		</div>
-	</div>
-
-	<div id="infoSuscribe" class="info_block">
-		<div class="title">
-			<b>Notificaciones</b>
-		</div>
-		<div class="content">
-			<form  method="post" action="https://prlazarus.us20.list-manage.com/subscribe/post?u=5dc6163ee27b4b8f0090978e1&amp;id=6b3b278c76" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-		    	<div>
-					<input type="email" name="EMAIL" class="field" id="mce-EMAIL" placeholder="Dirección de email" value="">
-
-					<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-			    	<div style="position: absolute; left: -5000px;" aria-hidden="true">
-			    		<input type="text" name="b_5dc6163ee27b4b8f0090978e1_6b3b278c76" tabindex="-1" value="">
-			    	</div>
-
-			    	<div class="item hint--bottom hint--large" data-hint="Recibe notificaciones por correo electrónico cada vez que se publique una nueva entrada." style="width:100%;">
-						<button type="submit" id="mc-embedded-subscribe" form="mc-embedded-subscribe-form">
-							<i class="fa fa-envelope"></i> Suscribirse
-						</button>
-					</div>
-		    	</div>
-			</form>
-		</div>
-	</div>
-</div>
-					<div id="commentsContainer" style="float:left; width:100%;">
-	<script src="https://utteranc.es/client.js"
-        repo="cjpelaezrivas/prlazarus"
-        issue-term="title"
-        label="comments"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-	</script>
-	<noscript>
-		<div class="block warning icon fa-exclamation" style="margin-bottom:20px;">
-			Por favor, activa JavaScript para ver los comentarios.
-		</div>
-	</noscript>
-</div>
-					<link rel="stylesheet" type="text/css" href="css/footer.css"/>
-
-<div id="footer_message">
-	¿Has encontrado algún error? <a href="mailto:prlazarus.info@gmail.com">Envía un correo electrónico</a> o <a href="">abre un nuevo <i>issue</i></a> para corregirlo. Gracias.
-</div>
-<div id="footer">
-	<div class="content">
-		<div id="logo_footer">
-			<a href="http://prlazarus.tk"><img src="images/logo_c.png" alt="prLázarus logo footer" style="margin-top:10px;"/></a>
-			<!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
-		</div>
-		<div id="right_column" class="text">
-			Desarrollado en <a href="https://es.wikipedia.org/wiki/Espa%C3%B1a"><img src="images/spain.png" style="margin: -2px 2px 0 2px;" alt="Spain flag"/></a> con <i class="fa fa-heart" style="color:#cc0000"></i> por <i><a href="http://prlazarus.tk">prLázarus</a></i><br>
-			<i class="fa fa-plug"></i> Con la tecnología de <i><a href="http://rmarkdown.rstudio.com/index.html">R Markdown</a></i> y <i><a href="https://pages.github.com/">GitHub Pages</a></i><br>
-			<i><a href="./feed.xml">RSS</a></i>
-			&nbsp;|&nbsp;
-			<i><a href="md_cookies_policy.html">Política de cookies</a></i>
-			&nbsp;|&nbsp;
-			<i><a href="md_disclaimer.html">Limitación de responsabilidad</a></i><br>
-			<a href="mailto:prlazarus.info@gmail.com">prlazarus.info@gmail.com</a>
-		</div>
-	</div>
-</div>
-					<link rel="stylesheet" type="text/css" href="css/progressBar.css"/>
-
-<div id="progressBarContainer">
-	<div class="progressBar">
-	</div>
-</div>
-
-<script src="js/progressBar.js"></script>
-		
-	</div>
-</body>
+      <!-- End of Statcounter Code -->
+      <link rel="stylesheet" type="text/css" href="css/progressBar.css" />
+      <div id="progressBarContainer">
+        <div class="progressBar">
+        </div>
+      </div>
+      <script src="js/progressBar.js"></script>
+    </div>
+  </body>
 </html>
