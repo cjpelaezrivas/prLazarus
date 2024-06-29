@@ -1,0 +1,94 @@
+#infoContainer {
+    float:left;
+    padding: 20px 0 10px 0;
+}
+
+#infoContainer .info_block {
+    float: left;
+    display: inline-block;
+}
+
+#infoContainer #infoProfile {
+    width:65%;
+    padding-right: 10px;
+}
+
+#infoContainer #infoProfile #name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#infoContainer #infoProfile #alias {
+    font-size: 15px;
+}
+
+#infoContainer #infoContact {
+    width:35%;
+}
+
+#infoContainer .info_block .title {
+    padding: 3px 10px 1px;
+    border: solid 1px #aaaaaa;
+    border-bottom: none;
+}
+
+#infoContainer .info_block .content {
+    padding: 7px;
+    border: solid 1px #aaaaaa;
+}
+
+#infoContainer .info_block .content .part {
+    display: table-cell;
+}
+
+#infoContainer .info_block .content .part a {
+    text-decoration: none;
+}
+
+#infoContainer .info_block .content .part a:hover {
+    text-decoration: underline;
+}
+
+#infoContainer .info_block .content .photo {
+    width: 90px;
+    padding-right: 10px;
+}
+
+#infoContainer .info_block .content .description {
+    vertical-align: top;
+}
+
+#infoContainer .info_block .links a {
+    font-size: 42px;
+    line-height: 42px;
+    color: #003379;
+    text-decoration: none;
+}
+
+#infoContainer .info_block .links a:hover {
+    color: #323232;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 700px) {
+    #infoContainer .info_block {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    #infoContainer #infoProfile {
+        padding: 0 0 10px 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #infoContainer .info_block .content .part {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    #infoContainer .info_block .content .photo {
+        padding: 0 0 10px 0;
+        text-align: center;
+    }
+}

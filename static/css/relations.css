@@ -1,0 +1,34 @@
+#relationsContainer {
+	margin-top: 20px;
+}
+
+#relationsContainer .relatedTitle {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+#relationsContainer ul {
+	padding: 5px 0 0 0;
+	list-style: none;
+}
+
+#relationsContainer ul li {
+	padding-left: 2.0em;
+}
+
+#relationsContainer ul li:before {
+	font-family: FontAwesome;
+	display: inline-block;
+	margin-left: -1.3em;
+	width: 0.8em;
+
+	content: "\f101";
+}
+
+#relationsContainer li a, #relationsContainer li a:visited {
+	text-decoration: none;
+}
+
+#relationsContainer li a:hover, #relationsContainer li a:active {
+	text-decoration: underline;
+}
