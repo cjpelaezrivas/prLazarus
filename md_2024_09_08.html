@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>prCalculadoraIntérprete - Fin de proyecto&nbsp;- prLázarus</title>
+    <title>Usando Lighthouse para construir el blog&nbsp;- prLázarus</title>
     <meta name='Language' content='es' />
     <meta name='Content-Language' content='es' />
     <meta name="author" content="Carlos J. Peláez Rivas" />
@@ -17,7 +17,7 @@
     <meta name="twitter:description" content="prLázarus - Blog de programación y diario de desarrollo" />
     <link rel="icon" type="image/x-icon" href="media/images/favicon.ico" />
     <link rel="shortcut icon" type="image/x-icon" href="media/images/favicon.ico" />
-    <link rel="canonical" href="https://prlazarus.es/md_2012_10_14">
+    <link rel="canonical" href="https://prlazarus.es/md_2024_09_08">
     <link rel="stylesheet" href="static/lib/bootstrap-4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="static/lib/fontawesome-4.7/css/fontawesome.min.css" />
     <link rel="stylesheet" type="text/css" href="static/lib/hint-2.5.1/css/hint.base.min.css" />
@@ -108,54 +108,56 @@
         </div>
       </div>
       <div class="fluid-row" id="header">
-        <h1 class="title toc-ignore ">prCalculadoraIntérprete - Fin de proyecto</h1>
-        <div class="date"><em>domingo, 14 de octubre de 2012</em></div>
+        <h1 class="title toc-ignore ">Usando Lighthouse para construir el blog</h1>
+        <div class="date"><em>domingo, 8 de septiembre de 2024</em></div>
         <div id="entry_section">
-          <div id="time_section"><b>Tiempo de lectura:</b> 3 minutos</div>
+          <div id="time_section"><b>Tiempo de lectura:</b> 5 minutos</div>
+          <div id="project_section"><b>Proyecto:</b> <a href="md_projects.html#blog">Actualización del blog</a></div>
         </div>
         <div id="tag_section">
           <b>Etiquetas: </b>
-          <a class="tag" href="md_search.html?tag=Consejos">Consejos</a>
+          <a class="tag" href="md_search.html?tag=Blog">Blog</a>
           <a class="tag" href="md_search.html?tag=Diario de desarrollo">Diario de desarrollo</a>
-          <a class="tag" href="md_search.html?tag=FdP">FdP</a>
-          <a class="tag" href="md_search.html?tag=Java">Java</a>
         </div>
       </div>
       <div class="section">
-        <p>Hola a todos. En esta ocasión vamos (creo) a acabar con este proyecto. He estado pensando y creo que lo tengo todo más o menos en mi cabecita. Empecemos...</p>
-        <p>Para comenzar decir que le método “interprete” que habíamos creado habrá que cambiarlo bastante (al menos la primera parte). Comenzaremos con el primer algoritmo que sacaba los operandos (el más importante creo...). En el caso anterior teníamos un &quot;Tokenizer&quot; con el String “+-<em>/()”, pues bien, lo cambiaremos a un &quot;Tokenizer&quot; más casero que en teoría separará con el String “+</em>/()”, sí exacto, no separaremos las restas.Lo llamamos casero porque lo haremos nosotros desde cero. Convertiremos la cadena de entrada a un array de caracteres y recorreremos cada uno de los elementos. En caso de que sea un símbolo de operación o un paréntesis lo añadiremos a un “String builder” principal, y en el caso de que sea números o menos, lo añadiremos a un “String builder” secundario para operar con ellos. En este caso obtendremos cadenas de números, símbolos menos y basura (si la hubiese). Estos Strings lo intentaremos convertir a enteros. En el caso de que se pueda simplemente lo añadimos a la lista de operandos y colocamos en el “String builder” principal en lugar del número una “X”. En otro caso, no podremos convertir el String a entero, en el manejador de la excepción deberemos hacer varias cosas. Primero, debemos asegurarnos de que la entrada está compuesta solo de números y menos, en otro caso es un error sintáctico y acabamos con esta línea aquí. En el caso de que esté bien escrito nos podemos encontrar con varios casos. O un número solo con más de un menos delante, o una serie de restas, que puede comenzar con menos o no. Este último caso se tratará en un método privados a parte. En primera instancia vamos a crear el algoritmo que recorra la cadena y realice todas las operaciones básicas incluyendo la llamada al método que llamaremos: “separador”. Comenzamos...</p>
-        <p>Una vez vez acabado el algoritmo, a la segunda mitad de este (el que detectaba las operaciones y las prioridades) sólo hay que cambiarle la entrada que recibe. En lugar de la línea inicial, debemos meterle el contenido de “primario”. A partir de aquí continuará igual todo.</p>
-        <p>Además, para que funcione hemos tenido que poner algunos “parches”, como por ejemplo para que detecte los signos menos antes de los paréntesis. En cualquier otro caso, este algoritmo funciona a las mil maravillas, aunque a la hora de signos menos sin números antes de los paréntesis no hemos detectado problemas con los ejemplos que hemos probado, podrían existir algún caso para que el que no dé una solución correcta. Pasamos a comentar el código con todo los detalles posibles. Vamos a ello!</p>
-        <p>Bueno, una vez acabado los comentarios en principio habremos acabado la versión 1.0 de este pequeño programa. Nos costó un poco porque era algo ambiguo, pero la verdad que también fue divertido a la hora de ver cómo va haciendo los cálculos.</p>
-        <p>Una cosa que os quería comentar es que para poder coger a los “fallo” más pequeños, los cuales hemos solucionado mediante “parches”, hemos usado las herramientas de debug de “Eclipse” las cuales nos permiten movernos paso a paso por nuestro programa y ver los valores de las variables en cada momentos. Una maravilla, vamos...</p>
-        <p>En fin, pues esto pone fin a este proyecto, y lo damos cómo acabado. Yo sigo con la subida del archivo al servidor para que me evaluar mi trabajo el profesor de la asignatura, y ustedes son libres de descargar el archivo fuente para ejecutarlo en sus máquinas en el caso de que os interese. Muchas gracias y <strong>“FIN DE PROYECTO”</strong>.</p>
-        <p><strong>Edito: He pasado ya la corrección automática de nuestro campus virtual de la facultad y he de deciros que estoy muy contento con el resultado. El programa ha tenido un 100 sobre 100.</strong></p>
-        <p>Saludos, <br>
-          Lázarus Surazal.</p>
-        <hr>
-        <p><strong>Descargas:</strong> <br>
-          <em>Enlaces eliminados</em>
+        <p>Hola. <br>
+          Ha vuelto a pasar mucho tiempo desde que no escribo ninguna entrada nueva. Muchas cosas han pasado desde la última vez que escribí algunas líneas para este blog. He estado revisando algunas entradas a medias que tengo en el directorio de borradores, ahí está incluso el intento de crear la serie sobre patrones de diseño. Hacía meses que no revisaba ese trabajo a medias. Qué desastre... 🤦🏻‍♂️</p>
+        <p>Pero basta de actualizaciones cenizas, esta entrada la estoy escribiendo con ánimo de celebración. Ya comenté el cambio de paradigma en <a href="./md_2018_11_27.html">la entrada detallando la actualización del blog</a> en la que generaba el blog cómo sitio estático usando <em>R</em> y lo alojaba usando <em>Github pages</em>.</p>
+        <p>El tema es que uno de los motivos por el que no he podido actualizar el blog desde hace años ha sido por la dependencia que creé al usar <em>R</em> y <em>RMarkdown</em>. Resulta que no todo era tan ideal como pensé al inicio. Las dependencias han ido cambiando (entiendo que actualizándose) a lo largo del tiempo, y llegó el punto en el que el blog simplemente no se construía... He de confesar que intenté solucionar los problemas que encontré, y que finalmente fui capaz de generar el sitio web, pero cuál fue mi sorpresa cuando vi que el sitio web que se había generado no era el mismo que yo esperaba. Había códigos JavaScript inyectados, y cambios en los estilos CSS. Entiendo que parte de esos problemas serían debidos a la plantilla que se estaba usando, pero en esencia, lo que yo consideraba un proceso determinista, seguía siéndolo, pero con una salida distinta. Esa fue la gota que colmó el vaso.</p>
+        <p>Aquí me vi en la situación de buscar una solución, a ser posible a más largo plazo que retocar todo el blog y otro par de páginas que estaba generaba usando el mismo método. Tras mucho pensar, contemplar diversas opciones ya creadas y pensar varios diseños; me tiré a la piscina y nació: <strong><a href="https://github.com/cjpelaezrivas/Lighthouse">Lighthouse</a></strong>.</p>
+        <p>¿Qué es <em>Lighthouse</em>? Pues no es más que un generador de sitios web estáticos escrito en TypeScript. Sí, lo sé, es <em>casi</em> lo mismo que ya tenía. En realidad, ha heredado algunas características y configuraciones, pero se parece mucho menos de lo que parece a primera vista. En primer lugar no usa <em>R</em> como lenguaje de programación. La verdad que no he conocido a nadie que use este lenguaje desde que terminé los estudios hace ya algunos años, así que lo he descartado. Y para continuar, bueno, tengo el control sobre la aplicación y lo que se genera, por lo que no debería volver a tener el problema al construir el sitio web en el futuro.</p>
+        <p>Por supuesto sigo teniendo algunas dependencias, como por ejemplo el conversor de Markdown a HTML (<a href="https://github.com/markdown-it/markdown-it">markdown-it</a>); pero la lógica base, las plantillas y el código que se inyecta en las páginas generadas son controlados por completo por mi aplicación.</p>
+        <p>Con la solución anterior sentía que estaba <em>hackeando</em> un poco la herramienta. Inyectaba scripts escritos en <em>R</em> para generar parte del contenido de la aplicación. Funcionaba, pero incluir nuevas funciones al blog quizás podía no ser todo lo fácil que me habría gustado. Ahora esto acción es una característica básica de <em>Lighthouse</em>. Todas las etiquetas que se pueden usar para modificar el sitio web tiene el mismo formato, por lo que la sustitución de una variable o la inserción de un fichero de texto dentro de otro se realizan de manera similar.</p>
+        <p>Además, la parte más destacada de mi proyecto es la capacidad de ejecutar código escrito en JavaScript escrito por el usuario, desde la propia plantilla o desde cualquier de los ficheros que componen el sitio web. Esto permite realizar ciertas acciones o generar contenido dinámicamente mientras se construye el la página. Cómo ya he comentado, esto ya era algo que tenía antes, pero daba la sensación de que lo hacía no estaba permitido, al menos por la forma en la que debía hacerlo.</p>
+        <p>Por poner algunos ejemplos: la página principal de este blog esta construida con un script que itera todas las entradas, de modo que se actualiza automáticamente cuando se incluye una nueva. Y otras nuevas funciones como el tiempo de lectura para cada una de las entradas, también se hace usando un script que calcula el tiempo estimado en función del número de palabras que hay en una entrada. Ya existe una entrada explicando cómo se relacionan las entradas del blog, o lo botones de navegación que hay al final de cada una de ellas. Ese código ha sido traducido a JavaScript (y también simplificado).</p>
+        <p>La idea ahora es que usando un solo comando es posible generar el sitio web listo para subirlo al servicio que se desee. Existe un fichero de configuración, que permite indicar una gran cantidad de parámetros, la mayor parte de ellos basados en las necesidades de los proyectos en los que estoy usando <em>Lighthouse</em> por ahora, pero lo suficientemente genéricos para ser útiles para la mayoría de los usos que cualquiera podría tener al usar esta herramienta. Si hay alguien interesado, <a href="https://cjpelaezrivas.dev/Lighthouse/">aquí es posible encontrar el <em>readme</em> de la aplicación</a>, donde se explica cómo usarlo.</p>
+        <p>No he subido nada a la web hasta tener algo que cumpliera mis expectativas. Esto se traduce en generar las páginas que generaba en el pasado usando <em>R</em>: este blog y el sitio web de <a href="https://cjpelaezrivas.dev/ProjectCreationFX/">Project Creation FX</a>. Aunque ahora también uso <em>Lighthouse</em> para generar mi sitio web personal: <a href="https://cjpelaezrivas.dev/">cjpelaezrivas.dev</a>, en el que uso una única plantilla para español e inglés, lo que me permite incluir contenido mucho más fácil. Además de estos &quot;tests&quot;, he creado una serie de escenarios que funcionan como tests funcionales para probar otros casos un poco más raros. Estos tests ofrecen una seguridad increíble a la hora de realizar modificaciones en el proyecto, porque puedes saber en un par de segundos si has roto algo con tus cambios. Todo un acierto.</p>
+        <p>También he de confesar que es más rápido que la solución anterior, generando este blog en 1,1 segundos. La velocidad no es que sea una prioridad en un proceso que se va a ejecutar de vez en cuando, solo cuando se construye el sitio, pero siempre gusta saber que ahora tarda menos.</p>
+        <p>En conclusión: quería actualizar el blog con una nueva entrada indicando que ahora estoy generándolo con una nueva herramienta, y he aprovechado la oportunidad para incluir alguna que otra funcionalidad nueva o modificar algunos detalles que no me terminaban de convencer. A simple vista no ha cambiado apenas nada, porque como he dicho, he usado mi versión online del blog para comprobar que la nueva herramienta generaba lo deseado, pero sí que hay algunos cambios un poco más invisibles si ves el código fuente de la página. En realidad, estos cambios me afectan a mi sobre todo, lo que me permitiría crear contenido de forma más cómoda. La verdad que no voy a prometer escribir más, ya que eso depende de muchas variables, pero al menos ahora tengo los medios para realizar cambios en caso de ser necesario.</p>
+        <p>Sin más, me despido hasta la próxima vez que nos volvamos a ver.</p>
+        <p>Muchas gracias por leerme,<br>
+          Lázarus Surazal.
         </p>
-        <hr>
       </div>
       <link rel="stylesheet" type="text/css" href="static/css/relations.css" />
       <div id="relationsContainer">
         <span class="relatedTitle">Entradas relacionadas</span>
         <ul>
-          <li><a href="md_2012_09_29.html">prCalculadoraIntérprete - Inicio de proyecto</a></li>
-          <li><a href="md_2012_09_29_B.html">prCalculadoraIntérprete - Primeros pasos</a></li>
-          <li><a href="md_2012_10_07.html">prCalculadoraIntérprete - Pequeños cambios...</a></li>
-          <li><a href="md_2012_10_07_B.html">prCalculadoraIntérprete - Método intérprete</a></li>
+          <li><a href="md_2018_03_21.html">Nuevo blog, nuevo alojamiento, nuevo comienzo</a></li>
+          <li><a href="md_2018_11_27.html">Nuevas actualizaciones en el blog</a></li>
+          <li><a href="md_2018_11_30.html">Relacionando las entradas del blog</a></li>
+          <li><a href="md_2018_12_18.html">Proceso de actualización del blog finalizado</a></li>
         </ul>
       </div>
       <link rel="stylesheet" type="text/css" href="static/css/navigation.css" />
       <hr>
       <div id="navigationContainer">
-        <a class="item hint--bottom-left navigateButton right" href="md_2013_03_15.html" data-hint="Java3D - Introducción a la Programación de Videojuegos">
+        <a class="navigateButton right navigateButtonInvisible" href="#">
           Siguiente
           <i class="fa fa-arrow-right"></i>
         </a>
-        <a class="item hint--bottom-right navigateButton left" href="md_2012_10_07_B.html" data-hint="prCalculadoraIntérprete - Método intérprete">
+        <a class="item hint--bottom-right navigateButton left" href="md_2020_09_30.html" data-hint="Patrones de diseño - Introducción">
           <i class="fa fa-arrow-left"></i>
           Anterior
         </a>

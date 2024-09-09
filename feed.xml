@@ -7,6 +7,13 @@
 <link>https://prlazarus.es/feed.xml</link>
 <description>prLázarus - Blog de desarrollo - RSS</description>
 <item>
+<title><![CDATA[Usando Lighthouse para construir el blog]]></title>
+<guid>https://prlazarus.tk/md_2024_09_08.html</guid>
+<pubDate>Sat, 07 Sep 2024 22:00:00 GMT</pubDate>
+<category>Blog</category>
+<category>Diario de desarrollo</category>
+</item>
+<item>
 <title><![CDATA[Patrones de diseño - Introducción]]></title>
 <guid>https://prlazarus.tk/md_2020_09_30.html</guid>
 <pubDate>Tue, 29 Sep 2020 22:00:00 GMT</pubDate>
