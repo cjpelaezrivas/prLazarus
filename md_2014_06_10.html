@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+  
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -68,18 +69,20 @@
         })
       });
     </script>
-
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWTT0T2YZ0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
+      
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag('js', new Date());
+      
       gtag('config', 'G-PWTT0T2YZ0');
     </script>
   </head>
+  
   <body>
     <div class="container-fluid main-container">
       <link rel="stylesheet" type="text/css" href="static/css/navbar.css" />
@@ -161,13 +164,17 @@
         <span class="hljs-type">File</span> <span class="hljs-variable">destino</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(sDestino);
         <span class="hljs-type">InputStream</span> <span class="hljs-variable">in</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FileInputStream</span>(origen);
         <span class="hljs-type">OutputStream</span> <span class="hljs-variable">out</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FileOutputStream</span>(destino);
+
         <span class="hljs-type">byte</span>[] buf = <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[<span class="hljs-number">1024</span>];
         <span class="hljs-type">int</span> len;
+
         <span class="hljs-keyword">while</span> ((len = in.read(buf)) &gt; <span class="hljs-number">0</span>) {
             out.write(buf, <span class="hljs-number">0</span>, len);
         }
+
         in.close();
         out.close();
+
     } <span class="hljs-keyword">catch</span> (FileNotFoundException e) {
         e.printStackTrace();
     } <span class="hljs-keyword">catch</span> (IOException e) {
@@ -191,8 +198,7 @@
         <p>Como en el caso anterior, me gustaría decir que aunque en el título se indica que el algoritmo es para Windows es por el único motivo de que ha sido en el único sistema operativo que lo he probado. Dada la naturaleza de Java, su ejecución no debería tener ningún inconveniente en cualquier otra plataforma.</p>
         <p>Espero que os sea útil y hasta otra ocasión.</p>
         <p>Saludos,<br>
-          Lázarus Surazal.
-        </p>
+          Lázarus Surazal.</p>
       </div>
       <link rel="stylesheet" type="text/css" href="static/css/relations.css" />
       <div id="relationsContainer">
@@ -278,7 +284,6 @@
         <div class="content">
           <div id="logo_footer">
             <a href="https://prlazarus.es"><img src="media/images/logo_c.png" alt="prLázarus logo footer" style="margin-top:10px;" /></a>
-
             <!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
           </div>
           <div id="right_column" class="text">
@@ -298,9 +303,8 @@
         <div class="progressBar">
         </div>
       </div>
-      <script src="js/progressBar.js"></script>
+      <script src="static/js/progressBar.js"></script>
     </div>
-
     <!-- Default Statcounter code for prLázarus - Blog -->
     <script type="text/javascript">
       var sc_project = 12995152;
@@ -313,7 +317,7 @@
         <a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12995152/0/7de2ea10/1/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></a>
       </div>
     </noscript>
-
     <!-- End of Statcounter Code -->
   </body>
+  
 </html>

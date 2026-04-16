@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+  
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -68,18 +69,20 @@
         })
       });
     </script>
-
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWTT0T2YZ0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
+      
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag('js', new Date());
+      
       gtag('config', 'G-PWTT0T2YZ0');
     </script>
   </head>
+  
   <body>
     <div class="container-fluid main-container">
       <link rel="stylesheet" type="text/css" href="static/css/navbar.css" />
@@ -142,10 +145,12 @@
         </p>
         <p>De acuerdo, el método equals() es simétrico, es indiferente usar a.equals(b), que usar b.equals(a), pero elegir el orden apropiado puede ayudarnos en muchos momentos, y será de de las mejores prácticas que deberíamos empezar a aplicar. Siempre que no lo hagamos ya.</p>
         <pre><code class="hljs"><span class="hljs-type">Object</span> <span class="hljs-variable">objetoDesconocido</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+
 <span class="hljs-comment">// Uso incorrecto - No sabemos si se lanzarán NullPointerException o no</span>
 <span class="hljs-keyword">if</span>(objetoDesconocido.equals(<span class="hljs-string">&quot;objetoConocido&quot;</span>)) { <span class="hljs-comment">//Aquí puede lanzarse una NPE si &#x27;objetoDesconocido&#x27; es nulo</span>
 	System.out.println(<span class="hljs-string">&quot;...&quot;</span>);
 }
+
 <span class="hljs-comment">// Uso correcto - Sabemos con total certeza que no aparecerán las NullPointerException</span>
 <span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;objetoConocido&quot;</span>.equals(objetoDesconocido)) { <span class="hljs-comment">//Aquí evitamos las NPE aunque &#x27;objetoDesconocido&#x27; sea nulo</span>
 	System.out.println(<span class="hljs-string">&quot;...&quot;</span>);
@@ -157,8 +162,10 @@
           Dado que el método <code>toString()</code> sobre objetos nulos nos lanza una NPE, si podemos obtener el mismo valor usando el método <code>valueOf()</code> entonces vamos a preferirlo de calle. Esto es debido a que si invocamos al método <code>valueOf()</code> sobre un objeto nulo, este nos devolverá &quot;null&quot;, de modo que es especialmente útil en clases &quot;envueltas&quot; (Wrapper clases), tales como <code>Integer</code>, <code>Float</code>, <code>Double</code> o <code>BigDecimal</code>.
         </p>
         <pre><code class="hljs"><span class="hljs-type">BigDecimal</span> <span class="hljs-variable">bd</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+
 <span class="hljs-comment">// Uso incorrecto - No sabemos si se lanzarán NullPointerException o no</span>
 System.out.println(bd.toString()); <span class="hljs-comment">//Aquí puede lanzarse una NPE si &#x27;bd&#x27; es nulo</span>
+
 <span class="hljs-comment">// Uso correcto - Sabemos con total certeza que no aparecerán las NullPointerException</span>
 System.out.println(String.valueOf(bd)); <span class="hljs-comment">//Aquí evitamos las NPE aunque &#x27;bd&#x27; sea nulo</span>
 </code></pre>
@@ -174,6 +181,7 @@ System.out.println(String.valueOf(bd)); <span class="hljs-comment">//Aquí evita
 System.out.println(StringUtils.isBlank(<span class="hljs-literal">null</span>));
 System.out.println(StringUtils.isNumeric(<span class="hljs-literal">null</span>));
 System.out.println(StringUtils.isAllUpperCase(<span class="hljs-literal">null</span>));
+
 <span class="hljs-comment">/* Obteniendo como salida:
 true
 true
@@ -202,10 +210,12 @@ System.out.println(ObjectUtils.equals(Boolean.TRUE, Boolean.FALSE)); <span class
 	<span class="hljs-type">List</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> Collections.EMPTY_LIST;
 	<span class="hljs-keyword">return</span> result;
 }
+
 <span class="hljs-keyword">public</span> Set <span class="hljs-title function_">getEmptySet</span><span class="hljs-params">()</span>{
 	<span class="hljs-type">Set</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> Collections.EMPTY_SET;
 	<span class="hljs-keyword">return</span> result;
 }
+
 <span class="hljs-keyword">public</span> Map <span class="hljs-title function_">getEmptyMap</span><span class="hljs-params">()</span>{
 	<span class="hljs-type">Map</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> Collections.EMPTY_MAP;
 	<span class="hljs-keyword">return</span> result;
@@ -271,8 +281,7 @@ System.out.println(ObjectUtils.equals(Boolean.TRUE, Boolean.FALSE)); <span class
         <p>Espero que os sea de utilidad y hasta la próxima. A ser originales. <br>
           Lázarus Surazal.</p>
         <p><em>Sé que esta entrada al Blog me quedó un poco más larga de lo normal, pero tampoco quería partir en dos esta parte de la lección. De este modo nos quedan dos partes, cada una con un contenido bien diferenciado de la otra.
-Además, si queréis contribuir con alguna idea más, la podéis escribir en los comentarios y la añadiré a la lista.</em>
-        </p>
+Además, si queréis contribuir con alguna idea más, la podéis escribir en los comentarios y la añadiré a la lista.</em></p>
       </div>
       <link rel="stylesheet" type="text/css" href="static/css/relations.css" />
       <div id="relationsContainer">
@@ -358,7 +367,6 @@ Además, si queréis contribuir con alguna idea más, la podéis escribir en los
         <div class="content">
           <div id="logo_footer">
             <a href="https://prlazarus.es"><img src="media/images/logo_c.png" alt="prLázarus logo footer" style="margin-top:10px;" /></a>
-
             <!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
           </div>
           <div id="right_column" class="text">
@@ -378,9 +386,8 @@ Además, si queréis contribuir con alguna idea más, la podéis escribir en los
         <div class="progressBar">
         </div>
       </div>
-      <script src="js/progressBar.js"></script>
+      <script src="static/js/progressBar.js"></script>
     </div>
-
     <!-- Default Statcounter code for prLázarus - Blog -->
     <script type="text/javascript">
       var sc_project = 12995152;
@@ -393,7 +400,7 @@ Además, si queréis contribuir con alguna idea más, la podéis escribir en los
         <a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12995152/0/7de2ea10/1/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></a>
       </div>
     </noscript>
-
     <!-- End of Statcounter Code -->
   </body>
+  
 </html>

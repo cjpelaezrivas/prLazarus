@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+  
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -68,18 +69,20 @@
         })
       });
     </script>
-
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWTT0T2YZ0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
+      
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag('js', new Date());
+      
       gtag('config', 'G-PWTT0T2YZ0');
     </script>
   </head>
+  
   <body>
     <div class="container-fluid main-container">
       <link rel="stylesheet" type="text/css" href="static/css/navbar.css" />
@@ -128,41 +131,56 @@
         <p>Aquí os ofrezco una solución, la cual creo que ha quedado bastante elegante, combinando hilos de ejecución, abstracción, interfaces y eventos asíncronos. Os pongo a continuación el código para que podáis verlo y luego comento algunas cosillas sobre el mismo:</p>
         <pre><code class="hljs"><span class="hljs-keyword">import</span> java.util.ArrayList;
 <span class="hljs-keyword">import</span> java.util.List;
+
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HiloEventos</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Thread</span> {
+
 	<span class="hljs-keyword">private</span> List&lt;IEventoIniciado&gt; oyentesIniciado = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
 	<span class="hljs-keyword">private</span> List&lt;IEventoFinalizado&gt; oyentesFinalizado = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+
 	<span class="hljs-keyword">public</span> <span class="hljs-title function_">HiloEventos</span><span class="hljs-params">()</span> {
 		<span class="hljs-built_in">this</span>(<span class="hljs-literal">false</span>);
 	}
+
 	<span class="hljs-keyword">public</span> <span class="hljs-title function_">HiloEventos</span><span class="hljs-params">(<span class="hljs-keyword">final</span> <span class="hljs-type">boolean</span> isDaemon)</span> {
 		<span class="hljs-built_in">this</span>.setDaemon(isDaemon);
 	}
+
 	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span> <span class="hljs-params">()</span> {
 		<span class="hljs-keyword">for</span> (IEventoIniciado o : oyentesIniciado) {
 			o.iniciado();
 		}
+
 		operacionesRun();
+
 		<span class="hljs-keyword">for</span> (IEventoFinalizado o : oyentesFinalizado) {
 			o.finalizado();
 		}
 	}
+
 	<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">operacionesRun</span><span class="hljs-params">()</span>;
+
 	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addEscuchadorIniciado</span><span class="hljs-params">(IEventoIniciado iEventoIniciado)</span> {
 		oyentesIniciado.add(iEventoIniciado);
 	}
+
 	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">removeEscuchadorIniciado</span><span class="hljs-params">(IEventoIniciado escuchador)</span> {
 		oyentesIniciado.remove(escuchador);
 	}
+
 	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addEscuchadorFinalizado</span><span class="hljs-params">(IEventoFinalizado escuchador)</span> {
 		oyentesFinalizado.add(escuchador);
 	}
+
 	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">removeEscuchadorFinalizado</span><span class="hljs-params">(IEventoFinalizado escuchador)</span> {
 		oyentesFinalizado.remove(escuchador);
 	}
+
 	<span class="hljs-comment">//</span>
+
 	<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">IEventoIniciado</span> {
 		<span class="hljs-keyword">void</span> <span class="hljs-title function_">iniciado</span><span class="hljs-params">()</span>;
 	}
+
 	<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">IEventoFinalizado</span> {
 		<span class="hljs-keyword">void</span> <span class="hljs-title function_">finalizado</span><span class="hljs-params">()</span>;
 	}
@@ -175,44 +193,57 @@
         <p>A continuación os pongo un ejemplo de cómo usar la clase anterior:</p>
         <pre><code class="hljs"><span class="hljs-keyword">import</span> hiloeventos.HiloEventos.IEventoFinalizado;
 <span class="hljs-keyword">import</span> hiloeventos.HiloEventos.IEventoIniciado;
+
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> {
+
 	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+
 		System.out.println(<span class="hljs-string">&quot;EL HILO PADRE COMIENZA&quot;</span>);
+
 		<span class="hljs-type">HiloEventos</span> <span class="hljs-variable">hilo1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">HiloEventos</span>(<span class="hljs-literal">false</span>) {
+
 			<span class="hljs-meta">@Override</span>
 			<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">operacionesRun</span><span class="hljs-params">()</span> {
 				System.out.println(<span class="hljs-string">&quot;ENTRAMOS EN EL RUN DEL HILO HIJO&quot;</span>);
+
 				<span class="hljs-comment">//Operación compleja del hilo hijo</span>
 				<span class="hljs-keyword">try</span> {
 					Thread.sleep(<span class="hljs-number">1000</span>);
 				} <span class="hljs-keyword">catch</span> (InterruptedException e) {
 					e.printStackTrace();
 				}
+
 				System.out.println(<span class="hljs-string">&quot;SALIMOS DEL RUN DEL HILO HIJO&quot;</span>);
 			}
 		};
+
 		hilo1.addEscuchadorIniciado(<span class="hljs-keyword">new</span> <span class="hljs-title class_">IEventoIniciado</span>() {
 			<span class="hljs-meta">@Override</span>
 			<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">iniciado</span><span class="hljs-params">()</span> {
 				System.out.println(<span class="hljs-string">&quot;EL HILO HIJO COMIENZA&quot;</span>);
 			}
 		});
+
 		hilo1.addEscuchadorFinalizado(<span class="hljs-keyword">new</span> <span class="hljs-title class_">IEventoFinalizado</span>() {
 			<span class="hljs-meta">@Override</span>
 			<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">finalizado</span><span class="hljs-params">()</span> {
 				System.out.println(<span class="hljs-string">&quot;EL HILO HIJO TERMINA&quot;</span>);
 			}
 		});
+
 		hilo1.start();
+
 		<span class="hljs-comment">//Operación compleja del hilo padre</span>
 		<span class="hljs-keyword">try</span> {
 			Thread.sleep(<span class="hljs-number">500</span>);
 		} <span class="hljs-keyword">catch</span> (InterruptedException e) {
 			e.printStackTrace();
 		}
+
 		System.out.println(<span class="hljs-string">&quot;EL HILO PADRE TERMINA&quot;</span>);
 	}
 }
+
 </code></pre>
         <p>Como puede verse, a la hora de instanciar la clase, se nos obliga a implementar el método que falta, e incluimos en él una espera simulando un computo largo. Luego creamos los oyentes para que nos avisen cuando el hilo hijo comienza y finaliza su ejecución. Obviamente podemos realizar cualquier tipo de acción en los oyentes, de la misma forma que si no necesitamos alguno de ellos, no tenemos porqué crearlos.</p>
         <p>Recordad lanzar el hilo hijo usando el método <code>start()</code>. Si no llamamos a este método, el hilo no se lanzará.</p>
@@ -234,8 +265,7 @@ EL HILO PADRE TERMINA
         <p>Tan solo tenéis que pensar un momento para que se os ocurran cientos de casos en los que se podría usar una clase como esta. Al ser abstracta cada implementación es distinta, y permite realizar infinitas tareas con tan solo una clase en nuestro proyecto. Imaginad por ejemplo: una instalación en segundo plano, o el cálculo de estadísticas de uso de la aplicación.</p>
         <p>Espero que os sea útil y que comentéis.</p>
         <p>Saludos, <br>
-          Lázarus Surazal.
-        </p>
+          Lázarus Surazal.</p>
       </div>
       <link rel="stylesheet" type="text/css" href="static/css/relations.css" />
       <div id="relationsContainer">
@@ -321,7 +351,6 @@ EL HILO PADRE TERMINA
         <div class="content">
           <div id="logo_footer">
             <a href="https://prlazarus.es"><img src="media/images/logo_c.png" alt="prLázarus logo footer" style="margin-top:10px;" /></a>
-
             <!-- <span class="text" style="display:block; text-align:center; margin-top:-4px;">© 2012 - 2018</span> -->
           </div>
           <div id="right_column" class="text">
@@ -341,9 +370,8 @@ EL HILO PADRE TERMINA
         <div class="progressBar">
         </div>
       </div>
-      <script src="js/progressBar.js"></script>
+      <script src="static/js/progressBar.js"></script>
     </div>
-
     <!-- Default Statcounter code for prLázarus - Blog -->
     <script type="text/javascript">
       var sc_project = 12995152;
@@ -356,7 +384,7 @@ EL HILO PADRE TERMINA
         <a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12995152/0/7de2ea10/1/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></a>
       </div>
     </noscript>
-
     <!-- End of Statcounter Code -->
   </body>
+  
 </html>
